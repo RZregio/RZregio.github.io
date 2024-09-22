@@ -36,7 +36,7 @@ html, body {
     flex: 1 1 0; 
     min-width: 70px; 
     max-width: 100px; 
-    padding: 8px 10px; 
+    padding: 6px 8px; 
     font-size: 10px;
     cursor: pointer;
     background-color: #110f3a; 
@@ -108,7 +108,7 @@ html, body {
 
     .navigation button {
         padding: 8px 10px; 
-        font-size: 10px;
+        font-size: 14px;
     }
 
     .homepage h1 {
