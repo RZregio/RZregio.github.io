@@ -75,13 +75,14 @@ html, body {
   }
   
   .homepage h1 {
-    font-size: 28px;
-    margin-bottom: 10px;
+    font-size: 32px;
+    font-family: Roboto;
+    margin-bottom: 30px;
   }
   
   .homepage h2 {
-    font-size: 20px;
-    margin-bottom: 5px;
+    font-size: 16px;
+    font-family: Georgia;
     font-weight: normal;
   }
 
@@ -92,3 +93,45 @@ html, body {
     padding: 15px 0;
     height: auto;
   }
+
+
+  @media (max-width: 768px) {
+    #upper-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navigation {
+        margin-top: 10px;
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .profile-picture {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .homepage h1 {
+        font-size: 28px;
+    }
+
+    .homepage h2 {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navigation button {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    .homepage h1 {
+        font-size: 24px;
+    }
+
+    .homepage h2 {
+        font-size: 12px;
+    }
+}
