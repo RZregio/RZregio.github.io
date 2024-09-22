@@ -1,7 +1,7 @@
 html, body {
     margin: 0;
     height: 100%;
-    font-family: Arial, sans-serif;
+    font-family: Georgia;
     display: flex;
     flex-direction: column;
   }
@@ -26,10 +26,15 @@ html, body {
   .navigation {
     display: flex; 
     gap: 10px; 
+    flex-wrap: wrap; 
+    justify-content: center; 
   }
   
   .navigation button {
-    padding: 10px 15px; 
+    flex: 1 1 auto; 
+    min-width: 80px; 
+    max-width: 120px; 
+    padding: 8px 10px; 
     font-size: 16px;
     cursor: pointer;
     background-color: #110f3a; 
@@ -109,11 +114,11 @@ html, body {
     }
 
     .homepage h2 {
-        font-size: 14px; 
+        font-size: 14px;
     }
 
     #content {
-        flex-direction: column; 
+        flex-direction: column;  
         align-items: center; 
     }
 
