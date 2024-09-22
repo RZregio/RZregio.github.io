@@ -28,14 +28,16 @@ html, body {
     gap: 10px; 
     flex-wrap: wrap; 
     justify-content: center; 
+    overflow: hidden;
+    max-width: 100%;
   }
   
   .navigation button {
-    flex: 1 1 auto; 
-    min-width: 80px; 
-    max-width: 120px; 
+    flex: 1 1 0; 
+    min-width: 70px; 
+    max-width: 100px; 
     padding: 8px 10px; 
-    font-size: 16px;
+    font-size: 10px;
     cursor: pointer;
     background-color: #110f3a; 
     color: white; 
