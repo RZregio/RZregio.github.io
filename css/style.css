@@ -7,6 +7,22 @@ body {
     flex-direction: column;
 }
 
+
+
+/*remove link default state*/
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:focus,
+a:active {
+    outline: none;
+}
+
+
+
+/*Navigation Bar*/
 #upper-section {
     display: flex;
     justify-content: space-between;
@@ -50,6 +66,20 @@ body {
     background-color: #332e98;
 }
 
+
+
+/*end line*/
+.footer {
+    text-align: center;
+    color: white;
+    background-color: #110f3a;
+    padding: 15px 0;
+    height: auto;
+}
+
+
+
+/*Home Section*/
 #content {
     display: flex;
     justify-content: space-evenly;
@@ -112,14 +142,55 @@ body {
     background-color: #605c0d;
 }
 
-.footer {
-    text-align: center;
-    color: white;
-    background-color: #110f3a;
-    padding: 15px 0;
-    height: auto;
+
+
+/*Unfinished Sections*/
+#unfinished {
+    display: table-column;
+    align-items: center;
+    align-content: center;
+    padding: 40px 20px;
+    background-color: #032955;
+    flex-wrap: wrap;
+    flex-grow: 1;
 }
 
+.error {
+    max-width: 200px;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+.error img {
+    width: 100%;
+    height: auto;
+    border: 10px solid #9f980a;
+    border-radius: 10px;
+    background-color: #110f3a;
+}
+
+.fix {
+    color: #ffffff;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 500px;
+    width: 100%;
+}
+
+.fix .back {
+    color: #655eed;
+}
+
+.fix .back:hover {
+    color: #67658f
+}
+
+
+
+/*Flexibility for different devices*/
 @media (max-width: 600px) {
     .title h1 {
         font-size: 20px;
