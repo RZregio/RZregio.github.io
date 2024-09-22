@@ -1,0 +1,94 @@
+html, body {
+    margin: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #upper-section {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 20px; 
+    background-color: #110f3a; 
+    flex-wrap: wrap;
+  }
+  
+  .title h1 {
+    margin: 0; 
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Georgia';
+    color:aliceblue;
+  }
+  
+  .navigation {
+    display: flex; 
+    gap: 10px; 
+  }
+  
+  .navigation button {
+    padding: 10px 15px; 
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #110f3a; 
+    color: white; 
+    border: none; 
+    border-radius: 10px; 
+  }
+  
+  .navigation button:hover {
+    background-color: #332e98; 
+  }
+  
+  #content {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center; 
+    padding: 40px 20px;
+    background-color: #032955;
+    flex-wrap: wrap;
+    flex-grow: 1;
+  }
+  
+  .profile-picture {
+    max-width: 300px; 
+    width: 100%; 
+    margin-right: 20px; 
+  }
+  
+  .profile-picture img {
+    width: 100%; 
+    height: auto; 
+    border-radius: 50%; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    border: 5px solid #ffffff; 
+    background-color: #1e1b66;
+  }
+  
+  .homepage {
+    color: #ffffff;
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .homepage h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .homepage h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    font-weight: normal;
+  }
+
+  .footer {
+    text-align: center;
+    color: white;
+    background-color: #110f3a;
+    padding: 15px 0;
+    height: auto;
+  }
