@@ -94,44 +94,32 @@ html, body {
     height: auto;
   }
 
-
-  @media (max-width: 768px) {
-    #upper-section {
-        flex-direction: column;
-        align-items: flex-start;
+  @media (max-width: 600px) {
+    .title h1 {
+        font-size: 20px; 
     }
 
-    .navigation {
-        margin-top: 10px;
-        width: 100%;
-        justify-content: space-around;
+    .navigation button {
+        padding: 8px 10px; 
+        font-size: 14px; 
+    }
+
+    .homepage h1 {
+        font-size: 24px; 
+    }
+
+    .homepage h2 {
+        font-size: 14px; 
+    }
+
+    #content {
+        flex-direction: column; 
+        align-items: center; 
     }
 
     .profile-picture {
-        margin-right: 0;
-        margin-bottom: 20px;
-    }
-
-    .homepage h1 {
-        font-size: 28px;
-    }
-
-    .homepage h2 {
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 480px) {
-    .navigation button {
-        font-size: 14px;
-        padding: 8px 12px;
-    }
-
-    .homepage h1 {
-        font-size: 24px;
-    }
-
-    .homepage h2 {
-        font-size: 12px;
+        max-width: 80%; 
+        margin-right: 0; 
+        margin-bottom: 20px; 
     }
 }
