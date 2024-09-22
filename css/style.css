@@ -2,7 +2,7 @@ html,
 body {
     margin: 0;
     height: 100%;
-    font-family: Georgia;
+    font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
 }
@@ -57,7 +57,7 @@ a:active {
     font-size: 12px;
     cursor: pointer;
     background-color: #110f3a;
-    color: white;
+    color: #c5c3d8;
     border: none;
     border-radius: 10px;
 }
@@ -115,6 +115,7 @@ a:active {
 .homepage .greet {
     font-size: 24px;
     font-family: Broadway;
+    color: #c5c3d8;
     margin-bottom: 30px;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.7)
 }
@@ -127,6 +128,7 @@ a:active {
     border: 5px solid;
     border-radius: 10px;
     background-color: #125751;
+    color: #c5c3d8;
 }
 
 .start .project {
@@ -142,6 +144,74 @@ a:active {
     background-color: #605c0d;
 }
 
+
+
+/*Project section*/
+#projects-page {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: #032955;
+    flex-wrap: wrap;
+    flex-grow: 1;
+}
+
+.projects-info {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.projects-head {
+    color: #c5c3d8;
+    font-weight: bold;
+    font-family: Broadway;
+    text-align: center;
+    text-shadow: 0 0 20px #141427;
+}
+
+.projects-desc {
+    color: #c5c3d8;
+    font-weight: normal;
+    font-family: Georgia;
+    text-align: center;
+    border: 5px solid;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #125751;
+}
+
+.projects-link {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.projects-note {
+    color: #c5c3d8;
+    font-weight: bold;
+    font-family: Georgia;
+}
+
+.projects-link button {
+    margin-bottom: 10px;
+    padding: 6px 8px;
+    font-size: 16px;
+    font-family: Georgia;
+    cursor: pointer;
+    background-color: #110f3a;
+    color: rgb(164, 156, 230);
+    border: 2px solid #5748db;
+    border-radius: 10px;
+}
+
+.projects-link button:hover{
+    background-color: #332e98;
+}
 
 
 /*Unfinished Sections*/
