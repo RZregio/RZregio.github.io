@@ -37,7 +37,7 @@ html, body {
     min-width: 70px; 
     max-width: 100px; 
     padding: 6px 8px; 
-    font-size: 10px;
+    font-size: 12px;
     cursor: pointer;
     background-color: #110f3a; 
     color: white; 
@@ -108,7 +108,7 @@ html, body {
 
     .navigation button {
         padding: 6px 8px; 
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .homepage h1 {
