@@ -10,6 +10,19 @@ body {
 
 
 
+/*remove link default state*/
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:focus,
+a:active {
+    outline: none;
+}
+
+
+
 /*Navigation Bar*/
 #upper-section {
     display: flex;
