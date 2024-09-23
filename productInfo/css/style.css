@@ -181,7 +181,13 @@ a:active {
     }
 
     .slice-summary {
-        display: flex;
         flex-direction: column;
+        align-items: center;
+    }
+
+    .slice-summary {
+        max-width: none;
+        width: 100%;
+        padding: 20px;
     }
 }
