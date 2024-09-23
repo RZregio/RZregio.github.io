@@ -83,7 +83,7 @@ a:active {
     max-width: 600px;
     width: 100%;
     padding-top: 80px;
-    padding-right: 80px;
+    padding-right: 20px;
     margin-bottom: 40px;
 }
 
@@ -178,5 +178,10 @@ a:active {
     .product-profile {
         max-width: 80%;
         margin-right: 0;
+    }
+
+    .slice-summary {
+        display: flex;
+        flex-direction: column;
     }
 }
