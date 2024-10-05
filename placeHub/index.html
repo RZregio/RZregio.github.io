@@ -14,18 +14,18 @@
 
 
 <body>
-    <div class="container-fluid">
+    <div id="page-main" class="container-fluid">
         <div id="nav-bar" class="row">
             <div class="nav-title col-2 col-md-2">
                 <a href="../index.html">
-                    <p>itsSTB 
-                    <span style="color: #d2c32d;">Hub.</span>
+                    <p>itsSTB
+                        <span style="color: #d2c32d;">Hub.</span>
                     </p>
                 </a>
             </div>
             <div class="nav-buttons col-8 col-md-10 d-flex justify-content-end">
                 <button><a href="#welcome-part">Home</a></button>
-                <button>Descriptions</button>
+                <button><a href="#description">Descriptions</a></button>
                 <button>Features</button>
                 <button>Places</button>
                 <button>About</button>
@@ -35,7 +35,7 @@
 
 
         <div id="welcome-part" class="row">
-            <div class="welcome-header col-5 col-md-5">
+            <div class="welcome-header col-6 col-md-6">
                 <h1>Welcome to City of Santo Tomas</h1>
                 <div class="tagline">
                     <p>A first class component city in the province of Batangas, Philippines</p>
@@ -43,19 +43,80 @@
                 </div>
             </div>
             <div class="welcome-view col-12 col-md-6">
-                <img src="res/background.jpg" style="width: 100%; height: 500px; object-fit: cover;">
+                <img src="res/background.jpg" alt="SM Santo Tomas"
+                    style="width: 100%; height: 500px; object-fit: cover;">
             </div>
         </div>
 
 
 
-        <div id="description" class="row"> 
-            <div class="desc-view col-6 col-md-6">
-                <img src="res/malvar.jpg" style="width: 100%; height: 500px; object-fit: cover;">
+        <div id="description" class="row">
+            <div class="desc-view col-8 col-md-4">
+                <img src="res/malvar.jpg" alt="Malvar Shrine" style="width: 100%; height: 420px; object-fit: cover;">
             </div>
-            <div class="desc-info col-6 col-md-6">
+            <div id="desc1" class="desc-info col-10 col-md-8">
+                <h1>Brief
+                    <span style="color: #d2c32d;">Description</span>
+                </h1>
+                <p>Nestled in the heart of Batangas province in the Philippines, the City of Santo Tomas is a vibrant
+                    and dynamic community known for its rich history, cultural heritage, and economic growth. Located
+                    approximately 85 kilometers south of Manila, Santo Tomas serves as a gateway to the southern regions
+                    of Luzon.</p>
+            </div>
 
+            <div class="desc-view col-8 col-md-4">
+                <img src="res/history.jpg" alt="Old Church" style="width: 100%; height: 420px; object-fit: cover;">
             </div>
+            <div id="desc2" class="desc-info col-10 col-md-8">
+                <h1>Brief
+                    <span style="color: #d2c32d;">History</span>
+                </h1>
+                <p>Established in 1578, Santo Tomas has deep historical roots, originally named after Saint Thomas
+                    Aquinas. The city played a crucial role during the Spanish colonial period, evident in its
+                    historical architecture and landmarks. The San Juan Bautista Church, built in 1860, stands as a
+                    testament to the city’s rich ecclesiastical heritage.</p>
+            </div>
+
+            <div class="desc-view col-8 col-md-4">
+                <img src="res/econ.jpg" alt="Economy" style="width: 100%; height: 420px; object-fit: cover;">
+            </div>
+            <div id="desc3" class="desc-info col-10 col-md-8">
+                <h1>Brief
+                    <span style="color: #d2c32d;">Economic Status</span>
+                </h1>
+                <p>Santo Tomas is recognized as an emerging economic hub in Batangas, bolstered by its strategic
+                    location near major industrial parks, such as the Light Industry and Science Park and the First
+                    Philippine Industrial Park. The city is home to various businesses, from small enterprises to
+                    multinational corporations, contributing significantly to the local economy and providing ample job
+                    opportunities for residents.</p>
+            </div>
+
+            <div class="desc-view col-8 col-md-4">
+                <img src="res/mahaguyog.jpg" alt="Mahaguyog Festival"
+                    style="width: 100%; height: 420px; object-fit: cover;">
+            </div>
+            <div id="desc4" class="desc-info col-10 col-md-8">
+                <h1>Cultural
+                    <span style="color: #d2c32d;">Description</span>
+                </h1>
+                <p>The residents of Santo Tomas, known as “Tomasinos,” are known for their warm hospitality and strong
+                    sense of community. The city hosts numerous festivals throughout the year, such as the “Pahiyas” and
+                    the “Santo Tomas City Fiesta,” celebrating local traditions, food, and culture.</p>
+            </div>
+
+            <div class="desc-view col-8 col-md-4">
+                <img src="res/education.jpg" alt="Education" style="width: 100%; height: 420px; object-fit: cover;">
+            </div>
+            <div id="desc5" class="desc-info col-10 col-md-8">
+                <h1>Educational
+                    <span style="color: #d2c32d;">Description</span>
+                </h1>
+                <p>With a focus on education, Santo Tomas is home to several reputable schools and institutions,
+                    catering to the growing population. The local government prioritizes infrastructure development,
+                    continuously improving roads, healthcare facilities, and public services to enhance the quality of
+                    life for its residents.</p>
+            </div>
+
         </div>
     </div>
 
@@ -64,9 +125,62 @@
     <footer class="footer">
         <p>&copy; 2024 itsSTB: PlaceHub. All rights reserved</p>
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+        </script>
+
+    <script>
+        window.addEventListener('scroll', function () {
+            const blurWelcome = document.querySelector('#welcome-part');
+            const blurDesc1 = document.querySelector('#desc1');
+            const blurDesc2 = document.querySelector('#desc2');
+            const blurDesc3 = document.querySelector('#desc3');
+            const blurDesc4 = document.querySelector('#desc4');
+            const blurDesc5 = document.querySelector('#desc5');
+
+
+
+            // Get the scroll position
+            let scrollPosition = window.scrollY;
+            console.log(scrollPosition)
+            if (scrollPosition > 350) {
+                blurWelcome.classList.add('blur');
+            } else {
+                blurWelcome.classList.remove('blur');
+            }
+
+            if (scrollPosition > 800) {
+                blurDesc1.classList.add('blur');
+            } else {
+                blurDesc1.classList.remove('blur');
+            }
+
+            if (scrollPosition > 1300) {
+                blurDesc2.classList.add('blur');
+            } else {
+                blurDesc2.classList.remove('blur');
+            }
+
+            if (scrollPosition > 1800) {
+                blurDesc3.classList.add('blur');
+            } else {
+                blurDesc3.classList.remove('blur');
+            }
+
+            if (scrollPosition > 2200) {
+                blurDesc4.classList.add('blur');
+            } else {
+                blurDesc4.classList.remove('blur');
+            }
+
+            if (scrollPosition > 2700) {
+                blurDesc5.classList.add('blur');
+            } else {
+                blurDesc5.classList.remove('blur');
+            }
+        });
+    </script>
 </body>
 
 </html>
