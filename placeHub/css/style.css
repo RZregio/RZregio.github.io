@@ -138,6 +138,10 @@ a:active {
 
 /*Adjustment for Screen*/
 @media (max-width: 600px) {
+    .nav-title {
+        font-size: 14px;
+    }
+    
     .nav-buttons {
         font-size: 10px;
         gap: 2px;
