@@ -10,7 +10,7 @@ body {
 }
 
 /* Remove link default state */
-button a,.nav-title a{
+button a,.nav-title a, #about a{
     text-decoration: none;
     color: inherit;
 }
@@ -81,7 +81,7 @@ a:active {
 /*Welcome Part*/
 #page-main {
     margin-top: 80px;
-    background: linear-gradient(#344962, #587BA4, #7895B7)
+    background: linear-gradient(#344962, #445f80, #587BA4, #6791c0, #90b4dc)
 }
 
 #welcome-part {
@@ -193,7 +193,8 @@ a:active {
 
 /*Feature Part*/
 #features {
-    padding-top: 20px;
+    padding-top: 80px;
+    padding-bottom: 20px;
     display: flex;
     flex-direction: column;
 }
@@ -205,6 +206,7 @@ a:active {
     font-weight: bold;
     text-align: center;
     margin-top: 50px;
+    margin-bottom: 20px;
     color:#dddbf9
 }
 
@@ -290,6 +292,37 @@ a:active {
     bottom: 100%;
     transform: translateY(60%);
 
+}
+
+
+
+/*About Page*/
+#about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0px 20px 0px;
+    background-color: #233445;
+    border-radius: 20px;
+}
+
+#about h2{
+    margin-top: 20px;
+    color: aliceblue;
+}
+
+#about p{
+    color: #dddbf9;
+    text-align: justify;
+    hyphens: auto;
+}
+
+#about a{
+    color: #d2c32d;
+}
+
+#about a:hover{
+    color: #836746;
 }
 
 
