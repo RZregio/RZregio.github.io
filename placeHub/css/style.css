@@ -287,14 +287,14 @@ a:active {
 
     .welcome-header h1{
         font-size: 40px;
-        width: 500px;
+        width: 400px;
         height: 100%;
     }
 
     .welcome-header .tagline{
         font-size: auto;
         padding: 20px;
-        width: 500px;
+        width: 400px;
         height: 100%;
     }
 
@@ -307,7 +307,7 @@ a:active {
 
     .welcome-view img{
         padding: 0px;
-        width: 100%;
+        width: 400px;
         height: 100%;
         object-fit: cover;
         display: block;
@@ -318,7 +318,7 @@ a:active {
         flex-direction: column;
         align-items: center;
         margin-top: 20px;
-        width: 500px;
+        width: 400px;
         margin-left: auto;
         margin-right: auto;
     }
