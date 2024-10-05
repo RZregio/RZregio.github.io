@@ -240,35 +240,52 @@ a:active {
     transform: scale(1.2);
 }
 
+
+
 /*Contact Section*/
 #contact-head {
     display: flex;
-    justify-content: space-evenly;
-    align-content: center;
+    justify-content: center;
     align-items: center;
-    margin: 0 400px;
+    margin: 0;
     margin-top: 60px;
     margin-bottom: 100px;
 }
+
 .contact-profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     max-width: 200px;
     width: 100%;
-    margin-right: auto;
-    margin-left: auto;
+    margin: 0 20px;
     opacity: 0;
     transform: translateY(-20px);
     animation: fadeIn 1s ease-in forwards;
 }
 
-.contact-page {
-    max-width: 200px;
+.contact-profile img {
     width: 100%;
-    margin-right: auto;
-    margin-left: auto;
+    height: auto;
+    border: 5px solid #9f980a;
+    border-radius: 10px;
+    background-color: #110f3a;
+}
+
+.contact-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 400px;
+    width: 100%;
+    margin: 0 20px;
     opacity: 0;
     transform: translateY(-20px);
     animation: fadeIn 1s ease-in forwards;
 }
+
 
 .contact-page h1{
     color: #c5c3d8;
@@ -290,14 +307,7 @@ a:active {
     padding-top: 20px;
     padding-bottom: 20px;
     background-color: #125751;
-}
-
-.contact-profile img {
-    width: 100%;
-    height: auto;
-    border: 5px solid #9f980a;
-    border-radius: 10px;
-    background-color: #110f3a;
+    width: 300px
 }
 
 #contact-info {
@@ -332,7 +342,7 @@ a:active {
     border-radius: 10px;
     background-color: #125751;
     margin: 0 20px;
-    margin-right: 300px;
+    margin-right: 350px;
     color: #c5c3d8;
     font-weight: normal;
     font-family: Georgia;
@@ -411,7 +421,7 @@ a:active {
 
 
 /*Flexibility for different devices*/
-@media (max-width: 600px) {
+@media (max-width: 500px) {
     .title h1 {
         font-size: 20px;
     }
@@ -438,5 +448,32 @@ a:active {
         max-width: 80%;
         margin-right: 0;
         margin-bottom: 20px;
+    }
+
+    #contact-head {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    #contact-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        width: 400px;
+    }
+
+    .contact-page {
+        width: 500px;
+    }
+    
+    .contact-selection {
+        max-width: none;
+        width: 100%;
+        margin: 0;
+    }
+    
+    .contact-details {
+        margin-right: 0;
     }
 }
