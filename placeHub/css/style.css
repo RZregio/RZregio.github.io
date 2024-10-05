@@ -287,14 +287,14 @@ a:active {
 
     .welcome-header h1{
         font-size: 40px;
-        width: 400px;
+        width: 300px;
         height: 100%;
     }
 
     .welcome-header .tagline{
         font-size: auto;
         padding: 20px;
-        width: 400px;
+        width: 300px;
         height: 100%;
     }
 
@@ -318,9 +318,8 @@ a:active {
         flex-direction: column;
         align-items: center;
         margin-top: 20px;
-        width: 400px;
-        margin-left: auto;
-        margin-right: auto;
+        width: 500px;
+        margin: 10px 10px 10px 10px;
     }
 
     .desc-view {
@@ -332,7 +331,8 @@ a:active {
     }
 
     .desc-info p {
-        font-size: 20px;
+        margin: 0;  
+        font-size: 15px;
         hyphens: auto;
     }
 
