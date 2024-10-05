@@ -316,7 +316,8 @@ a:active {
 
     .welcome-view img{
         padding: 0px;
-        width: 200px;
+        justify-content: center;
+        border-radius: 10px;
         height: 100%;
         object-fit: cover;
         display: block;
