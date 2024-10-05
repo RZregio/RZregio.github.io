@@ -155,9 +155,11 @@ a:active {
     display: flex;
     justify-content: space-evenly;
     width: 100%;
+    cursor: crosshair;
 }
 
 .slice-summary p {
+    filter: blur(5px);
     text-align: justify;
     hyphens: auto;
     font-size: 20px;
@@ -173,6 +175,7 @@ a:active {
 
 .slice-summary p:hover {
     transform: scale(1.1);
+    filter: blur(0);
 }
 
 
@@ -183,10 +186,6 @@ a:active {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-.blur {
-    filter: blur(10px); 
 }
 
 
