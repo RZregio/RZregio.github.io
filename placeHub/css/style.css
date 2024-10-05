@@ -137,13 +137,13 @@ a:active {
 
 
 /*Adjustment for Screen*/
-@media (max-width: 500px) {
+@media (max-width: 576px) {
     .nav-buttons {
         font-size: 10px;
         gap: 5px;
     }
     .welcome-header {
-        width: 80%;
+        flex-direction: column;
     }
     .welcome-header h1{
         font-size: 36px;
