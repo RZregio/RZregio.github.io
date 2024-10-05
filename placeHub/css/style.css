@@ -137,8 +137,26 @@ a:active {
 
 
 /*Adjustment for Screen*/
-@media (max-width: 400px) {
+@media (max-width: 500px) {
+    .nav-buttons {
+        font-size: 10px;
+        gap: 5px;
+    }
+    .welcome-header {
+        width: 80%;
+    }
     .welcome-header h1{
         font-size: 36px;
+    }
+
+    .welcome-header .tagline{
+        font-size: 14px;
+        padding: 40px;
+    }
+
+    .welcome-view {
+        padding: 40px;
+        width: 80%;
+        height: auto;
     }
 }
