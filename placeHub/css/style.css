@@ -1,6 +1,6 @@
 html,
 body {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     height: 100%;
     font-family: Arial, sans-serif;
     display: flex;
@@ -28,7 +28,7 @@ a:active {
     color: white;
     font-family: Georgia;
     background-color: #233445;
-    padding: 15px 0;
+    padding: 15px;
 }
 
 
@@ -244,6 +244,56 @@ a:active {
 
 
 
+/*Places Page*/
+#sample-spots {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+    justify-items: center;
+    align-items: center;
+}
+
+#places-header {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    color: aliceblue;
+    margin-top: 100px;
+    margin-bottom: 20px;
+}
+
+.carousel-inner img{
+    width: 100%;
+    height: auto;
+}
+
+.carousel-item img{
+    width: 600px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 50px;
+}
+
+.carousel-caption {
+    filter: opacity(0);
+    background-color: #233445;
+    border-radius: 20px;
+    font-family: Georgia;
+}
+
+.carousel-caption:hover {
+    filter: opacity(0.75);
+}
+.carousel-control-prev, .carousel-control-next {
+    position: absolute;
+    bottom: 100%;
+    transform: translateY(60%);
+
+}
+
+
+
 /*Animation*/
 @keyframes fadeIn {
     to {
@@ -355,5 +405,20 @@ a:active {
 
     #features-info .card{
         margin-bottom: 20px;
+    }
+
+    .carousel-item img{
+        width: 300px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 50px;
+    }
+
+    .carousel-caption h4{
+        font-size: 16px;
+    }
+
+    .carousel-caption p{
+        font-size: 12px;
     }
 }
