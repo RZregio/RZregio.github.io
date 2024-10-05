@@ -81,7 +81,7 @@ a:active {
 /*Welcome Part*/
 #page-main {
     margin-top: 80px;
-    background: linear-gradient(#5b7694, #4c6b8f, #3f5977,  #2e4157, #344962);
+    background: linear-gradient(45deg, #5b7694, #4c6b8f, #3f5977,  #2e4157, #344962);
 }
 
 #welcome-part {
