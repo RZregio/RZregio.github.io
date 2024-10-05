@@ -286,7 +286,6 @@ a:active {
     animation: fadeIn 1s ease-in forwards;
 }
 
-
 .contact-page h1{
     color: #c5c3d8;
     font-weight: bold;
@@ -323,7 +322,7 @@ a:active {
     flex-direction: column;
     color: #ffffff;
     text-align: center;
-    padding-right: 50px;
+    padding-right: 10px;
     max-width: 50px;
     width: 100%;
     margin: 0 20px;
@@ -444,6 +443,10 @@ a:active {
         align-items: center;
     }
 
+    .contact-page {
+        width: 500px;
+    }
+
     .profile-picture {
         max-width: 80%;
         margin-right: 0;
@@ -457,14 +460,11 @@ a:active {
     
     #contact-info {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        justify-content:center;
         align-content: center;
-        width: 400px;
-    }
-
-    .contact-page {
-        width: 500px;
+        margin: 10px auto 10px auto;
+        padding: 10px 0px 10px 0px;
+        width: 300px;
     }
     
     .contact-selection {
@@ -472,8 +472,15 @@ a:active {
         width: 100%;
         margin: 0;
     }
+
+    .contact-selection img {
+        max-width: 50px;
+        margin: 0;
+    }
     
     .contact-details {
-        margin-right: 0;
+        margin: 10px auto 10px 0px;
+        max-width: 250px;
+        font-size: 12px;
     }
 }
