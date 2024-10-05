@@ -143,6 +143,11 @@ a:active {
 
 /*Adjustment for Screen*/
 @media (max-width: 600px) {
+    #nav-bar {
+        display: flex;
+        flex-direction: column;
+    }
+    
     .nav-title {
         font-size: 14px;
     }
