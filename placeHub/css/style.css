@@ -1,0 +1,144 @@
+html,
+body {
+    margin: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-color: #233445;
+}
+
+/* Remove link default state */
+button a,.nav-title a{
+    text-decoration: none;
+    color: inherit;
+}
+
+a:focus,
+a:active {
+    outline: none;
+}
+
+/* Footer */
+.footer {
+    border-top: 3px #836746 solid;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-family: Georgia;
+    background-color: #233445;
+    padding: 15px 0;
+}
+
+
+
+/* Navigation Bar */
+#nav-bar {
+    display: flex;
+    background-color: #233445;
+    padding: 10px 20px; 
+    border-bottom: #836746 solid 3px;
+}
+
+.nav-title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Georgia';
+    color: aliceblue;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-buttons button{
+    font-size: 14px;
+    color: #c5c3d8;
+    background-color: #233445;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.nav-buttons button:hover{
+    background: linear-gradient(#5989b9, #44698e, #6fadeb);
+}
+
+
+
+/*Welcome Part*/
+#welcome-part {
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: space-between;
+    background: linear-gradient(#344962, #587BA4, #7895B7)
+}
+
+.welcome-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+.welcome-header h1{
+    font-family: Broadway;
+    text-shadow:0 4px 15px #233445;
+    font-size: 58px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 50px;
+    color:#dddbf9
+}
+
+.welcome-header .tagline{
+    font-family: Georgia;
+    font-size: 20;
+    font-weight: bold;
+    text-align: center;
+    color: #dddbf9;
+    margin: 10px;
+    padding: 10px 10px 10px 10px;
+    background-color: #344c69;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px #233445;
+}
+
+.tagline:hover {
+    transform: scale(1.1);
+}
+
+.welcome-view {
+    justify-content: center;
+    margin: 0px 0px 20px 0;
+    padding: 50px 0px 50px 0px;
+}
+.welcome-view img{
+    border-radius: 80px;
+    box-shadow: 0 4px 10px #3a3a3a;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: 1s fadeIn ease-in forwards;
+}
+
+
+
+/*Animation*/
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/*Adjustment for Screen*/
+@media (max-width: 400px) {
+    .welcome-header h1{
+        font-size: 36px;
+    }
+}
