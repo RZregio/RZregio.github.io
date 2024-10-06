@@ -2,10 +2,12 @@ html,
 body {
     margin: 0;
     height: 100%;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
-    background-color: #032955;
+    background: linear-gradient(135deg, #2A2A3C, #1A1A2E, #283149, #4B4B6A);
+    background-size: 300% 300%; 
+    animation: gradientAnimation 10s ease infinite;
 }
 
 
@@ -29,7 +31,9 @@ a:active {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #110f3a;
+    background: linear-gradient(135deg, rgba(15, 52, 96, 0.7), rgba(26, 27, 46, 0.7));    
+    backdrop-filter: blur(10px);
+    border-bottom: 4px solid rgba(58, 75, 122, 0.7);;
     flex-wrap: wrap;
 }
 
@@ -38,7 +42,7 @@ a:active {
     font-size: 24px;
     font-weight: bold;
     font-family: 'Georgia';
-    color: aliceblue;
+    color: #FFFFFF;
 }
 
 .navigation {
@@ -52,19 +56,20 @@ a:active {
 
 .navigation button {
     flex: 1 1 0;
-    min-width: 70px;
-    max-width: 100px;
     padding: 6px 8px;
     font-size: 12px;
     cursor: pointer;
-    background-color: #110f3a;
-    color: #c5c3d8;
+    background-color: transparent;
+    color: #E0E0E0;
     border: none;
     border-radius: 10px;
+    transition: background-color 0.3s ease;
 }
 
 .navigation button:hover {
-    background-color: #332e98;
+    background-color: #101031;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
 }
 
 
@@ -72,8 +77,10 @@ a:active {
 /*end line*/
 .footer {
     text-align: center;
-    color: white;
-    background-color: #110f3a;
+    color: #E0E0E0;
+    background: linear-gradient(135deg, rgba(15, 52, 96, 0.7), rgba(26, 27, 46, 0.7));
+    backdrop-filter: blur(10px);
+    border-top: 4px solid rgb(58, 75, 122, 0.7);
     padding: 15px 0;
     height: auto;
 }
@@ -86,7 +93,9 @@ a:active {
     justify-content: space-evenly;
     align-items: center;
     padding: 40px 20px;
-    background-color: #032955;
+    background: linear-gradient(135deg, #2A2A3C, #1A1A2E, #283149, #4B4B6A);
+    background-size: 300% 300%; 
+    animation: gradientAnimation 10s ease infinite;
     flex-wrap: wrap;
     flex-grow: 1;
 }
@@ -105,7 +114,7 @@ a:active {
     height: auto;
     border-radius: 50%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border: 5px solid #ffffff;
+    border: 5px solid #DAA520;
     background-color: #1e1b66;
 }
 
@@ -117,7 +126,7 @@ a:active {
     opacity: 0;
     transform: translateY(20px);
     animation: fadeIn 1s ease-in forwards;
-    color: #ffffff;
+    color: #E0E0E0;
     text-align: center;
     max-width: 500px;
     width: 100%;
@@ -126,7 +135,7 @@ a:active {
 .homepage .greet {
     font-size: 24px;
     font-family: Broadway;
-    color: #c5c3d8;
+    color: #DAA520 ;
     margin-bottom: 30px;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.7)
 }
@@ -136,14 +145,14 @@ a:active {
     font-size: 16px;
     font-family: Georgia;
     font-weight: normal;
-    border: 5px solid;
+    border: 5px solid #DAA520 ;
     border-radius: 10px;
-    background-color: #125751;
-    color: #c5c3d8;
+    background-color: #162447;
+    color: #E0E0E0;
 }
 
 .start .project {
-    background-color: #9f980a;
+    background-color: #DAA520;
     border-radius: 5px;
     text-align: center;
     font-size: 16px;
@@ -152,7 +161,9 @@ a:active {
 }
 
 .start .project:hover {
-    background-color: #605c0d;
+    background-color: #73621c ;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
 }
 
 
@@ -163,7 +174,9 @@ a:active {
     justify-content: space-evenly;
     align-items: center;
     padding: 40px 20px;
-    background-color: #032955;
+    background: linear-gradient(135deg, #2A2A3C, #1A1A2E, #283149, #4B4B6A);
+    background-size: 300% 300%; 
+    animation: gradientAnimation 10s ease infinite;
     flex-wrap: wrap;
     flex-grow: 1;
 }
@@ -189,17 +202,17 @@ a:active {
 }
 
 .projects-desc {
-    color: #c5c3d8;
+    color: #E0E0E0;
     font-weight: normal;
     font-family: Georgia;
     text-align: center;
-    border: 5px solid;
+    border: 5px solid #DAA520;
     border-radius: 10px;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color: #125751;
+    background-color: #162447;
     opacity: 0;
     transform: translateY(40px);
     animation: fadeIn 1s ease-in forwards;
@@ -229,7 +242,7 @@ a:active {
     font-size: 16px;
     font-family: Georgia;
     cursor: pointer;
-    background-color: #110f3a;
+    background-color: #101A30;
     color: rgb(164, 156, 230);
     border: 2px solid #5748db;
     border-radius: 10px;
@@ -237,22 +250,24 @@ a:active {
 
 .projects-link button:hover{
     background-color: #332e98;
-    transform: scale(1.2);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    transform: translateY(-4px);
 }
 
 
 
 /*Contact Section*/
-#contact-head {
+#about-head {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0;
     margin-top: 60px;
     margin-bottom: 100px;
+    background-color: transparent;
 }
 
-.contact-profile {
+.about-profile {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -265,15 +280,15 @@ a:active {
     animation: fadeIn 1s ease-in forwards;
 }
 
-.contact-profile img {
+.about-profile img {
     width: 100%;
     height: auto;
-    border: 5px solid #9f980a;
+    border: 5px solid #DAA520;
     border-radius: 10px;
     background-color: #110f3a;
 }
 
-.contact-page {
+.about-page {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -286,26 +301,26 @@ a:active {
     animation: fadeIn 1s ease-in forwards;
 }
 
-.contact-page h1{
-    color: #c5c3d8;
+.about-page h1{
+    color: #DAA520;
     font-weight: bold;
     font-family: Broadway;
     text-align: center;
     text-shadow: 0 0 20px #141427;
 }
 
-.contact-page p{
+.about-page p{
     color: #c5c3d8;
     font-weight: normal;
     font-family: Georgia;
     text-align: center;
-    border: 5px solid;
+    border: 5px solid #DAA520;
     border-radius: 10px;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color: #125751;
+    background-color: #162447;
     width: 300px
 }
 
@@ -314,7 +329,7 @@ a:active {
     justify-content: center;
     align-items: center;
     padding: 40px 20px;
-    background-color: #032955;
+    background: transparent;
 }
 
 .contact-selection {
@@ -337,9 +352,9 @@ a:active {
     flex-direction: column;
     width: 100%;
     text-align: center;
-    border: 5px solid;
+    border: 5px solid #DAA520;
     border-radius: 10px;
-    background-color: #125751;
+    background-color: #162447;
     margin: 0 20px;
     margin-right: 350px;
     color: #c5c3d8;
@@ -365,7 +380,9 @@ a:active {
     align-items: center;
     align-content: center;
     padding: 40px 20px;
-    background-color: #032955;
+    background: linear-gradient(135deg, #2A2A3C, #1A1A2E, #283149, #4B4B6A);
+    background-size: 300% 300%; 
+    animation: gradientAnimation 10s ease infinite;
     flex-wrap: wrap;
     flex-grow: 1;
 }
@@ -382,7 +399,7 @@ a:active {
     height: auto;
     border: 10px solid #9f980a;
     border-radius: 10px;
-    background-color: #110f3a;
+    background-color: #162447;
     opacity: 0;
     transform: scale(.5);
     animation: fadeIn 1s ease-in forwards;
@@ -402,7 +419,7 @@ a:active {
 }
 
 .fix .back:hover {
-    color: #67658f
+    color: #67658f;
 }
 
 
@@ -414,6 +431,18 @@ a:active {
         transform: translateY(0);
         transform: translateX(0);
         transform: scale(1);
+    }
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
     }
 }
 
