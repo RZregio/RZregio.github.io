@@ -437,7 +437,7 @@ a:active {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px 20px;
+    padding: 120px 20px 0px 0px;
     background-color: #1a1b2eb3;
 }
 
@@ -448,6 +448,9 @@ a:active {
     font-size: 36px;
     text-align: center;
     text-shadow: 0 0 20px #141427;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeIn 1s ease-in forwards
 }
 
 .contact-selection {
