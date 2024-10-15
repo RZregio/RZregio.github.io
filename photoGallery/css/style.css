@@ -1,0 +1,136 @@
+html,
+body {
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+    scroll-padding-top: 100px; 
+}
+
+
+
+/*For light mode and Dark Mode*/
+.light-mode {
+    background: linear-gradient(45deg, #FFFFFF, #E0E0E0, #c4c4c4, #ababab);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+    color: #000000;
+}
+
+/* Dark Mode Gradient */
+.dark-mode {
+    background: linear-gradient(45deg, #000000, #2E2E2E, #5C5C5C, #8A8A8A);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+    color: #ffffff;
+}
+
+
+
+/*For removing the default link style*/
+a {
+    text-decoration: none;
+    color: inherit
+}
+
+a:focus,
+a:active {
+    outline: none
+}
+
+
+
+/*Navigation part*/
+#nav-bar{
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    z-index: 1000;
+    background: transparent;
+    backdrop-filter: blur(10px);
+}
+
+#nav-bar h3{
+    margin: 0;
+    font-weight: 700;
+    font-family: Poppins;
+    color: #9b58ff
+}
+
+/*Footer part*/
+#footer {
+    text-align: center;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    padding: 20px 0px 10px 0px;
+}
+
+
+
+/*Banner*/
+.title-head {
+    margin: 0;
+    font-weight: 700;
+    font-family: Poppins;
+    text-shadow: rgb(161, 123, 27, 07) 2px 2px 2px;
+}
+
+/*Images Collection*/
+#landscape-image, #sky-image{
+    width: 500px;
+    height: 300px;
+    margin: 20px 0px 20px 0px;
+    border-radius: 20px;
+}
+
+#flower-image {
+    width: 350px;
+    height: 400px;
+    margin: 20px 0px 20px 0px;
+    border-radius: 20px;
+}
+
+/*Description*/
+#landscape-title, #flower-title, #sky-title {
+    font-family: Poppins;
+    font-weight: 700;
+}
+
+#landscape-description, #flower-description, #sky-description {
+    font-size: 18px;
+    text-align: justify;
+    hyphens: auto;
+}
+
+/*Collection Button*/
+.slide {
+    background-color: #DAA520;
+    border: transparent;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 5px 10px 5px 10px;
+}
+
+
+
+
+/*Animation Behavior*/
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+/*Mobile version*/
+@media (max-width: 440px) {
+    #landscape-image, #sky-image{
+        width: 350px;
+        height: 200px;
+}
+}
