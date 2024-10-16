@@ -23,17 +23,17 @@ const skyImages = [
     {
         src: "res/sky/jellyCloud.jpg",
         title: "Jelly Cloud",
-        description: "An imagery featuring the state of Polytechnic University of the Philippines Santo Tomas Campus of 2023"
+        description: "This photo captures a striking cloud formation that resembles a glowing dome or halo against a soft, pastel sky. The cloud’s rounded shape is accentuated by the sun’s light streaming from behind, giving its edges a golden, almost ethereal glow. The surrounding sky is painted in gentle shades of lavender, peach, and blue, creating a tranquil and dreamlike ambiance. The unique shape and illumination of the cloud evoke a sense of wonder, as if it were a surreal, floating island in the sky. This natural spectacle highlights the beauty and artistry of clouds, offering a moment of awe and inspiration."
     },
     {
         src: "res/sky/shallowNoon.jpg",
         title: "Shallow Noon",
-        description: "An imagery featuring the state of Polytechnic University of the Philippines Santo Tomas Campus of 2023"
+        description: "This image captures a serene sky painted in warm shades of pink and orange, suggesting a beautiful transition during sunrise or sunset. The soft hues create a calming, almost dreamlike atmosphere, with subtle, darker clouds scattered across the sky. Their gentle shapes blend harmoniously into the colorful backdrop, evoking a sense of tranquility and warmth. The overall composition feels peaceful, as if inviting the viewer to pause and appreciate the fleeting beauty of nature’s quiet moments."
     },
     {
         src: "res/sky/sunDown.jpg",
         title: "Sun Down",
-        description: "An imagery featuring the state of Polytechnic University of the Philippines Santo Tomas Campus of 2023"
+        description: "This image beautifully captures the soft light of the sun filtering through a delicate haze in the sky, casting an ethereal glow around it. The silhouetted tree in the foreground adds a touch of contrast, its dark leaves standing out sharply against the pastel hues of the background. Faint hints of orange and pink seem to blend with the gentle blue sky, hinting at a tranquil, late afternoon or early evening. The lines from nearby power cables stretch across the scene, subtly grounding the peaceful view in an everyday setting, blending the serenity of nature with subtle traces of urban life."
     },
 ];
 
