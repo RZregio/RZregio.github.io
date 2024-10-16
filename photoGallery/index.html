@@ -24,8 +24,9 @@
           <span style="color: #DAA520; font-size: 24px;">photoGallery.</style>
         </h3>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button id="navbarToggler" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -34,13 +35,13 @@
             <a class="nav-link" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#landscape">Landscapes Collection</a>
+            <a class="nav-link" href="#landscape-head">Landscapes Collection</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#flower">Flowers Collection</a>
+            <a class="nav-link" href="#flower-head">Flowers Collection</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#sky">Skies Collection</a>
+            <a class="nav-link" href="#sky-head">Skies Collection</a>
           </li>
         </ul>
         <button class="btn btn-outline-secondary" id="btnColor" onclick="changeColorMode()">Dark Mode</button>
@@ -51,13 +52,42 @@
 
 
   <div class="container">
-    <div class="row my-5">
-      <h1 class="title-head pt-5">Welcome to My Photo Gallery</h1>
+      <div id="banner" class="row">
+        <div class="header col-12 col-md-6 col-lg-6 mr-5">
+          <h1 class="title-head pt-5">Welcome to My Photo Gallery</h1>
+          <p class="description">Welcome to 
+            <span style="color: #9b58ff;">RZ:</span>
+            <span style="color: #DAA520;">Photo Gallery</span>! 
+            Immerse yourself in a stunning collection of my favorite
+            photographs, featuring breathtaking landscapes, vibrant flowers, and captivating skies. Each image captures
+            the beauty of nature and invites you to experience the world through my lens.
+            Join me on this visual journey and explore the wonders
+            of the natural world, one photo at a time.
+          </p>
+        </div>
+        <div class="capture col-6 col-md-6 col-lg-6">
+          <img src="res/capture.png" alt="Capture">
+        </div>
+      </div>
+
+
+
+    <div class="break-line"></div>
+
+    
+
+    <div id="landscape-head" class="row">
+      <div class="header col-12">
+        <h1 class="title-head pt-5">My Landscapes collection</h1>
+        <p class="description">Explore a diverse collection of landscape photography capturing the essence of Santo Tomas, Batangas. From iconic establishments like Burger King and PUP Santo Tomas to scenic views of the town’s natural beauty, each shot offers a glimpse into the vibrant and dynamic atmosphere of the region.
+        </p>
+      </div>
     </div>
+    <div class="section-line"></div>
 
     <div id="landscape" class="row carousel">
       <div id="landscape-container" class="col-12 col-xl-6 justify-content-center">
-        <img id="landscape-image" src="" alt="Landscape Image" loading="lazy">
+        <img id="landscape-image" src="" alt="Landscape Image">
       </div>
       <div id="landscape-info" class="col-12 col-xl-6">
         <h2 id="landscape-title"></h2>
@@ -65,15 +95,24 @@
       </div>
     </div>
     <div>
-      <button class="slide mb-5" onclick="prevLandscape()">Previous</button>
-      <button class="slide mb-5" onclick="nextLandscape()">Next</button>
+      <a href="#landscape"><button class="slide mb-5" onclick="prevLandscape()">Previous</button></a>
+      <a href="#landscape"><button class="slide mb-5" onclick="nextLandscape()">Next</button></a>
     </div>
 
 
 
+    <div id="flower-head" class="row">
+      <div class="header col-12">
+        <h1 class="title-head pt-5">My Flowers collection</h1>
+        <p class="description">Step into a vibrant gallery of floral photography, personally captured to showcase the delicate beauty and diversity of flowers. Each shot highlights the intricate details, colors, and charm of blooms from various settings, offering a serene visual journey through nature’s finest displays.
+        </p>
+      </div>
+    </div>
+    <div class="section-line"></div>
+
     <div id="flower" class="row carousel">
       <div id="flower-container" class="col-12 col-xl-6 justify-content-center">
-        <img id="flower-image" src="" alt="Flower Image" loading="lazy">
+        <img id="flower-image" src="" alt="Flower Image">
       </div>
       <div id="flower-info" class="col-12 col-xl-6">
         <h2 id="flower-title"></h2>
@@ -81,15 +120,24 @@
       </div>
     </div>
     <div>
-      <button class="slide mb-5" onclick="prevFlower()">Previous</button>
-      <button class="slide mb-5" onclick="nextFlower()">Next</button>
+      <a href="#flower"><button class="slide mb-5" onclick="prevFlower()">Previous</button></a>
+      <a href="#flower"><button class="slide mb-5" onclick="nextFlower()">Next</button></a>
     </div>
 
 
 
+    <div id="sky-head" class="row">
+      <div class="header col-12">
+        <h1 class="title-head pt-5">My Skies collection</h1>
+        <p class="description">Discover a stunning collection of sky photography, personally captured to reveal the ever-changing beauty of the skies. From vibrant sunsets to clear blue horizons and dramatic cloud formations, each photo showcases the majesty and moods of the skies, offering a breathtaking view from above.
+        </p>
+      </div>
+    </div>
+    <div class="section-line"></div>
+
     <div id="sky" class="row carousel">
       <div id="sky-container" class="col-12 col-xl-6 justify-content-center">
-        <img id="sky-image" src="" alt="sky Image" loading="lazy">
+        <img id="sky-image" src="" alt="sky Image">
       </div>
       <div id="sky-info" class="col-12 col-xl-6">
         <h2 id="sky-title"></h2>
@@ -97,8 +145,8 @@
       </div>
     </div>
     <div>
-      <button class="slide mb-5" onclick="prevSky()">Previous</button>
-      <button class="slide mb-5" onclick="nextSky()">Next</button>
+      <a href="#sky"><button class="slide mb-5" onclick="prevSky()">Previous</button></a>
+      <a href="#sky"><button class="slide mb-5" onclick="nextSky()">Next</button></a>
     </div>
   </div>
 
@@ -118,9 +166,6 @@
     </script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
-    </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
     </script>
 </body>
 
