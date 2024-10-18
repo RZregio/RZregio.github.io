@@ -58,22 +58,44 @@ const landscapeImages = [
 ];
 
 let currentLandscape = 0;
+let previousLandscape = 0;
 
 function updateLandscapeCarousel() {
     const currentImage = landscapeImages[currentLandscape];
-    document.getElementById("landscape-image").src = currentImage.src;
+    const imgElement = document.getElementById("landscape-image").src = currentImage.src;
     document.getElementById("landscape-title").textContent = currentImage.title;
     document.getElementById("landscape-description").textContent = currentImage.description;
 }
 
+function slideAnimation() {
+    const imgElement = document.getElementById("landscape-image");
+    
+    if (currentLandscape > previousLandscape) {
+        imgElement.style.transform = "translateX(100%)"; 
+    } else {
+        imgElement.style.transform = "translateX(-100%)"; 
+    }
+    
+    void imgElement.offsetWidth; 
+
+    setTimeout(() => {
+        imgElement.style.transform = "translateX(0)";
+    }, 50); 
+
+    previousLandscape = currentLandscape;
+}
+
 function nextLandscape() {
     currentLandscape = (currentLandscape + 1) % landscapeImages.length;
+    slideAnimation();
     updateLandscapeCarousel();
 }
 
 function prevLandscape() {
     currentLandscape = (currentLandscape - 1 + landscapeImages.length) % landscapeImages.length;
+    slideAnimation();
     updateLandscapeCarousel();
 }
 
+slideAnimation();
 updateLandscapeCarousel();
