@@ -42,24 +42,24 @@ let previousFlower = 0;
 
 function updateFlowerCarousel() {
     const currentImage = flowerImages[currentFlower];
-    const imgElement = document.getElementById("flower-image").src = currentImage.src;
+    const imgFlower = document.getElementById("flower-image").src = currentImage.src;
     document.getElementById("flower-title").textContent = currentImage.title;
     document.getElementById("flower-description").textContent = currentImage.description;
 }
 
-function slideAnimation() {
-    const imgElement = document.getElementById("flower-image");
+function flowerAnimation() {
+    const imgFlower = document.getElementById("flower-image");
     
     if (currentFlower > previousFlower) {
-        imgElement.style.transform = "translateX(100%)"; 
+        imgFlower.style.transform = "translateX(100%)"; 
     } else {
-        imgElement.style.transform = "translateX(-100%)"; 
+        imgFlower.style.transform = "translateX(-100%)"; 
     }
     
-    void imgElement.offsetWidth; 
+    void imgFlower.offsetWidth; 
 
     setTimeout(() => {
-        imgElement.style.transform = "translateX(0)";
+        imgFlower.style.transform = "translateX(0)";
     }, 50); 
 
     previousFlower = currentFlower;
@@ -67,15 +67,15 @@ function slideAnimation() {
 
 function nextFlower() {
     currentFlower = (currentFlower + 1) % flowerImages.length;
-    slideAnimation();
+    flowerAnimation();
     updateFlowerCarousel();
 }
 
 function prevFlower() {
     currentFlower = (currentFlower - 1 + flowerImages.length) % flowerImages.length;
-    slideAnimation();
+    flowerAnimation();
     updateFlowerCarousel();
 }
 
-slideAnimation();
+flowerAnimation();
 updateFlowerCarousel();
