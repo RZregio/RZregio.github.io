@@ -42,24 +42,24 @@ let previousSky = 0;
 
 function updateskyCarousel() {
     const currentImage = skyImages[currentSky];
-    const imgElement = document.getElementById("sky-image").src = currentImage.src;
+    const imgSky = document.getElementById("sky-image").src = currentImage.src;
     document.getElementById("sky-title").textContent = currentImage.title;
     document.getElementById("sky-description").textContent = currentImage.description;
 }
 
-function slideAnimation() {
-    const imgElement = document.getElementById("sky-image");
+function skyAnimation() {
+    const imgSky = document.getElementById("sky-image");
     
     if (currentSky > previousSky) {
-        imgElement.style.transform = "translateX(100%)"; 
+        imgSky.style.transform = "translateX(100%)"; 
     } else {
-        imgElement.style.transform = "translateX(-100%)"; 
+        imgSky.style.transform = "translateX(-100%)"; 
     }
     
-    void imgElement.offsetWidth; 
+    void imgSky.offsetWidth; 
 
     setTimeout(() => {
-        imgElement.style.transform = "translateX(0)";
+        imgSky.style.transform = "translateX(0)";
     }, 50); 
 
     previousSky = currentSky;
@@ -67,15 +67,15 @@ function slideAnimation() {
 
 function nextSky() {
     currentSky = (currentSky + 1) % skyImages.length;
-    slideAnimation();
+    skyAnimation();
     updateskyCarousel();
 }
 
 function prevSky() {
     currentSky = (currentSky - 1 + skyImages.length) % skyImages.length;
-    slideAnimation();
+    skyAnimation();
     updateskyCarousel();
 }
 
-slideAnimation();
+skyAnimation();
 updateskyCarousel();
