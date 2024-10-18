@@ -62,24 +62,24 @@ let previousLandscape = 0;
 
 function updateLandscapeCarousel() {
     const currentImage = landscapeImages[currentLandscape];
-    const imgElement = document.getElementById("landscape-image").src = currentImage.src;
+    const imgLandscape = document.getElementById("landscape-image").src = currentImage.src;
     document.getElementById("landscape-title").textContent = currentImage.title;
     document.getElementById("landscape-description").textContent = currentImage.description;
 }
 
-function slideAnimation() {
-    const imgElement = document.getElementById("landscape-image");
+function landscapeAnimation() {
+    const imgLandscape = document.getElementById("landscape-image");
     
     if (currentLandscape > previousLandscape) {
-        imgElement.style.transform = "translateX(100%)"; 
+        imgLandscape.style.transform = "translateX(100%)"; 
     } else {
-        imgElement.style.transform = "translateX(-100%)"; 
+        imgLandscape.style.transform = "translateX(-100%)"; 
     }
     
-    void imgElement.offsetWidth; 
+    void imgLandscape.offsetWidth; 
 
     setTimeout(() => {
-        imgElement.style.transform = "translateX(0)";
+        imgLandscape.style.transform = "translateX(0)";
     }, 50); 
 
     previousLandscape = currentLandscape;
@@ -87,15 +87,15 @@ function slideAnimation() {
 
 function nextLandscape() {
     currentLandscape = (currentLandscape + 1) % landscapeImages.length;
-    slideAnimation();
+    landscapeAnimation();
     updateLandscapeCarousel();
 }
 
 function prevLandscape() {
     currentLandscape = (currentLandscape - 1 + landscapeImages.length) % landscapeImages.length;
-    slideAnimation();
+    landscapeAnimation();
     updateLandscapeCarousel();
 }
 
-slideAnimation();
+landscapeAnimation();
 updateLandscapeCarousel();
