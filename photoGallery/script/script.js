@@ -52,9 +52,13 @@ var imageSlides = document.querySelectorAll(".slide-image");
 imageSlides.forEach(imageSlide =>{
     imageSlide.addEventListener('mouseenter', () =>{
         imageSlide.style.boxShadow =  'rgb(161, 123, 27, 0.7) 2px 2px 2px';  
+        imageSlide.style.transform = 'translateY(-20px)';
     });
     
     imageSlide.addEventListener('mouseleave', () =>{
         imageSlide.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.2), 0 10px 30px rgba(0, 0, 0, 0.15), 0 15px 40px rgba(0, 0, 0, 0.1)';
+        imageSlide.style.transform = 'translateY(0px)';
     });
 })
+
+
