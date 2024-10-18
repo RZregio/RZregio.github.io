@@ -37,23 +37,45 @@ const skyImages = [
     },
 ];
 
-let currentsky = 0;
+let currentSky = 0;
+let previousSky = 0;
 
 function updateskyCarousel() {
-    const currentImage = skyImages[currentsky];
-    document.getElementById("sky-image").src = currentImage.src;
+    const currentImage = skyImages[currentSky];
+    const imgElement = document.getElementById("sky-image").src = currentImage.src;
     document.getElementById("sky-title").textContent = currentImage.title;
     document.getElementById("sky-description").textContent = currentImage.description;
 }
 
+function slideAnimation() {
+    const imgElement = document.getElementById("sky-image");
+    
+    if (currentSky > previousSky) {
+        imgElement.style.transform = "translateX(100%)"; 
+    } else {
+        imgElement.style.transform = "translateX(-100%)"; 
+    }
+    
+    void imgElement.offsetWidth; 
+
+    setTimeout(() => {
+        imgElement.style.transform = "translateX(0)";
+    }, 50); 
+
+    previousSky = currentSky;
+}
+
 function nextSky() {
-    currentsky = (currentsky + 1) % skyImages.length;
+    currentSky = (currentSky + 1) % skyImages.length;
+    slideAnimation();
     updateskyCarousel();
 }
 
 function prevSky() {
-    currentsky = (currentsky - 1 + skyImages.length) % skyImages.length;
+    currentSky = (currentSky - 1 + skyImages.length) % skyImages.length;
+    slideAnimation();
     updateskyCarousel();
 }
 
+slideAnimation();
 updateskyCarousel();
