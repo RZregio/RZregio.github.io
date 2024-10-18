@@ -126,10 +126,14 @@ a:active {
 
 #landscape-head{
     margin-top: 200px;
+    position: relative;
+    overflow: hidden;
 }
 
 #flower-head, #sky-head{
     margin-top: 50px;
+    position: relative;
+    overflow: hidden;
 }    
 
 #landscape, #flower, #sky{
@@ -154,6 +158,11 @@ a:active {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2),
     0 10px 30px rgba(0, 0, 0, 0.15), 
     0 15px 40px rgba(0, 0, 0, 0.1); 
+}
+
+.slide-image {
+    width: 100%;
+    transition: transform 0.5s ease-in-out; 
 }
 
 /*Description*/
