@@ -38,22 +38,44 @@ const flowerImages = [
 ];
 
 let currentFlower = 0;
+let previousFlower = 0;
 
 function updateFlowerCarousel() {
     const currentImage = flowerImages[currentFlower];
-    document.getElementById("flower-image").src = currentImage.src;
+    const imgElement = document.getElementById("flower-image").src = currentImage.src;
     document.getElementById("flower-title").textContent = currentImage.title;
     document.getElementById("flower-description").textContent = currentImage.description;
 }
 
+function slideAnimation() {
+    const imgElement = document.getElementById("flower-image");
+    
+    if (currentFlower > previousFlower) {
+        imgElement.style.transform = "translateX(100%)"; 
+    } else {
+        imgElement.style.transform = "translateX(-100%)"; 
+    }
+    
+    void imgElement.offsetWidth; 
+
+    setTimeout(() => {
+        imgElement.style.transform = "translateX(0)";
+    }, 50); 
+
+    previousFlower = currentFlower;
+}
+
 function nextFlower() {
     currentFlower = (currentFlower + 1) % flowerImages.length;
+    slideAnimation();
     updateFlowerCarousel();
 }
 
 function prevFlower() {
     currentFlower = (currentFlower - 1 + flowerImages.length) % flowerImages.length;
+    slideAnimation();
     updateFlowerCarousel();
 }
 
+slideAnimation();
 updateFlowerCarousel();
