@@ -1,0 +1,78 @@
+/* Basic body styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+    scroll-padding-top: -100px; 
+    margin: 0px;
+    padding: 0px;
+}
+
+
+
+.container {
+    padding-top: 200px;
+}
+
+/* Title styling */
+.header {
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 2px 2px 1px #DAA520;
+}
+
+.info {
+    font-size: 26px;
+    font-weight: 500;
+    opacity: 75%;
+    hyphens: auto;
+    margin-bottom: 200px;
+
+}
+/* Search input styling */
+.form-label {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.desc {
+    max-width: 800px;
+    margin: 0px auto 0px auto;
+}
+#search-input {
+    padding: 20px 50px 20px 50px;
+}
+
+/* Word card styling */
+.word-card {
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.word-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.phonetic {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+/* Spacing and color adjustments */
+.card-body h5 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 15px;
+    color: #343a40;
+}
+
+.btn {
+    margin-top: 10px;
+}

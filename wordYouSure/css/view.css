@@ -1,0 +1,72 @@
+/* Basic body styling */
+html, body {
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+    scroll-padding-top: -100px; 
+    margin: 0px;
+    padding: 0px;
+}
+
+.container {
+    padding-top: 200px;
+}
+
+/* Title styling */
+#word-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: Poppins;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 1px #DAA520;
+}
+
+/* Phonetics section styling */
+.phonetic {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+/* Meaning and definition styling */
+h5 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-family: Poppins;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Spacing for content sections */
+.meaning {
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Definition, example, and extra data styles */
+.definition {
+    font-weight: normal;
+}
+
+.example {
+    font-style: italic;
+    opacity: 70%;
+}
+
+.synonyms, .antonyms {
+    margin-top: 10px;
+    font-weight: 600;
+    color: #007bff;
+}
+
+/* Back button styling */
+a.btn {
+    margin-top: 20px;
+}

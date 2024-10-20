@@ -1,0 +1,153 @@
+.dark-mode {
+    background: linear-gradient(45deg, #000000, #2E2E2E, #5C5C5C, #8A8A8A);
+    background-size: 800% 800%;
+    animation: gradientAnimation 10s ease infinite;
+    color: #ffffff;
+}
+
+
+
+/*For removing the default link style*/
+a, .accordion-body a{
+    text-decoration: none;
+    color: inherit
+}
+
+a:focus,
+a:active {
+    outline: none
+}
+
+
+
+/*Navigation part*/
+#nav-bar{
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    z-index: 1000;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    padding: 20px 0px 20px 0px;
+}
+
+#nav-bar h3{
+    margin: 0;
+    font-size: 26px;
+    font-weight: 700;
+    font-family: Poppins;
+}
+
+.nav-item a{
+    font-size: 18px;
+}
+.nav-link:hover {
+    transform: translateY(-3px);
+    text-shadow: 1px 1px 1px #DAA520;
+}
+
+
+
+/*Footer part*/
+#footer {
+    text-align: center;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    padding: 20px 0px 10px 0px;
+    margin-top: 100px;
+}
+
+
+
+/*Link Page*/
+#more-site {
+    padding-top: 100px;
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.visit {
+    font-family: Poppins;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    color:#ffffff
+}
+
+.visit-page {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}
+
+.visit-page .card{
+    box-shadow: 0 4px 10px #3b3b3b;
+    background-color: #4f4f4f;
+    filter: blur(5px);
+    margin-bottom: 20px;
+}
+
+.visit-page .card:hover{
+    transform: scale(1.05);
+    filter: blur(0);
+}
+
+.visit-page .card-title {
+    color: aliceblue;
+    text-align: center;
+}
+.visit-page .card-text{
+    height: 150px;
+    font-family: Roboto;
+    font-weight: bold;
+    text-align: justify;
+    hyphens: auto;
+    opacity: 90%;
+}
+.visit-page img {
+    height: 200px;
+}
+
+.visit-page a:hover{
+    transform: translateY(-3px);
+    box-shadow: 2px 2px 2px #DAA520;
+}
+
+
+
+/*Animation Behavior*/
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0); 
+    }
+}
+
+
+
+/*Mobile version*/
+@media (max-width: 550px) {
+    .capture{
+        display: none;
+    }
+
+    .info { 
+        font-size: 20px;
+    }
+}
