@@ -163,6 +163,8 @@ body {
 
 .projects-link button {
     margin-bottom: 10px;
+    min-width: 300px;
+    max-width: 300px;
     padding: 6px 8px;
     font-size: 16px;
     cursor: pointer;
