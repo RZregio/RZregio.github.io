@@ -1,8 +1,9 @@
 /* Basic body styling */
-html, body {
+html,
+body {
     font-family: 'Roboto', sans-serif;
     overflow-x: hidden;
-    scroll-padding-top: -100px; 
+    scroll-padding-top: -100px;
     margin: 0px;
     padding: 0px;
 }
@@ -60,7 +61,8 @@ p {
     opacity: 70%;
 }
 
-.synonyms, .antonyms {
+.synonyms,
+.antonyms {
     margin-top: 10px;
     font-weight: 600;
     color: #007bff;

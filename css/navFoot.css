@@ -17,11 +17,13 @@ a:active {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
     background: linear-gradient(135deg, rgb(15 52 96 / .7), rgb(26 27 46 / .7));
     backdrop-filter: blur(10px);
     border-bottom: 4px solid rgb(58 75 122 / .7);
-    ;
-    flex-wrap: wrap
 }
 
 .title h1 {
@@ -41,10 +43,11 @@ a:active {
     max-width: 100%
 }
 
-.navigation button {
+.navigation .nav-link {
     flex: 1 1 0%;
     padding: 6px 8px;
-    font-size: 12px;
+    font-size: 14px;
+    font-family: Roboto;
     cursor: pointer;
     background-color: #fff0;
     color: #E0E0E0;
@@ -53,8 +56,9 @@ a:active {
     transition: background-color 0.3s ease
 }
 
-.navigation button:hover {
+.navigation .nav-link:hover {
     background-color: #101031;
+    color: #E0E0E0;
     box-shadow: 0 4px 10px rgb(0 0 0 / .3);
     transform: translateY(-2px)
 }

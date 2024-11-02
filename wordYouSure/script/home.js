@@ -10,8 +10,8 @@ document.getElementById('search-input').addEventListener('input', (e) => {
 
 function displayResults(data) {
     const resultDiv = document.getElementById('result');
-    resultDiv.innerHTML = ''; 
-    
+    resultDiv.innerHTML = '';
+
     data.forEach(entry => {
         const phonetics = entry.phonetics.map(phonetic => `
             <div class="phonetic">
@@ -20,7 +20,7 @@ function displayResults(data) {
             </div>
         `).join('');
 
-        const partOfSpeech = entry.meanings[0].partOfSpeech; 
+        const partOfSpeech = entry.meanings[0].partOfSpeech;
 
         resultDiv.innerHTML += `
             <div class="card word-card">

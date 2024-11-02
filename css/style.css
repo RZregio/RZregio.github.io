@@ -9,7 +9,7 @@ body {
     background: linear-gradient(135deg, #2A2A3C, #1A1A2E, #283149, #4B4B6A);
     background-size: 500% 500%;
     animation: gradientAnimation 10s ease infinite;
-    overflow-x: hidden
+    overflow-x: hidden;
 }
 
 
@@ -59,21 +59,26 @@ body {
     width: 100%
 }
 
-.homepage .greet {
-    font-size: 24px;
+.homepage .greet h1 {
+    font-size: px;
     font-family: Poppins;
+    font-weight: bold;
     color: #DAA520;
     margin-bottom: 30px;
     text-shadow: 0 0 10px rgb(0 0 0 / .7)
 }
 
 .homepage .start {
-    font-size: 16px;
-    font-weight: 400;
+    padding-top: 10px;
     border: 5px solid #DAA520;
     border-radius: 10px;
     background-color: #162447;
     color: #E0E0E0
+}
+
+.start p {
+    font-size: 16px;
+    font-weight: 400;
 }
 
 .start .project {
@@ -145,6 +150,8 @@ body {
 .projects-link {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: 20px;
     opacity: 0;
     transform: translateY(40px);
@@ -189,7 +196,8 @@ body {
     align-items: center;
     margin: 0;
     background-color: #0f3460b3;
-    padding-bottom: 20px
+    padding-bottom: 20px;
+    padding-top: 50px;
 }
 
 .about-profile {
@@ -253,7 +261,8 @@ body {
     align-items: center;
     margin: 0;
     background-color: #1a1b2eb3;
-    padding-top: 20px
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .coding-info {
@@ -307,7 +316,8 @@ body {
     align-items: center;
     margin: 0;
     background-color: #0f3460b3;
-    padding-bottom: 20px
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .design-profile {
