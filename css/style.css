@@ -33,7 +33,7 @@ body {
     margin-right: 20px;
     opacity: 0;
     transform: translateY(20px);
-    animation: fadeIn 1s ease-in forwards
+    animation: fadeIn 0.5s ease-in forwards
 }
 
 .profile-picture img {
@@ -52,7 +52,7 @@ body {
 .homepage {
     opacity: 0;
     transform: translateY(20px);
-    animation: fadeIn 1s ease-in forwards;
+    animation: fadeIn 0.5s ease-in forwards;
     color: #E0E0E0;
     text-align: center;
     max-width: 500px;
@@ -117,7 +117,7 @@ body {
     margin: 10px;
     opacity: 0;
     transform: translateY(20px);
-    animation: fadeIn 1s ease-in forwards
+    animation: fadeIn 0.5s ease-in forwards
 }
 
 .projects-head {
@@ -128,7 +128,7 @@ body {
     text-shadow: 0 0 20px #141427;
     opacity: 0;
     transform: translateY(-40px);
-    animation: fadeIn 1s ease-in forwards
+    animation: fadeIn 0.5s ease-in forwards
 }
 
 .projects-desc {
@@ -144,7 +144,7 @@ body {
     background-color: #162447;
     opacity: 0;
     transform: translateY(40px);
-    animation: fadeIn 1s ease-in forwards
+    animation: fadeIn 0.5s ease-in forwards
 }
 
 .projects-link {
@@ -155,7 +155,7 @@ body {
     margin: 20px;
     opacity: 0;
     transform: translateY(40px);
-    animation: fadeIn 1s ease-in forwards
+    animation: fadeIn 0.5s ease-in forwards
 }
 
 .projects-note {
@@ -165,7 +165,7 @@ body {
     font-family: Poppins;
     opacity: 0;
     transform: translateY(-40px);
-    animation: fadeIn 1s ease-in forwards
+    animation: fadeIn 0.5s ease-in forwards
 }
 
 .projects-link button {
@@ -211,7 +211,7 @@ body {
     margin: 0 20px;
     opacity: 0;
     transform: translateY(-20px);
-    animation: fadeIn 1s ease-in forwards
+    animation: fadeIn 0.5s ease-in forwards
 }
 
 .about-profile img {
@@ -232,7 +232,7 @@ body {
     margin: 0 20px;
     opacity: 0;
     transform: translateY(-20px);
-    animation: fadeIn 1s ease-in forwards
+    animation: fadeIn 0.5s ease-in forwards
 }
 
 .about-page h1 {
@@ -275,7 +275,7 @@ body {
     margin: 0 20px;
     opacity: 0;
     transform: translateY(-20px);
-    animation: fadeIn 1s ease-in forwards
+    animation: fadeIn 0.5s ease-in forwards
 }
 
 .coding-info p {
@@ -299,7 +299,7 @@ body {
     width: 100%;
     opacity: 0;
     transform: translateY(-20px);
-    animation: fadeIn 1s ease-in forwards
+    animation: fadeIn 0.5s ease-in forwards
 }
 
 .code-profile img {
@@ -331,7 +331,7 @@ body {
     margin: 0 20px;
     opacity: 0;
     transform: translateY(-20px);
-    animation: fadeIn 1s ease-in forwards
+    animation: fadeIn 0.5s ease-in forwards
 }
 
 .design-profile img {
@@ -351,7 +351,7 @@ body {
     width: 100%;
     opacity: 0;
     transform: translateY(-20px);
-    animation: fadeIn 1s ease-in forwards
+    animation: fadeIn 0.5s ease-in forwards
 }
 
 .designing-info p {
@@ -385,7 +385,7 @@ body {
     text-shadow: 0 0 20px #141427;
     opacity: 0;
     transform: translateY(-20px);
-    animation: fadeIn 1s ease-in forwards
+    animation: fadeIn 0.5s ease-in forwards
 }
 
 .contact-selection {
@@ -401,7 +401,7 @@ body {
     margin: 0 20px;
     opacity: 0;
     transform: translateX(-20px);
-    animation: fadeIn 1s ease-in forwards
+    animation: fadeIn 0.5s ease-in forwards
 }
 
 .contact-details {
@@ -419,7 +419,7 @@ body {
     padding-bottom: 20px;
     opacity: 0;
     transform: translateX(20px);
-    animation: fadeIn 1s ease-in forwards
+    animation: fadeIn 0.5s ease-in forwards
 }
 
 .contact-details a {
@@ -460,7 +460,7 @@ body {
     background-color: #162447;
     opacity: 0;
     transform: scale(.5);
-    animation: fadeIn 1s ease-in forwards
+    animation: fadeIn 0.5s ease-in forwards
 }
 
 .fix {
@@ -513,35 +513,7 @@ body {
 
 
 /*Mobile version Fix*/
-@media (max-width:500px) {
-    .title h1 {
-        font-size: 20px
-    }
-
-    .navigation button {
-        padding: 6px 8px;
-        font-size: 12px
-    }
-
-    .homepage h1 {
-        font-size: 24px
-    }
-
-    .homepage h2 {
-        font-size: 14px
-    }
-
-    #content {
-        flex-direction: column;
-        align-items: center
-    }
-
-    .profile-picture {
-        max-width: 80%;
-        margin-right: 0;
-        margin-bottom: 20px
-    }
-
+@media(max-width:1280px){
     #about-head {
         display: flex;
         flex-direction: column
@@ -587,6 +559,36 @@ body {
 
     .designing-info p {
         font-size: 16px
+    }
+}
+
+@media (max-width:500px) {
+    .title h1 {
+        font-size: 20px
+    }
+
+    .navigation button {
+        padding: 6px 8px;
+        font-size: 12px
+    }
+
+    .homepage h1 {
+        font-size: 24px
+    }
+
+    .homepage h2 {
+        font-size: 14px
+    }
+
+    #content {
+        flex-direction: column;
+        align-items: center
+    }
+
+    .profile-picture {
+        max-width: 80%;
+        margin-right: 0;
+        margin-bottom: 20px
     }
 
     #contact-info {
