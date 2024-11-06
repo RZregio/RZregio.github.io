@@ -340,6 +340,8 @@ a:active {
     color: aliceblue;
 }
 
+
+
 /*Animation*/
 @keyframes fadeIn {
     to {
@@ -351,6 +353,21 @@ a:active {
 
 
 /*Adjustment for Screen*/
+@media (max-width: 1280px) {
+    #features-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #features-info .card{
+        margin-bottom: 20px;
+    }
+}
+
+
+
 @media (max-width: 600px) {
     #nav-bar {
         display: flex;
