@@ -563,7 +563,9 @@ body {
     .designing-info p {
         font-size: 16px
     }
+}
 
+@media (max-width: 768px) {
     #contact-info {
         display: flex;
         flex-direction: column;
@@ -571,7 +573,12 @@ body {
         align-content: center;
         margin: 10px auto 10px auto;
         padding: 10px 0 10px 0;
-        width: 300px
+        width: 480px
+    }
+
+    .contact-selection img {
+        max-width: 0;
+        margin: 0
     }
 }
 
