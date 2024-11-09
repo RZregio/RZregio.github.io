@@ -563,6 +563,16 @@ body {
     .designing-info p {
         font-size: 16px
     }
+
+    #contact-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        margin: 10px auto 10px auto;
+        padding: 10px 0 10px 0;
+        width: 300px
+    }
 }
 
 @media (max-width:500px) {
@@ -592,16 +602,6 @@ body {
         max-width: 80%;
         margin-right: 0;
         margin-bottom: 20px
-    }
-
-    #contact-info {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: center;
-        margin: 10px auto 10px auto;
-        padding: 10px 0 10px 0;
-        width: 300px
     }
 
     .contact-header h1 {
