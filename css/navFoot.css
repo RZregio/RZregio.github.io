@@ -40,7 +40,7 @@ a:active {
     flex-wrap: wrap;
     justify-content: center;
     overflow: hidden;
-    max-width: 100%
+    max-width: 100%;
 }
 
 .navigation .nav-link {
@@ -53,7 +53,7 @@ a:active {
     color: #E0E0E0;
     border: none;
     border-radius: 10px;
-    transition: background-color 0.3s ease
+    transition: all 0.3s ease;
 }
 
 .navigation .nav-link:hover {

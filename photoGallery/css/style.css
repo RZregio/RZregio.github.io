@@ -2,7 +2,7 @@ html,
 body {
     font-family: 'Roboto', sans-serif;
     overflow-x: hidden;
-    scroll-padding-top: 100px; 
+    scroll-padding-top: 100px;
 }
 
 
@@ -25,7 +25,8 @@ body {
 
 
 /*For removing the default link style*/
-a, .accordion-body a{
+a,
+.accordion-body a {
     text-decoration: none;
     color: inherit
 }
@@ -38,16 +39,16 @@ a:active {
 
 
 /*Navigation part*/
-#nav-bar{
-    position: fixed; 
-    top: 0; 
-    width: 100%; 
+#nav-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
     z-index: 1000;
     background: transparent;
     backdrop-filter: blur(10px);
 }
 
-#nav-bar h3{
+#nav-bar h3 {
     margin: 0;
     font-weight: 700;
     font-family: Poppins;
@@ -66,19 +67,75 @@ a:active {
 
 
 
+/*Link Page*/
+#more-site {
+    display: flex;
+    flex-direction: column;
+}
+
+.visit {
+    font-family: Poppins;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.visit-page {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}
+
+.visit-page .card {
+    box-shadow: 0 4px 10px #3b3b3b;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.visit-page .card:hover {
+    transform: scale(1.10);
+    z-index: 10px;    
+}
+
+.visit-page .card-title {
+    text-align: center;
+}
+
+.visit-page .card-text {
+    height: 150px;
+    font-family: Roboto;
+    font-weight: bold;
+    text-align: justify;
+    hyphens: auto;
+    opacity: 90%;
+}
+
+.visit-page img {
+    height: 200px;
+}
+
+.visit-page a:hover {
+    transform: translateY(-3px);
+    box-shadow: 2px 2px 2px #DAA520;
+}
+
+
+
 /*Banner*/
-#banner{
+#banner {
     margin-top: 150px;
 }
 
-.header h1{
+.header h1 {
     margin-bottom: 50px;
+    text-align: center;
 }
 
-.header p{
+.header p {
     text-align: justify;
     font-size: 20px;
-    font-weight:bold;
+    font-weight: bold;
     font-family: 'Roboto', sans-serif;
     opacity: 70%;
 }
@@ -90,64 +147,75 @@ a:active {
     text-shadow: rgb(161, 123, 27, 07) 2px 2px 2px;
 }
 
-.capture{
+.capture {
     display: flex;
+    margin: 0px auto 0px auto;
     justify-content: center;
     align-items: center;
 }
 
-.capture img{
+.capture img {
     width: 400px;
     height: 300px;
     margin: 20px 0px 20px 0px;
     border-radius: 20px;
-    opacity: 0; 
-    transform: translateY(20px); 
-    animation: fadeInUp 1s forwards;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.3s ease forwards;
     animation-delay: 0.5s;
 }
 
-.break-line{
-    border: none;         
-    height: 3px;        
-    background-color: #999999 ;
-    box-shadow: rgb(161, 123, 27, 0.7) 2px 2px 2px; 
-    margin: 20px 0;  
+.break-line {
+    border: none;
+    height: 3px;
+    background-color: #999999;
+    box-shadow: rgb(161, 123, 27, 0.7) 2px 2px 2px;
+    margin: 20px 0;
 }
 
 
 
 /*Images Collection*/
 .section-line {
-    border: none; 
-    border-top: 2px solid #B0B0B0; 
-    align-self: center; 
+    border: none;
+    border-top: 2px solid #B0B0B0;
+    align-self: center;
 }
 
-#landscape-head{
+#landscape-head {
     margin-top: 200px;
     position: relative;
     overflow: hidden;
 }
 
-#flower-head, #sky-head{
+#flower-head,
+#sky-head {
     margin-top: 50px;
     position: relative;
     overflow: hidden;
-}    
+}
 
-#landscape, #flower, #sky{
+#landscape,
+#flower,
+#sky {
     margin-top: 40px;
 }
 
-#landscape-image, #sky-image{
+#landscape-container,
+#flower-container,
+#sky-container {
+    text-align: center;
+}
+
+#landscape-image,
+#sky-image {
     width: 500px;
     height: 300px;
     margin: 20px 0px 20px 0px;
     border-radius: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2),
-    0 10px 30px rgba(0, 0, 0, 0.15), 
-    0 15px 40px rgba(0, 0, 0, 0.1); 
+        0 10px 30px rgba(0, 0, 0, 0.15),
+        0 15px 40px rgba(0, 0, 0, 0.1);
 }
 
 #flower-image {
@@ -156,23 +224,29 @@ a:active {
     margin: 20px 0px 20px 0px;
     border-radius: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2),
-    0 10px 30px rgba(0, 0, 0, 0.15), 
-    0 15px 40px rgba(0, 0, 0, 0.1); 
+        0 10px 30px rgba(0, 0, 0, 0.15),
+        0 15px 40px rgba(0, 0, 0, 0.1);
 }
 
 .slide-image {
     width: 100%;
-    transition: transform 0.5s ease-in-out; 
+    transition: transform 0.5s ease-in-out;
 }
 
 /*Description*/
-#landscape-title, #flower-title, #sky-title {
+#landscape-title,
+#flower-title,
+#sky-title {
     font-family: Poppins;
     font-weight: 700;
+    text-align: center;
 }
 
-#landscape-description, #flower-description, #sky-description {
+#landscape-description,
+#flower-description,
+#sky-description {
     font-size: 18px;
+    text-align: center;
     font-family: 'Roboto', sans-serif;
     text-align: justify;
     hyphens: auto;
@@ -187,6 +261,7 @@ a:active {
 
 .accordion-button:hover {
     color: #DAA520;
+    transition: all ease 0.3s;
 }
 
 .container {
@@ -194,16 +269,21 @@ a:active {
 }
 
 /*Collection Button*/
+.change-image {
+    text-align: center;
+}
+
 .slide {
     background-color: #DAA520;
     border: transparent;
     border-radius: 5px;
     font-size: 20px;
     padding: 5px 10px 5px 10px;
+    transition: all ease 0.3s;
 }
 
-.accordion-body a:hover{
-    color:#9b58ff;
+.accordion-body a:hover {
+    color: #9b58ff;
 }
 
 
@@ -226,7 +306,7 @@ a:active {
 @keyframes fadeInUp {
     to {
         opacity: 1;
-        transform: translateY(0); 
+        transform: translateY(0);
     }
 }
 
@@ -234,16 +314,18 @@ a:active {
 
 /*Mobile version*/
 @media (max-width: 550px) {
-    .capture{
+    .capture {
         display: none;
     }
 
-    #landscape-image, #sky-image{
+    #landscape-image,
+    #sky-image {
         width: 350px;
         height: 200px;
     }
-    .header p{
+
+    .header p {
         font-size: 16px;
-       
+
     }
 }

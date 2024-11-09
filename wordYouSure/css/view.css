@@ -37,12 +37,6 @@ h5 {
     font-family: Poppins;
 }
 
-p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 10px;
-}
-
 /* Spacing for content sections */
 .meaning {
     padding: 15px;

@@ -6,11 +6,13 @@ body {
     display: flex;
     flex-direction: column;
     background-color: #233445;
-    scroll-padding-top: 100px; 
+    scroll-padding-top: 100px;
 }
 
 /* Remove link default state */
-button a,.nav-title a, #about a{
+button a,
+.nav-title a,
+#about a {
     text-decoration: none;
     color: inherit;
 }
@@ -37,7 +39,7 @@ a:active {
 #nav-bar {
     display: flex;
     background-color: #233445;
-    padding: 10px 20px; 
+    padding: 10px 20px;
     border-bottom: #836746 solid 3px;
     justify-content: center;
     position: fixed;
@@ -56,13 +58,13 @@ a:active {
     color: aliceblue;
 }
 
-.nav-buttons {
+.navigation {
     display: flex;
     justify-content: end;
     gap: 10px;
 }
 
-.nav-buttons button{
+.navigation .nav-link {
     font-size: 14px;
     color: #c5c3d8;
     background-color: #233445;
@@ -70,18 +72,81 @@ a:active {
     border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
+    transition: all ease 0.3s;
 }
 
-.nav-buttons button:hover{
+.navigation .nav-link:hover {
     background: linear-gradient(#5989b9, #44698e, #6fadeb);
+    transform: translateY(-4px);
+    color: #8ec2f6;
+}
+
+
+
+/*Link Page*/
+#more-site {
+    display: flex;
+    flex-direction: column;
+}
+
+.visit {
+    font-family: Poppins;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.visit-page {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}
+
+.visit-page .card {
+    box-shadow: 0 4px 10px #3b3b3b;
+    background-color: #344c69;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.visit-page .card:hover {
+    transform: scale(1.10);
+    z-index: 10px;    
+}
+
+.visit-page .card-title {
+    color: aliceblue;
+    text-align: center;
+}
+
+.visit-page .card-text {
+    height: 150px;
+    font-family: Roboto;
+    font-weight: bold;
+    color: #d7d7d7;
+    text-align: justify;
+    hyphens: auto;
+    opacity: 90%;
+}
+
+.visit-page img {
+    height: 200px;
+}
+
+.visit-page a:hover {
+    transform: translateY(-3px);
+    box-shadow: 2px 2px 2px #DAA520;
 }
 
 
 
 /*Welcome Part*/
 #page-main {
-    margin-top: 80px;
-    background: linear-gradient(45deg, #5b7694 , #4c6b8f, #3f5977 70%,  #2e4157 80%, #344962 90%);
+    margin-top: 40px;
+    padding-top: 40px;
+    background: linear-gradient(45deg, #5b7694, #4c6b8f, #3f5977 70%, #2e4157 80%, #344962 90%);
 }
 
 #welcome-part {
@@ -97,20 +162,21 @@ a:active {
     padding-bottom: 20px;
 }
 
-.welcome-header h1{
+.welcome-header h1 {
     font-family: Poppins;
-    text-shadow:0 4px 15px #233445;
+    text-shadow: 0 4px 15px #233445;
     font-size: 58px;
     font-weight: bold;
     text-align: center;
     margin-top: 50px;
-    color:#dddbf9;
+    color: #dddbf9;
 }
 
-.welcome-header .tagline{
+.welcome-header .tagline {
     font-family: Georgia;
     font-size: 18px;
     font-weight: bold;
+    line-height: 20px;
     text-align: center;
     color: #dddbf9;
     opacity: 70%;
@@ -119,6 +185,7 @@ a:active {
     background-color: #344c69;
     border-radius: 20px;
     box-shadow: 0 4px 10px #233445;
+    transition: all ease 0.3s;
 }
 
 .tagline:hover {
@@ -130,7 +197,8 @@ a:active {
     margin: 0px 0px 20px 0px;
     padding: 50px 0px 50px 0px;
 }
-.welcome-view img{
+
+.welcome-view img {
     border-radius: 80px;
     box-shadow: 0 4px 10px #3a3a3a;
     opacity: 0;
@@ -141,7 +209,7 @@ a:active {
 
 
 /*Description Part*/
-#description{
+#description {
     padding-left: 20px;
     padding-right: 20px;
     justify-content: space-between;
@@ -189,6 +257,7 @@ a:active {
     color: #dddbf9;
     margin: 10px;
     padding: 10px 10px 10px 10px;
+    transition: all ease 0.3s;
 }
 
 .desc-info p:hover {
@@ -207,13 +276,13 @@ a:active {
 
 .feat-title {
     font-family: Rockwell;
-    text-shadow:0 4px 15px #233445;
+    text-shadow: 0 4px 15px #233445;
     align-items: center;
     font-weight: bold;
     text-align: center;
     margin-top: 50px;
     margin-bottom: 20px;
-    color:#dddbf9
+    color: #dddbf9
 }
 
 #features-info {
@@ -223,15 +292,20 @@ a:active {
     margin-bottom: 20px;
 }
 
-#features-info .card{
+#features-info .card {
     box-shadow: 0 4px 10px #3b3b3b;
     background-color: #344c69;
-    filter: blur(5px);
+    transition: all ease 0.3s;
+;}
+
+#features-info .card:hover {
+    transform: scale(1.05);
+    z-index: 10px;
+    opacity: 100%;
 }
 
-#features-info .card:hover{
-    transform: scale(1.05);
-    filter: blur(0);
+#features-info .card:not(:hover){
+    opacity: 70%;
 }
 
 #features-info .card-title {
@@ -239,13 +313,14 @@ a:active {
     text-align: center;
 }
 
-#features-info .card-text{
+#features-info .card-text {
     height: 200px;
     font-family: Georgia;
     font-weight: bold;
     text-align: justify;
     color: #dddbf9;
 }
+
 #features-info img {
     height: 200px;
 }
@@ -271,12 +346,16 @@ a:active {
     margin-bottom: 20px;
 }
 
-.carousel-inner img{
+.carousel-inner img {
     width: 100%;
     height: auto;
+    overflow: hidden;
 }
 
-.carousel-item img{
+.carousel-item {
+    transition: all ease 0.3s;
+}
+.carousel-item img {
     width: 600px;
     height: 400px;
     object-fit: cover;
@@ -288,12 +367,15 @@ a:active {
     background-color: #233445;
     border-radius: 20px;
     font-family: Georgia;
+    transition: all ease 0.3s;
 }
 
 .carousel-caption:hover {
     filter: opacity(0.75);
 }
-.carousel-control-prev, .carousel-control-next {
+
+.carousel-control-prev,
+.carousel-control-next {
     position: absolute;
     bottom: 100%;
     transform: translateY(60%);
@@ -312,28 +394,28 @@ a:active {
     border-radius: 20px;
 }
 
-#about h2{
+#about h2 {
     margin-top: 20px;
     color: aliceblue;
 }
 
-#about p{
+#about p {
     color: #dddbf9;
     text-align: justify;
     hyphens: auto;
 }
 
-#about a{
+#about a {
     color: #d2c32d;
 }
 
-#about a:hover{
+#about a:hover {
     color: #836746;
 }
 
 
 /* Location */
-.loc-title{
+.loc-title {
     margin-top: 20px;
     font-style: Roboto;
     font-size: 40px;
@@ -356,19 +438,23 @@ a:active {
 @media (max-width: 1280px) {
     #features-info {
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
         justify-content: center;
         align-items: center;
     }
 
-    #features-info .card{
+    #features-info .card {
         margin-bottom: 20px;
+    }
+
+    .welcome-header h1 {
+        font-size: 40px;
     }
 }
 
 
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     #nav-bar {
         display: flex;
         flex-direction: column;
@@ -386,7 +472,7 @@ a:active {
         gap: 2px;
     }
 
-    .nav-buttons button{
+    .nav-buttons button {
         font-size: 12px;
         text-align: center;
     }
@@ -407,13 +493,13 @@ a:active {
         width: 100%;
     }
 
-    .welcome-header h1{
+    .welcome-header h1 {
         font-size: 40px;
         width: 300px;
         height: 100%;
     }
 
-    .welcome-header .tagline{
+    .welcome-header .tagline {
         font-size: auto;
         padding: 20px;
         width: 300px;
@@ -427,7 +513,7 @@ a:active {
         overflow: hidden;
     }
 
-    .welcome-view img{
+    .welcome-view img {
         padding: 0px;
         justify-content: center;
         border-radius: 10px;
@@ -441,7 +527,7 @@ a:active {
         flex-direction: column;
         align-items: center;
         margin-top: 20px;
-        width: 350px;
+        width: 480px;
         margin: 20px auto 20px auto;
     }
 
@@ -454,7 +540,7 @@ a:active {
     }
 
     .desc-info p {
-        margin: 0;  
+        margin: 0;
         font-size: 15px;
         hyphens: auto;
     }
@@ -466,22 +552,35 @@ a:active {
         align-items: center;
     }
 
-    #features-info .card{
+    #features-info .card {
         margin-bottom: 20px;
     }
 
-    .carousel-item img{
+    .carousel-item img {
         width: 300px;
         height: 200px;
         object-fit: cover;
         border-radius: 50px;
     }
 
-    .carousel-caption h4{
+    .carousel-caption h4 {
         font-size: 16px;
     }
 
-    .carousel-caption p{
+    .carousel-caption p {
         font-size: 12px;
+    }
+}
+
+
+
+@media (max-width: 500px) {
+    #description {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+        width: 350px;
+        margin: 20px auto 20px auto;
     }
 }

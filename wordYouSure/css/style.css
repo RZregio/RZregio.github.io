@@ -8,7 +8,8 @@
 
 
 /*For removing the default link style*/
-a, .accordion-body a{
+a,
+.accordion-body a {
     text-decoration: none;
     color: inherit
 }
@@ -21,26 +22,28 @@ a:active {
 
 
 /*Navigation part*/
-#nav-bar{
-    position: fixed; 
-    top: 0; 
-    width: 100%; 
+#nav-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
     z-index: 1000;
     background: transparent;
     backdrop-filter: blur(10px);
     padding: 20px 0px 20px 0px;
 }
 
-#nav-bar h3{
+#nav-bar h3 {
     margin: 0;
     font-size: 26px;
     font-weight: 700;
     font-family: Poppins;
 }
 
-.nav-item a{
+.nav-item a {
     font-size: 18px;
+    transition: all ease 0.3s;
 }
+
 .nav-link:hover {
     transform: translateY(-3px);
     text-shadow: 1px 1px 1px #DAA520;
@@ -72,7 +75,7 @@ a:active {
     font-weight: bold;
     margin-top: 50px;
     margin-bottom: 20px;
-    color:#ffffff
+    color: #ffffff
 }
 
 .visit-page {
@@ -82,23 +85,24 @@ a:active {
     margin-bottom: 20px;
 }
 
-.visit-page .card{
+.visit-page .card {
     box-shadow: 0 4px 10px #3b3b3b;
     background-color: #4f4f4f;
-    filter: blur(5px);
+    transition: all 0.3s ease;
     margin-bottom: 20px;
 }
 
-.visit-page .card:hover{
-    transform: scale(1.05);
-    filter: blur(0);
+.visit-page .card:hover {
+    transform: scale(1.10);
+    z-index: 10px;
 }
 
 .visit-page .card-title {
     color: aliceblue;
     text-align: center;
 }
-.visit-page .card-text{
+
+.visit-page .card-text {
     height: 150px;
     font-family: Roboto;
     font-weight: bold;
@@ -106,11 +110,12 @@ a:active {
     hyphens: auto;
     opacity: 90%;
 }
+
 .visit-page img {
     height: 200px;
 }
 
-.visit-page a:hover{
+.visit-page a:hover {
     transform: translateY(-3px);
     box-shadow: 2px 2px 2px #DAA520;
 }
@@ -135,7 +140,7 @@ a:active {
 @keyframes fadeInUp {
     to {
         opacity: 1;
-        transform: translateY(0); 
+        transform: translateY(0);
     }
 }
 
@@ -143,11 +148,11 @@ a:active {
 
 /*Mobile version*/
 @media (max-width: 550px) {
-    .capture{
+    .capture {
         display: none;
     }
 
-    .info { 
+    .info {
         font-size: 20px;
     }
 }

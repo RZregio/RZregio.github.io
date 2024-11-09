@@ -42,7 +42,8 @@ body {
     border-radius: 50%;
     box-shadow: 0 4px 8px rgb(0 0 0 / .2);
     border: 5px solid #DAA520;
-    background-color: #1e1b66
+    background-color: #1e1b66;
+    transition: all ease 0.3s;
 }
 
 .profile-picture img:hover {
@@ -87,11 +88,12 @@ body {
     text-align: center;
     font-size: 16px;
     font-weight: 700;
-    margin-bottom: 15px
+    margin-bottom: 15px;
+    transition: all ease 0.3s;
 }
 
 .start .project:hover {
-    background-color: #73621c;
+    background-color: #927b1d;
     box-shadow: 0 4px 10px rgb(0 0 0 / .3);
     transform: translateY(-2px)
 }
@@ -178,7 +180,8 @@ body {
     background-color: #101A30;
     color: #a49ce6;
     border: 2px solid #5748db;
-    border-radius: 10px
+    border-radius: 10px;
+    transition: all ease 0.3s;
 }
 
 .projects-link button:hover {
