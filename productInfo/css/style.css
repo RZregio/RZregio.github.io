@@ -40,6 +40,21 @@ a:active {
     font-weight: bold;
     font-family: 'Georgia';
     color: aliceblue;
+    padding-bottom: 10px;
+}
+
+.more-lenovo, .featured-lenovo {
+    font-family: Poppins;
+    letter-spacing: -1px;
+    border-radius: 10px;
+    color: #d7d7d7;
+    transition: all ease 0.3s;
+}
+
+.more-lenovo:hover, .featured-lenovo:hover{
+    transform: translateY(-3px);
+    background: linear-gradient(180deg, #4f4f4f 20%, #3b3b3b 50%);
+    color: #d7d7d7;
 }
 
 
@@ -136,13 +151,13 @@ a:active {
     flex-wrap: wrap;
     flex-grow: 1;
     margin-bottom: 50px;
-    transition: filter 0.5s ease-in-out;
+    transition: filter 0.3s ease-in-out;
 }
 
 .product-profile {
     opacity: 0;
     transform: translateY(20px);
-    animation: fadeIn 0.5s ease-in forwards;
+    animation: fadeIn 0.3s ease-in forwards;
     max-width: 600px;
     width: 100%;
     padding-top: 80px;
@@ -160,7 +175,7 @@ a:active {
     opacity: 0;
     margin: 0px auto 0px auto;
     transform: translateY(-20px);
-    animation: fadeIn 0.5s ease-in forwards;
+    animation: fadeIn 0.3s ease-in forwards;
     text-align: center;
     max-width: 500px;
     background-color: #252525;
@@ -172,7 +187,7 @@ a:active {
 .product-info .product-title {
     opacity: 0;
     transform: translateY(40px);
-    animation: fadeIn 0.5s ease-in forwards;
+    animation: fadeIn 0.3s ease-in forwards;
     font-family: Roboto;
     margin-bottom: 20px;
 }
@@ -180,7 +195,7 @@ a:active {
 .product-info .product-details {
     opacity: 0;
     transform: translateY(40px);
-    animation: fadeIn 0.5s ease-in forwards;
+    animation: fadeIn 0.3s ease-in forwards;
     text-align: left;
     font-family: Open Sans;
     color: #959595;
@@ -242,6 +257,110 @@ a:active {
 
 
 
+/*More on Lenovo*/
+#welcome-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px auto;
+    background-color: #252525;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    margin-bottom: 50px;
+}
+
+.welcome-lenovo {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeIn 0.3s ease-in forwards;
+}
+
+.welcome-lenovo iframe, .video-body iframe{
+    border-radius: 20px;
+}
+
+.welcome-text {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeIn 0.3s ease-in forwards;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.welcome-title {
+    font-size: clamp(16px, 5vw, 40px);
+    color: #ffffff;
+    text-align: center;
+}
+
+.welcome-desc {
+    color: #e0e0e0;
+    text-align: justify;
+    font-size:  16px;
+    background: linear-gradient(180deg, #3b3b3b 60%, #4f4f4f 100%);
+    border-radius: 20px;
+    padding: 40px;
+    margin-top: 20px;
+}
+
+.welcome-desc a:hover{
+ transform: translateY(3px);
+ color: #7c7c7c;
+}
+
+.welcome-desc:hover{
+    transform: translateY(-2px);
+    background: linear-gradient(180deg, #4f4f4f 60%, #3b3b3b 100%);
+}
+
+
+
+/*Video Page*/
+.video-page {
+    margin-top: 120px;
+    text-align: center;
+}
+
+.lenovo-videos {
+    background: linear-gradient(180deg, #3b3b3b 60%, #4f4f4f 100%);
+    padding: 40px;
+    border-radius: 20px;
+}
+
+.video-container {
+    padding-top: 20px;
+}
+
+.video-text {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeIn 0.3s ease-in forwards;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 0px;
+    border-bottom: #c23b4b solid 2px;
+}
+
+.video-title {
+    font-size: 20px;
+    color: #ffffff;
+    font-family: Poppins;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.video-desc {
+    color: #e0e0e0;
+    opacity: 80%;
+    text-align: justify;
+    font-size:  16px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+
+
 /*Animations*/
 @keyframes fadeIn {
     to {
@@ -268,6 +387,11 @@ a:active {
         align-items: center;
     }
 
+    #welcome-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
     .product-profile {
         max-width: 80%;
         margin-right: 0;
@@ -276,5 +400,23 @@ a:active {
     .slice-summary {
         display: flex;
         flex-direction: column;
+    }
+}
+
+@media (max-width: 400px) {
+    .welcome-desc {
+        font-size: 11px;
+    }
+
+    .video-page h2{
+        font-size: 16px;
+    }
+
+    .video-title{
+        font-size: 14px;
+    }
+
+    .video-desc{
+        font-size: 10px;
     }
 }
