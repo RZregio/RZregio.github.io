@@ -27,6 +27,12 @@ body {
     flex-grow: 1
 }
 
+.profile-container {
+    position: relative;
+    display: inline-block;
+    transition: all ease 0.3s;
+}
+
 .profile-picture {
     max-width: 300px;
     width: 100%;
@@ -44,6 +50,29 @@ body {
     border: 5px solid #DAA520;
     background-color: #1e1b66;
     transition: all ease 0.3s;
+}
+
+.hover-text {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0.5); 
+    padding: 10px;
+    display: none; 
+    border-radius: 5px;
+    text-align: center;
+}
+
+.profile-container:hover .hover-text {
+    display: block;
+}
+
+.hover-text:hover{
+    color: wheat;
+    background-color: rgba(0, 0, 0, 0.7); 
 }
 
 .profile-picture img:hover {
