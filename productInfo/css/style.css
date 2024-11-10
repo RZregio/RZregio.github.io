@@ -302,6 +302,7 @@ a:active {
     border-radius: 20px;
     padding: 40px;
     margin-top: 20px;
+    transition: all ease 0.3s;
 }
 
 .welcome-desc a:hover{
