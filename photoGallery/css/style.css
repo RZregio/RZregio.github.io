@@ -205,6 +205,8 @@ a:active {
 #flower-container,
 #sky-container {
     text-align: center;
+    margin: 0px auto;
+    display: flex;
 }
 
 #landscape-image,

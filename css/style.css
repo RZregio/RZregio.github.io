@@ -103,14 +103,14 @@ body {
 /*Project Page*/
 #projects-page {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    padding: 40px 20px;
+    padding: 40px auto 0px auto;
     background: linear-gradient(135deg, #2A2A3C, #1A1A2E, #384465, #63638b);
     background-size: 300% 300%;
     animation: gradientAnimation 10s ease infinite;
     flex-wrap: wrap;
-    flex-grow: 1
+    flex-grow: 1;
 }
 
 .projects-info {
@@ -372,7 +372,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 200px 20px 0 0;
+    padding: 200px 0px 0 0;
     background-color: #1a1b2eb3;
     width: 100%;
     height: auto
@@ -571,9 +571,11 @@ body {
         flex-direction: column;
         justify-content: center;
         align-content: center;
+        text-align: center;
         margin: 10px auto 10px auto;
         padding: 10px 0 10px 0;
-        width: 480px
+        width: 100%;  
+        max-width: 480px;
     }
 
     .contact-selection img {
@@ -600,17 +602,22 @@ body {
         font-size: 14px
     }
 
+    .projects-note h2{
+        font-size: 20px;
+    }
+
     #content {
         flex-direction: column;
-        align-items: center
+        align-items: center;
+        text-align: center;
+        justify-content: center;
     }
 
     .profile-picture {
         max-width: 80%;
-        margin-right: 0;
         margin-bottom: 20px
     }
-
+    
     .contact-header h1 {
         font-size: 30px
     }
@@ -619,12 +626,10 @@ body {
         flex-direction: row;
         max-width: none;
         width: 40px;
-        margin: 0
     }
 
     .contact-selection img {
         max-width: 0;
-        margin: 0
     }
 
     .contact-details {
