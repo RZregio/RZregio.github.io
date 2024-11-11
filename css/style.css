@@ -59,9 +59,9 @@ body {
     transform: translate(-50%, -50%);
     color: white;
     font-size: 16px;
-    background-color: rgba(0, 0, 0, 0.5); 
+    background-color: rgba(0, 0, 0, 0.5);
     padding: 10px;
-    display: none; 
+    display: none;
     border-radius: 5px;
     text-align: center;
 }
@@ -70,9 +70,9 @@ body {
     display: block;
 }
 
-.hover-text:hover{
+.hover-text:hover {
     color: wheat;
-    background-color: rgba(0, 0, 0, 0.7); 
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .profile-picture img:hover {
@@ -464,39 +464,57 @@ body {
 
 
 
-/*Unfinished Pages*/
+/* Unfinished Pages */
 #unfinished {
-    display: table-column;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    align-content: center;
     padding: 40px 20px;
     background: linear-gradient(135deg, #2A2A3C, #1A1A2E, #384465, #63638b);
     background-size: 300% 300%;
     animation: gradientAnimation 10s ease infinite;
     flex-wrap: wrap;
-    flex-grow: 1
+    flex-grow: 1;
 }
 
+/* Error section */
 .error {
-    max-width: 200px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    margin-right: auto;
-    margin-left: auto
+    margin: 0 auto;
 }
 
+.error h1 {
+    font-size: 200px;
+    font-family: 'Fredoka', sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    -webkit-text-stroke: 10px #9f980a;
+}
+
+/* Styling for the image */
 .error img {
     width: 100%;
     height: auto;
+    max-width: 200px;
     border: 10px solid #9f980a;
     border-radius: 10px;
     background-color: #162447;
     opacity: 0;
-    transform: scale(.5);
-    animation: fadeIn 0.5s ease-in forwards
+    transform: scale(0.5);
+    animation: fadeIn 0.5s ease-in forwards;
 }
 
 .fix {
     color: #fff;
+    font-family: Fredoka;
     text-align: center;
     margin-right: auto;
     margin-left: auto;
@@ -545,7 +563,7 @@ body {
 
 
 /*Mobile version Fix*/
-@media(max-width:1280px){
+@media(max-width:1280px) {
     #about-head {
         display: flex;
         flex-direction: column
@@ -603,13 +621,22 @@ body {
         text-align: center;
         margin: 10px auto 10px auto;
         padding: 10px 0 10px 0;
-        width: 100%;  
+        width: 100%;
         max-width: 480px;
     }
 
     .contact-selection img {
         max-width: 0;
         margin: 0
+    }
+
+    .error h1 {
+        font-size: 140px;
+        -webkit-text-stroke: 8px #9f980a;
+    }
+
+    .error img {
+        max-width: 150px;
     }
 }
 
@@ -631,7 +658,7 @@ body {
         font-size: 14px
     }
 
-    .projects-note h2{
+    .projects-note h2 {
         font-size: 20px;
     }
 
@@ -646,7 +673,7 @@ body {
         max-width: 80%;
         margin-bottom: 20px
     }
-    
+
     .contact-header h1 {
         font-size: 30px
     }
@@ -664,5 +691,15 @@ body {
     .contact-details {
         max-width: 250px;
         font-size: 12px
+    }
+
+    .error h1 {
+        font-size: 80px;
+        -webkit-text-stroke: 5px #9f980a;
+        
+    }
+
+    .error img {
+        max-width: 100px;
     }
 }
