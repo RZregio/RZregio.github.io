@@ -3,10 +3,13 @@
 /*github.com/cjdeclaro*/
 
 /*Key Art default settings*/
-
 .keyart,
 .keyart_layer {
-	height: 1000px;
+	height: 450px;
+}
+
+.stones {
+	height: 200px;
 }
 
 .keyart {
@@ -16,7 +19,7 @@
 
 .keyart_layer {
 	background-position: bottom center;
-	background-size: auto 1038px;
+	background-size: auto 1050px;
 	background-repeat: repeat-x;
 	width: 100%;
 	position: absolute;
@@ -32,44 +35,204 @@
 	z-index: 200;
 }
 
-/*ADD OR REMOVE LAYERS AS NEEDED*/
 
+
+/* Main Parallax Assets */
 #keyart-0 {
 	background-image: url(../res/parallax0.png);
+	background-size: cover;
+	background-position: center center;
+	height: 70vh;
 }
 
 #keyart-1 {
 	background-image: url(../res/parallax1.png);
+	background-size: cover;
+	background-position: center center;
+	height: 70vh;
 }
 
 #keyart-2 {
 	background-image: url(../res/parallax2.png);
+	background-size: cover;
+	background-position: center center;
+	height: 70vh;
 }
 
 #keyart-3 {
 	background-image: url(../res/parallax3.png);
+	background-size: cover;
+	background-position: center center;
+	height: 70vh;
 }
 
 #keyart-4 {
 	background-image: url(../res/parallax4.png);
+	background-size: cover;
+	background-position: center center;
+	height: 70vh;
 }
 
 #keyart-5 {
 	background-image: url(../res/parallax5.png);
+	background-size: cover;
+	background-position: center center;
+	height: 70vh;
 }
 
 #keyart-6 {
 	background-image: url(../res/parallax6.png);
+	background-size: cover;
+	background-position: center center;
+	height: 70vh;
 }
 
 #keyart-7 {
 	background-image: url(../res/parallax7.png);
+	background-size: cover;
+	background-position: center center;
+	height: 70vh;
 }
 
 #keyart-8 {
 	background-image: url(../res/parallax8.png);
+	background-size: cover;
+	background-position: center center;
+	height: 70vh;
 }
 
 #keyart-scrim {
 	opacity: 0;
+}
+
+
+
+/*Responsive Layers*/
+@media (max-width: 1300px) {
+	.keyart,
+	.keyart_layer {
+		height: 350px;
+	}
+
+	#keyart-0 {
+		height: 55vh;
+	}
+
+	#keyart-1 {
+		height: 55vh;
+	}
+
+	#keyart-2 {
+		height: 55vh;
+	}
+
+	#keyart-3 {
+		height: 55vh;
+	}
+
+	#keyart-4 {
+		height: 55vh;
+	}
+
+	#keyart-5 {
+		height: 55vh;
+	}
+
+	#keyart-6 {
+		height: 55vh;
+	}
+
+	#keyart-7 {
+		height: 55vh;
+	}
+
+	#keyart-8 {
+		height: 55vh;
+	}
+}
+
+@media (max-width: 900px) {
+	.keyart,
+	.keyart_layer {
+		height: 220px;
+	}
+
+	#keyart-0 {
+		height: 35vh;
+	}
+
+	#keyart-1 {
+		height: 35vh;
+	}
+
+	#keyart-2 {
+		height: 35vh;
+	}
+
+	#keyart-3 {
+		height: 35vh;
+	}
+
+	#keyart-4 {
+		height: 35vh;
+	}
+
+	#keyart-5 {
+		height: 35vh;
+	}
+
+	#keyart-6 {
+		height: 35vh;
+	}
+
+	#keyart-7 {
+		height: 35vh;
+	}
+
+	#keyart-8 {
+		height: 35vh;
+	}
+}
+
+@media (max-width: 600px) {
+	.keyart,
+	.keyart_layer {
+		height: 130px;
+	}
+
+	#keyart-0 {
+		height: 25vh;
+	}
+
+	#keyart-1 {
+		height: 25vh;
+	}
+
+	#keyart-2 {
+		height: 25vh;
+	}
+
+	#keyart-3 {
+		height: 25vh;
+	}
+
+	#keyart-4 {
+		height: 25vh;
+	}
+
+	#keyart-5 {
+		height: 25vh;
+	}
+
+	#keyart-6 {
+		height: 25vh;
+	}
+
+	#keyart-7 {
+		height: 20vh;
+	}
+
+	#keyart-8 {
+		height: 20vh;
+	}
 }

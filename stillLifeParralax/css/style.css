@@ -1,7 +1,81 @@
-/*PUT YOUR CUSTOM STYLE HERE*/
-
-/*!This style is important, do not override!*/
 * {
 	margin: 0;
 	padding: 0;
+	overflow-x: hidden;
+}
+
+.main-content {
+	background: linear-gradient(180deg, #1B0901, #341C04 31%, #3C2207 41%, #4E2C0A 56%, #6B4013 75%, #864E17 98%);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.header {
+	user-select: none;
+	padding-top: 100px;
+	padding-bottom: 300px;
+	color: #E9BC90;
+}
+
+.header h1 {
+	font-family: Fredoka;
+	font-weight: bold;
+}
+
+.header h3 {
+	font-family: Fredoka;
+	font-weight: 500;
+}
+
+.line-content {
+	user-select: none;
+	padding-bottom: 300px;
+}
+.part {
+	color: #E9BC90;
+	padding-top: 200px;
+	padding-bottom: 200px;
+	font-family: Fredoka;
+	font-weight: 500;
+	font-size: 24px;
+}
+
+.go-to-portfolio {
+	border-radius: 20px;	
+	padding: 20px;
+	font-family: Fredoka;
+	font-size: 16px;
+	font-weight: bold;
+	color: #E9BC90;
+	background-color: #6B4013;
+	border: none;
+	transition: 0.3s all ease;
+}
+
+.fade-in {
+    opacity: 0;  
+	transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;  
+	transform: translateY(0px);
+}
+
+.go-to-portfolio:hover {
+	letter-spacing: 2px;
+	text-decoration: underline;
+}
+
+
+
+/* For Responsiveness */
+@media (max-width: 500px) {
+	.part {
+		font-size: 16px;
+	}
 }
