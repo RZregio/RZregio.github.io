@@ -1,7 +1,6 @@
 .dark-mode {
     background: linear-gradient(45deg, #000000, #2E2E2E, #5C5C5C, #8A8A8A);
     background-size: 800% 800%;
-    animation: gradientAnimation 10s ease infinite;
     color: #ffffff;
 }
 
@@ -123,20 +122,6 @@ a:active {
 
 
 /*Animation Behavior*/
-@keyframes gradientAnimation {
-    0% {
-        background-position: 0% 50%
-    }
-
-    50% {
-        background-position: 100% 50%
-    }
-
-    100% {
-        background-position: 0% 50%
-    }
-}
-
 @keyframes fadeInUp {
     to {
         opacity: 1;

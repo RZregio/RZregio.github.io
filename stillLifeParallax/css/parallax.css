@@ -1,0 +1,358 @@
+/* PARALLAX.CSS */
+/*CSS created by Christopher Jay De Claro*/
+/*github.com/cjdeclaro*/
+
+/*Key Art default settings*/
+.keyart,
+.keyart_layer {
+	height: 450px;
+}
+
+.stones {
+	height: 200px;
+}
+
+.keyart {
+	position: relative;
+	z-index: 10;
+}
+
+.keyart_layer {
+	background-position: bottom center;
+	background-size: auto 1050px;
+	background-repeat: repeat-x;
+	width: 100%;
+	position: absolute;
+}
+
+.keyart_layer.parallax {
+	position: fixed;
+}
+
+.main-content {
+	width: 100%;
+	position: absolute;
+	z-index: 200;
+}
+
+
+
+/* Main Parallax Assets */
+#keyart-0 {
+	background-image: url(../res/parallax0.png);
+	background-size: cover;
+	background-position: center center;
+	height: 70vh;
+}
+
+#keyart-1 {
+	background-image: url(../res/parallax1.png);
+	background-size: cover;
+	background-position: center center;
+	height: 70vh;
+}
+
+#keyart-2 {
+	background-image: url(../res/parallax2.png);
+	background-size: cover;
+	background-position: center center;
+	height: 70vh;
+}
+
+#keyart-3 {
+	background-image: url(../res/parallax3.png);
+	background-size: cover;
+	background-position: center center;
+	height: 70vh;
+}
+
+#keyart-4 {
+	background-image: url(../res/parallax4.png);
+	background-size: cover;
+	background-position: center center;
+	height: 70vh;
+}
+
+#keyart-5 {
+	background-image: url(../res/parallax5.png);
+	background-size: cover;
+	background-position: center center;
+	height: 70vh;
+}
+
+#keyart-6 {
+	background-image: url(../res/parallax6.png);
+	background-size: cover;
+	background-position: center center;
+	height: 70vh;
+}
+
+#keyart-7 {
+	background-image: url(../res/parallax7.png);
+	background-size: cover;
+	background-position: center center;
+	height: 70vh;
+}
+
+#keyart-8 {
+	background-image: url(../res/parallax8.png);
+	background-size: cover;
+	background-position: center center;
+	height: 70vh;
+}
+
+#keyart-scrim {
+	opacity: 0;
+}
+
+
+
+/*Responsive Layers*/
+@media (max-width: 1300px){
+	.keyart,
+	.keyart_layer {
+		height: 350px;
+	}
+
+	#keyart-0, #keyart-1, #keyart-2, #keyart-3, #keyart-4, #keyart-5, #keyart-6, #keyart-7, #keyart-8  {
+		height: 55vh;
+	}
+}
+
+@media (max-width: 900px){
+	.keyart,
+	.keyart_layer {
+		height: 220px;
+	}
+
+	#keyart-0, #keyart-1, #keyart-2, #keyart-3, #keyart-4, #keyart-5, #keyart-6, #keyart-7, #keyart-8  {
+		height: 35vh;
+	}
+}
+
+@media (max-width: 600px){
+	.keyart,
+	.keyart_layer {
+		height: 129px;
+	}
+
+	#keyart-0, #keyart-1, #keyart-2, #keyart-3, #keyart-4, #keyart-5, #keyart-6, #keyart-7, #keyart-8  {
+		height: 20vh;
+	}
+}
+
+
+
+/* Portrait Responsive Layers */
+@media only screen and (max-device-width: 1280px) and (orientation: portrait) {
+    .keyart,
+	.keyart_layer {
+		height: 350px;
+	}
+
+	#keyart-0, #keyart-1, #keyart-2, #keyart-3, #keyart-4, #keyart-5, #keyart-6, #keyart-7, #keyart-8  {
+		height: 27vh;
+	}
+}
+
+@media only screen and (max-device-width: 890px) and (orientation: portrait) {
+    .keyart,
+	.keyart_layer {
+		height: 257px;
+	}
+
+	#keyart-0, #keyart-1, #keyart-2, #keyart-3, #keyart-4, #keyart-5, #keyart-6, #keyart-7, #keyart-8  {
+		height: 22vh;
+	}
+}
+
+@media only screen and (max-device-width: 780px) and (orientation: portrait) {
+    .keyart,
+	.keyart_layer {
+		height: 240px;
+	}
+
+	#keyart-0, #keyart-1, #keyart-2, #keyart-3, #keyart-4, #keyart-5, #keyart-6, #keyart-7, #keyart-8  {
+		height: 25vh;
+	}
+}
+
+@media only screen and (max-device-width: 730px) and (orientation: portrait) {
+    .keyart,
+	.keyart_layer {
+		height: 200px;
+	}
+
+	#keyart-0, #keyart-1, #keyart-2, #keyart-3, #keyart-4, #keyart-5, #keyart-6, #keyart-7, #keyart-8  {
+		height: 14vh;
+	}
+}
+
+@media only screen and (max-device-width: 600px) and (orientation: portrait) {
+    .keyart,
+	.keyart_layer {
+		height: 150px;
+	}
+
+	#keyart-0, #keyart-1, #keyart-2, #keyart-3, #keyart-4, #keyart-5, #keyart-6, #keyart-7, #keyart-8  {
+		height: 22vh;
+	}
+}
+
+
+
+@media only screen and (max-device-width: 450px) and (orientation: portrait) {
+    .keyart,
+	.keyart_layer {
+		height: 150px;
+	}
+
+	#keyart-0, #keyart-1, #keyart-2, #keyart-3, #keyart-4, #keyart-5, #keyart-6, #keyart-7, #keyart-8  {
+		height: 17vh;
+	}
+}
+
+@media only screen and (max-device-width: 395px) and (orientation: portrait) {
+    .keyart,
+	.keyart_layer {
+		height: 130px;
+	}
+
+	#keyart-0, #keyart-1, #keyart-2, #keyart-3, #keyart-4, #keyart-5, #keyart-6, #keyart-7, #keyart-8  {
+		height: 17vh;
+	}
+}
+
+@media only screen and (max-device-width: 380px) and (orientation: portrait) {
+    .keyart,
+	.keyart_layer {
+		height: 110px;
+	}
+
+	#keyart-0, #keyart-1, #keyart-2, #keyart-3, #keyart-4, #keyart-5, #keyart-6, #keyart-7, #keyart-8  {
+		height: 17vh;
+	}
+}
+
+
+
+/* Landscape Responsive Layers */
+@media only screen and (max-device-width: 1380px) and (orientation: landscape) {
+    .keyart,
+	.keyart_layer {
+		height: 400px;
+	}
+
+	#keyart-0, #keyart-1, #keyart-2, #keyart-3, #keyart-4, #keyart-5, #keyart-6, #keyart-7  {
+		height: 60vh;
+	}
+
+	#keyart-8 {
+		height: 45vh;
+	}
+
+	.main-content {
+		margin-top: 5px;
+	}
+}
+
+@media only screen and (max-device-width: 1280px) and (orientation: landscape) {
+    .keyart,
+	.keyart_layer {
+		height: 300px;
+	}
+
+	#keyart-0, #keyart-1, #keyart-2, #keyart-3, #keyart-4, #keyart-5, #keyart-6, #keyart-7  {
+		height: 60vh;
+	}
+
+	#keyart-8 {
+		height: 40vh;
+	}
+
+	.main-content {
+		margin-top: 5px;
+	}
+}
+
+@media only screen and (max-device-width: 1026px) and (max-height: 610px) and (orientation: landscape) {
+    .keyart,
+	.keyart_layer {
+		height: 300px;
+	}
+
+	#keyart-0, #keyart-1, #keyart-2, #keyart-3, #keyart-4, #keyart-5, #keyart-6, #keyart-7  {
+		height: 60vh;
+	}
+
+	#keyart-8 {
+		height: 55vh;
+	}
+
+	.main-content {
+		margin-top: 0px;
+	}
+}
+
+@media only screen and (max-device-width: 950px) and (orientation: landscape) {
+    .keyart,
+	.keyart_layer {
+		height: 300px;
+	}
+
+	#keyart-0, #keyart-1, #keyart-2, #keyart-3, #keyart-4, #keyart-5, #keyart-6, #keyart-7, #keyart-8  {
+		height: 75vh;
+	}
+
+	.main-content {
+		margin-top: 0px;
+	}
+}
+
+@media only screen and (max-device-width: 885px) and (max-height: 350px) and (orientation: landscape) {
+    .keyart,
+	.keyart_layer {
+		height: 270px;
+	}
+
+	#keyart-0, #keyart-1, #keyart-2, #keyart-3, #keyart-4, #keyart-5, #keyart-6, #keyart-7, #keyart-8  {
+		height: 80vh;
+	}
+
+	.main-content {
+		margin-top: 0px;
+	}
+}
+
+@media only screen and (max-device-width: 850px) and (orientation: landscape) {
+    .keyart,
+	.keyart_layer {
+		height: 300px;
+	}
+
+	#keyart-0, #keyart-1, #keyart-2, #keyart-3, #keyart-4, #keyart-5, #keyart-6, #keyart-7, #keyart-8  {
+		height: 88vh;
+	}
+}
+
+@media only screen and (max-device-width: 725px) and (orientation: landscape) {
+    .keyart,
+	.keyart_layer {
+		height: 265px;
+	}
+
+	#keyart-0, #keyart-1, #keyart-2, #keyart-3, #keyart-4, #keyart-5, #keyart-6, #keyart-7, #keyart-8  {
+		height: 50vh;
+	}
+}
+
+@media only screen and (max-device-width: 680px) and (orientation: landscape) {
+    .keyart,
+	.keyart_layer {
+		height: 265px;
+	}
+
+	#keyart-0, #keyart-1, #keyart-2, #keyart-3, #keyart-4, #keyart-5, #keyart-6, #keyart-7, #keyart-8  {
+		height: 76vh;
+	}
+}

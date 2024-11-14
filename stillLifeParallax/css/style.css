@@ -34,6 +34,7 @@
 	user-select: none;
 	padding-bottom: 300px;
 }
+
 .part {
 	color: #E9BC90;
 	padding-top: 200px;
@@ -55,10 +56,15 @@
 	transition: 0.3s all ease;
 }
 
+.part {
+    opacity: 1;
+    transform: none;
+}
+
 .fade-in {
     opacity: 0;  
 	transform: translateY(20px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .fade-in.visible {

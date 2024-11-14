@@ -144,32 +144,35 @@
 		</script>
 
 	<script>
-		function isInline(el) {
-			const line = el.getBoundingClientRect();
-			const padding = 200;
+		document.addEventListener('DOMContentLoaded', () => {
+			const animatedElements = document.querySelectorAll('.part');
 
-			return (
-				line.top + padding >= 0 &&
-				line.left >= 0 &&
-				line.bottom - padding <= (window.innerHeight || document.documentElement.clientHeight) &&
-				line.right <= (window.innerWidth || document.documentElement.clientWidth)
-			);
-		}
+			const observerOptions = {
+				root: null, 
+				rootMargin: '0px 0px -200px 0px',
+				threshold: 0 
+			};
 
-		function lineVisible(){
-			const lineParagraphs = document.querySelectorAll('.part');
-			lineParagraphs.forEach((el) => {
-				if(isInline(el)){
-					el.classList.add('visible');
-				} else {
-					el.classList.remove('visible');
-				}
-				
-			});
-		}
+			if ('IntersectionObserver' in window) {
+				const observer = new IntersectionObserver((entries) => {
 
-		window.addEventListener('scroll', lineVisible);
-		window.addEventListener('load', lineVisible)
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							entry.target.classList.add('visible');
+						}
+					});
+				}, observerOptions);
+
+				animatedElements.forEach((element) => {
+					element.classList.add('fade-in'); 
+					observer.observe(element); 
+				});
+			} else {
+				animatedElements.forEach((element) => {
+					element.classList.add('visible'); 
+				});
+			}
+		});
 	</script>
 </body>
 
