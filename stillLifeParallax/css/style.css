@@ -4,6 +4,10 @@
 	overflow-x: hidden;
 }
 
+html, body {
+	background-color: #1B0901;
+}
+
 .main-content {
 	background: linear-gradient(180deg, #1B0901, #341C04 31%, #3C2207 41%, #4E2C0A 56%, #6B4013 75%, #864E17 98%);
 	display: flex;
@@ -74,6 +78,26 @@
 
 .go-to-portfolio:hover {
 	letter-spacing: 2px;
+	text-decoration: underline;
+}
+
+.back-on-top {
+	margin-bottom: 20px;
+	border-radius: 20px;
+}
+
+.back-on-top button {
+	padding: 0px 20px;
+	border: none;
+	background-color: transparent;
+	font-family: Fredoka;
+	font-size: 18px;
+	color: #E9BC90;
+	transition: all ease 0.3s;
+}
+
+.back-on-top button:hover {
+	transform: translateY(-4px);
 	text-decoration: underline;
 }
 
