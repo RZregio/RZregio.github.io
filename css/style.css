@@ -3,11 +3,10 @@ body {
     margin: 0;
     height: 100%;
     width: 100%;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(135deg, #2A2A3C, #1A1A2E, #283149, #4B4B6A);
-    background-size: 500% 500%;
+    background: linear-gradient(0deg, #2A2A3C, #262638 20%, #283149 75%, #4B4B6A 100%);
     overflow-x: hidden;
 }
 
@@ -90,11 +89,10 @@ body {
 
 .homepage .greet h1 {
     font-size: px;
-    font-family: Poppins;
+    font-family: Fredoka;
     font-weight: bold;
     color: #DAA520;
     margin-bottom: 30px;
-    text-shadow: 0 0 10px rgb(0 0 0 / .7)
 }
 
 .homepage .start {
@@ -153,9 +151,8 @@ body {
 .projects-head {
     color: #DAA520;
     font-weight: 700;
-    font-family: Poppins;
+    font-family: Fredoka;
     text-align: center;
-    text-shadow: 0 0 20px #141427;
     opacity: 0;
     transform: translateY(-40px);
     animation: fadeIn 0.5s ease-in forwards
@@ -192,7 +189,7 @@ body {
     color: #DAA520;
     font-weight: 700;
     text-align: center;
-    font-family: Poppins;
+    font-family: Fredoka;
     opacity: 0;
     transform: translateY(-40px);
     animation: fadeIn 0.5s ease-in forwards
@@ -269,16 +266,15 @@ body {
 .about-page h1 {
     color: #DAA520;
     font-weight: 700;
-    font-family: Poppins;
+    font-family: Fredoka;
     font-size: 58px;
     text-align: center;
-    text-shadow: 0 0 20px #141427
 }
 
 .about-page p {
     color: #c5c3d8;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 18px;
     text-align: center;
     padding-left: 10px;
     padding-right: 10px;
@@ -312,7 +308,7 @@ body {
 .coding-info p {
     color: #c5c3d8;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 18px;
     text-align: center;
     padding-left: 10px;
     padding-right: 10px;
@@ -388,7 +384,7 @@ body {
 .designing-info p {
     color: #c5c3d8;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 18px;
     text-align: center;
     padding-left: 10px;
     padding-right: 10px;
@@ -410,7 +406,7 @@ body {
     display: flex;
     color: #DAA520;
     font-weight: 700;
-    font-family: Poppins;
+    font-family: Fredoka;
     font-size: 36px;
     text-align: center;
     text-shadow: 0 0 20px #141427;
