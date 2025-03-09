@@ -6,7 +6,6 @@ body {
     font-family: 'Poppins', sans-serif;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(0deg, #2A2A3C, #262638 20%, #283149 75%, #4B4B6A 100%);
     overflow-x: hidden;
 }
 
@@ -18,9 +17,8 @@ body {
     justify-content: space-evenly;
     align-items: center;
     padding: 40px 20px;
-    background: linear-gradient(135deg, #2A2A3C, #1A1A2E, #384465, #63638b);
+    background: #222235;
     background-size: 300% 300%;
-    animation: gradientAnimation 10s ease infinite;
     flex-wrap: wrap;
     flex-grow: 1
 }
@@ -28,7 +26,7 @@ body {
 .profile-container {
     position: relative;
     display: inline-block;
-    transition: all ease 0.3s;
+    transition: all ease 0.1s;
 }
 
 .profile-picture {
@@ -37,7 +35,7 @@ body {
     margin-right: 20px;
     opacity: 0;
     transform: translateY(20px);
-    animation: fadeIn 0.5s ease-in forwards
+    animation: fadeIn 0.3s ease-in forwards
 }
 
 .profile-picture img {
@@ -80,7 +78,7 @@ body {
 .homepage {
     opacity: 0;
     transform: translateY(20px);
-    animation: fadeIn 0.5s ease-in forwards;
+    animation: fadeIn 0.3s ease-in forwards;
     color: #E0E0E0;
     text-align: center;
     max-width: 500px;
@@ -129,12 +127,22 @@ body {
 /*Project Page*/
 #projects-page {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    padding: 40px auto 0px auto;
-    background: linear-gradient(135deg, #2A2A3C, #1A1A2E, #384465, #63638b);
+    padding: 40px 20px;
+    background: #222235;
     background-size: 300% 300%;
-    animation: gradientAnimation 10s ease infinite;
+    flex-wrap: wrap;
+    flex-grow: 1;
+}
+
+#projects-page-body {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 40px 20px;
+    background: #222235;
+    background-size: 300% 300%;
     flex-wrap: wrap;
     flex-grow: 1;
 }
@@ -145,7 +153,7 @@ body {
     margin: 10px;
     opacity: 0;
     transform: translateY(20px);
-    animation: fadeIn 0.5s ease-in forwards
+    animation: fadeIn 0.3s ease-in forwards
 }
 
 .projects-head {
@@ -155,7 +163,7 @@ body {
     text-align: center;
     opacity: 0;
     transform: translateY(-40px);
-    animation: fadeIn 0.5s ease-in forwards
+    animation: fadeIn 0.3s ease-in forwards
 }
 
 .projects-desc {
@@ -171,7 +179,7 @@ body {
     background-color: #162447;
     opacity: 0;
     transform: translateY(40px);
-    animation: fadeIn 0.5s ease-in forwards
+    animation: fadeIn 0.3s ease-in forwards
 }
 
 .projects-link {
@@ -182,7 +190,7 @@ body {
     margin: 20px;
     opacity: 0;
     transform: translateY(40px);
-    animation: fadeIn 0.5s ease-in forwards
+    animation: fadeIn 0.3s ease-in forwards
 }
 
 .projects-note {
@@ -192,7 +200,10 @@ body {
     font-family: Fredoka;
     opacity: 0;
     transform: translateY(-40px);
-    animation: fadeIn 0.5s ease-in forwards
+    animation: fadeIn 0.3s ease-in forwards;
+    padding-top: 20px;
+    max-width: 500px;
+    height: 80px;
 }
 
 .projects-link button {
@@ -223,7 +234,7 @@ body {
     justify-content: space-evenly;
     align-items: center;
     margin: 0;
-    background-color: #0f3460b3;
+    background-color: #222235;
     padding-bottom: 20px;
     padding-top: 50px;
 }
@@ -239,7 +250,7 @@ body {
     margin: 0 20px;
     opacity: 0;
     transform: translateY(-20px);
-    animation: fadeIn 0.5s ease-in forwards
+    animation: fadeIn 0.3s ease-in forwards
 }
 
 .about-profile img {
@@ -260,7 +271,7 @@ body {
     margin: 0 20px;
     opacity: 0;
     transform: translateY(-20px);
-    animation: fadeIn 0.5s ease-in forwards
+    animation: fadeIn 0.3s ease-in forwards
 }
 
 .about-page h1 {
@@ -287,7 +298,7 @@ body {
     justify-content: space-evenly;
     align-items: center;
     margin: 0;
-    background-color: #1a1b2eb3;
+    background-color: #2E2E48;
     padding-top: 50px;
     padding-bottom: 50px;
 }
@@ -302,7 +313,7 @@ body {
     margin: 0 20px;
     opacity: 0;
     transform: translateY(-20px);
-    animation: fadeIn 0.5s ease-in forwards
+    animation: fadeIn 0.3s ease-in forwards
 }
 
 .coding-info p {
@@ -326,7 +337,7 @@ body {
     width: 100%;
     opacity: 0;
     transform: translateY(-20px);
-    animation: fadeIn 0.5s ease-in forwards
+    animation: fadeIn 0.3s ease-in forwards
 }
 
 .code-profile img {
@@ -334,7 +345,7 @@ body {
     height: 300px;
     border: 5px solid #DAA520;
     border-radius: 80%;
-    background-color: #110f3a
+    background-color: #110f3a;
 }
 
 #about-design {
@@ -342,7 +353,7 @@ body {
     justify-content: space-evenly;
     align-items: center;
     margin: 0;
-    background-color: #0f3460b3;
+    background-color: #222235;
     padding-top: 50px;
     padding-bottom: 50px;
 }
@@ -358,7 +369,7 @@ body {
     margin: 0 20px;
     opacity: 0;
     transform: translateY(-20px);
-    animation: fadeIn 0.5s ease-in forwards
+    animation: fadeIn 0.3s ease-in forwards
 }
 
 .design-profile img {
@@ -378,7 +389,7 @@ body {
     width: 100%;
     opacity: 0;
     transform: translateY(-20px);
-    animation: fadeIn 0.5s ease-in forwards
+    animation: fadeIn 0.3s ease-in forwards
 }
 
 .designing-info p {
@@ -396,8 +407,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 200px 0px 0 0;
-    background-color: #1a1b2eb3;
+    padding: 200px 0px 0px 0px;
+    background-color: #2E2E48;
     width: 100%;
     height: auto
 }
@@ -412,7 +423,7 @@ body {
     text-shadow: 0 0 20px #141427;
     opacity: 0;
     transform: translateY(-20px);
-    animation: fadeIn 0.5s ease-in forwards
+    animation: fadeIn 0.3s ease-in forwards
 }
 
 .contact-selection {
@@ -428,7 +439,7 @@ body {
     margin: 0 20px;
     opacity: 0;
     transform: translateX(-20px);
-    animation: fadeIn 0.5s ease-in forwards
+    animation: fadeIn 0.3s ease-in forwards
 }
 
 .contact-details {
@@ -446,7 +457,7 @@ body {
     padding-bottom: 20px;
     opacity: 0;
     transform: translateX(20px);
-    animation: fadeIn 0.5s ease-in forwards
+    animation: fadeIn 0.3s ease-in forwards
 }
 
 .contact-details a {
@@ -463,12 +474,11 @@ body {
 @keyframes fadeIn {
     0% {
         opacity: 0;
-        transform: scale(.95)
+        transform: scale(0.98) translateY(5px);
     }
-
     100% {
         opacity: 1;
-        transform: scale(1)
+        transform: scale(1) translateY(0);
     }
 }
 
@@ -531,10 +541,8 @@ body {
         justify-content: center;
         align-content: center;
         text-align: center;
-        margin: 10px auto 10px auto;
-        padding: 10px 0 10px 0;
+        padding: 20px 0 20px 0;
         width: 100%;
-        max-width: 480px;
     }
 
     .contact-selection img {

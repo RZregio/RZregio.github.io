@@ -1,0 +1,424 @@
+html,
+body {
+    margin: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-color: #252525;
+    overflow-x: hidden;
+}
+
+
+
+/*remove link default state*/
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:focus,
+a:active {
+    outline: none;
+}
+
+
+
+/*Navigation Bar*/
+#upper-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #252525;
+    flex-wrap: wrap;
+    border-bottom: 3px #c01f33 solid;
+}
+
+#upper-section h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Georgia';
+    color: aliceblue;
+    padding-bottom: 10px;
+}
+
+.more-lenovo, .featured-lenovo {
+    font-family: Poppins;
+    letter-spacing: -1px;
+    border-radius: 10px;
+    color: #d7d7d7;
+    transition: all ease 0.3s;
+}
+
+.more-lenovo:hover, .featured-lenovo:hover{
+    transform: translateY(-3px);
+    background: linear-gradient(180deg, #4f4f4f 20%, #3b3b3b 50%);
+    color: #d7d7d7;
+}
+
+
+
+/*end line*/
+.footer {
+    border-top: 3px #c01f33 solid;
+    width: 50%;
+    text-align: center;
+    color: white;
+    font-family: Georgia;
+    background-color: #252525;
+    padding: 15px 0;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+/*Link Page*/
+#more-site {
+    display: flex;
+    flex-direction: column;
+}
+
+.visit {
+    font-family: Poppins;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    color: #ffffff
+}
+
+.visit-page {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}
+
+.visit-page .card {
+    box-shadow: 0 4px 10px #3b3b3b;
+    background-color: #4f4f4f;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.visit-page .card:hover {
+    transform: scale(1.10);
+    z-index: 10px;    
+}
+
+.visit-page .card-title {
+    color: aliceblue;
+    text-align: center;
+}
+
+.visit-page .card-text {
+    height: 150px;
+    font-family: Roboto;
+    font-weight: bold;
+    color: #d7d7d7;
+    text-align: justify;
+    hyphens: auto;
+    opacity: 90%;
+}
+
+.visit-page img {
+    height: 200px;
+}
+
+.visit-page a:hover {
+    transform: translateY(-3px);
+    box-shadow: 2px 2px 2px #DAA520;
+}
+
+
+
+/*Home Section*/
+#product-page {
+    color: #d7d7d7;
+    font-size: 14px;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+#content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: #252525;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    margin-bottom: 50px;
+    transition: filter 0.3s ease-in-out;
+}
+
+.product-profile {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.3s ease-in forwards;
+    max-width: 600px;
+    width: 100%;
+    padding-top: 80px;
+    padding-right: 20px;
+    margin-bottom: 40px;
+}
+
+.product-profile img {
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+
+.product-info {
+    opacity: 0;
+    margin: 0px auto 0px auto;
+    transform: translateY(-20px);
+    animation: fadeIn 0.3s ease-in forwards;
+    text-align: center;
+    max-width: 500px;
+    background-color: #252525;
+    border: 3px #959595 solid;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.product-info .product-title {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeIn 0.3s ease-in forwards;
+    font-family: Roboto;
+    margin-bottom: 20px;
+}
+
+.product-info .product-details {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeIn 0.3s ease-in forwards;
+    text-align: left;
+    font-family: Open Sans;
+    color: #959595;
+    background-color: #393939;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+#product-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 3px #959595 solid;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    flex: wrap;
+}
+
+#product-summary h4 {
+    font-family: Roboto;
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #dedede;
+    margin-right: 10px;
+}
+
+.slice-summary {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    cursor: crosshair;
+}
+
+.slice-summary p {
+    text-align: center;
+    hyphens: auto;
+    font-size: 20px;
+    font-family: Open Sans;
+    color: #959595;
+    background-color: #393939;
+    padding: 20px;
+    border-radius: 20px;
+    margin: 10px;
+    flex: 1;
+    max-width: 400px;
+    height: 100%;
+    transition: all ease 0.3s;
+}
+
+.slice-summary p:hover {
+    transform: scale(1.1);
+    z-index: 10px;
+}
+
+
+
+/*More on Lenovo*/
+#welcome-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px auto;
+    background-color: #252525;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    margin-bottom: 50px;
+}
+
+.welcome-lenovo {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeIn 0.3s ease-in forwards;
+}
+
+.welcome-lenovo iframe, .video-body iframe{
+    border-radius: 20px;
+}
+
+.welcome-text {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeIn 0.3s ease-in forwards;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.welcome-title {
+    font-size: clamp(16px, 5vw, 40px);
+    color: #ffffff;
+    text-align: center;
+}
+
+.welcome-desc {
+    color: #e0e0e0;
+    text-align: justify;
+    font-size:  16px;
+    background: linear-gradient(180deg, #3b3b3b 60%, #4f4f4f 100%);
+    border-radius: 20px;
+    padding: 40px;
+    margin-top: 20px;
+    transition: all ease 0.3s;
+}
+
+.welcome-desc a:hover{
+ transform: translateY(3px);
+ color: #7c7c7c;
+}
+
+.welcome-desc:hover{
+    transform: translateY(-2px);
+    background: linear-gradient(180deg, #4f4f4f 60%, #3b3b3b 100%);
+}
+
+
+
+/*Video Page*/
+.video-page {
+    margin-top: 120px;
+    text-align: center;
+}
+
+.lenovo-videos {
+    background: linear-gradient(180deg, #3b3b3b 60%, #4f4f4f 100%);
+    padding: 40px;
+    border-radius: 20px;
+}
+
+.video-container {
+    padding-top: 20px;
+}
+
+.video-text {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeIn 0.3s ease-in forwards;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 0px;
+    border-bottom: #c23b4b solid 2px;
+}
+
+.video-title {
+    font-size: 20px;
+    color: #ffffff;
+    font-family: Poppins;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.video-desc {
+    color: #e0e0e0;
+    opacity: 80%;
+    text-align: justify;
+    font-size:  16px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+
+
+/*Animations*/
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/*Flexibility for different devices*/
+@media (max-width: 900px) {
+    .title h1 {
+        font-size: 20px;
+    }
+
+    .navigation button {
+        padding: 6px 8px;
+        font-size: 12px;
+    }
+
+    #content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #welcome-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-profile {
+        max-width: 80%;
+        margin-right: 0;
+    }
+
+    .slice-summary {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 400px) {
+    .welcome-desc {
+        font-size: 11px;
+    }
+
+    .video-page h2{
+        font-size: 16px;
+    }
+
+    .video-title{
+        font-size: 14px;
+    }
+
+    .video-desc{
+        font-size: 10px;
+    }
+}

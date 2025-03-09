@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RZ: Photo Gallery</title>
+
+  <link rel="icon" href="res/RzBrand.ico">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+
+
+<body data-bs-theme="light" id="body" class="light-mode">
+  <nav id="nav-bar" class="navbar navbar-expand-lg bg-body-tertiary shadow">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="../index.html">
+        <h3>
+          RZ
+          <span style="color: #DAA520; font-size: 24px;">photoGallery.</style>
+        </h3>
+      </a>
+      <button id="navbarToggler" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#landscape-head">Landscapes Collection</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#flower-head">Flowers Collection</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#sky-head">Skies Collection</a>
+          </li>
+        </ul>
+        <button class="btn btn-outline-secondary" id="btnColor" onclick="changeColorMode()">Dark Mode</button>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <div class="container">
+    <div id="banner" class="row">
+      <div class="header col-12 col-md-6 col-lg-6 mr-5">
+        <h1 class="title-head pt-5">Welcome to My Photo Gallery</h1>
+        <p class="description">Welcome to
+          <span style="color: #9b58ff;">RZ:</span>
+          <span style="color: #DAA520;">Photo Gallery</span>!
+          Immerse yourself in a stunning collection of my favorite
+          photographs, featuring breathtaking landscapes, vibrant flowers, and captivating skies. Each image captures
+          the beauty of nature and invites you to experience the world through my lens.
+          Join me on this visual journey and explore the wonders
+          of the natural world, one photo at a time.
+        </p>
+      </div>
+      <div class="capture col-6 col-md-6 col-lg-6">
+        <img src="res/capture.png" alt="Capture">
+      </div>
+    </div>
+
+
+
+    <div class="break-line"></div>
+
+
+
+    <div id="landscape-head" class="row">
+      <div class="header col-12">
+        <h1 class="title-head pt-5">My Landscapes collection</h1>
+        <p class="description">Explore a diverse collection of landscape photography capturing the essence of Santo
+          Tomas, Batangas. From iconic establishments like Burger King and PUP Santo Tomas to scenic views of the town’s
+          natural beauty, each shot offers a glimpse into the vibrant and dynamic atmosphere of the region.
+        </p>
+      </div>
+    </div>
+    <div class="section-line"></div>
+
+    <div id="landscape" class="row carousel">
+      <div id="landscape-container" class="col-12 col-xl-6 justify-content-center">
+        <img id="landscape-image" class="slide-image" src="" alt="Landscape Image">
+      </div>
+      <div id="landscape-info" class="col-12 col-xl-6">
+        <h2 id="landscape-title"></h2>
+        <p id="landscape-description"></p>
+      </div>
+    </div>
+    <div class="change-image col-12 col-xl-6">
+      <a href="#landscape"><button class="slide mb-5" onclick="prevLandscape()">Previous</button></a>
+      <a href="#landscape"><button class="slide mb-5" onclick="nextLandscape()">Next</button></a>
+    </div>
+
+
+
+    <div id="flower-head" class="row">
+      <div class="header col-12">
+        <h1 class="title-head pt-5">My Flowers collection</h1>
+        <p class="description">Step into a vibrant gallery of floral photography, personally captured to showcase the
+          delicate beauty and diversity of flowers. Each shot highlights the intricate details, colors, and charm of
+          blooms from various settings, offering a serene visual journey through nature’s finest displays.
+        </p>
+      </div>
+    </div>
+    <div class="section-line"></div>
+
+    <div id="flower" class="row carousel">
+      <div id="flower-container" class="col-12 col-xl-6 justify-content-center">
+        <img id="flower-image" class="slide-image" src="" alt="Flower Image">
+      </div>
+      <div id="flower-info" class="col-12 col-xl-6">
+        <h2 id="flower-title"></h2>
+        <p id="flower-description"></p>
+      </div>
+    </div>
+    <div class="change-image col-12 col-xl-6">
+      <a href="#flower"><button class="slide mb-5" onclick="prevFlower()">Previous</button></a>
+      <a href="#flower"><button class="slide mb-5" onclick="nextFlower()">Next</button></a>
+    </div>
+
+
+
+    <div id="sky-head" class="row">
+      <div class="header col-12">
+        <h1 class="title-head pt-5">My Skies collection</h1>
+        <p class="description">Discover a stunning collection of sky photography, personally captured to reveal the
+          ever-changing beauty of the skies. From vibrant sunsets to clear blue horizons and dramatic cloud formations,
+          each photo showcases the majesty and moods of the skies, offering a breathtaking view from above.
+        </p>
+      </div>
+    </div>
+    <div class="section-line"></div>
+
+    <div id="sky" class="row carousel">
+      <div id="sky-container" class="col-12 col-xl-6 justify-content-center">
+        <img id="sky-image" class="slide-image" src="" alt="sky Image">
+      </div>
+      <div id="sky-info" class="col-12 col-xl-6">
+        <h2 id="sky-title"></h2>
+        <p id="sky-description"></p>
+      </div>
+    </div>
+    <div class="change-image col-12 col-xl-6">
+      <a href="#sky"><button class="slide mb-5" onclick="prevSky()">Previous</button></a>
+      <a href="#sky"><button class="slide mb-5" onclick="nextSky()">Next</button></a>
+    </div>
+  </div>
+
+
+
+  <div id="more-site" class="container-fluid">
+    <div class="visit">
+      <h5>
+        Explore
+        <span style="color: #DAA520;">more</span>
+        of my works here:
+      </h5>
+    </div>
+    <div class="row visit-page">
+      <div class="card col-10 col-md-3" style="width: 20rem; height: 430px; border: none;">
+        <img src="res/portfolio.png" class="card-img-top" alt="Portfolio">
+        <div class="card-body">
+          <h5 class="card-title">RZ <span style="color: #d2c32d;">regio</span></h5>
+          <p class="card-text">Explore my official portfolio website, showcasing my skills, projects, and
+            creative endeavors. Dive into my work and discover my journey as a developer.</p>
+          <a href="https://rzregio.github.io/index.html" class="btn" style="background-color: #d2c32d; color:black;">
+            Visit Site
+          </a>
+        </div>
+      </div>
+
+      <div class="card col-10 col-md-3" style="width: 20rem; height: 430px; border: none;">
+        <img src="res/findWord.png" class="card-img-top" alt="Word">
+        <div class="card-body">
+          <h5 class="card-title">wordYou <span style="color: #d2c32d;">Sure?</span></h5>
+          <p class="card-text">Visit to verify any English word! Whether you're playing Scrabble,
+            improving your vocabulary, or checking word validity, this provide definitions, and more to
+            boost your
+            game strategy. Try it now!</p>
+          <a href="https://rzregio.github.io/webDevProjects/wordYouSure/index.html" class="btn"
+            style="background-color: #d2c32d; color:black;">
+            Visit Site
+          </a>
+        </div>
+      </div>
+
+      <div class="card col-10 col-md-3" style="width: 20rem; height: 430px; border: none;">
+        <img src="res/device.png" class="card-img-top" alt="Device">
+        <div class="card-body">
+          <h5 class="card-title">RZregio <span style="color: #d2c32d;">shop</span></h5>
+          <p class="card-text">Visit my product showcase website where you can browse a selection of featured
+            items. Each product is presented with detailed descriptions and images, making it easy to find
+            what you’re looking for.</p>
+          <a href="https://rzregio.github.io/webDevProjects/productInfo/index.html" class="btn"
+            style="background-color: #d2c32d; color:black;">
+            Visit Site
+          </a>
+        </div>
+      </div>
+
+      <div class="card col-10 col-md-3" style="width: 20rem; height: 430px; border: none;">
+        <img src="res/tour.png" class="card-img-top" alt="Tour">
+        <div class="card-body">
+          <h5 class="card-title">itsSTB <span style="color: #d2c32d;">Hub</span></h5>
+          <p class="card-text">Discover the beauty of Santo Tomas, Batangas, with this informative website.
+            Learn about local attractions, history, and culture, and find out what makes this destination
+            unique.</p>
+          <a href="https://rzregio.github.io/webDevProjects/placeHub/index.html" class="btn"
+            style="background-color: #d2c32d; color:black;">
+            Visit Site
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="accordion bg-body-tertiary" id="about">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+          aria-expanded="false" aria-controls="collapseOne">
+          MORE INFO
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#about">
+        <div class="accordion-body">
+          <strong><a href="../index.html">Created by RZ Regio,</a></strong> this photo gallery showcases my collection
+          of enhanced photographs,
+          capturing the beauty of landscapes, flowers, and skies. Through this site, I aim to share my passion for
+          photography and the unique moments I’ve captured, giving visitors a glimpse into the natural world from my
+          perspective. Enjoy exploring these carefully curated images, each telling its own story.
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <footer id="footer" class="container-fluid bg-body-tertiary align-items-center text-center shadow">
+    <p>&copy; 2024 RZ: Photo Gallery. All rights reserved</p>
+  </footer>
+
+
+  <script src="script/script.js"></script>
+  <script src="script/landscape.js"></script>
+  <script src="script/flower.js"></script>
+  <script src="script/sky.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

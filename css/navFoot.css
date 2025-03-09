@@ -14,24 +14,22 @@ a:active {
 /*Navigation Bar*/
 #upper-section {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
     position: sticky;
     top: 0;
     width: 100%;
     z-index: 1000;
-    background: linear-gradient(-90deg, rgb(15 52 96 / .7), rgb(26 27 46 / .7));
+    background: #223150;
     backdrop-filter: blur(10px);
-    border-bottom: 4px solid rgb(58 75 122 / .7);
 }
 
 .title h1 {
     margin: 0;
-    font-size: 24px;
+    font-size: clamp(16px, 4vw, 20px);
     font-weight: 700;
     font-family: Fredoka;
-    color: #FFF
+    color: #FFFFFF;
 }
 
 .navigation {
@@ -46,7 +44,7 @@ a:active {
 .navigation .nav-link {
     flex: 1 1 0%;
     padding: 6px 8px;
-    font-size: 16px;
+    font-size: clamp(10px, 2vw, 14px);
     font-family: Fredoka;
     cursor: pointer;
     background-color: #fff0;
@@ -71,7 +69,6 @@ a:active {
     color: #E0E0E0;
     background: #161729;
     backdrop-filter: blur(10px);
-    border-top: 4px solid rgb(58 75 122 / .7);
     padding-top: 30px;
     padding-bottom: 15px;
     height: auto
