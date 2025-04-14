@@ -103,29 +103,32 @@ usort($animeData, 'comparePopularityRank');
   <?php
   foreach ($animeData as $anime) {
     ?>
-    <div class="card mb-3 shadow-sm p-2" style="max-height: 500px;">
-      <div class="row g-2">
+    <div class="card mb-3 shadow-sm p-2">
+      <div class="row g-2 align-items-stretch">
 
-        <div class="col-md-3 col-4">
-          <img src="<?php echo $anime['image']; ?>" class="img-fluid rounded" alt="Anime Cover"
-            style="height: 100%; object-fit: cover;">
+        <div class="col-md-3 col-12">
+          <img src="<?php echo $anime['image']; ?>" class="img-fluid rounded w-100"
+            style="max-height: 100%; object-fit: cover;" alt="Anime Cover">
         </div>
 
-        <div class="col-md-9 col-8">
+        <div class="col-md-9 col-12">
           <div class="card-body py-2 px-3">
-            <h5 class="card-title mb-1"><?php echo "#" . $anime['popularity_rank'] . " " . $anime['title']; ?></h5>
+            <h5 class="card-title mb-1">
+              <?php echo "#" . $anime['popularity_rank'] . " " . $anime['title']; ?>
+            </h5>
+
             <p class="text-muted small mb-2">
               <strong>Genre:</strong> <?php echo $anime['genre']; ?><br>
-              <strong>Status:</strong> <?php echo $anime['status']; ?> • <strong>Type:</strong>
-              <?php echo $anime['type']; ?><br>
-              <strong>Rating:</strong> ⭐ <?php echo $anime['rating']; ?>/10 • <strong>Episodes:</strong>
-              <?php echo $anime['episodes']; ?> • <strong>Minutes/Episode:</strong>
-              <?php echo $anime['minutes_per_episode']; ?><br>
+              <strong>Status:</strong> <?php echo $anime['status']; ?> •
+              <strong>Type:</strong> <?php echo $anime['type']; ?><br>
+              <strong>Rating:</strong> ⭐ <?php echo $anime['rating']; ?>/10 •
+              <strong>Episodes:</strong> <?php echo $anime['episodes']; ?> •
+              <strong>Minutes/Episode:</strong> <?php echo $anime['minutes_per_episode']; ?><br>
               <strong>Total Runtime:</strong> <?php echo $anime['release_dates']; ?><br>
-              <strong>Studio:</strong> <?php echo $anime['studio']; ?> • <strong>Source:</strong>
-              <?php echo $anime['source']; ?><br>
-              <strong>Rating Rank:</strong> <?php echo "#" . $anime['rating_rank']; ?> • <strong>People Added:</strong>
-              <?php echo $anime['people_added']; ?>
+              <strong>Studio:</strong> <?php echo $anime['studio']; ?> •
+              <strong>Source:</strong> <?php echo $anime['source']; ?><br>
+              <strong>Rating Rank:</strong> #<?php echo $anime['rating_rank']; ?> •
+              <strong>People Added:</strong> <?php echo $anime['people_added']; ?>
             </p>
 
             <p class="card-text small mb-2">
@@ -136,12 +139,12 @@ usort($animeData, 'comparePopularityRank');
               <button class="btn btn-success btn-sm">Add to List</button>
               <button class="btn btn-outline-danger btn-sm">Remove from List</button>
             </div>
-
           </div>
         </div>
 
       </div>
     </div>
+
     <?php
   }
   ?>
