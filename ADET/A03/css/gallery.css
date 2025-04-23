@@ -1,0 +1,26 @@
+.header-title {
+    font-size: 36px;
+    font-weight: 700;
+    padding-top: 100px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+
+.categories span{
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #848487;
+}
+
+.gallery {
+    padding-top: 20px;
+}
+
+.gallery .pic{
+    background-color: #990000;
+    border-radius: 10px;
+    width: 300px;
+    height: 300px;
+    margin: 5px;
+}

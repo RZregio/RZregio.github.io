@@ -1,0 +1,64 @@
+/* Fonts and Sizes */
+body {
+    font-family: 'Fredoka', sans-serif;
+    font-size: clamp(14px, 1.5vw, 18px);
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+.card-title {
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-size: clamp(20px, 2vw, 28px);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.card-text {
+    text-align: center;
+    font-family: 'Fredoka', sans-serif;
+    font-size: clamp(12px, 1.2vw, 16px);
+    font-weight: 400;
+    color: #dcdcdc;
+}
+
+.navbar-brand {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(18px, 2.5vw, 22px);
+}
+
+
+/* Card Sizes */
+.card-small {
+    min-height: 150px;
+    height: 100%;
+}
+
+.card-mid {
+    min-height: 250px;
+    height: 100%;
+}
+
+.card-tall {
+    min-height: 282px;
+    height: 100%;
+    overflow: hidden;
+}
+
+.card-tall img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+@media (max-width: 720px) {
+    .container-fluid {
+        width: 100% !important;
+    }
+
+    .navbar {
+        width: 100% !important;
+    }
+}
