@@ -4,12 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Border Appreciation</title>
+    <title>AiB: Border Appreciation</title>
     <link rel="icon" href="res/RZbrand.ico">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/gallery.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
 </head>
@@ -28,15 +27,16 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                    <a class="nav-link" href="gallery.html">Gallery</a>
+                    <a class="nav-link"  href="index.html">Home</a>
+                    <a class="nav-link active" aria-current="page" href="gallery.html">Gallery</a>
                     <a class="nav-link" href="episodes.html">Episodes</a>
+                    <a class="nav-link" href="../../index.html">About-Us</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <div class="container-fluid ">
+    <div class="container-fluid">
         <div class="row">
             <div class="col">
                 <div class="header-title">
@@ -59,33 +59,63 @@
         </div>
     </div>
 
-    <div class="container-fluid" style="width: 90%;">
+    <div class="container-fluid" style="width: 95%;">
         <div class="row text-center mx-auto">
             <div class="col">
                 <div class="gallery d-flex justify-content-center flex-wrap mx-0">
-                    <div class="pic">
-
+                    <div class="pic p-3">
+                        <img src="res/gallery/1.jpg" alt="1" style="width: 100%; height: auto; border-radius: 20px;">
                     </div>
-                    <div class="pic">
-
+                    <div class="pic p-3">
+                        <img src="res/gallery/2.jpg" alt="2" style="width: 100%; height: auto; border-radius: 20px;">
                     </div>
-                    <div class="pic">
-
+                    <div class="pic p-3">
+                        <img src="res/gallery/3.jpg" alt="3" style="width: 100%; height: auto; border-radius: 20px;">
                     </div>
-                    <div class="pic">
-
+                    <div class="pic p-3">
+                        <img src="res/gallery/4.jpg" alt="4" style="width: 100%; height: auto; border-radius: 20px;">
                     </div>
-                    <div class="pic">
-
+                    <div class="pic p-3">
+                        <img src="res/gallery/5.jpg" alt="5" style="width: 100%; height: auto; border-radius: 20px;">
                     </div>
-                    <div class="pic">
-
+                    <div class="pic p-3">
+                        <img src="res/gallery/6.jpg" alt="6" style="width: 100%; height: auto; border-radius: 20px;">
                     </div>
-                    <div class="pic">
-
+                    <div class="pic p-3">
+                        <img src="res/gallery/7.jpg" alt="7" style="width: 100%; height: auto; border-radius: 20px;">
                     </div>
-                    <div class="pic">
-
+                    <div class="pic p-3">
+                        <img src="res/gallery/8.jpg" alt="8" style="width: 100%; height: auto; border-radius: 20px;">
+                    </div>
+                    <div class="pic p-3">
+                        <img src="res/gallery/9.jpg" alt="9" style="width: 100%; height: auto; border-radius: 20px;">
+                    </div>
+                    <div class="pic p-3">
+                        <img src="res/gallery/10.jpg" alt="10" style="width: 100%; height: auto; border-radius: 20px;">
+                    </div>
+                    <div class="pic p-3">
+                        <img src="res/gallery/11.jpg" alt="11" style="width: 100%; height: auto; border-radius: 20px;">
+                    </div>
+                    <div class="pic p-3">
+                        <img src="res/gallery/12.jpg" alt="12" style="width: 100%; height: auto; border-radius: 20px;">
+                    </div>
+                    <div class="pic p-3">
+                        <img src="res/gallery/13.jpg" alt="13" style="width: 100%; height: auto; border-radius: 20px;">
+                    </div>
+                    <div class="pic p-3">
+                        <img src="res/gallery/14.jpg" alt="14" style="width: 100%; height: auto; border-radius: 20px;">
+                    </div>
+                    <div class="pic p-3">
+                        <img src="res/gallery/15.jpg" alt="15" style="width: 100%; height: auto; border-radius: 20px;">
+                    </div>
+                    <div class="pic p-3">
+                        <img src="res/gallery/16.jpg" alt="16" style="width: 100%; height: auto; border-radius: 20px;">
+                    </div>
+                    <div class="pic p-3">
+                        <img src="res/gallery/17.jpg" alt="17" style="width: 100%; height: auto; border-radius: 20px;">
+                    </div>
+                    <div class="pic p-3">
+                        <img src="res/gallery/18.jpg" alt="18" style="width: 100%; height: auto; border-radius: 20px;">
                     </div>
                 </div>
             </div>
@@ -97,7 +127,7 @@
     <script>
         var zoomState = 3;
 
-        var dimensions = ["150px", "200px", "250px", "300px"];
+        var dimensionsX = ["300px", "350px", "450px", "500px"];
 
         function pinch() {
             zoomState -= 1;
@@ -105,8 +135,7 @@
 
             var pictureElements = document.getElementsByClassName("pic");
             for (var i = 0; i < pictureElements.length; i++) {
-                pictureElements[i].style.width = dimensions[zoomState];
-                pictureElements[i].style.height = dimensions[zoomState];
+                pictureElements[i].style.width = dimensionsX[zoomState];
             }
         }
 
@@ -116,8 +145,7 @@
 
             var pictureElements = document.getElementsByClassName("pic");
             for (var i = 0; i < pictureElements.length; i++) {
-                pictureElements[i].style.width = dimensions[zoomState];
-                pictureElements[i].style.height = dimensions[zoomState];
+                pictureElements[i].style.width = dimensionsX[zoomState];
             }
         }
     </script>
