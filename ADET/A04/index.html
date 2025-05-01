@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CatEnFur: care for cats</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="icon" href="res/RZbrand.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+</head>
+
+<body data-bs-theme="dark">
+  <div class="container-fluid">
+    <div class="row pt-3">
+      <div class="col-12">
+        <div class="row">
+          <div class="col pb-3">
+            <div class="card overflow-y-scroll p-3 topcontainer">
+              <div class="d-flex flex-start flex-row categories" id="categories">
+                <img src="res/home.png" style="max-height: 50px; max-width: 100%; object-fit: contain;;">
+                <h1 class="title">CatEnFur</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="order-2 order-lg-1 col-12 col-lg-3">
+          <div class="card p-3 overflow-scroll receipt" style="height: 100%;">
+            <div id="receipt">
+  
+            </div>
+            <div class="mt-4 d-flex flex-row justify-content-between">
+              <div><b>TOTAL</b></div>
+              <div><b id="totalValue">0</b></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="order-1 order-lg-2 col-12 col-lg-9 pb-2">
+          <div class="card overflow-scroll p-3 maincontainer">
+            <div class="d-flex flex-start flex-row flex-wrap" id="maincontainer">
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      
+  </div>
+
+  <script src="script/productArray.js"></script>
+  <script src="script/systemFunctions.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>

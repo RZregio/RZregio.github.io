@@ -1,0 +1,39 @@
+body{
+    font-family: Poppins;
+}
+
+h2{
+    font-family: Fredoka;
+}
+
+.topcontainer {
+    height: 15dvh;
+}
+
+.title {
+    font-family: Fredoka;
+    padding-right: 20px;
+    font-weight: 800;
+}
+
+.categories {
+    width: fit-content;
+}
+
+.custom-button {
+    width: 100px;
+    background-color: rgb(40, 40, 40);
+}
+
+.custom-button.content {
+    width: 200px;
+}
+
+.custom-button:hover {
+    background-color: rgb(94, 94, 94);
+    cursor: pointer;
+}
+
+.maincontainer {
+    height: 75dvh;
+}
