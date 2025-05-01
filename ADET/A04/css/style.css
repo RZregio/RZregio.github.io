@@ -6,6 +6,18 @@ h2{
     font-family: Fredoka;
 }
 
+a {
+    text-decoration: none;
+    color: inherit
+}
+
+a:focus,
+a:active {
+    outline: none;
+    color: #c5c5c5
+}
+
+
 .topcontainer {
     height: 15dvh;
 }
