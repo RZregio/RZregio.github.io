@@ -7,22 +7,19 @@ var products = [
                 "isAvailable": true,
                 "name": "Fancy Feast",
                 "image": "food/food1",
-                "description": "Grilled Seafood Feast, Pack Canned Cat Food 3-oz & Case of 24",
+                "description": "Grilled Seafood Feast, Pack Canned Cat Food",
                 "code": "FD Fncy Fst-",
                 "sizes": [
                     {
-                        "name": "regular",
-                        "code": "RG",
+                        "code": "2KG",
                         "price": 500
                     },
                     {
-                        "name": "medium",
-                        "code": "MD",
+                        "code": "5KG",
                         "price": 700
                     },
                     {
-                        "name": "large",
-                        "code": "LG",
+                        "code": "8KG",
                         "price": 900
                     }
                 ]
@@ -31,22 +28,19 @@ var products = [
                 "isAvailable": true,
                 "name": "Meow Mix",
                 "image": "food/food2",
-                "description": "Original Choice Dry Cat Food, 22-lb bag",
+                "description": "Original Choice Dry Cat Food",
                 "code": "FD Mw Mx-",
                 "sizes": [
                     {
-                        "name": "regular",
-                        "code": "RG",
+                        "code": "5KG",
                         "price": 850
                     },
                     {
-                        "name": "medium",
-                        "code": "MD",
+                        "code": "8KG",
                         "price": 950
                     },
                     {
-                        "name": "large",
-                        "code": "LG",
+                        "code": "10KG",
                         "price": 1050
                     }
                 ]
@@ -55,22 +49,19 @@ var products = [
                 "isAvailable": true,
                 "name": "Tiny Tiger",
                 "image": "food/food3",
-                "description": "Pate Beef & Poultry Recipes Variety Pack Grain-Free Canned Cat Food, 3-oz can, case of 24",
+                "description": "Pate Beef & Poultry Recipes Variety Pack Grain-Free Canned Cat Food",
                 "code": "FD Tny Tgr-",
                 "sizes": [
                     {
-                        "name": "regular",
-                        "code": "RG",
+                        "code": "5KG",
                         "price": 720
                     },
                     {
-                        "name": "medium",
-                        "code": "MD",
+                        "code": "8KG",
                         "price": 830
                     },
                     {
-                        "name": "large",
-                        "code": "LG",
+                        "code": "10KG",
                         "price": 900
                     }
                 ]
@@ -83,17 +74,14 @@ var products = [
                 "code": "FD IAms-",
                 "sizes": [
                     {
-                        "name": "regular",
                         "code": "RG",
                         "price": 1560
                     },
                     {
-                        "name": "medium",
                         "code": "MD",
                         "price": 1670
                     },
                     {
-                        "name": "large",
                         "code": "LG",
                         "price": 1790
                     }
@@ -103,22 +91,19 @@ var products = [
                 "isAvailable": true,
                 "name": "Orijen",
                 "image": "food/food5",
-                "description": "Original Grain-Free Dry Cat Food, 4-lb bag",
+                "description": "Original Grain-Free Dry Cat Food",
                 "code": "FD Orjn-",
                 "sizes": [
                     {
-                        "name": "regular",
-                        "code": "RG",
+                        "code": "10KG",
                         "price": 1550
                     },
                     {
-                        "name": "medium",
-                        "code": "MD",
+                        "code": "15KG",
                         "price": 1660
                     },
                     {
-                        "name": "large",
-                        "code": "LG",
+                        "code": "20KG",
                         "price": 1770
                     }
                 ]
@@ -127,22 +112,19 @@ var products = [
                 "isAvailable": true,
                 "name": "Blue Buffalo",
                 "image": "food/food6",
-                "description": "Tastefuls Ocean Fish & Tuna Entrée Pate Wet Cat Food, 3-oz can, case of 4",
+                "description": "Tastefuls Ocean Fish & Tuna Entrée Pate Wet Cat Food",
                 "code": "FD Bl Bffl-",
                 "sizes": [
                     {
-                        "name": "regular",
-                        "code": "RG",
+                        "code": "2CNS",
                         "price": 120
                     },
                     {
-                        "name": "medium",
-                        "code": "MD",
+                        "code": "3CNS",
                         "price": 240
                     },
                     {
-                        "name": "large",
-                        "code": "LG",
+                        "code": "4CNS",
                         "price": 330
                     }
                 ]
@@ -151,22 +133,19 @@ var products = [
                 "isAvailable": true,
                 "name": "Temptations",
                 "image": "food/food7",
-                "description": "Tempting Tuna & Chicken Flavor Adult Dry Cat Food, 13.5-lb bag",
+                "description": "Tempting Tuna & Chicken Flavor Adult Dry Cat Food",
                 "code": "FD Tmpttns-",
                 "sizes": [
                     {
-                        "name": "regular",
-                        "code": "RG",
+                        "code": "2KG",
                         "price": 450
                     },
                     {
-                        "name": "medium",
-                        "code": "MD",
+                        "code": "5KG",
                         "price": 650
                     },
                     {
-                        "name": "large",
-                        "code": "LG",
+                        "code": "8KG",
                         "price": 800
                     }
                 ]
@@ -175,22 +154,19 @@ var products = [
                 "isAvailable": true,
                 "name": "Purina One",
                 "image": "food/food8",
-                "description": "+Plus Healthy Kitten Formula Natural Dry Cat Food, 16-lb bag",
+                "description": "+Plus Healthy Kitten Formula Natural Dry Cat Food",
                 "code": "FD Prn1-",
                 "sizes": [
                     {
-                        "name": "regular",
-                        "code": "RG",
+                        "code": "10KG",
                         "price": 1490
                     },
                     {
-                        "name": "medium",
-                        "code": "MD",
+                        "code": "15KG",
                         "price": 1580
                     },
                     {
-                        "name": "large",
-                        "code": "LG",
+                        "code": "20KG",
                         "price": 1670
                     }
                 ]
@@ -199,22 +175,19 @@ var products = [
                 "isAvailable": true,
                 "name": "Sheba",
                 "image": "food/food9",
-                "description": "Chicken & Salmon Pate Entree Variety Pack Adult Wet Cat Food Trays, 2.6-oz, case of 6 twin-packs",
+                "description": "Chicken & Salmon Pate Entree Variety Pack Adult Wet Cat Food Trays",
                 "code": "FD Shb-",
                 "sizes": [
                     {
-                        "name": "regular",
-                        "code": "RG",
+                        "code": "1KG",
                         "price": 140
                     },
                     {
-                        "name": "medium",
-                        "code": "MD",
+                        "code": "1.5KG",
                         "price": 260
                     },
                     {
-                        "name": "large",
-                        "code": "LG",
+                        "code": "2KG",
                         "price": 360
                     }
                 ]
@@ -385,22 +358,19 @@ var products = [
                 "isAvailable": true,
                 "name": "Fresh Step",
                 "image": "litter/litter1",
-                "description": "Multi-Cat Extra Strength Scented Clumping Cat Litter, 25-lb",
+                "description": "Multi-Cat Extra Strength Scented Clumping Cat Litter",
                 "code": "LTR Frsh Stp-",
                 "sizes": [
                     {
-                        "name": "regular",
-                        "code": "RG",
+                        "code": "10KG",
                         "price": 830
                     },
                     {
-                        "name": "medium",
-                        "code": "MD",
+                        "code": "12KG",
                         "price": 910
                     },
                     {
-                        "name": "large",
-                        "code": "LG",
+                        "code": "15KG",
                         "price": 970
                     }
                 ]
@@ -409,22 +379,19 @@ var products = [
                 "isAvailable": true,
                 "name": "Pretty Litter",
                 "image": "litter/litter2",
-                "description": "Health Monitoring Cat Litter, 8-lb bag",
+                "description": "Health Monitoring Cat Litter",
                 "code": "LTR Prtty Lttr-",
                 "sizes": [
                     {
-                        "name": "regular",
-                        "code": "RG",
+                        "code": "10KG",
                         "price": 1200
                     },
                     {
-                        "name": "medium",
-                        "code": "MD",
+                        "code": "15KG",
                         "price": 1320
                     },
                     {
-                        "name": "large",
-                        "code": "LG",
+                        "code": "20KG",
                         "price": 1490
                     }
                 ]
@@ -433,22 +400,19 @@ var products = [
                 "isAvailable": true,
                 "name": "Arm & Hammer Litter Clump",
                 "image": "litter/litter4",
-                "description": "Clump & Seal Lightweight Scented Clumping Cat Litter, 18-lb bag",
+                "description": "Clump & Seal Lightweight Scented Clumping Cat Litter",
                 "code": "LTR R&H LttrC-",
                 "sizes": [
                     {
-                        "name": "regular",
-                        "code": "RG",
+                        "code": "10KG",
                         "price": 1100
                     },
                     {
-                        "name": "medium",
-                        "code": "MD",
+                        "code": "15KG",
                         "price": 1240
                     },
                     {
-                        "name": "large",
-                        "code": "LG",
+                        "code": "20KG",
                         "price": 1370
                     }
                 ]
@@ -457,22 +421,19 @@ var products = [
                 "isAvailable": true,
                 "name": "Dr.Elsey's",
                 "image": "litter/litter5",
-                "description": "Crystal Attract Long-Hair Crystal Cat Litter, 8-lb bag",
+                "description": "Crystal Attract Long-Hair Crystal Cat Litter",
                 "code": "LTR Dr lsy-",
                 "sizes": [
                     {
-                        "name": "regular",
-                        "code": "RG",
+                        "code": "10KG",
                         "price": 910
                     },
                     {
-                        "name": "medium",
-                        "code": "MD",
+                        "code": "12KG",
                         "price": 1080
                     },
                     {
-                        "name": "large",
-                        "code": "LG",
+                        "code": "15KG",
                         "price": 1190
                     }
                 ]
@@ -481,22 +442,19 @@ var products = [
                 "isAvailable": true,
                 "name": "Tidy Cats Light",
                 "image": "litter/litter5",
-                "description": "Free & Clean Lightweight Unscented Clumping Clay Cat Litter, 17-lb box",
+                "description": "Free & Clean Lightweight Unscented Clumping Clay Cat Litter",
                 "code": "LTR Tdy CtsL-",
                 "sizes": [
                     {
-                        "name": "regular",
-                        "code": "RG",
+                        "code": "10KG",
                         "price": 1230
                     },
                     {
-                        "name": "medium",
-                        "code": "MD",
+                        "code": "12KG",
                         "price": 1300
                     },
                     {
-                        "name": "large",
-                        "code": "LG",
+                        "code": "15KG",
                         "price": 1390
                     }
                 ]
@@ -509,18 +467,15 @@ var products = [
                 "code": "LTR R&H LttrS-",
                 "sizes": [
                     {
-                        "name": "regular",
-                        "code": "RG",
+                        "code": "10KG",
                         "price": 1270
                     },
                     {
-                        "name": "medium",
-                        "code": "MD",
+                        "code": "15KG",
                         "price": 1390
                     },
                     {
-                        "name": "large",
-                        "code": "LG",
+                        "code": "20KG",
                         "price": 1520
                     }
                 ]
@@ -529,22 +484,19 @@ var products = [
                 "isAvailable": true,
                 "name": "Tidy Cats Clean",
                 "image": "litter/litter7",
-                "description": "Free & Clean Unscented Clumping Clay Cat Litter, 35-lb pail",
+                "description": "Free & Clean Unscented Clumping Clay Cat Litter",
                 "code": "LTR Tdy CtsC-",
                 "sizes": [
                     {
-                        "name": "regular",
-                        "code": "RG",
+                        "code": "10KG",
                         "price": 910
                     },
                     {
-                        "name": "medium",
-                        "code": "MD",
+                        "code": "12KG",
                         "price": 1010
                     },
                     {
-                        "name": "large",
-                        "code": "LG",
+                        "code": "15KG",
                         "price": 1110
                     }
                 ]
@@ -553,22 +505,19 @@ var products = [
                 "isAvailable": true,
                 "name": "Dr.Elsey's Ultra",
                 "image": "litter/litter8",
-                "description": "Ultra Unscented Clumping Clay Cat Litter, 40-lb bag",
+                "description": "Ultra Unscented Clumping Clay Cat Litter",
                 "code": "LTR Dr LsyU-",
                 "sizes": [
                     {
-                        "name": "regular",
-                        "code": "RG",
+                        "code": "10KG",
                         "price": 910
                     },
                     {
-                        "name": "medium",
-                        "code": "MD",
+                        "code": "12KG",
                         "price": 1020
                     },
                     {
-                        "name": "large",
-                        "code": "LG",
+                        "code": "15KG",
                         "price": 1140
                     }
                 ]
@@ -577,22 +526,19 @@ var products = [
                 "isAvailable": true,
                 "name": "Scoop Away",
                 "image": "litter/litter9",
-                "description": "Complete Performance Fresh Scented Clumping Clay Cat Litter, 10.5-lb bag, pack of 4",
+                "description": "Complete Performance Fresh Scented Clumping Clay Cat Litter",
                 "code": "LTR Scp Wy-",
                 "sizes": [
                     {
-                        "name": "regular",
-                        "code": "RG",
+                        "code": "10KG",
                         "price": 1160
                     },
                     {
-                        "name": "medium",
-                        "code": "MD",
+                        "code": "12KG",
                         "price": 1210
                     },
                     {
-                        "name": "large",
-                        "code": "LG",
+                        "code": "15KG",
                         "price": 1320
                     }
                 ]

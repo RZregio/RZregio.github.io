@@ -43,22 +43,11 @@
                 <div><b>TOTAL</b></div>
                 <div><b id="totalValue">0</b></div>
               </div>
-              <button class="btnConfirm btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#transactionModal">
+              <button class="btnConfirm btn btn-primary w-100" onclick="resetReceipt()">
                 Confirm Purchase
               </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="modal fade" id="transactionModal" tabindex="-1" aria-labelledby="transactionModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="transactionModalLabel">Transaction Status</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="resetReceipt()"></button>
-              </div>
-              <div class="modal-body">
-                ✅ Transaction Complete. Your receipt has been printed.
+              <div id="transactionMessage" class="text-success mt-2" style="display: none;">
+                Transaction Complete!
               </div>
             </div>
           </div>

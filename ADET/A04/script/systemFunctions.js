@@ -73,6 +73,12 @@ function resetReceipt() {
     total = 0;
     document.getElementById("totalValue").innerHTML = total.toFixed(2);
     document.getElementById("receipt").innerHTML = '';
+    const message = document.getElementById("transactionMessage");
+    message.style.display = 'block';
+
+    setTimeout(() =>{
+        message.style.display = 'none';
+    }, 2000);
   }
 
   
