@@ -8,7 +8,7 @@ var products = [
                 "name": "Fancy Feast",
                 "image": "food/food1",
                 "description": "Grilled Seafood Feast, Pack Canned Cat Food 3-oz & Case of 24",
-                "code": "a-Fncy-Fst",
+                "code": "FD Fncy Fst-",
                 "sizes": [
                     {
                         "name": "regular",
@@ -32,7 +32,7 @@ var products = [
                 "name": "Meow Mix",
                 "image": "food/food2",
                 "description": "Original Choice Dry Cat Food, 22-lb bag",
-                "code": "a-Mw-Mx",
+                "code": "FD Mw Mx-",
                 "sizes": [
                     {
                         "name": "regular",
@@ -56,7 +56,7 @@ var products = [
                 "name": "Tiny Tiger",
                 "image": "food/food3",
                 "description": "Pate Beef & Poultry Recipes Variety Pack Grain-Free Canned Cat Food, 3-oz can, case of 24",
-                "code": "a-Tny-Tgr",
+                "code": "FD Tny Tgr-",
                 "sizes": [
                     {
                         "name": "regular",
@@ -80,7 +80,7 @@ var products = [
                 "name": "IAms",
                 "image": "food/food4",
                 "description": "",
-                "code": "a-IAms",
+                "code": "FD IAms-",
                 "sizes": [
                     {
                         "name": "regular",
@@ -104,7 +104,7 @@ var products = [
                 "name": "Orijen",
                 "image": "food/food5",
                 "description": "Original Grain-Free Dry Cat Food, 4-lb bag",
-                "code": "a-Orjn",
+                "code": "FD Orjn-",
                 "sizes": [
                     {
                         "name": "regular",
@@ -128,7 +128,7 @@ var products = [
                 "name": "Blue Buffalo",
                 "image": "food/food6",
                 "description": "Tastefuls Ocean Fish & Tuna Entrée Pate Wet Cat Food, 3-oz can, case of 4",
-                "code": "a-Bl-Bffl",
+                "code": "FD Bl Bffl-",
                 "sizes": [
                     {
                         "name": "regular",
@@ -152,7 +152,7 @@ var products = [
                 "name": "Temptations",
                 "image": "food/food7",
                 "description": "Tempting Tuna & Chicken Flavor Adult Dry Cat Food, 13.5-lb bag",
-                "code": "a-Tmpttns",
+                "code": "FD Tmpttns-",
                 "sizes": [
                     {
                         "name": "regular",
@@ -176,7 +176,7 @@ var products = [
                 "name": "Purina One",
                 "image": "food/food8",
                 "description": "+Plus Healthy Kitten Formula Natural Dry Cat Food, 16-lb bag",
-                "code": "a-Prn-1",
+                "code": "FD Prn1-",
                 "sizes": [
                     {
                         "name": "regular",
@@ -200,7 +200,7 @@ var products = [
                 "name": "Sheba",
                 "image": "food/food9",
                 "description": "Chicken & Salmon Pate Entree Variety Pack Adult Wet Cat Food Trays, 2.6-oz, case of 6 twin-packs",
-                "code": "a-Shb",
+                "code": "FD Shb-",
                 "sizes": [
                     {
                         "name": "regular",
@@ -228,7 +228,7 @@ var products = [
             {
                 "isAvailable": true,
                 "name": "Friskies Grill",
-                "code": "b-FrsksG",
+                "code": "TR FrsksG",
                 "image": "treat/treat1",
                 "description": "Mix Mixed Grill Crunch Flavor Crunchy Cat Treats, 6-oz bag",
                 "price": 250
@@ -236,7 +236,7 @@ var products = [
             {
                 "isAvailable": false,
                 "name": "Friskies Chicken",
-                "code": "b-FrsksC",
+                "code": "TR FrsksC",
                 "image": "treat/treat2",
                 "description": "",
                 "price": 200
@@ -244,7 +244,7 @@ var products = [
             {
                 "isAvailable": true,
                 "name": "Temptations",
-                "code": "b-Tmpttns",
+                "code": "TR Tmpttns",
                 "image": "treat/treat3",
                 "description": "Classic Tasty Chicken Flavor Soft & Crunchy Cat Treats, 16-oz tub",
                 "price": 430
@@ -252,7 +252,7 @@ var products = [
             {
                 "isAvailable": true,
                 "name": "Greenies",
-                "code": "b-Grns",
+                "code": "TR Grns",
                 "image": "treat/treat4",
                 "description": "Feline Oven Roasted Chicken Flavor Adult Dental Cat Treats, 4.6-oz bag",
                 "price": 300
@@ -260,7 +260,7 @@ var products = [
             {
                 "isAvailable": false,
                 "name": "Meow Mix",
-                "code": "b-Mw-Mx",
+                "code": "TR Mw Mx",
                 "image": "treat/treat5",
                 "description": "",
                 "price": 70
@@ -268,7 +268,7 @@ var products = [
             {
                 "isAvailable": true,
                 "name": "Hartz",
-                "code": "b-Hrtz",
+                "code": "TR Hrtz",
                 "image": "treat/treat6",
                 "description": "Delectables Squeeze Up Variety Pack Lickable Cat Treats, 0.5-oz tube, 24 count",
                 "price": 760
@@ -276,7 +276,7 @@ var products = [
             {
                 "isAvailable": true,
                 "name": "Sheba",
-                "code": "b-Shb",
+                "code": "TR Shb",
                 "image": "treat/treat7",
                 "description": "Meaty Tender Sticks Chicken Flavor Soft Adult Cat Treats, 5 count",
                 "price": 90
@@ -284,7 +284,7 @@ var products = [
             {
                 "isAvailable": true,
                 "name": "Applaws",
-                "code": "b-Applws",
+                "code": "TR Applws",
                 "image": "treat/treat8",
                 "description": "Salmon Grain-Free Freeze-Dried Cat Treats, 1-oz bag",
                 "price": 350
@@ -292,7 +292,7 @@ var products = [
             {
                 "isAvailable": true,
                 "name": "Fancy Feast",
-                "code": "b-Fncy-Fst",
+                "code": "TR Fncy Fst",
                 "image": "treat/treat9",
                 "description": "Purina Fancy Feast Purely Natural Chicken, Tuna & Salmon Variety Pack Soft Cat Treat, 10 count",
                 "price": 200
@@ -306,7 +306,7 @@ var products = [
             {
                 "isAvailable": true,
                 "name": "Seresto",
-                "code": "c-Srst",
+                "code": "HLT Srst",
                 "image": "health/health1",
                 "description": "Flea & Tick Collar for Cats, 1 Collar (8-mos. supply)",
                 "price": 3390
@@ -314,7 +314,7 @@ var products = [
             {
                 "isAvailable": true,
                 "name": "Capstar",
-                "code": "c-Cpstr",
+                "code": "HLT Cpstr",
                 "image": "health/health2",
                 "description": "Flea Oral Treatment for Cats, 2-25 lbs, 6 Tablets",
                 "price": 1780
@@ -322,7 +322,7 @@ var products = [
             {
                 "isAvailable": true,
                 "name": "NextStar",
-                "code": "c-NxtStr",
+                "code": "HLT NxtStr",
                 "image": "health/health3",
                 "description": "Fast Acting Cat Flea & Tick Treatment 3 doses",
                 "price": 2240
@@ -330,7 +330,7 @@ var products = [
             {
                 "isAvailable": true,
                 "name": "PetArmor",
-                "code": "c-Ptrmr",
+                "code": "HLT Ptrmr",
                 "image": "health/health4",
                 "description": "PetArmor Coconut Berry Scented Flea & Tick Shampoo for Cats, 12-oz bottle",
                 "price": 460
@@ -338,7 +338,7 @@ var products = [
             {
                 "isAvailable": true,
                 "name": "Elanco",
-                "code": "c-Lnc",
+                "code": "HLT Lnc",
                 "image": "health/health5",
                 "description": "Dewormer for Tapeworms for Cats, 3 count",
                 "price": 920
@@ -346,7 +346,7 @@ var products = [
             {
                 "isAvailable": true,
                 "name": "Fera Pets",
-                "code": "c-Fr-Pts",
+                "code": "HLT Fr Pts",
                 "image": "health/health6",
                 "description": "USDA Organic Pumpkin Plus Fiber Support for Dogs & Cats, 90 servings",
                 "price": 1950
@@ -354,7 +354,7 @@ var products = [
             {
                 "isAvailable": true,
                 "name": "Zesty Paws",
-                "code": "c-Zsty-Pws",
+                "code": "HLT Zsty Pws",
                 "image": "health/health7",
                 "description": "Digestion Gut Health Chicken Mousse Lickable Squeeze Supplement for Cats, 18 count",
                 "price": 1030
@@ -362,7 +362,7 @@ var products = [
             {
                 "isAvailable": false,
                 "name": "Catstages",
-                "code": "c-Ctstgs",
+                "code": "HLT Ctstgs",
                 "image": "health/health8",
                 "description": "",
                 "price": 270
@@ -370,7 +370,7 @@ var products = [
             {
                 "isAvailable": true,
                 "name": "Vetericyn",
-                "code": "c-Vtrcyn",
+                "code": "HLT Vtrcyn",
                 "image": "health/health9",
                 "description": "Plus Antimicrobial Cat Wound Care Spray, 3-oz bottle",
                 "price": 750
@@ -386,7 +386,7 @@ var products = [
                 "name": "Fresh Step",
                 "image": "litter/litter1",
                 "description": "Multi-Cat Extra Strength Scented Clumping Cat Litter, 25-lb",
-                "code": "d-Frsh-Stp",
+                "code": "LTR Frsh Stp-",
                 "sizes": [
                     {
                         "name": "regular",
@@ -410,7 +410,7 @@ var products = [
                 "name": "Pretty Litter",
                 "image": "litter/litter2",
                 "description": "Health Monitoring Cat Litter, 8-lb bag",
-                "code": "d-Prtty-Lttr",
+                "code": "LTR Prtty Lttr-",
                 "sizes": [
                     {
                         "name": "regular",
@@ -434,7 +434,7 @@ var products = [
                 "name": "Arm & Hammer Litter Clump",
                 "image": "litter/litter4",
                 "description": "Clump & Seal Lightweight Scented Clumping Cat Litter, 18-lb bag",
-                "code": "d-R&H-LttrC",
+                "code": "LTR R&H LttrC-",
                 "sizes": [
                     {
                         "name": "regular",
@@ -458,7 +458,7 @@ var products = [
                 "name": "Dr.Elsey's",
                 "image": "litter/litter5",
                 "description": "Crystal Attract Long-Hair Crystal Cat Litter, 8-lb bag",
-                "code": "d-D-lsy",
+                "code": "LTR Dr lsy-",
                 "sizes": [
                     {
                         "name": "regular",
@@ -482,7 +482,7 @@ var products = [
                 "name": "Tidy Cats Light",
                 "image": "litter/litter5",
                 "description": "Free & Clean Lightweight Unscented Clumping Clay Cat Litter, 17-lb box",
-                "code": "d-Tdy-CtsL",
+                "code": "LTR Tdy CtsL-",
                 "sizes": [
                     {
                         "name": "regular",
@@ -506,7 +506,7 @@ var products = [
                 "name": "Arm & Hammer Litter Slide",
                 "image": "litter/litter6",
                 "description": "",
-                "code": "d-R&H-LttrS",
+                "code": "LTR R&H LttrS-",
                 "sizes": [
                     {
                         "name": "regular",
@@ -530,7 +530,7 @@ var products = [
                 "name": "Tidy Cats Clean",
                 "image": "litter/litter7",
                 "description": "Free & Clean Unscented Clumping Clay Cat Litter, 35-lb pail",
-                "code": "d-Tdy-CtsC",
+                "code": "LTR Tdy CtsC-",
                 "sizes": [
                     {
                         "name": "regular",
@@ -554,7 +554,7 @@ var products = [
                 "name": "Dr.Elsey's Ultra",
                 "image": "litter/litter8",
                 "description": "Ultra Unscented Clumping Clay Cat Litter, 40-lb bag",
-                "code": "d-D-LsyU",
+                "code": "LTR Dr LsyU-",
                 "sizes": [
                     {
                         "name": "regular",
@@ -578,7 +578,7 @@ var products = [
                 "name": "Scoop Away",
                 "image": "litter/litter9",
                 "description": "Complete Performance Fresh Scented Clumping Clay Cat Litter, 10.5-lb bag, pack of 4",
-                "code": "d-Scp-Wy",
+                "code": "LTR Scp Wy-",
                 "sizes": [
                     {
                         "name": "regular",
@@ -606,7 +606,7 @@ var products = [
             {
                 "isAvailable": true,
                 "name": "Catstages Chew Toy",
-                "code": "e-CtstgsChw",
+                "code": "TY CtstgsChw",
                 "image": "toy/toys1",
                 "description": "Fresh Breath Mint Stick Cat Chew Toy",
                 "price": 160
@@ -614,7 +614,7 @@ var products = [
             {
                 "isAvailable": true,
                 "name": "SmartyKat",
-                "code": "e-SmrtyKt",
+                "code": "TY SmrtyKt",
                 "image": "toy/toys2",
                 "description": "Scratch N Spin Replacement Wand Cat Toy",
                 "price": 1090
@@ -622,7 +622,7 @@ var products = [
             {
                 "isAvailable": true,
                 "name": "Catstages Tower",
-                "code": "e-CtstgsTwr",
+                "code": "TY CtstgsTwr",
                 "image": "toy/toys3",
                 "description": "Tower of Tracks Cat Toy",
                 "price": 510
@@ -630,7 +630,7 @@ var products = [
             {
                 "isAvailable": false,
                 "name": "KONG",
-                "code": "e-Kng",
+                "code": "TY Kng",
                 "image": "toy/toys4",
                 "description": "",
                 "price": 340
@@ -638,7 +638,7 @@ var products = [
             {
                 "isAvailable": true,
                 "name": "Frisco Spring",
-                "code": "e-Frsc-Sprng",
+                "code": "TY Frsc Sprng",
                 "image": "toy/toys5",
                 "description": "Colorful Springs Cat Toy, 10 count",
                 "price": 210
@@ -646,7 +646,7 @@ var products = [
             {
                 "isAvailable": true,
                 "name": "Turbo",
-                "code": "e-Trb",
+                "code": "TY Trb",
                 "image": "toy/toys6",
                 "description": "Lattice Ball Cat Toy",
                 "price": 110
@@ -654,7 +654,7 @@ var products = [
             {
                 "isAvailable": true,
                 "name": "Yeowww!",
-                "code": "e-Ywww",
+                "code": "TY Ywww",
                 "image": "toy/toys7",
                 "description": "Catnip Yellow Banana Cat Toy",
                 "price": 700
@@ -662,7 +662,7 @@ var products = [
             {
                 "isAvailable": true,
                 "name": "Frisco Squirrel Plush",
-                "code": "e-Frsc-Sqrrl",
+                "code": "TY Frsc Sqrrl",
                 "image": "toy/toys8",
                 "description": "Squirrel Plush Cat Toy with Refillable Catnip, Brown Squirrel",
                 "price": 280
@@ -670,7 +670,7 @@ var products = [
             {
                 "isAvailable": true,
                 "name": "Ethical Pet",
-                "code": "e-Thcl-Pt",
+                "code": "TY Thcl Pt",
                 "image": "toy/toys9",
                 "description": "Laser Exerciser Original 2 in 1 Dog & Cat Toy",
                 "price": 540

@@ -36,14 +36,14 @@ function loadProducts(categoryIndex) {
             productHTML += '<div class="d-flex justify-content-center flex-wrap gap-2">';
             content.sizes.forEach(function(size) {
                 productHTML += 
-                    '<button class="btn btn-sm btn-outline-primary mb-1" onclick="addToReceipt(\'' + size.price + '\', \'' + content.code + size.code + '\')">' +
+                    '<button class="btnSize btn btn-sm btn-outline-primary mb-1" onclick="addToReceipt(\'' + size.price + '\', \'' + content.code + size.code + '\')">' +
                         size.code + ' - ₱' + size.price +
                     '</button>';
             });
             productHTML += '</div>';
         } else {
             productHTML += 
-                '<button class="btn btn-sm btn-primary mt-2" onclick="addToReceipt(\'' + content.price + '\', \'' + content.code + '\')">' +
+                '<button class="btnBuy btn btn-sm btn-primary mt-2" onclick="addToReceipt(\'' + content.price + '\', \'' + content.code + '\')">' +
                     'Buy - ₱' + content.price +
                 '</button>';
         }
@@ -69,5 +69,12 @@ function addToReceipt(price, code) {
         '</div>';
 }
 
+function resetReceipt() {
+    total = 0;
+    document.getElementById("totalValue").innerHTML = total.toFixed(2);
+    document.getElementById("receipt").innerHTML = '';
+  }
+
+  
 loadCategories();
 document.getElementById("maincontainer").innerHTML = '<h2 class="text-center text-muted">Select Category Above</h2>';

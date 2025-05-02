@@ -2,10 +2,6 @@ body{
     font-family: Poppins;
 }
 
-h2{
-    font-family: Fredoka;
-}
-
 a {
     text-decoration: none;
     color: inherit
@@ -26,6 +22,29 @@ a:active {
     font-family: Fredoka;
     padding-right: 20px;
     font-weight: 800;
+    font-size: clamp(24px, 3vw, 40px);
+    text-align: center;
+}
+
+h2, h4{
+    font-family: Fredoka;
+    font-size: clamp(16px , 2vw, 30px);
+}
+
+h6 {
+    font-size: clamp(10px , 2vw, 20px);
+    padding-bottom: 20px;
+    min-height: 80px;
+}
+
+.btnSize, .btnBuy, small {
+    font-size: clamp(8px , 1.5vw, 14px);
+    line-height: 1.2;
+    display: block;
+}
+
+.btnConfirm, b {
+    font-size: clamp(10px , 1.5vw, 16px);
 }
 
 .categories {
