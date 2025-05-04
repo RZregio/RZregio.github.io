@@ -23,8 +23,8 @@ function loadProducts(categoryIndex) {
 
     products[categoryIndex].contents.forEach(function(content) {
         var productHTML = 
-        '<div class="col-6 col-md-4 col-lg-3 mb-4">' + 
-            '<div class="card h-100 text-center p-3" style="background-color: rgb(40, 40, 40);">' +
+        '<div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">' + 
+            '<div class="itemCard card h-100 text-center p-3" style="background-color: rgb(40, 40, 40);">' +
                 (content.image ? '<img src="res/' + content.image + '.png" class="mb-3 mx-auto" style="max-height: 100px; max-width: 100%; object-fit: contain;">' : '') +
                 '<h6 class="mb-1 fw-bold">' + content.name + '</h6>' +
                 '<p class="text-muted mb-2" style="min-height: 100px;"><small>' + (content.description ? content.description : 'No description available.') + '</small></p>';
