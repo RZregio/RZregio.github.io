@@ -399,7 +399,7 @@ var products = [
             {
                 "isAvailable": true,
                 "name": "Arm & Hammer Litter Clump",
-                "image": "litter/litter4",
+                "image": "litter/litter3",
                 "description": "Clump & Seal Lightweight Scented Clumping Cat Litter",
                 "code": "LTR R&H LttrC-",
                 "sizes": [
@@ -420,7 +420,7 @@ var products = [
             {
                 "isAvailable": true,
                 "name": "Dr.Elsey's",
-                "image": "litter/litter5",
+                "image": "litter/litter4",
                 "description": "Crystal Attract Long-Hair Crystal Cat Litter",
                 "code": "LTR Dr lsy-",
                 "sizes": [

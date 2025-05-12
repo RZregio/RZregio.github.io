@@ -1,0 +1,70 @@
+body{
+    font-family: Poppins;
+}
+
+a {
+    text-decoration: none;
+    color: inherit
+}
+
+a:focus,
+a:active {
+    outline: none;
+    color: #c5c5c5
+}
+
+
+.topcontainer {
+    height: 15dvh;
+}
+
+.title {
+    font-family: Fredoka;
+    padding-right: 20px;
+    font-weight: 800;
+    font-size: clamp(24px, 3vw, 40px);
+    text-align: center;
+}
+
+h2, h4{
+    font-family: Fredoka;
+    font-size: clamp(16px , 2vw, 30px);
+}
+
+h6 {
+    font-size: clamp(10px , 2vw, 20px);
+    padding-bottom: 20px;
+    min-height: 80px;
+}
+
+.btnSize, .btnBuy, small {
+    font-size: clamp(8px , 1.5vw, 14px);
+    line-height: 1.2;
+    display: block;
+}
+
+.btnConfirm, b {
+    font-size: clamp(10px , 1.5vw, 16px);
+}
+
+.categories {
+    width: fit-content;
+}
+
+.custom-button {
+    width: 100px;
+    background-color: rgb(40, 40, 40);
+}
+
+.custom-button.content {
+    width: 200px;
+}
+
+.custom-button:hover {
+    background-color: rgb(94, 94, 94);
+    cursor: pointer;
+}
+
+.maincontainer {
+    height: 75dvh;
+}
