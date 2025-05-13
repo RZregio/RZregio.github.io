@@ -37,10 +37,13 @@ const getAllProducts = async (categoryID, categoryName) => {
 
 function loadCategories() {
     var categoriesContainer = document.getElementById("categories");
-    categoriesContainer.innerHTML = '';
 
     categoriesContainer.innerHTML = 
-    '<img src="res/home.png" alt="Catenfur Logo" style="height: 40px;" class="me-3">';
+                '<img src="res/home.png"' +
+                  'style="max-height: 50px; max-width: 100%; object-fit: contain; padding-right: 10px;">' +
+                '<a href="../../index.html" class="my-auto">' +
+                '<h1 class="title">CatEnFur</h1>' +
+                '</a>';
     categories.forEach(function (category, index) {
         categoriesContainer.innerHTML +=
             '<div onclick="getAllProducts(' + category.categoryID +', \'' + category.name + '\')" class="card d-flex align-items-center flex-row mx-1 custom-button p-2">' +
