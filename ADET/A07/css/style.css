@@ -1,0 +1,25 @@
+body{
+    font-family: Fredoka;
+    font-size: clamp(10px , 2vw, 16px);
+}
+
+a {
+    text-decoration: none;
+    color: inherit
+}
+
+a:focus,
+a:active {
+    outline: none;
+    color: #c5c5c5
+}
+
+
+h6, h4 {
+    font-family: Jaro;
+    font-size: clamp(15px , 2vw, 30px);
+}
+
+.botBody {
+    background-color: #60AFFF;
+}
