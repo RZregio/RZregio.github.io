@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
 </head>
 
-<body data-bs-theme="dark">
+<body>
   <div class="container-fluid">
     <div class="row pt-3">
       <div class="col-12">
@@ -43,10 +43,10 @@
                 <div><b>TOTAL</b></div>
                 <div><b id="totalValue">0</b></div>
               </div>
-              <button class="btnConfirm btn btn-primary w-100" onclick="resetReceipt()">
+              <button class="btnConfirm btn btn-info w-100 border-1" onclick="resetReceipt()">
                 Confirm Purchase
               </button>
-              <div id="transactionMessage" class="text-success mt-2" style="display: none;">
+              <div id="transactionMessage" class="text-muted mt-2" style="display: none;">
                 Transaction Complete!
               </div>
             </div>

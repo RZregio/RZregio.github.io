@@ -1,5 +1,6 @@
-body{
+body {
     font-family: Poppins;
+    background-color: #98ccff;
 }
 
 a {
@@ -16,6 +17,7 @@ a:active {
 
 .topcontainer {
     height: 15dvh;
+    background-color: #1B8DFF;
 }
 
 .title {
@@ -26,25 +28,36 @@ a:active {
     text-align: center;
 }
 
-h2, h4{
+h2,
+h4 {
     font-family: Fredoka;
-    font-size: clamp(16px , 2vw, 30px);
+    font-size: clamp(16px, 2vw, 30px);
+}
+
+
+h5 {
+    font-family: Fredoka;
+    font-size: clamp(10px, 1.5vw, 16px);
+    line-height: 1.2;
 }
 
 h6 {
-    font-size: clamp(10px , 2vw, 20px);
+    font-size: clamp(10px, 2vw, 20px);
     padding-bottom: 20px;
     min-height: 80px;
 }
 
-.btnSize, .btnBuy, small {
-    font-size: clamp(8px , 1.5vw, 14px);
+.btnSize,
+.btnBuy,
+small {
+    font-size: clamp(8px, 1.5vw, 14px);
     line-height: 1.2;
     display: block;
 }
 
-.btnConfirm, b {
-    font-size: clamp(10px , 1.5vw, 16px);
+.btnConfirm,
+b {
+    font-size: clamp(10px, 1.5vw, 16px);
 }
 
 .categories {
@@ -53,7 +66,7 @@ h6 {
 
 .custom-button {
     width: 100px;
-    background-color: rgb(40, 40, 40);
+    background-color: #70B2F5;
 }
 
 .custom-button.content {
@@ -61,10 +74,15 @@ h6 {
 }
 
 .custom-button:hover {
-    background-color: rgb(94, 94, 94);
+    background-color: #7299C0;
     cursor: pointer;
 }
 
 .maincontainer {
     height: 75dvh;
+    background-color: #1B8DFF;
+}
+
+.receipt {
+    background-color: #1B8DFF;
 }

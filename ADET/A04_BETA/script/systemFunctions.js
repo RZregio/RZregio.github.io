@@ -8,7 +8,7 @@ function loadCategories() {
         categoriesContainer.innerHTML += 
           '<div onclick="loadProducts(' + index + ')" class="card d-flex align-items-center flex-row mx-1 custom-button p-2">' +
             '<img src="res/' + product.image + '.png" alt="' + product.category + '" style="width: 30px; height: 30px; object-fit: contain; margin-right: 10px;">' +
-            '<small>' + product.category + '</small>' +
+            '<h5>' + product.category + '</h5>' +
           '</div>';
     });
 }
@@ -24,7 +24,7 @@ function loadProducts(categoryIndex) {
     products[categoryIndex].contents.forEach(function(content) {
         var productHTML = 
         '<div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">' + 
-            '<div class="itemCard card h-100 text-center p-3" style="background-color: rgb(40, 40, 40);">' +
+            '<div class="itemCard card h-100 text-center p-3" style="background-color: #70B2F5;">' +
                 (content.image ? '<img src="res/' + content.image + '.png" class="mb-3 mx-auto" style="max-height: 100px; max-width: 100%; object-fit: contain;">' : '') +
                 '<h6 class="mb-1 fw-bold">' + content.name + '</h6>' +
                 '<p class="text-muted mb-2" style="min-height: 100px;"><small>' + (content.description ? content.description : 'No description available.') + '</small></p>';
@@ -36,7 +36,7 @@ function loadProducts(categoryIndex) {
             productHTML += '<div class="d-flex justify-content-center flex-wrap gap-2">';
             content.sizes.forEach(function(size) {
                 productHTML += 
-                    '<button class="btnSize btn btn-sm btn-outline-primary mb-1" onclick="addToReceipt(\'' + size.price + '\', \'' + content.code + size.code + '\')">' +
+                    '<button class="btnSize btn btn-sm btn-primary mb-1" onclick="addToReceipt(\'' + size.price + '\', \'' + content.code + size.code + '\')">' +
                         size.code + ' - ₱' + size.price +
                     '</button>';
             });
