@@ -1,6 +1,8 @@
-body{
+body {
     font-family: Fredoka;
-    font-size: clamp(10px , 2vw, 16px);
+    font-size: clamp(10px, 2vw, 16px);
+    background-color: #60AFFF;
+    overflow-x: hidden;
 }
 
 a {
@@ -15,9 +17,10 @@ a:active {
 }
 
 
-h6, h4 {
+h6,
+h4 {
     font-family: Jaro;
-    font-size: clamp(15px , 2vw, 30px);
+    font-size: clamp(12px, 2vw, 30px);
 }
 
 .botBody {
