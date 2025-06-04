@@ -64,6 +64,24 @@
 
   </div>
 
+
+<div id="meowtivator-container">
+  <button id="chatToggle" class="btn btn-info rounded-circle position-fixed bottom-0 end-0 m-4 shadow" title="Meowtivator">
+    <img src="res/CatBot.png" alt="Meowtivator" style="height: 50px;">
+  </button>
+
+  <div id="meowtivatorIframeWrapper" class="position-fixed bottom-0 end-0 m-4 shadow" style="display: none; width: 320px; height: 450px;">
+    <div class="card h-100 d-flex flex-column">
+      <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
+        <span>Meowtivator</span>
+        <button type="button" class="btn-close btn-close-white btn-sm" id="closeChat" aria-label="Close"></button>
+      </div>
+      <iframe src="../A07/index.html" class="flex-grow-1 border-0" style="width: 100%; height: 100%;"></iframe>
+    </div>
+  </div>
+</div>
+
+  <script src="script/meowtivator.js"></script>
   <script src="script/productArray.js"></script>
   <script src="script/systemFunctions.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
