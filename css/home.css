@@ -1,0 +1,174 @@
+/* --- Header Section --- */
+.header-section {
+    padding: 60px 0;
+    width: 100%;
+}
+
+.profile-img-container {
+    max-width: 380px;
+    margin: 0 auto;
+}
+
+.profile-img {
+    width: 100%;
+    border-radius: 50px;
+    border: 4px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Social Buttons */
+.social-box {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.social-btn {
+    width: clamp(50px, 5vw, 60px);
+    height: clamp(50px, 5vw, 60px);
+    background: #05112c;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4A90E2;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+    transform: translateY(-8px);
+    filter: brightness(0.6);
+    color: #4A90E2;
+}
+
+/* --- Content Area (Right Side) --- */
+.content-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: clamp(1.5rem, 5vw, 4rem);
+    padding-right: clamp(1.5rem, 5vw, 4rem);
+}
+
+.welcome-text {
+    font-size: var(--fs-h1);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.welcome-text span {
+    color: var(--accent-yellow);
+}
+
+.name-title {
+    font-size: var(--fs-h2);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 12px;
+    margin-bottom: 25px;
+    width: 100%;
+    display: block;
+}
+
+.name-title span {
+    color: var(--accent-yellow);
+}
+
+.description {
+    font-size: var(--fs-body);
+    text-align: justify;
+    color: #c4c4c4;
+    line-height: 1.8;
+    margin-bottom: 35px;
+    width: 100%;
+    overflow-wrap: break-word;
+}
+
+/* Container for the role to allow 3D rotation */
+#role-text {
+    display: inline-block;
+    color: var(--accent-yellow);
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    transform-origin: top;
+    backface-visibility: hidden;
+}
+
+.role-flipping {
+    transform: rotateX(180deg);
+    opacity: 0;
+}
+
+/* Shuffle Button Styling */
+#shuffle-btn {
+    color: var(--accent-yellow);
+    font-size: 1.2rem;
+    vertical-align: middle;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    border: none;
+    background: none;
+    line-height: 1;
+}
+
+#shuffle-btn:hover {
+    transform: rotate(15deg) scale(1.2);
+    color: white;
+}
+
+/* --- CTA Buttons --- */
+.cta-area {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.btn-custom {
+    padding: 12px 35px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 1.1rem;
+    display: inline-block;
+}
+
+.btn-explore {
+    background-color: var(--accent-yellow);
+    color: white;
+    border: none;
+}
+
+.btn-cv {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-cv:hover,
+.btn-explore:hover {
+    transform: translateY(-8px);
+    filter: brightness(0.7);
+    color: white;
+}
+
+@media (max-width: 991px) {
+    .content-col {
+        margin-top: 50px;
+        align-items: center;
+        text-align: center;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .name-title {
+        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .cta-area {
+        justify-content: center;
+    }
+}

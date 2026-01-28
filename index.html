@@ -4,93 +4,124 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio: Roland</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/style.css">
+  <title>RZ Regio | Portfolio</title>
+  <link rel="icon" type="main-res/RZbrand.ico">
+
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="css/navFoot.css">
-  <link rel="icon" href="main-res/RZbrand.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/home.css">
+
 </head>
 
-
-
 <body>
-  <nav id="upper-section" class="navbar navbar-expand-lg shadow">
-    <div class="container-fluid title">
-      <h1>
-        RZ
-        <span style="color: #DAA520;">regio.</span>
-      </h1>
-      <button id="navbarToggler" class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-        aria-label="Toggle navigation">
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container-fluid px-4 px-md-5">
+      <a class="navbar-brand" href="index.html">RZ <span>regio</span></a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="navigation collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="index.html">Home</a>
+            <a class="nav-link active" href="index.html"><i class="bi bi-house-door"></i> Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" onclick="alert('Still under development')">Experiences</a>
+            <a class="nav-link" href="experience.html"><i class="bi bi-briefcase"></i> Experience</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://drive.google.com/file/d/1jPKkk3PbPPDMbWVBk03UZMuPfnIN_ALc/preview" target="_blank">Resume</a>
+            <a class="nav-link" href="about.html"><i class="bi bi-person"></i> About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="projects.html">Projects</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
+            <a class="nav-link" href="contact.html"><i class="bi bi-envelope"></i> Contact</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
+  <div class="container-fluid header-section px-0">
+    <div class="row g-0 align-items-center">
 
+      <div class="col-lg-5 mb-5 mb-lg-0">
+        <div class="profile-img-container text-center px-4">
+          <img src="main-res/profile.jpg" alt="Roland Z. Regio" class="profile-img">
+        </div>
 
-  <div id="content" class="container-fluid">
-    <div class="profile-picture">
-      <div class="profile-container">
-        <img src="main-res/Roland.jpg" alt="profile" width="100%">
-        <a href="about.html" class="hover-text">Click this to know me!</a>
+        <div class="social-box px-4">
+          <a href="mailto:regioroland011@gmail.com" class="social-btn"><i class="bi bi-envelope-fill"
+              title="Gmail Account"></i></a>
+          <a href="https://www.facebook.com/roland.regio.77" target="_blank" class="social-btn" title="My Facebook"><i
+              class="bi bi-facebook"></i></a>
+          <a href="https://www.linkedin.com/in/roland-regio/" target="_blank" class="social-btn" title="My Linkedln"><i
+              class="bi bi-linkedin"></i></a>
+          <a href="https://github.com/RZregio" target="_blank" class="social-btn"><i class="bi bi-github"
+              title="My Github"></i></a>
+        </div>
       </div>
-    </div>
 
-    <div class="homepage">
-      <div class="greet">
-        <h1>Welcome to Roland's Portfolio</h1>
-      </div>
-      <div class="start">
-        <p>A minimalist and simple place to</p>
-        <p>share my journey as a developer,</p>
-        <p>where creativity meets technology.</p>
-        <p>Follow me from this adventure and</p>
-        <p>Let's explore together!</p>
-        <a href="projects.html">
-          <button class="project">
-            See My Projects
+      <div class="col-lg-7 content-col">
+        <h1 class="welcome-text">Welcome to my <span>Portfolio.</span></h1>
+
+        <h2 class="name-title">
+          I'm Roland Z. Regio, a <span id="role-text" class="programmer-span">Cat-lover</span>
+          <button id="shuffle-btn" class="btn btn-link p-0 ms-2" title="Shuffle Role">
+            <i class="bi bi-shuffle"></i>
           </button>
-        </a>
+        </h2>
+        <p class="description">
+          An Information Technology student with hands-on experience in project management,
+          web development, database management, quality assurance, and system configuration.
+          Passionate about understanding system workflows and improving them through
+          structured planning and quality-driven development.
+        </p>
+
+        <div class="cta-area">
+          <a href="experience.html" class="btn-custom btn-explore">Explore My Projects</a>
+          <a href="https://drive.google.com/file/d/1jPKkk3PbPPDMbWVBk03UZMuPfnIN_ALc/preview" target="_blank"
+            class="btn-custom btn-cv">View my CV</a>
+        </div>
       </div>
+
     </div>
   </div>
 
-  <footer class="footer">
-    <p>&copy; 2024 My Porftolio: Roland. All rights reserved</p>
+  <footer class="footer footer-section">
+    <div class="container-fluid px-4 px-md-5">
+      <div class="row align-items-center py-4">
+
+        <div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
+          <p class="copyright-text mb-0">
+            &copy; 2026 RZ <span>regio</span>. All Rights Reserved
+          </p>
+        </div>
+
+        <div class="my-3 col-md-4 text-center mb-3 mb-md-0 order-3 order-md-2">
+          <a href="#" class="back-to-top">Back on top</a>
+        </div>
+
+        <div class="col-md-4 text-center text-md-end order-2 order-md-3">
+          <ul class="footer-links list-inline mb-0">
+            <li class="list-inline-item"><a href="index.html" class="footer-link active">Home</a></li>
+            <li class="list-inline-item">|</li>
+            <li class="list-inline-item"><a href="experience.html" class="footer-link">Experience</a></li>
+            <li class="list-inline-item">|</li>
+            <li class="list-inline-item"><a href="about.html" class="footer-link">About</a></li>
+            <li class="list-inline-item">|</li>
+            <li class="list-inline-item"><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
   </footer>
 
-
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
-    </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/textSwitch.js"></script>
 </body>
 
 </html>
