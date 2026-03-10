@@ -1,272 +1,139 @@
-/*About Page*/
-#about-head {
+/* Header Visual Placeholder */
+.visual-placeholder {
+    background: linear-gradient(rgba(11, 17, 32, 0.2), rgba(11, 17, 32, 0.8)),
+        url('../main-res/aboutMe.png') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    min-height: 350px;
+    border: 2px solid var(--accent-yellow);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Buttons with Background Colors */
+.btn-explore {
+    background-color: var(--accent-yellow) !important;
+    border: none;
+    color: white !important;
+    transition: all 0.3s ease;
+}
+
+.btn-explore:hover {
+    transform: translateY(-8px);
+    filter: brightness(0.7);
+    color: white;
+}
+
+/* Slider Pagination Styling */
+.custom-slider {
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin: 0;
-    background-color: #222235;
-    padding-bottom: 20px;
-    padding-top: 50px;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px 5px 25px 5px;
 }
 
-.about-profile {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 0 10px 0;
-    max-width: 200px;
-    width: 100%;
-    margin: 0 20px;
-    opacity: 0;
-    transform: translateY(-20px);
-    animation: fadeIn 0.3s ease-in forwards
+/* Ensure the cards take a fixed width for the slider */
+.slider-card {
+    min-width: 320px;
+    flex: 0 0 auto;
 }
 
-.about-profile img {
-    width: 500px;
-    height: auto;
-    border: 5px solid #DAA520;
-    border-radius: 80%;
-    background-color: #110f3a
-}
-
-.about-page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 600px;
-    width: 100%;
-    margin: 0 20px;
-    opacity: 0;
-    transform: translateY(-20px);
-    animation: fadeIn 0.3s ease-in forwards
-}
-
-.about-page h1 {
-    color: #DAA520;
-    font-size: 58px;
-    text-align: center;
-}
-
-.about-page p {
-    color: #c5c3d8;
-    font-weight: 400;
-    font-size: 18px;
-    text-align: center;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px
-}
-
-#about-code {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin: 0;
-    background-color: #2E2E48;
-    padding-top: 50px;
-    padding-bottom: 50px;
-}
-
-.coding-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 600px;
-    width: 100%;
-    margin: 0 20px;
-    opacity: 0;
-    transform: translateY(-20px);
-    animation: fadeIn 0.3s ease-in forwards
-}
-
-.coding-info p {
-    color: #c5c3d8;
-    font-weight: 400;
-    font-size: 18px;
-    text-align: center;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px
-}
-
-.code-profile {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 0 10px 0;
-    max-width: 200px;
-    width: 100%;
-    opacity: 0;
-    transform: translateY(-20px);
-    animation: fadeIn 0.3s ease-in forwards
-}
-
-.code-profile img {
-    width: 500px;
-    height: 300px;
-    border: 5px solid #DAA520;
-    border-radius: 80%;
-    background-color: #110f3a;
-}
-
-#about-design {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin: 0;
-    background-color: #222235;
-    padding-top: 50px;
-    padding-bottom: 50px;
-}
-
-.design-profile {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 0 10px 0;
-    max-width: 200px;
-    width: 100%;
-    margin: 0 20px;
-    opacity: 0;
-    transform: translateY(-20px);
-    animation: fadeIn 0.3s ease-in forwards
-}
-
-.design-profile img {
-    width: 500px;
-    height: 300px;
-    border: 5px solid #DAA520;
-    border-radius: 80%;
-    background-color: #110f3a
-}
-
-.designing-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 600px;
-    width: 100%;
-    opacity: 0;
-    transform: translateY(-20px);
-    animation: fadeIn 0.3s ease-in forwards
-}
-
-.designing-info p {
-    color: #c5c3d8;
-    font-weight: 400;
-    font-size: 18px;
-    text-align: center;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px
-}
-
-
-/*Amimation Behavoir*/
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: scale(0.98) translateY(5px);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
-}
-
-
-
-/*Mobile version Fix*/
-@media(max-width:1280px) {
-    #about-head {
-        display: flex;
-        flex-direction: column
+@media (max-width: 576px) {
+    .slider-card {
+        min-width: 280px;
     }
 
-    .about-profile img {
-        width: 300px
-    }
-
-    .about-page h1 {
-        font-size: 40px
-    }
-
-    .about-page p {
-        font-size: 16px
-    }
-
-    #about-code {
-        display: flex;
+    .edu-card .d-flex {
         flex-direction: column;
-        margin: 0
-    }
-
-    .code-profile img {
-        width: 300px;
-        height: auto
-    }
-
-    .coding-info p {
-        font-size: 16px
-    }
-
-    #about-design {
-        display: flex;
-        flex-direction: column;
-        margin: 0
-    }
-
-    .design-profile img {
-        width: 300px;
-        height: auto
-    }
-
-    .designing-info p {
-        font-size: 16px
-    }
-}
-
-@media (max-width:500px) {
-    .title h1 {
-        font-size: 20px
-    }
-
-    .navigation button {
-        padding: 6px 8px;
-        font-size: 12px
-    }
-
-    .homepage h1 {
-        font-size: 24px
-    }
-
-    .homepage h2 {
-        font-size: 14px
-    }
-
-    .projects-note h2 {
-        font-size: 20px;
-    }
-
-    #content {
-        flex-direction: column;
-        align-items: center;
         text-align: center;
-        justify-content: center;
     }
+}
 
-    .profile-picture {
-        max-width: 80%;
-        margin-bottom: 20px
+/* Card Base Styling */
+.card-style {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
+}
+
+/* Quote Typography */
+.quote-text {
+    font-size: var(--fs-h2);
+    font-style: italic;
+    border-left: 4px solid var(--accent-yellow);
+    padding-left: 20px;
+}
+
+.quote-text span {
+    color: var(--accent-yellow);
+    font-weight: 600;
+}
+
+/* Icon Containers */
+.fact-icon,
+.edu-icon {
+    font-size: 2.5rem;
+    color: var(--accent-yellow);
+}
+
+.section-title span {
+    color: var(--accent-yellow);
+}
+
+/* Slider Logic */
+.custom-slider {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 15px;
+}
+
+.custom-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.slider-card {
+    min-width: 300px;
+    flex-shrink: 0;
+}
+
+.slider-btn {
+    background: var(--accent-yellow);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 10px;
+    transition: 0.3s;
+}
+
+.slider-btn:hover {
+    filter: brightness(1.2);
+    transform: scale(1.1);
+}
+
+/* CTA Styles */
+.text-accent {
+    color: var(--accent-yellow);
+}
+
+.tiny-text {
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+    .slider-card {
+        min-width: 80%;
     }
 }

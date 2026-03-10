@@ -46,39 +46,248 @@
   </nav>
 
 
-  <div id="about-container">
-    <div id="about-head" class="container-fluid">
-      <div class="about-profile">
-        <img src="main-res/Roland.jpg" alt="profile picture" width="100%">
+  <main class="container py-5">
+    <div class="row align-items-center mb-5 gy-4">
+      <div class="col-lg-5">
+        <div class="visual-placeholder card-style d-flex align-items-end p-3">
+          <h3 class="fredoka fs-5 text-white text-shadow">Building with Purpose.</h3>
+        </div>
       </div>
-      <div class="about-page">
-        <h1>About Page</h1>
-        <p>Hi, I’m Roland Z. Regio, a 21-year-old BSIT student at the Polytechnic University of the Philippines in Santo
-          Tomas, Batangas. I reside in Le Moubreza Homes in San Antonio, Batangas.</p>
-      </div>
-    </div>
-
-    <div id="about-code">
-      <div class="coding-info">
-        <p>I have a passion for software and web development, along with a strong interest in media and photography. I’m
-          eager to expand my skills and dive deeper into my field. Currently, I’m honing my abilities in languages like
-          CSS, HTML, JavaScript, PHP, MySQL, Java (Javaswing), C++, C, and Python, as well as exploring COBOL.</p>
-      </div>
-      <div class="code-profile">
-        <img src="main-res/coding.jpg" alt="coding picture" width="100%">
+      <div class="col-lg-7 ps-lg-5 text-center text-lg-start">
+        <h1 class="welcome-text fredoka">ABOUT <span>ME.</span></h1>
+        <p class="quote-text my-3">
+          “Pause for Clarity. <span>Build with Purpose</span>”<br>
+          <small class="opacity-75">~ R. R</small>
+        </p>
+        <a href="contact.html" class="btn btn-custom btn-explore">LEARN MORE</a>
       </div>
     </div>
 
-    <div id="about-design">
-      <div class="design-profile">
-        <img src="main-res/design.jpg" alt="design picture" width="100%">
+    <section class="mb-5">
+      <h2 class="fredoka mb-4 section-title">Fun <span>Facts</span></h2>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3">
+        <div class="col">
+          <div class="card-style p-3 h-100 text-center">
+            <div class="fact-icon mb-2"><i class="bi bi-box"></i></div>
+            <p class="fredoka mb-1">Cat Enthusiast</p>
+            <p class="tiny-text opacity-75">Living with five feline companions,
+              each with their own attitude
+              and all firmly in charge.</p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card-style p-3 h-100 text-center">
+            <div class="fact-icon mb-2"><i class="bi bi-music-note-beamed"></i></div>
+            <p class="fredoka mb-1">Music Explorer</p>
+            <p class="tiny-text opacity-75">From timeless oldies to today's hits,
+              always tuned in. Proud YouTube Music loyalist
+              with a playlist for every mood.</p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card-style p-3 h-100 text-center">
+            <div class="fact-icon mb-2"><i class="bi bi-box"></i></div>
+            <p class="fredoka mb-1">Speedcuber</p>
+            <p class="tiny-text opacity-75">Turning chaos into order
+              personal best for 3x3: 19 seconds.</p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card-style p-3 h-100 text-center">
+            <div class="fact-icon mb-2"><i class="bi bi-tv"></i></div>
+            <p class="fredoka mb-1">Anime Aficionado</p>
+            <p class="tiny-text opacity-75">Deep into the world of anime
+              with 179 completed series and films
+              (and counting).</p>
+          </div>
+        </div>
       </div>
-      <div class="designing-info">
-        <p>In addition to coding, I’m developing my creativity through media arts, utilizing tools such as Photoshop,
-          Figma, and Blender. I’m excited to embark on new projects and collaborations that will help me grow both
-          personally and professionally.</p>
+    </section>
+
+    <section id="educational-journey" class="mb-5">
+      <h2 class="fredoka mb-4 section-title">Educational <span>Journey</span></h2>
+      <div class="edu-card card-style p-4 mb-3">
+        <div class="d-flex align-items-center gap-3">
+          <div class="edu-icon"><i class="bi bi-mortarboard-fill"></i></div>
+          <div>
+            <h4 class="fredoka mb-1 fs-5">Polytechnic University of the Philippines</h4>
+            <p class="mb-0 text-accent small fw-bold">Sto. Tomas Campus</p>
+            <p class="mb-0 opacity-75 tiny-text">BS Information Technology (2022 - Present)</p>
+          </div>
+        </div>
       </div>
-    </div>
+
+      <div class="collapse" id="moreSchools">
+        <div class="edu-card card-style p-4 mb-3">
+          <div class="d-flex align-items-center gap-3">
+            <div class="edu-icon"><i class="bi bi-bank2"></i></div>
+            <div>
+              <h4 class="fredoka mb-1 fs-5"> Our Lady of Assumption College Tanauan</h4>
+              <p class="mb-0 opacity-75 tiny-text">ICT - Software Development (2020 - 2022)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <button class="btn btn-custom btn-explore py-2 px-4" id="schoolButton" data-bs-toggle="collapse"
+          data-bs-target="#moreSchools">
+          SHOW MORE <i class="bi bi-chevron-down"></i>
+        </button>
+      </div>
+    </section>
+
+    <section class="mb-5">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="fredoka section-title mb-0">Affiliations & <span>Awards</span></h2>
+        <div class="slider-controls d-none d-sm-block">
+          <button class="slider-btn" onclick="slide('aff-slider', -1)"><i class="bi bi-chevron-left"></i></button>
+          <button class="slider-btn" onclick="slide('aff-slider', 1)"><i class="bi bi-chevron-right"></i></button>
+        </div>
+      </div>
+      <div id="aff-slider" class="custom-slider">
+        <div class="slider-card card-style p-3">
+          <div class="d-flex align-items-center gap-3">
+            <i class="bi bi-trophy-fill text-accent fs-4"></i>
+            <div>
+              <p class="fredoka mb-0 small">Academic Excellence Award</p>
+              <p class="tiny-text opacity-75 mb-0">Integrative Programming (2024)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="slider-card card-style p-3">
+          <div class="d-flex align-items-center gap-3">
+            <i class="bi bi-person-badge-fill text-accent fs-4"></i>
+            <div>
+              <p class="fredoka mb-0 small">Batch President</p>
+              <p class="tiny-text opacity-75 mb-0">PUPSTC BSIT (2024–2025)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="slider-card card-style p-3">
+          <div class="d-flex align-items-center gap-3">
+            <i class="bi bi-megaphone-fill text-accent fs-4"></i>
+            <div>
+              <p class="fredoka mb-0 small">Public Relations Officer</p>
+              <p class="tiny-text opacity-75 mb-0">PUPSTC Computer Society (2024–Present)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="slider-card card-style p-3">
+          <div class="d-flex align-items-center gap-3">
+            <i class="bi bi-award-fill text-accent fs-4"></i>
+            <div>
+              <p class="fredoka mb-0 small">Top 1 - ICT Department</p>
+              <p class="tiny-text opacity-75 mb-0">OLAC Batch 2019</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="slider-card card-style p-3">
+          <div class="d-flex align-items-center gap-3">
+            <i class="bi bi-journal-check text-accent fs-4"></i>
+            <div>
+              <p class="fredoka mb-0 small">Best in Thesis Writing</p>
+              <p class="tiny-text opacity-75 mb-0">OLAC ICT Department</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-5">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="fredoka section-title mb-0">Certifications & <span>Workshops</span></h2>
+        <div class="slider-controls d-none d-sm-block">
+          <button class="slider-btn" onclick="slide('cert-slider', -1)"><i class="bi bi-chevron-left"></i></button>
+          <button class="slider-btn" onclick="slide('cert-slider', 1)"><i class="bi bi-chevron-right"></i></button>
+        </div>
+      </div>
+      <div id="cert-slider" class="custom-slider">
+        <div class="slider-card card-style p-3">
+          <div class="d-flex align-items-center gap-3">
+            <i class="bi bi-shield-lock-fill text-accent fs-4"></i>
+            <div>
+              <p class="fredoka mb-0 small">Cyber Threat Management</p>
+              <p class="tiny-text opacity-75 mb-0">Cisco (Nov 2025)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="slider-card card-style p-3">
+          <div class="d-flex align-items-center gap-3">
+            <i class="bi bi-code-slash text-accent fs-4"></i>
+            <div>
+              <p class="fredoka mb-0 small">JavaScript Essentials 1 & 2</p>
+              <p class="tiny-text opacity-75 mb-0">Cisco | Dec 2025</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="slider-card card-style p-3">
+          <div class="d-flex align-items-center gap-3">
+            <i class="bi bi-hdd-network-fill text-accent fs-4"></i>
+            <div>
+              <p class="fredoka mb-0 small">Networking & OS Basics</p>
+              <p class="tiny-text opacity-75 mb-0">Cisco | Oct 2025</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="slider-card card-style p-3">
+          <div class="d-flex align-items-center gap-3">
+            <i class="bi bi-layout-text-sidebar-reverse text-accent fs-4"></i>
+            <div>
+              <p class="fredoka mb-0 small">HTML & CSS Essentials</p>
+              <p class="tiny-text opacity-75 mb-0">Cisco | Dec 2025</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="slider-card card-style p-3">
+          <div class="d-flex align-items-center gap-3">
+            <i class="bi bi-cpu-fill text-accent fs-4"></i>
+            <div>
+              <p class="fredoka mb-0 small">GenAI Certification</p>
+              <p class="tiny-text opacity-75 mb-0">Microsoft Learn (2025)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="slider-card card-style p-3">
+          <div class="d-flex align-items-center gap-3">
+            <i class="bi bi-robot text-accent fs-4"></i>
+            <div>
+              <p class="fredoka mb-0 small">AI for Business Management</p>
+              <p class="tiny-text opacity-75 mb-0">HP Life (Nov 2025)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="slider-card card-style p-3">
+          <div class="d-flex align-items-center gap-3">
+            <i class="bi bi-git text-accent fs-4"></i>
+            <div>
+              <p class="fredoka mb-0 small">TechStart: Git & GitHub</p>
+              <p class="tiny-text opacity-75 mb-0">STARTDOST (Nov 2025)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="slider-card card-style p-3">
+          <div class="d-flex align-items-center gap-3">
+            <i class="bi bi-vector-pen text-accent fs-4"></i>
+            <div>
+              <p class="fredoka mb-0 small">Agile Design & Handoff</p>
+              <p class="tiny-text opacity-75 mb-0">DICT (Dec 2025)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer class="footer footer-section">
     <div class="container-fluid px-4 px-md-5">
@@ -115,6 +324,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
+
+  <script src="js/showMore.js"></script>
+  <script src="js/slider.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
     </script>
