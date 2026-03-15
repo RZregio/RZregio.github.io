@@ -1,4 +1,9 @@
-/* Header Visual Placeholder */
+/* --- Global Variables (Matching your navFoot) --- */
+:root {
+    --accent-yellow: #D48C1C;
+}
+
+/* --- Header Visual Placeholder --- */
 .visual-placeholder {
     background: linear-gradient(rgba(11, 17, 32, 0.2), rgba(11, 17, 32, 0.8)),
         url('../main-res/aboutMe.png') !important;
@@ -15,7 +20,7 @@
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Buttons with Background Colors */
+/* --- Buttons --- */
 .btn-explore {
     background-color: var(--accent-yellow) !important;
     border: none;
@@ -24,38 +29,11 @@
 }
 
 .btn-explore:hover {
-    transform: translateY(-8px);
-    filter: brightness(0.7);
-    color: white;
+    transform: translateY(-5px);
+    filter: brightness(1.1);
 }
 
-/* Slider Pagination Styling */
-.custom-slider {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    padding: 10px 5px 25px 5px;
-}
-
-/* Ensure the cards take a fixed width for the slider */
-.slider-card {
-    min-width: 320px;
-    flex: 0 0 auto;
-}
-
-@media (max-width: 576px) {
-    .slider-card {
-        min-width: 280px;
-    }
-
-    .edu-card .d-flex {
-        flex-direction: column;
-        text-align: center;
-    }
-}
-
-/* Card Base Styling */
+/* --- Card Base Styling --- */
 .card-style {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -64,7 +42,7 @@
     transition: transform 0.3s ease;
 }
 
-/* Quote Typography */
+/* --- Quote Typography --- */
 .quote-text {
     font-size: var(--fs-h2);
     font-style: italic;
@@ -77,9 +55,8 @@
     font-weight: 600;
 }
 
-/* Icon Containers */
-.fact-icon,
-.edu-icon {
+/* --- Icon Containers --- */
+.fact-icon, .edu-icon {
     font-size: 2.5rem;
     color: var(--accent-yellow);
 }
@@ -88,41 +65,6 @@
     color: var(--accent-yellow);
 }
 
-/* Slider Logic */
-.custom-slider {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    padding-bottom: 15px;
-}
-
-.custom-slider::-webkit-scrollbar {
-    display: none;
-}
-
-.slider-card {
-    min-width: 300px;
-    flex-shrink: 0;
-}
-
-.slider-btn {
-    background: var(--accent-yellow);
-    border: none;
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-left: 10px;
-    transition: 0.3s;
-}
-
-.slider-btn:hover {
-    filter: brightness(1.2);
-    transform: scale(1.1);
-}
-
-/* CTA Styles */
 .text-accent {
     color: var(--accent-yellow);
 }
@@ -132,8 +74,81 @@
     line-height: 1.4;
 }
 
+/* --- Slider Core (The Fix) --- */
+.custom-slider {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 20px;
+    /* Hide scrollbar but keep functionality */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.custom-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.slider-card {
+    min-width: 320px; /* Fixed for Desktop */
+    flex: 0 0 auto;
+}
+
+.slider-btn {
+    background: var(--accent-yellow);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+/* --- MOBILE RESPONSIVE FIXES --- */
 @media (max-width: 768px) {
+    /* Stop the body grid from squeezing content */
+    body {
+        display: block !important; 
+        overflow-x: hidden;
+    }
+
+    /* Shrink the hero image for mobile */
+    .visual-placeholder {
+        min-height: 250px;
+    }
+
+    .welcome-text {
+        font-size: 2.5rem;
+        margin-top: 15px;
+    }
+
+    /* Make slider cards responsive so they don't overflow the screen */
     .slider-card {
-        min-width: 80%;
+        min-width: 85vw; /* Card takes up 85% of screen width */
+    }
+
+    /* Adjust Educational Journey icons/text for vertical stacking */
+    .edu-card .d-flex {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px !important;
+    }
+
+    .quote-text {
+        font-size: 1.1rem;
+        padding-left: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    /* Ensure the main container doesn't have too much padding on small phones */
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 }

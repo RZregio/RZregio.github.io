@@ -1,82 +1,269 @@
-/*Project Page*/
-#projects-page {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 40px 20px;
-    flex-wrap: wrap;
-    flex-grow: 1;
-}
+/* ============================================================
+   EXPERIENCE PAGE STYLING
+   Includes Fixes for Mobile Responsiveness & navFoot Conflicts
+   ============================================================ */
 
-#projects-page-body {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 40px 20px;
-    flex-wrap: wrap;
-    flex-grow: 1;
-}
-
-.projects-info {
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
-}
-
-.projects-head {
-    color: #DAA520;
-    font-weight: 700;
-    font-family: Fredoka;
+/* --- Global & Hero Section --- */
+#experience-hero {
+    padding: 80px 20px;
+    background: linear-gradient(180deg, #101A30 0%, #162447 100%);
     text-align: center;
 }
 
-.projects-desc {
+.section-title {
+    color: #DAA520;
+    font-family: 'Fredoka One', cursive;
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+}
+
+.section-subtitle {
     color: #E0E0E0;
-    font-weight: 400;
-    text-align: center;
-    border: 5px solid #DAA520;
-    border-radius: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: #162447;
+    max-width: 850px;
+    margin: 0 auto 50px;
+    line-height: 1.8;
 }
 
-.projects-link {
+/* --- Tech Stack Grid --- */
+.tech-stack-grid {
+    display: grid;
+    /* auto-fit handles the wrapping naturally */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.stack-card {
+    background: rgba(27, 43, 75, 0.6);
+    border: 2px solid #5748db;
+    border-radius: 15px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    text-align: center;
+    color: inherit;
+}
+
+.stack-card:hover {
+    transform: translateY(-8px);
+    border-color: #DAA520;
+    background: rgba(27, 43, 75, 0.9);
+}
+
+.stack-card i {
+    font-size: 3rem;
+    color: #DAA520;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.stack-card h4 {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.stack-card p {
+    color: #a49ce6;
+    font-size: 0.85rem;
+}
+
+/* --- Project Titles --- */
+.project-category-title {
+    color: #DAA520;
+    font-family: 'Fredoka One', cursive;
+    border-left: 5px solid #DAA520;
+    padding-left: 15px;
+    margin: 60px 0 30px;
+}
+
+/* --- Slider Core Structure (Horizontal Scroll Fix) --- */
+.slider-container {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px 0;
+    /* Hide scrollbar for Chrome/Safari/Firefox */
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch; /* Smooth swipe on iOS */
+}
+
+.slider-container::-webkit-scrollbar {
+    display: none;
+}
+
+.slider-track {
+    display: flex;
+    gap: 30px;
+    width: max-content; /* Critical: Allows track to grow past screen width */
+}
+
+/* --- Project Cards --- */
+.project-card {
+    background: #162447;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: 0.4s;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 20px;
+    width: 350px; /* Desktop width */
+    flex: 0 0 auto; /* Prevents shrinking in flexbox */
 }
 
-.projects-note {
+.project-card:hover {
+    border-color: #DAA520;
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+.project-thumb {
+    height: 180px;
+    width: 100%;
+    background-color: #101A30;
+    border-bottom: 3px solid #DAA520;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-thumb iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    pointer-events: none;
+}
+
+.embed-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 5;
+}
+
+.project-card:hover iframe {
+    pointer-events: auto;
+}
+
+.project-card:hover .embed-overlay {
+    display: none;
+}
+
+.project-content {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-content h3 {
     color: #DAA520;
     font-weight: 700;
-    text-align: center;
-    font-family: Fredoka;
-    padding-top: 20px;
-    max-width: 500px;
-    height: 80px;
+    margin-bottom: 12px;
 }
 
-.projects-link button {
-    margin-bottom: 10px;
-    min-width: 300px;
-    max-width: 300px;
-    padding: 6px 8px;
-    font-size: 16px;
+/* --- Buttons & Utilities --- */
+.btn-view {
+    border: 2px solid #DAA520;
+    color: #DAA520;
+    padding: 8px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-view:hover {
+    background: #DAA520;
+    color: #101A30;
+}
+
+.btn-about {
+    background-color: #DAA520;
+    color: #101A30;
+    font-family: 'Fredoka One', cursive;
+    padding: 15px 45px;
+    border-radius: 50px;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.slider-btn {
+    background: #DAA520;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    color: #101A30;
     cursor: pointer;
-    background-color: #101A30;
-    color: #a49ce6;
-    border: 2px solid #5748db;
-    border-radius: 10px;
-    transition: all ease 0.3s;
+    transition: 0.3s;
 }
 
-.projects-link button:hover {
-    background-color: #332e98;
-    box-shadow: 0 8px 15px rgb(0 0 0 / .5);
-    transform: translateY(-4px)
+.figma-icon {
+    color: #F24E1E !important;
+}
+
+/* ============================================================
+   MOBILE RESPONSIVE ADJUSTMENTS
+   Overrides fixed widths and body grid constraints
+   ============================================================ */
+
+@media (max-width: 768px) {
+    /* Prevent navFoot grid from squeezing the page */
+    body {
+        display: block !important;
+        overflow-x: hidden;
+    }
+
+    #experience-hero {
+        padding: 50px 15px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    /* Tech stack becomes a vertical list */
+    .tech-stack-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* Adjust Card Width for Mobile */
+    .project-card {
+        width: 85vw; /* Fills most of the screen, leaves room to show next card */
+        min-width: 280px;
+    }
+
+    /* Slider specific mobile padding */
+    .slider-track {
+        gap: 20px;
+        padding-left: 10px;
+        padding-right: 20px;
+    }
+
+    /* Hide desktop slider controls on touch devices for cleaner UI */
+    .slider-controls {
+        display: none;
+    }
+
+    .project-category-title {
+        font-size: 1.6rem;
+        margin: 40px 0 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .stack-card {
+        padding: 20px;
+    }
 }

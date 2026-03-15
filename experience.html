@@ -4,9 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RZ Regio | Portfolio</title>
-  <link rel="icon" type="main-res/RZbrand.ico">
-
+  <title>Experience | RZ Regio</title>
+  <link rel="icon" type="image/x-icon" href="main-res/RZbrand.ico">
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@300;400;600&display=swap"
     rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -15,126 +14,267 @@
   <link rel="stylesheet" href="css/experience.css">
 </head>
 
-
-
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container-fluid px-4 px-md-5">
       <a class="navbar-brand" href="index.html">RZ <span>regio</span></a>
-
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html"><i class="bi bi-house-door"></i> Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="experience.html"><i class="bi bi-briefcase"></i> Experience</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html"><i class="bi bi-person"></i> About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html"><i class="bi bi-envelope"></i> Contact</a>
-          </li>
+          <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-door"></i> Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="experience.html"><i class="bi bi-briefcase"></i>
+              Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html"><i class="bi bi-person"></i> About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html"><i class="bi bi-envelope"></i> Contact</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
+  <header id="experience-hero">
+    <div class="container">
+      <h1 class="section-title">Project Section</h1>
+      <p class="section-subtitle">
+        This section is dedicated to every project from my journey throughout the IT field.
+        I offer expertise in structured planning, web development, and quality-driven development.
+      </p>
+    </div>
+  </header>
 
+  <section class="container mb-5">
+    <h2 class="project-category-title">Tech Stack & Professional Tools</h2>
+    <div class="tech-stack-grid">
+      <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" class="stack-card text-decoration-none"
+        target="_blank">
+        <i class="bi bi-filetype-html"></i>
+        <h4>HTML5 & CSS3</h4>
+        <p>Responsive web design using modern CSS and Bootstrap frameworks.</p>
+      </a>
+      <a href="https://www.php.net/" class="stack-card text-decoration-none" target="_blank">
+        <i class="bi bi-filetype-php"></i>
+        <h4>PHP & Backend</h4>
+        <p>Server-side logic and CRUD operations for dynamic web systems.</p>
+      </a>
+      <a href="https://unity.com/" class="stack-card text-decoration-none" target="_blank">
+        <i class="bi bi-unity"></i>
+        <h4>Unity & C#</h4>
+        <p>2D Game development focusing on gameplay mechanics and UI/UX.</p>
+      </a>
+      <a href="https://www.mysql.com/" class="stack-card text-decoration-none" target="_blank">
+        <i class="bi bi-database"></i>
+        <h4>MySQL</h4>
+        <p>Database schema design and complex SQL query management.</p>
+      </a>
+      <a href="https://github.com/RZregio" class="stack-card text-decoration-none" target="_blank">
+        <i class="bi bi-github"></i>
+        <h4>Git & GitHub</h4>
+        <p>Version control and project management for collaborative software.</p>
+      </a>
+      <a href="https://www.figma.com/" class="stack-card text-decoration-none" target="_blank">
+        <i class="bi bi-figma figma-icon"></i>
+        <h4>Figma & Design</h4>
+        <p>User interface prototyping and agile design handoffs.</p>
+      </a>
+    </div>
+  </section>
 
-  <div id="projects-page" class="container-fluid">
-    <div class="projects-info">
-      <div class="projects-head">
-        <h1>Project Section</h1>
-      </div>
-      <div class="projects-desc">
-        <p>This section is dedicated for every projects
-          from my journey throughtout the IT Field.</P>
-        <p>This page aims to showcase my skills and knowledge, and
-          create an accessible collections of my works.</p>
-        <p>This is also a diary of wonders to remember as an aspiring IT professional.</p>
-        <p>And so, feel free to access my works in this section.</p>
+  <section class="container mb-5 project-section">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="project-category-title m-0">Web Development Projects</h2>
+      <div class="slider-controls">
+        <button class="slider-btn" onclick="slide('web-slider', -1)"><i class="bi bi-chevron-left"></i></button>
+        <button class="slider-btn" onclick="slide('web-slider', 1)"><i class="bi bi-chevron-right"></i></button>
       </div>
     </div>
+
+    <div class="slider-container" id="web-slider">
+      <div class="slider-track">
+        <div class="project-card">
+          <div class="project-thumb live-embed"><iframe src="WEBDEV/productInfo/index.html" loading="lazy"></iframe>
+            <div class="embed-overlay"></div>
+          </div>
+          <div class="project-content">
+            <h3>Product Page V2</h3>
+            <p>A refined product information layout focusing on UI/UX and clean presentation.</p>
+            <a href="WEBDEV/productInfo/index.html" class="btn-view">View Project</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-thumb live-embed"><iframe src="WEBDEV/placeHub/index.html" loading="lazy"></iframe>
+            <div class="embed-overlay"></div>
+          </div>
+          <div class="project-content">
+            <h3>PlaceHub Page V2</h3>
+            <p>A web-based platform designed for location discovery and community interaction.</p>
+            <a href="WEBDEV/placeHub/index.html" class="btn-view">View Project</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-thumb live-embed"><iframe src="WEBDEV/photoGallery/index.html" loading="lazy"></iframe>
+            <div class="embed-overlay"></div>
+          </div>
+          <div class="project-content">
+            <h3>PhotoGallery Page V2</h3>
+            <p>Interactive gallery showcasing visual assets with responsive grid layouts.</p>
+            <a href="WEBDEV/photoGallery/index.html" class="btn-view">View Project</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-thumb live-embed"><iframe src="WEBDEV/wordYouSure/index.html" loading="lazy"></iframe>
+            <div class="embed-overlay"></div>
+          </div>
+          <div class="project-content">
+            <h3>WordYou Sure? V2</h3>
+            <p>Utility project exploring user interaction through confirmation prompts.</p>
+            <a href="WEBDEV/wordYouSure/index.html" class="btn-view">View Project</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-thumb live-embed"><iframe src="WEBDEV/arcaneLog/index.html" loading="lazy"></iframe>
+            <div class="embed-overlay"></div>
+          </div>
+          <div class="project-content">
+            <h3>ArcaneLog Page</h3>
+            <p>A specialized interface for log tracking and data visualization.</p>
+            <a href="WEBDEV/arcaneLog/index.html" class="btn-view">View Project</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-thumb live-embed"><iframe src="WEBDEV/stillLifeParallax/index.html"
+              loading="lazy"></iframe>
+            <div class="embed-overlay"></div>
+          </div>
+          <div class="project-content">
+            <h3>StillLife Parallax V2</h3>
+            <p>Advanced UI project utilizing CSS parallax techniques.</p>
+            <a href="WEBDEV/stillLifeParallax/index.html" class="btn-view">View Project</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-thumb"></div>
+          <div class="project-content">
+            <h3>Project #7</h3>
+            <p>Upcoming web development endeavor exploring new technologies.</p>
+            <button onclick="alert('Still under development')" class="btn-view">Coming Soon</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container mb-5 project-section">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="project-category-title m-0">Application Development & Emerging Tech</h2>
+      <div class="slider-controls">
+        <button class="slider-btn" onclick="slide('adet-slider', -1)"><i class="bi bi-chevron-left"></i></button>
+        <button class="slider-btn" onclick="slide('adet-slider', 1)"><i class="bi bi-chevron-right"></i></button>
+      </div>
+    </div>
+
+    <div class="slider-container" id="adet-slider">
+      <div class="slider-track">
+        <div class="project-card">
+          <div class="project-thumb live-embed"><iframe src="ADET/A04/index.html" loading="lazy"></iframe>
+            <div class="embed-overlay"></div>
+          </div>
+          <div class="project-content">
+            <h3>A04 - CatEnFur V2</h3>
+            <p>Refined feline care system with improved UI/UX and system configuration.</p>
+            <a href="ADET/A04/index.html" class="btn-view">Launch V2</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-thumb live-embed"><iframe src="ADET/A07/index.html" loading="lazy"></iframe>
+            <div class="embed-overlay"></div>
+          </div>
+          <div class="project-content">
+            <h3>A05 - Meowtivator</h3>
+            <p>Emerging technology tool designed for motivation and interactive engagement.</p>
+            <a href="ADET/A07/index.html" class="btn-view">Launch App</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-thumb live-embed"><iframe src="ADET/A02/index.php" loading="lazy"></iframe>
+            <div class="embed-overlay"></div>
+          </div>
+          <div class="project-content">
+            <h3>A02 - AniMania</h3>
+            <p>Backend logic exploration using PHP and dynamic data retrieval.</p>
+            <a href="ADET/A02/index.php" class="btn-view">Launch App</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-thumb live-embed"><iframe src="ADET/A01/index.html" loading="lazy"></iframe>
+            <div class="embed-overlay"></div>
+          </div>
+          <div class="project-content">
+            <h3>Welcome to ADET</h3>
+            <p>Foundation project for ADET emerging tech.</p>
+            <a href="ADET/A01/index.html" class="btn-view">Launch</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-thumb live-embed"><iframe src="ADET/A03/index.html" loading="lazy"></iframe>
+            <div class="embed-overlay"></div>
+          </div>
+          <div class="project-content">
+            <h3>A03 - Border App</h3>
+            <p>Study on interface boundaries and visual hierarchy.</p>
+            <a href="ADET/A03/index.html" class="btn-view">Launch</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-thumb live-embed"><iframe src="ADET/A04_BETA/index.html" loading="lazy"></iframe>
+            <div class="embed-overlay"></div>
+          </div>
+          <div class="project-content">
+            <h3>A04 - CatEnFur Beta</h3>
+            <p>Initial beta version of the feline care management system.</p>
+            <a href="ADET/A04_BETA/index.html" class="btn-view">Launch Beta</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-thumb"></div>
+          <div class="project-content">
+            <h3>A06 Project</h3>
+            <p>Next-generation application currently under active development.</p>
+            <button onclick="alert('Still under development')" class="btn-view">Coming Soon</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container text-center mb-5 pb-5">
+    <h3 class="text-white mb-4">Want to know the person behind these projects?</h3>
+    <a href="about.html" class="btn-about">Learn More About Me</a>
   </div>
-
-  <div id="projects-page-body" class="container-fluid">
-    <div class="projects-access">
-      <div class="projects-note">
-        <h2>Web Development Projects</h2>
-      </div>
-      <div class="projects-link">
-        <a href="WEBDEV/productInfo/index.html"><button>Project#1: Product Page V2</button></a>
-        <a href="WEBDEV/placeHub/index.html"><button>Project#2: PlaceHub Page V2</button></a>
-        <a href="WEBDEV/photoGallery/index.html"><button>Project#3: PhotoGallery Page V2</button></a>
-        <a href="WEBDEV/wordYouSure/index.html"><button>Project#4: WordYou Sure? Page V2</button></a>
-        <a href="WEBDEV/arcaneLog/index.html"><button>Project#5: ArcaneLog Page</button></a>
-        <a href="WEBDEV/stillLifeParallax/index.html"><button>Project#6: StillLife Parallax Page V2</button></a>
-        <button onclick="alert('Still under development')">Project#7</button>
-      </div>
-    </div>
-
-    <div class="projects-access">
-      <div class="projects-note">
-        <h2>Application Development and Emerging Technology Projects</h2>
-      </div>
-      <div class="projects-link">
-        <a href="ADET/A01/index.html"><button>Welcome to ADET</button></a>
-        <a href="ADET/A02/index.php"><button>A02 - AniMania</button></a>
-        <a href="ADET/A03/index.html"><button>A03 - AiB: Border Appreciation</button></a>
-        <a href="ADET/A04_BETA/index.html"><button> A04_BETA - CatEnFur: care for cats</button></a>
-        <a href="ADET/A04/index.html"><button> A04 - CatEnFur: care for cats v2</button></a>
-        <a href="ADET/A07/index.html"><button> A05 - Meowtivator</button></a>
-        <button onclick="alert('Still under development')">A06</button>
-      </div>
-    </div>
-  </div>
-
-
 
   <footer class="footer footer-section">
     <div class="container-fluid px-4 px-md-5">
       <div class="row align-items-center py-4">
-
         <div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
-          <p class="copyright-text mb-0">
-            &copy; 2026 RZ <span>regio</span>. All Rights Reserved
-          </p>
+          <p class="copyright-text mb-0">&copy; 2026 RZ <span>regio</span>. All Rights Reserved</p>
         </div>
-
         <div class="my-3 col-md-4 text-center mb-3 mb-md-0 order-3 order-md-2">
           <a href="#" class="back-to-top">Back on top</a>
         </div>
-
         <div class="col-md-4 text-center text-md-end order-2 order-md-3">
           <ul class="footer-links list-inline mb-0">
-            <li class="list-inline-item"><a href="index.html" class="footer-link">Home</a></li>
-            <li class="list-inline-item">|</li>
-            <li class="list-inline-item"><a href="experience.html" class="footer-link active">Experience</a></li>
-            <li class="list-inline-item">|</li>
-            <li class="list-inline-item"><a href="about.html" class="footer-link">About</a></li>
-            <li class="list-inline-item">|</li>
+            <li class="list-inline-item"><a href="index.html" class="footer-link">Home</a></li> |
+            <li class="list-inline-item"><a href="experience.html" class="footer-link active">Experience</a></li> |
+            <li class="list-inline-item"><a href="about.html" class="footer-link">About</a></li> |
             <li class="list-inline-item"><a href="contact.html" class="footer-link">Contact</a></li>
           </ul>
         </div>
-
       </div>
     </div>
   </footer>
 
-
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
-    </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/slider.js"></script>
 </body>
 
 </html>

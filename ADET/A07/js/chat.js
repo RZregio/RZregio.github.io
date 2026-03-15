@@ -203,7 +203,7 @@ function getBotResponse(userMessage) {
         return randomFrom(responses.okay);
     } else if (contains(["sad", "down", "cry", "iyak", "malungkot", "lungkot", "depressed"])) {
         return randomFrom(responses.sad);
-    } else if (contains(["angry", "mad", "galit", "inis", "irita", "asar", "bwisit"])) {
+    } else if (contains(["angry", "mad", "galit", "inis", "irita", "asar", "bwisit", "yawa"])) {
         return randomFrom(responses.angry);
     } else if (contains(["tired", "lazy", "demotivated", "pagod", "wala gana", "antok", "drained"])) {
         return randomFrom(responses.demotivated);
