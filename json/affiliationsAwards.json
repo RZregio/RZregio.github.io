@@ -1,0 +1,32 @@
+[
+    {
+        "awardTitle": "Best in Capstone Project",
+        "awardContext": "PUPSTC BSIT (2025–2026)",
+        "iconClass": "bi-trophy-fill"
+    },
+    {
+        "awardTitle": "Academic Excellence Award",
+        "awardContext": "Integrative Programming (2024)",
+        "iconClass": "bi-trophy-fill"
+    },
+    {
+        "awardTitle": "Batch President",
+        "awardContext": "PUPSTC BSIT (2024–2025)",
+        "iconClass": "bi-person-badge-fill"
+    },
+    {
+        "awardTitle": "Public Relations Officer",
+        "awardContext": "PUPSTC Computer Society (2024–Present)",
+        "iconClass": "bi-megaphone-fill"
+    },
+    {
+        "awardTitle": "Top 1 - ICT Department",
+        "awardContext": "OLAC Batch 2019",
+        "iconClass": "bi-award-fill"
+    },
+    {
+        "awardTitle": "Best in Thesis Writing",
+        "awardContext": "OLAC ICT Department",
+        "iconClass": "bi-journal-check"
+    }
+]

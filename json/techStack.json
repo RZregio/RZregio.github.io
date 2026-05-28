@@ -1,0 +1,38 @@
+[
+  {
+    "techTitle": "HTML5 & CSS3",
+    "techDescription": "Responsive web design using modern CSS and Bootstrap frameworks.",
+    "iconClass": "bi-filetype-html",
+    "techLinkUrl": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+  },
+  {
+    "techTitle": "PHP & Backend",
+    "techDescription": "Server-side logic and CRUD operations for dynamic web systems.",
+    "iconClass": "bi-filetype-php",
+    "techLinkUrl": "https://www.php.net/"
+  },
+  {
+    "techTitle": "Unity & C#",
+    "techDescription": "2D Game development focusing on gameplay mechanics and UI/UX.",
+    "iconClass": "bi-unity",
+    "techLinkUrl": "https://unity.com/"
+  },
+  {
+    "techTitle": "MySQL",
+    "techDescription": "Database schema design and complex SQL query management.",
+    "iconClass": "bi-database",
+    "techLinkUrl": "https://www.mysql.com/"
+  },
+  {
+    "techTitle": "Git & GitHub",
+    "techDescription": "Version control and project management for collaborative software.",
+    "iconClass": "bi-github",
+    "techLinkUrl": "https://github.com/RZregio"
+  },
+  {
+    "techTitle": "Figma & Design",
+    "techDescription": "User interface prototyping and agile design handoffs.",
+    "iconClass": "bi-palette",
+    "techLinkUrl": "https://www.figma.com/"
+  }
+]

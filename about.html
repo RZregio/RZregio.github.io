@@ -66,42 +66,7 @@
 
     <section class="mb-5">
       <h2 class="fredoka mb-4 section-title">Fun <span>Facts</span></h2>
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3">
-        <div class="col">
-          <div class="card-style p-3 h-100 text-center">
-            <div class="fact-icon mb-2"><i class="bi bi-box"></i></div>
-            <p class="fredoka mb-1">Cat Enthusiast</p>
-            <p class="tiny-text opacity-75">Living with five feline companions,
-              each with their own attitude
-              and all firmly in charge.</p>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card-style p-3 h-100 text-center">
-            <div class="fact-icon mb-2"><i class="bi bi-music-note-beamed"></i></div>
-            <p class="fredoka mb-1">Music Explorer</p>
-            <p class="tiny-text opacity-75">From timeless oldies to today's hits,
-              always tuned in. Proud YouTube Music loyalist
-              with a playlist for every mood.</p>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card-style p-3 h-100 text-center">
-            <div class="fact-icon mb-2"><i class="bi bi-box"></i></div>
-            <p class="fredoka mb-1">Speedcuber</p>
-            <p class="tiny-text opacity-75">Turning chaos into order
-              personal best for 3x3: 19 seconds.</p>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card-style p-3 h-100 text-center">
-            <div class="fact-icon mb-2"><i class="bi bi-tv"></i></div>
-            <p class="fredoka mb-1">Anime Aficionado</p>
-            <p class="tiny-text opacity-75">Deep into the world of anime
-              with 179 completed series and films
-              (and counting).</p>
-          </div>
-        </div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3" id="fun-facts-container">
       </div>
     </section>
 
@@ -136,7 +101,7 @@
         </button>
       </div>
     </section>
-
+    
     <section class="mb-5">
       <div class="d-flex justify-content-between align-items-center mb-3">
         <h2 class="fredoka section-title mb-0">Affiliations & <span>Awards</span></h2>
@@ -145,56 +110,8 @@
           <button class="slider-btn" onclick="slide('aff-slider', 1)"><i class="bi bi-chevron-right"></i></button>
         </div>
       </div>
+
       <div id="aff-slider" class="custom-slider">
-        <div class="slider-card card-style p-3">
-          <div class="d-flex align-items-center gap-3">
-            <i class="bi bi-trophy-fill text-accent fs-4"></i>
-            <div>
-              <p class="fredoka mb-0 small">Academic Excellence Award</p>
-              <p class="tiny-text opacity-75 mb-0">Integrative Programming (2024)</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="slider-card card-style p-3">
-          <div class="d-flex align-items-center gap-3">
-            <i class="bi bi-person-badge-fill text-accent fs-4"></i>
-            <div>
-              <p class="fredoka mb-0 small">Batch President</p>
-              <p class="tiny-text opacity-75 mb-0">PUPSTC BSIT (2024–2025)</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="slider-card card-style p-3">
-          <div class="d-flex align-items-center gap-3">
-            <i class="bi bi-megaphone-fill text-accent fs-4"></i>
-            <div>
-              <p class="fredoka mb-0 small">Public Relations Officer</p>
-              <p class="tiny-text opacity-75 mb-0">PUPSTC Computer Society (2024–Present)</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="slider-card card-style p-3">
-          <div class="d-flex align-items-center gap-3">
-            <i class="bi bi-award-fill text-accent fs-4"></i>
-            <div>
-              <p class="fredoka mb-0 small">Top 1 - ICT Department</p>
-              <p class="tiny-text opacity-75 mb-0">OLAC Batch 2019</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="slider-card card-style p-3">
-          <div class="d-flex align-items-center gap-3">
-            <i class="bi bi-journal-check text-accent fs-4"></i>
-            <div>
-              <p class="fredoka mb-0 small">Best in Thesis Writing</p>
-              <p class="tiny-text opacity-75 mb-0">OLAC ICT Department</p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -206,86 +123,8 @@
           <button class="slider-btn" onclick="slide('cert-slider', 1)"><i class="bi bi-chevron-right"></i></button>
         </div>
       </div>
+
       <div id="cert-slider" class="custom-slider">
-        <div class="slider-card card-style p-3">
-          <div class="d-flex align-items-center gap-3">
-            <i class="bi bi-shield-lock-fill text-accent fs-4"></i>
-            <div>
-              <p class="fredoka mb-0 small">Cyber Threat Management</p>
-              <p class="tiny-text opacity-75 mb-0">Cisco (Nov 2025)</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="slider-card card-style p-3">
-          <div class="d-flex align-items-center gap-3">
-            <i class="bi bi-code-slash text-accent fs-4"></i>
-            <div>
-              <p class="fredoka mb-0 small">JavaScript Essentials 1 & 2</p>
-              <p class="tiny-text opacity-75 mb-0">Cisco | Dec 2025</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="slider-card card-style p-3">
-          <div class="d-flex align-items-center gap-3">
-            <i class="bi bi-hdd-network-fill text-accent fs-4"></i>
-            <div>
-              <p class="fredoka mb-0 small">Networking & OS Basics</p>
-              <p class="tiny-text opacity-75 mb-0">Cisco | Oct 2025</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="slider-card card-style p-3">
-          <div class="d-flex align-items-center gap-3">
-            <i class="bi bi-layout-text-sidebar-reverse text-accent fs-4"></i>
-            <div>
-              <p class="fredoka mb-0 small">HTML & CSS Essentials</p>
-              <p class="tiny-text opacity-75 mb-0">Cisco | Dec 2025</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="slider-card card-style p-3">
-          <div class="d-flex align-items-center gap-3">
-            <i class="bi bi-cpu-fill text-accent fs-4"></i>
-            <div>
-              <p class="fredoka mb-0 small">GenAI Certification</p>
-              <p class="tiny-text opacity-75 mb-0">Microsoft Learn (2025)</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="slider-card card-style p-3">
-          <div class="d-flex align-items-center gap-3">
-            <i class="bi bi-robot text-accent fs-4"></i>
-            <div>
-              <p class="fredoka mb-0 small">AI for Business Management</p>
-              <p class="tiny-text opacity-75 mb-0">HP Life (Nov 2025)</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="slider-card card-style p-3">
-          <div class="d-flex align-items-center gap-3">
-            <i class="bi bi-git text-accent fs-4"></i>
-            <div>
-              <p class="fredoka mb-0 small">TechStart: Git & GitHub</p>
-              <p class="tiny-text opacity-75 mb-0">STARTDOST (Nov 2025)</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="slider-card card-style p-3">
-          <div class="d-flex align-items-center gap-3">
-            <i class="bi bi-vector-pen text-accent fs-4"></i>
-            <div>
-              <p class="fredoka mb-0 small">Agile Design & Handoff</p>
-              <p class="tiny-text opacity-75 mb-0">DICT (Dec 2025)</p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   </main>
@@ -331,6 +170,10 @@
 
   <script src="js/showMore.js?v=1.0.0"></script>
   <script src="js/slider.js?v=1.0.0"></script>
+
+  <script src="js/renderAbout.js?v=1.0.0"></script>
 </body>
+
+</html>
 
 </html>

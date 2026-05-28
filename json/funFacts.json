@@ -1,0 +1,22 @@
+[
+  {
+    "factTitle": "Cat Enthusiast",
+    "factDescription": "Living with five feline companions, each with their own attitude and all firmly in charge.",
+    "iconClass": "bi-box"
+  },
+  {
+    "factTitle": "Music Explorer",
+    "factDescription": "From timeless oldies to today's hits, always tuned in. Proud YouTube Music loyalist with a playlist for every mood.",
+    "iconClass": "bi-music-note-beamed"
+  },
+  {
+    "factTitle": "Speedcuber",
+    "factDescription": "Turning chaos into order personal best for 3x3: 19 seconds.",
+    "iconClass": "bi-box"
+  },
+  {
+    "factTitle": "Anime Aficionado",
+    "factDescription": "Deep into the world of anime with 179 completed series and films (and counting).",
+    "iconClass": "bi-tv"
+  }
+]

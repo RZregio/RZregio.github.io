@@ -1,0 +1,42 @@
+[
+  {
+    "awardTitle": "Cyber Threat Management",
+    "awardContext": "Cisco (Nov 2025)",
+    "iconClass": "bi-shield-lock-fill"
+  },
+  {
+    "awardTitle": "JavaScript Essentials 1 & 2",
+    "awardContext": "Cisco | Dec 2025",
+    "iconClass": "bi-code-slash"
+  },
+  {
+    "awardTitle": "Networking & OS Basics",
+    "awardContext": "Cisco | Oct 2025",
+    "iconClass": "bi-hdd-network-fill"
+  },
+  {
+    "awardTitle": "HTML & CSS Essentials",
+    "awardContext": "Cisco | Dec 2025",
+    "iconClass": "bi-layout-text-sidebar-reverse"
+  },
+  {
+    "awardTitle": "GenAI Certification",
+    "awardContext": "Microsoft Learn (2025)",
+    "iconClass": "bi-cpu-fill"
+  },
+  {
+    "awardTitle": "AI for Business Management",
+    "awardContext": "HP Life (Nov 2025)",
+    "iconClass": "bi-robot"
+  },
+  {
+    "awardTitle": "TechStart: Git & GitHub",
+    "awardContext": "STARTDOST (Nov 2025)",
+    "iconClass": "bi-git"
+  },
+  {
+    "awardTitle": "Agile Design & Handoff",
+    "awardContext": "DICT (Dec 2025)",
+    "iconClass": "bi-vector-pen"
+  }
+]
