@@ -1,19 +1,38 @@
+/* -----
+Dynamic Role Text Switcher
+Randomly cycles through a list of professional roles with a 3D flip CSS animation.
+----- */
+const professionalRoles = [
+    'Digital Artisan',
+    'System Whisperer',
+    'Tech Trailblazer',
+    'Code Alchemist',
+    'Creative Strategist',
+    'Solution Seeker',
+    'Thought Weaver',
+    'Vision Architect',
+    'Collaboration Maestro'
+];
 
-const roles = ['Digital Artisan', 'System Whisperer', 'Tech Trailblazer', 'Code Alchemist', 'Creative Strategist', 'Solution Seeker', 'Thought Weaver', 'Vision Architect', 'Collaboration Maestro'];
-const roleText = document.getElementById('role-text');
-const shuffleBtn = document.getElementById('shuffle-btn');
+const dynamicRoleText = document.getElementById('role-text');
+const shuffleRoleButton = document.getElementById('shuffle-btn');
 
-shuffleBtn.addEventListener('click', () => {
-    roleText.classList.add('role-flipping');
+shuffleRoleButton.addEventListener('click', () => {
+    // Trigger the flip-out CSS animation
+    dynamicRoleText.classList.add('role-flipping');
 
+    // Wait for the CSS transition duration before swapping the text
     setTimeout(() => {
-        let newRole;
+        let newlySelectedRole;
+
+        // Ensure the randomly selected role is different from the current one
         do {
-            newRole = roles[Math.floor(Math.random() * roles.length)];
-        } while (newRole === roleText.innerText);
+            newlySelectedRole = professionalRoles[Math.floor(Math.random() * professionalRoles.length)];
+        } while (newlySelectedRole === dynamicRoleText.innerText);
 
-        roleText.innerText = newRole;
+        dynamicRoleText.innerText = newlySelectedRole;
 
-        roleText.classList.remove('role-flipping');
+        // Remove the class to trigger the flip-in CSS animation
+        dynamicRoleText.classList.remove('role-flipping');
     }, 400);
 });
