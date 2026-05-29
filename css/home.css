@@ -136,12 +136,6 @@
     display: inline-block;
 }
 
-.btn-explore {
-    background-color: var(--accent-yellow);
-    color: white;
-    border: none;
-}
-
 .btn-cv {
     background-color: transparent;
     color: white;
@@ -153,6 +147,92 @@
     transform: translateY(-8px);
     filter: brightness(0.7);
     color: white;
+}
+
+/* --- Custom Intro Pills --- */
+.intro-pill {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #e0e0e0;
+    font-weight: 400;
+    transition: 0.3s;
+}
+
+.intro-pill:hover {
+    border-color: var(--accent-yellow);
+    color: white;
+}
+
+/* --- Vertical Services Timeline --- */
+.timeline-container {
+    position: relative;
+    padding-left: 20px;
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.timeline-item {
+    position: relative;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Timeline node dot */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -27px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--blue-2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.timeline-item.active {
+    background: rgba(212, 140, 28, 0.1);
+    border-color: var(--accent-yellow);
+}
+
+.timeline-item.active::before {
+    background: var(--accent-yellow);
+    border-color: var(--accent-yellow);
+    box-shadow: 0 0 10px rgba(212, 140, 28, 0.5);
+}
+
+/* --- Custom Tabs --- */
+.custom-nav-tabs {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.custom-nav-tabs .nav-link {
+    color: rgba(255, 255, 255, 0.6) !important;
+    border: none;
+    background: transparent;
+    border-bottom: 3px solid transparent;
+    border-radius: 0;
+    font-weight: 600;
+    padding: 10px 20px;
+}
+
+.custom-nav-tabs .nav-link:hover {
+    color: white !important;
+}
+
+.custom-nav-tabs .nav-link.active {
+    color: var(--accent-yellow) !important;
+    border-bottom: 3px solid var(--accent-yellow);
 }
 
 @media (max-width: 991px) {
@@ -171,4 +251,51 @@
     .cta-area {
         justify-content: center;
     }
+}
+
+/* =========================================
+   TRAIL CTA SECTION
+   ========================================= */
+.trail-container {
+    position: relative;
+    padding-top: 20px;
+}
+
+.trail-line {
+    width: 3px;
+    height: 80px;
+    background: repeating-linear-gradient(to bottom, var(--accent-yellow) 0, var(--accent-yellow) 10px, transparent 10px, transparent 20px);
+    margin: 0 auto 25px auto;
+    animation: dashScroll 1.5s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes dashScroll {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 40px;
+    }
+}
+
+.trail-btn {
+    box-shadow: 0 0 20px rgba(212, 140, 28, 0.4);
+    animation: pulseGlow 2s infinite alternate;
+}
+
+@keyframes pulseGlow {
+    from {
+        box-shadow: 0 0 15px rgba(212, 140, 28, 0.2);
+    }
+
+    to {
+        box-shadow: 0 0 35px rgba(212, 140, 28, 0.6);
+    }
+}
+
+.trail-btn:hover {
+    transform: translateY(-5px) scale(1.05) !important;
+    box-shadow: 0 15px 35px rgba(212, 140, 28, 0.6) !important;
 }

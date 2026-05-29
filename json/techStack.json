@@ -1,38 +1,98 @@
 [
   {
-    "techTitle": "HTML5 & CSS3",
-    "techDescription": "Responsive web design using modern CSS and Bootstrap frameworks.",
-    "iconClass": "bi-filetype-html",
-    "techLinkUrl": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+    "category": "frontend",
+    "title": "HTML5",
+    "description": "Semantic markup and structural foundation for web applications.",
+    "stars": 5,
+    "linkUrl": "https://developer.mozilla.org/en-US/docs/Web/HTML",
+    "iconClass": "bi-filetype-html"
   },
   {
-    "techTitle": "PHP & Backend",
-    "techDescription": "Server-side logic and CRUD operations for dynamic web systems.",
-    "iconClass": "bi-filetype-php",
-    "techLinkUrl": "https://www.php.net/"
+    "category": "frontend",
+    "title": "CSS3",
+    "description": "Advanced styling, flexbox layouts, grid systems, and animations.",
+    "stars": 5,
+    "linkUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS",
+    "iconClass": "bi-filetype-css"
   },
   {
-    "techTitle": "Unity & C#",
-    "techDescription": "2D Game development focusing on gameplay mechanics and UI/UX.",
-    "iconClass": "bi-unity",
-    "techLinkUrl": "https://unity.com/"
+    "category": "frontend",
+    "title": "JavaScript",
+    "description": "Dynamic DOM manipulation, async logic, and interactive user interfaces.",
+    "stars": 4,
+    "linkUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    "iconClass": "bi-filetype-js"
   },
   {
-    "techTitle": "MySQL",
-    "techDescription": "Database schema design and complex SQL query management.",
-    "iconClass": "bi-database",
-    "techLinkUrl": "https://www.mysql.com/"
+    "category": "backend",
+    "title": "PHP",
+    "description": "Server-side scripting, dynamic page generation, and backend logic.",
+    "stars": 4,
+    "linkUrl": "https://www.php.net/",
+    "iconClass": "bi-filetype-php"
   },
   {
-    "techTitle": "Git & GitHub",
-    "techDescription": "Version control and project management for collaborative software.",
-    "iconClass": "bi-github",
-    "techLinkUrl": "https://github.com/RZregio"
+    "category": "backend",
+    "title": "MySQL",
+    "description": "Relational database schema design and complex SQL query optimization.",
+    "stars": 5,
+    "linkUrl": "https://www.mysql.com/",
+    "iconClass": "bi-database-fill"
   },
   {
-    "techTitle": "Figma & Design",
-    "techDescription": "User interface prototyping and agile design handoffs.",
-    "iconClass": "bi-palette",
-    "techLinkUrl": "https://www.figma.com/"
+    "category": "programming",
+    "title": "C++",
+    "description": "Core object-oriented principles, memory management, and algorithm design.",
+    "stars": 3,
+    "linkUrl": "https://isocpp.org/",
+    "iconClass": "bi-c-square-fill"
+  },
+  {
+    "category": "programming",
+    "title": "C#",
+    "description": "Application logic, game scripting, and object-oriented backend structures.",
+    "stars": 4,
+    "linkUrl": "https://docs.microsoft.com/en-us/dotnet/csharp/",
+    "iconClass": "bi-window-sidebar"
+  },
+  {
+    "category": "programming",
+    "title": "Python",
+    "description": "Scripting, data handling, and rapid logic prototyping.",
+    "stars": 3,
+    "linkUrl": "https://www.python.org/",
+    "iconClass": "bi-filetype-py"
+  },
+  {
+    "category": "tools",
+    "title": "Git & GitHub",
+    "description": "Version control tracking and collaborative repository management.",
+    "stars": 4,
+    "linkUrl": "https://github.com/",
+    "iconClass": "bi-github"
+  },
+  {
+    "category": "tools",
+    "title": "Unity",
+    "description": "2D/3D game engine workflow, physics integration, and scene management.",
+    "stars": 4,
+    "linkUrl": "https://unity.com/",
+    "iconClass": "bi-unity"
+  },
+  {
+    "category": "tools",
+    "title": "Figma",
+    "description": "High-fidelity wireframing, UI/UX prototyping, and agile design handoffs.",
+    "stars": 5,
+    "linkUrl": "https://www.figma.com/",
+    "iconClass": "bi-palette-fill"
+  },
+  {
+    "category": "tools",
+    "title": "Canva",
+    "description": "Rapid digital asset creation, presentation design, and visual marketing.",
+    "stars": 5,
+    "linkUrl": "https://www.canva.com/",
+    "iconClass": "bi-brush-fill"
   }
 ]

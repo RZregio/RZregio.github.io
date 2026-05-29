@@ -1,0 +1,12 @@
+[
+  {
+    "reviewerName": "Jane Doe",
+    "reviewerRole": "Senior Developer, TechCorp",
+    "testimonialMessage": "Roland consistently delivers high-quality, structured, and modular code. His attention to system architecture is exceptional."
+  },
+  {
+    "reviewerName": "John Smith",
+    "reviewerRole": "Project Manager",
+    "testimonialMessage": "A fantastic team player with a sharp eye for quality assurance and UI/UX design. Highly recommended."
+  }
+]

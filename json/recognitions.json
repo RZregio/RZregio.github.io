@@ -1,0 +1,38 @@
+[
+  {
+    "category": "certificate",
+    "title": "GenAI Certification",
+    "context": "Microsoft Learn",
+    "date": "August 2025",
+    "description": "Comprehensive training on deploying and managing generative AI solutions securely and efficiently.",
+    "imageUrl": "main-res/aboutMe.png",
+    "iconClass": "bi-award-fill"
+  },
+  {
+    "category": "certificate",
+    "title": "Cyber Threat Management",
+    "context": "Cisco",
+    "date": "November 2025",
+    "description": "In-depth workshop on identifying, analyzing, and mitigating modern cybersecurity threats.",
+    "imageUrl": "main-res/aboutMe.png",
+    "iconClass": "bi-shield-lock-fill"
+  },
+  {
+    "category": "award",
+    "title": "Academic Excellence Award",
+    "context": "Integrative Programming",
+    "date": "2024",
+    "description": "Recognized for outstanding performance, logic building, and clean code architecture.",
+    "imageUrl": "main-res/aboutMe.png",
+    "iconClass": "bi-trophy-fill"
+  },
+  {
+    "category": "award",
+    "title": "Batch President",
+    "context": "PUPSTC BSIT",
+    "date": "2024–2025",
+    "description": "Led the batch in academic and extracurricular coordination, ensuring efficient communication.",
+    "imageUrl": "main-res/aboutMe.png",
+    "iconClass": "bi-person-badge-fill"
+  }
+]

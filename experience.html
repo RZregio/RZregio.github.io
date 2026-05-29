@@ -12,11 +12,15 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-  <link rel="stylesheet" href="css/navFoot.css?v=1.0.1">
-  <link rel="stylesheet" href="css/experience.css?v=1.0.1">
+  <link rel="stylesheet" href="css/navFoot.css?v=1.0.2">
+  <link rel="stylesheet" href="css/experience.css?v=1.0.2">
 </head>
 
 <body>
+  <div id="global-loader">
+    <div class="spinner-ring"></div>
+  </div>
+
   <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container-fluid px-4 px-md-5">
       <a class="navbar-brand" href="index.html">RZ <span>regio</span></a>
@@ -35,55 +39,147 @@
     </div>
   </nav>
 
-  <header id="experience-hero">
-    <div class="container">
-      <h1 class="section-title">Project Section</h1>
-      <p class="section-subtitle">
-        This section is dedicated to every project from my journey throughout the IT field.
-        I offer expertise in structured planning, web development, and quality-driven development.
-      </p>
-    </div>
-  </header>
+  <main>
+    <section class="container py-5 mt-4 animate-on-scroll">
 
-  <section class="container mb-5">
-    <h2 class="project-category-title">Tech Stack & Professional Tools</h2>
-    <div class="tech-stack-grid" id="tech-stack-container">
-    </div>
-  </section>
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-5">
+        <h2 class="name-title border-0 mb-0">Tech Stack & <span>Tools</span></h2>
 
-  <section class="container mb-5 project-section">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-      <h2 class="project-category-title m-0">Web Development Projects</h2>
-      <div class="slider-controls">
-        <button class="slider-btn" onclick="slide('web-slider', -1)"><i class="bi bi-chevron-left"></i></button>
-        <button class="slider-btn" onclick="slide('web-slider', 1)"><i class="bi bi-chevron-right"></i></button>
+        <div class="slider-controls d-flex gap-2 mt-3 mt-md-0">
+          <button id="tech-btn-prev" class="slider-btn d-flex align-items-center justify-content-center"
+            onclick="scrollActiveTechStack(-1)" style="width: 40px; height: 40px;"><i
+              class="bi bi-chevron-left"></i></button>
+          <button id="tech-btn-next" class="slider-btn d-flex align-items-center justify-content-center"
+            onclick="scrollActiveTechStack(1)" style="width: 40px; height: 40px;"><i
+              class="bi bi-chevron-right"></i></button>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-3">
+          <div class="nav flex-column nav-pills custom-nav-tabs h-100" role="tablist" aria-orientation="vertical">
+            <button class="nav-link active text-start mb-2 py-3" data-bs-toggle="pill" data-bs-target="#tab-frontend"
+              type="button" role="tab">Frontend</button>
+            <button class="nav-link text-start mb-2 py-3" data-bs-toggle="pill" data-bs-target="#tab-backend"
+              type="button" role="tab">Backend</button>
+            <button class="nav-link text-start mb-2 py-3" data-bs-toggle="pill" data-bs-target="#tab-programming"
+              type="button" role="tab">Programming</button>
+            <button class="nav-link text-start py-3" data-bs-toggle="pill" data-bs-target="#tab-tools" type="button"
+              role="tab">Tools Used</button>
+          </div>
+        </div>
+
+        <div class="col-lg-9 ps-lg-4">
+          <div class="tab-content overflow-hidden">
+            <div class="tab-pane fade show active" id="tab-frontend" role="tabpanel">
+              <div class="tech-slider" id="tech-frontend"
+                style="display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none;">
+              </div>
+            </div>
+            <div class="tab-pane fade" id="tab-backend" role="tabpanel">
+              <div class="tech-slider" id="tech-backend"
+                style="display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none;">
+              </div>
+            </div>
+            <div class="tab-pane fade" id="tab-programming" role="tabpanel">
+              <div class="tech-slider" id="tech-programming"
+                style="display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none;">
+              </div>
+            </div>
+            <div class="tab-pane fade" id="tab-tools" role="tabpanel">
+              <div class="tech-slider" id="tech-tools"
+                style="display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container py-5 mb-5 animate-on-scroll delay-1"
+      style="background: rgba(0,0,0,0.2); border-radius: 20px;">
+      <div class="text-center mb-4 p-3">
+        <h2 class="name-title border-0 text-center mx-auto d-inline-block">My <span>Projects</span></h2>
+        <p class="opacity-75 tiny-text">Browse through my academic, personal, and professional repositories.</p>
+      </div>
+
+      <ul class="nav custom-nav-tabs justify-content-center mb-5" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active fredoka" data-bs-toggle="tab" data-bs-target="#pane-school" type="button"
+            role="tab">School Projects</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link fredoka" data-bs-toggle="tab" data-bs-target="#pane-personal" type="button"
+            role="tab">Personal</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link fredoka" data-bs-toggle="tab" data-bs-target="#pane-company" type="button"
+            role="tab">Company</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link fredoka" data-bs-toggle="tab" data-bs-target="#pane-other" type="button"
+            role="tab">Other</button>
+        </li>
+      </ul>
+
+      <div class="tab-content px-lg-4 pb-4">
+        <div class="tab-pane fade show active" id="pane-school" role="tabpanel">
+          <div id="proj-school"
+            style="display: flex; flex-wrap: nowrap; gap: 25px; overflow-x: auto; padding-bottom: 20px; scroll-behavior: smooth; scrollbar-width: none;">
+          </div>
+        </div>
+        <div class="tab-pane fade" id="pane-personal" role="tabpanel">
+          <div id="proj-personal"
+            style="display: flex; flex-wrap: nowrap; gap: 25px; overflow-x: auto; padding-bottom: 20px; scroll-behavior: smooth; scrollbar-width: none;">
+          </div>
+        </div>
+        <div class="tab-pane fade" id="pane-company" role="tabpanel">
+          <div id="proj-company"
+            style="display: flex; flex-wrap: nowrap; gap: 25px; overflow-x: auto; padding-bottom: 20px; scroll-behavior: smooth; scrollbar-width: none;">
+          </div>
+        </div>
+        <div class="tab-pane fade" id="pane-other" role="tabpanel">
+          <div id="proj-other"
+            style="display: flex; flex-wrap: nowrap; gap: 25px; overflow-x: auto; padding-bottom: 20px; scroll-behavior: smooth; scrollbar-width: none;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container text-center py-5 mb-5 animate-on-scroll delay-2">
+      <div class="trail-container">
+        <div class="trail-line"></div>
+        <h2 class="fredoka mb-3" style="font-size: 2.2rem;">Want to know more about me?</h2>
+        <p class="opacity-75 mb-5 fs-5">Follow the trail to learn about my background, hobbies, and certifications.</p>
+        <a href="about.html" class="btn btn-custom btn-explore rounded-pill px-5 py-3 fs-5 interactive-card trail-btn"
+          style="background-color: #DAA520; font-family: 'Fredoka One', cursive; border: none; box-shadow: 0 0 20px rgba(212, 140, 28, 0.4);">
+          <i class="bi bi-person-lines-fill me-2"></i> Get to Know Me
+        </a>
+      </div>
+    </section>
+
+    <div class="modal fade" id="projectDetailsModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content text-white">
+          <div class="modal-header border-bottom-0 pb-0">
+            <h4 class="modal-title fredoka text-warning" id="modalProjTitle">Project Title</h4>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body pt-3">
+            <div class="modal-media-container mb-4 shadow" id="modalProjMedia"></div>
+
+            <h6 class="text-accent small text-uppercase fw-bold mb-2">Overview</h6>
+            <p class="opacity-75 mb-4" id="modalProjDesc">Project description goes here.</p>
+
+            <h6 class="text-accent small text-uppercase fw-bold mb-2">Tech Stack</h6>
+            <div id="modalProjTech" class="mb-2"></div>
+          </div>
+          <div class="modal-footer border-top-0 pt-0" id="modalProjFooter">
+          </div>
+        </div>
       </div>
     </div>
-
-    <div class="slider-container" id="web-slider">
-      <div class="slider-track" id="web-projects-track">
-      </div>
-    </div>
-  </section>
-
-  <section class="container mb-5 project-section">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-      <h2 class="project-category-title m-0">Application Development & Emerging Tech</h2>
-      <div class="slider-controls">
-        <button class="slider-btn" onclick="slide('adet-slider', -1)"><i class="bi bi-chevron-left"></i></button>
-        <button class="slider-btn" onclick="slide('adet-slider', 1)"><i class="bi bi-chevron-right"></i></button>
-      </div>
-    </div>
-    <div class="slider-container" id="adet-slider">
-      <div class="slider-track" id="adet-projects-track">
-      </div>
-    </div>
-  </section>
-
-  <div class="container text-center mb-5 pb-5">
-    <h3 class="text-white mb-4">Want to know the person behind these projects?</h3>
-    <a href="about.html" class="btn-about">Learn More About Me</a>
-  </div>
+  </main>
 
   <footer class="footer footer-section">
     <div class="container-fluid px-4 px-md-5">
@@ -107,10 +203,9 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/slider.js?v=1.0.1"></script>
-  <script src="js/renderProjects.js?v=1.0.1"></script>
+  <script src="js/slider.js?v=1.0.2"></script>
+  <script src="js/globalUI.js?v=1.0.2"></script>
+  <script src="js/renderExperience.js?v=1.0.2"></script>
 </body>
-
-</html>
 
 </html>

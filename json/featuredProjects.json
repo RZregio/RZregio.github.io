@@ -1,0 +1,42 @@
+[
+  {
+    "projectTitle": "StillLife Parallax V2",
+    "projectCategory": "School Project",
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Bootstrap"
+    ],
+    "projectContext": "Advanced UI project utilizing CSS parallax techniques to create a dynamic and immersive visual experience.",
+    "previewImageUrl": "main-res/aboutMe.png",
+    "projectLinkUrl": "WEBDEV/stillLifeParallax/index.html"
+  },
+  {
+    "projectTitle": "LANDAS",
+    "projectCategory": "School Project",
+    "techStack": [
+      "C#",
+      "Unity",
+      "HTML5",
+      "CSS3",
+      "Bootstrap"
+    ],
+    "projectContext": "A gamified android learning system that teaches Philippine history and culture through interactive quizzes and engaging content.",
+    "previewImageUrl": "main-res/aboutMe.png",
+    "projectLinkUrl": "https://landas2d.github.io/"
+  },
+  {
+    "projectTitle": "AIB Landing Page",
+    "projectCategory": "School Project",
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Bootstrap"
+    ],
+    "projectContext": "A landing page applying bento style design principles, showcasing a clean and organized layout for Alice in Borderland, a fictional thriller series.",
+    "previewImageUrl": "main-res/aboutMe.png",
+    "projectLinkUrl": "ADET/A03/index.html"
+  }
+]

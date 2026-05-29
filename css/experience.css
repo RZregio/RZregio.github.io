@@ -291,6 +291,47 @@
     }
 }
 
+/* --- Vertical Tab Overrides (Left Side) --- */
+.custom-nav-tabs.flex-column .nav-link {
+    background: transparent !important;
+    border-bottom: none !important;
+    border-left: 3px solid transparent !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+    transition: all 0.3s ease;
+}
+
+.custom-nav-tabs.flex-column .nav-link:hover {
+    color: white !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.custom-nav-tabs.flex-column .nav-link.active {
+    color: var(--accent-yellow) !important;
+    border-left: 3px solid var(--accent-yellow) !important;
+    background: rgba(212, 140, 28, 0.05) !important;
+}
+
+/* --- Modal Overrides --- */
+#projectDetailsModal .modal-content {
+    background: #162447;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+.modal-media-container {
+    background: #101A30;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal-media-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
 @media (max-width: 480px) {
     .section-title {
         font-size: 1.8rem;
@@ -300,3 +341,4 @@
         padding: 20px;
     }
 }
+

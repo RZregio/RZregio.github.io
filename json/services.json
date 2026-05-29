@@ -1,0 +1,34 @@
+[
+  {
+    "serviceTitle": "Web Development",
+    "serviceDescription": "Building responsive, dynamic, and user-centric websites using modern frontend frameworks and clean code structures.",
+    "iconClass": "bi-laptop",
+    "notableExperience": "Architected internal systems for Arktech Philippines.",
+    "proficiencyLevel": 95,
+    "experienceLevel": "Advanced"
+  },
+  {
+    "serviceTitle": "Quality Assurance & Testing",
+    "serviceDescription": "Ensuring software reliability through rigorous evaluation, bug tracking, and performance monitoring utilizing standard industrial protocols.",
+    "iconClass": "bi-patch-check",
+    "notableExperience": "Applied quality assurance principles to various development projects.",
+    "proficiencyLevel": 85,
+    "experienceLevel": "Proficient"
+  },
+  {
+    "serviceTitle": "Project Management",
+    "serviceDescription": "Structuring project lifecycles, managing timelines, and ensuring quality-driven development from ideation to server deployment.",
+    "iconClass": "bi-kanban",
+    "notableExperience": "Led the development of Arkteach and LANDAS systems.",
+    "proficiencyLevel": 80,
+    "experienceLevel": "Proficient"
+  },
+  {
+    "serviceTitle": "Data Administration",
+    "serviceDescription": "Designing relational database schemas, optimizing complex queries using subqueries, and maintaining secure data structures.",
+    "iconClass": "bi-database-gear",
+    "notableExperience": "Manage multiple databases for Arktech's internal systems.",
+    "proficiencyLevel": 85,
+    "experienceLevel": "Proficient"
+  }
+]

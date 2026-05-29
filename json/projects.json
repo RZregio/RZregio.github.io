@@ -1,0 +1,191 @@
+[
+  {
+    "category": "school",
+    "title": "StillLife Parallax V2",
+    "description": "Advanced UI project utilizing CSS parallax techniques.",
+    "mediaType": "iframe",
+    "mediaSource": ["WEBDEV/stillLifeParallax/index.html"],
+    "liveLink": "WEBDEV/stillLifeParallax/index.html",
+    "techStack": ["HTML5", "CSS3", "JavaScript"]
+  },
+  {
+    "category": "school",
+    "title": "PhotoGallery Page V2",
+    "description": "Interactive gallery showcasing visual assets with responsive grid layouts.",
+    "mediaType": "iframe",
+    "mediaSource": ["WEBDEV/photoGallery/index.html"],
+    "liveLink": "WEBDEV/photoGallery/index.html",
+    "techStack": ["HTML5", "CSS3", "Grid/Flexbox"]
+  },
+  {
+    "category": "school",
+    "title": "WordYou Sure? V2",
+    "description": "Utility project exploring user interaction through confirmation prompts.",
+    "mediaType": "iframe",
+    "mediaSource": ["WEBDEV/wordYouSure/index.html"],
+    "liveLink": "WEBDEV/wordYouSure/index.html",
+    "techStack": ["HTML5", "CSS3", "JavaScript"]
+  },
+  {
+    "category": "school",
+    "title": "Product Page V2",
+    "description": "A refined product information layout focusing on UI/UX and clean presentation.",
+    "mediaType": "iframe",
+    "mediaSource": ["WEBDEV/productInfo/index.html"],
+    "liveLink": "WEBDEV/productInfo/index.html",
+    "techStack": ["HTML5", "CSS3", "UI/UX"]
+  },
+  {
+    "category": "school",
+    "title": "ArcaneLog Page",
+    "description": "A specialized interface for log tracking and data visualization.",
+    "mediaType": "iframe",
+    "mediaSource": ["WEBDEV/arcaneLog/index.html"],
+    "liveLink": "WEBDEV/arcaneLog/index.html",
+    "techStack": ["HTML5", "CSS3", "JavaScript"]
+  },
+  {
+    "category": "school",
+    "title": "PlaceHub Page V2",
+    "description": "A web-based platform designed for location discovery and community interaction.",
+    "mediaType": "iframe",
+    "mediaSource": ["WEBDEV/placeHub/index.html"],
+    "liveLink": "WEBDEV/placeHub/index.html",
+    "techStack": ["HTML5", "CSS3", "JavaScript"]
+  },
+  {
+    "category": "school",
+    "title": "Project #7",
+    "description": "Upcoming web development endeavor exploring new technologies.",
+    "mediaType": "iframe",
+    "mediaSource": [""],
+    "liveLink": "",
+    "techStack": ["TBD"]
+  },
+  {
+    "category": "school",
+    "title": "Welcome to ADET",
+    "description": "Foundation project for ADET emerging tech.",
+    "mediaType": "iframe",
+    "mediaSource": ["ADET/A01/index.html"],
+    "liveLink": "ADET/A01/index.html",
+    "techStack": ["HTML5", "CSS3"]
+  },
+  {
+    "category": "school",
+    "title": "A02 - AniMania",
+    "description": "Backend logic exploration using PHP and dynamic data retrieval.",
+    "mediaType": "iframe",
+    "mediaSource": ["ADET/A02/index-preview.html"],
+    "liveLink": "ADET/A02/index-preview.html",
+    "techStack": ["PHP", "MySQL", "HTML5"]
+  },
+  {
+    "category": "school",
+    "title": "A03 - Border App",
+    "description": "Study on interface boundaries and visual hierarchy.",
+    "mediaType": "iframe",
+    "mediaSource": ["ADET/A03/index.html"],
+    "liveLink": "ADET/A03/index.html",
+    "techStack": ["HTML5", "CSS3"]
+  },
+  {
+    "category": "school",
+    "title": "A04 - CatEnFur Beta",
+    "description": "Initial beta version of the feline care management system.",
+    "mediaType": "iframe",
+    "mediaSource": ["ADET/A04_BETA/index.html"],
+    "liveLink": "ADET/A04_BETA/index.html",
+    "techStack": ["PHP", "MySQL", "Bootstrap"]
+  },
+  {
+    "category": "school",
+    "title": "A04 - CatEnFur V2",
+    "description": "Refined feline care system with improved UI/UX and system configuration.",
+    "mediaType": "iframe",
+    "mediaSource": ["ADET/A04/index.html"],
+    "liveLink": "ADET/A04/index.html",
+    "techStack": ["PHP", "MySQL", "JavaScript", "Bootstrap"]
+  },
+  {
+    "category": "school",
+    "title": "A05 - Meowtivator",
+    "description": "Emerging technology tool designed for motivation and interactive engagement.",
+    "mediaType": "iframe",
+    "mediaSource": ["ADET/A07/index.html"],
+    "liveLink": "ADET/A07/index.html",
+    "techStack": ["HTML5", "CSS3", "JavaScript"]
+  },
+  {
+    "category": "school",
+    "title": "A06 Project",
+    "description": "Next-generation application currently under active development.",
+    "mediaType": "iframe",
+    "mediaSource": [""],
+    "liveLink": "",
+    "techStack": ["TBD"]
+  },
+  {
+    "category": "school",
+    "title": "Landas (Capstone)",
+    "description": "Comprehensive academic capstone project focusing on localized problem-solving and systematic design.",
+    "mediaType": "image",
+    "mediaSource": ["main-res/landas-1.jpg", "main-res/landas-2.jpg"],
+    "liveLink": "",
+    "techStack": ["PHP", "MySQL", "JavaScript", "Bootstrap"]
+  },
+  {
+    "category": "school",
+    "title": "IcommunaPh",
+    "description": "Application Development & Emerging Tech (ADET) final project integrating modern framework solutions.",
+    "mediaType": "image",
+    "mediaSource": ["main-res/icommuna-1.jpg", "main-res/icommuna-2.jpg"],
+    "liveLink": "",
+    "techStack": ["React", "Node.js", "MongoDB"]
+  },
+  {
+    "category": "school",
+    "title": "stbJobs",
+    "description": "Web development major project functioning as an interactive local job posting board.",
+    "mediaType": "iframe",
+    "mediaSource": ["WEBDEV/stbJobs/index.html"],
+    "liveLink": "WEBDEV/stbJobs/index.html",
+    "techStack": ["PHP", "MySQL", "JavaScript"]
+  },
+  {
+    "category": "company",
+    "title": "Arkteach",
+    "description": "Educational training platform with tutorial progression, quizzes, and analytics tracking.",
+    "mediaType": "image",
+    "mediaSource": ["main-res/arkteach-1.jpg", "main-res/arkteach-2.jpg"],
+    "liveLink": "",
+    "techStack": ["PHP", "MySQL", "JavaScript"]
+  },
+  {
+    "category": "company",
+    "title": "Assembly Tree Finder",
+    "description": "Dynamic visualization tool utilizing a 'Family Tree' hierarchy to map manufacturing components.",
+    "mediaType": "image",
+    "mediaSource": ["main-res/assembly-1.jpg", "main-res/assembly-2.jpg"],
+    "liveLink": "",
+    "techStack": ["PHP", "JavaScript", "D3.js"]
+  },
+  {
+    "category": "company",
+    "title": "Material Navigator",
+    "description": "Internal tracking system designed to streamline factory material routing and location.",
+    "mediaType": "image",
+    "mediaSource": ["main-res/material-1.jpg", "main-res/material-2.jpg"],
+    "liveLink": "",
+    "techStack": ["PHP", "MySQL", "Bootstrap"]
+  },
+  {
+    "category": "company",
+    "title": "Maintenance Checksheet System",
+    "description": "Digitized QA protocol incorporating 5S and Hou-Ren-Sou methodologies for machine diagnostics.",
+    "mediaType": "image",
+    "mediaSource": ["main-res/maintenance-1.jpg", "main-res/maintenance-2.jpg"],
+    "liveLink": "",
+    "techStack": ["PHP", "MySQL", "JavaScript"]
+  }
+]
