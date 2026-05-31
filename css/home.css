@@ -236,20 +236,98 @@
 }
 
 @media (max-width: 991px) {
+
+    /* Fix global horizontal scrollbar overflow */
+    body,
+    main {
+        overflow-x: hidden;
+    }
+
     .content-col {
         margin-top: 50px;
         align-items: center;
         text-align: center;
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 15px;
+        padding-right: 15px;
     }
 
     .name-title {
         border-bottom: 2px solid rgba(255, 255, 255, 0.2);
     }
 
+    /* Force CTA buttons to fit in one row */
     .cta-area {
         justify-content: center;
+        flex-wrap: nowrap !important;
+        gap: 10px !important;
+    }
+
+    .cta-area .btn-custom {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+        white-space: nowrap;
+    }
+
+    /* Icon-only button transformation for section headers */
+    .mobile-icon-btn {
+        padding: 10px !important;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+
+    .mobile-icon-btn i {
+        margin: 0 !important;
+        /* Removes the spacing when text hides */
+    }
+
+    /* Make Category Tabs scrollable horizontally */
+    .mobile-scroll-tabs {
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        justify-content: flex-start !important;
+        padding-bottom: 5px;
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+        /* IE/Edge */
+    }
+
+    .mobile-scroll-tabs::-webkit-scrollbar {
+        display: none;
+        /* Chrome/Safari */
+    }
+
+    /* Convert Recognition item buttons (Left Col) to horizontal swipe track */
+    #certificate-buttons-container,
+    #award-buttons-container {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 15px;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        padding-bottom: 10px;
+    }
+
+    #certificate-buttons-container::-webkit-scrollbar,
+    #award-buttons-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Force injected JS buttons to fit side-by-side */
+    #certificate-buttons-container button,
+    #award-buttons-container button {
+        flex: 0 0 85% !important;
+        /* Shows 1 card + a peek of the next */
+        scroll-snap-align: center;
+        margin-bottom: 0 !important;
+        white-space: normal;
     }
 }
 

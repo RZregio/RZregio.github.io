@@ -121,7 +121,7 @@ p,
 
 /* ONLY apply hover effects if the card is explicitly marked as interactive */
 .card-style.interactive-card:hover {
-    transform: translateY(-8px);
+    transform: rotate(2deg);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
     border-color: rgba(212, 140, 28, 0.5);
     cursor: pointer;
@@ -134,12 +134,17 @@ p,
     --blue-3: #1A253D;
 
     --fs-h1: clamp(1.6rem, 5vw, 2.5rem);
-    --fs-h2: clamp(1.1rem, 2.5vw, 1.5rem);
+    --fs-h2: clamp(1.8rem, 4vw, 2.5rem);
+    --fs-h3: clamp(1.2rem, 3vw, 1.5rem);
     --fs-body: clamp(0.8rem, 1.1vw, 1rem);
 
     --bg-nav: #060b1a;
     --fs-nav: clamp(0.9rem, 1vw, 1rem);
     --accent-yellow: #D48C1C;
+}
+
+h3 {
+    font-size: var(--fs-h3) !important;
 }
 
 h1,
@@ -304,7 +309,8 @@ body {
 .trail-btn:hover {
     transform: translateY(-5px) scale(1.05) !important;
     box-shadow: 0 15px 35px rgba(212, 140, 28, 0.6) !important;
-    background-color: #e6b840 !important; /* Slightly brighter yellow */
+    background-color: #e6b840 !important;
+    /* Slightly brighter yellow */
 }
 
 .btn-explore {

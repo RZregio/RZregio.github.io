@@ -70,12 +70,12 @@
       <section class="col-lg-7 content-col text-lg-start text-center">
         <h1 class="welcome-text animate-on-scroll delay-1">Welcome to my <span>Portfolio.</span></h1>
 
-        <h2 class="name-title animate-on-scroll delay-2">
+        <h3 class="name-title animate-on-scroll delay-2">
           I'm Roland Z. Regio, a <span id="role-text" class="programmer-span">Cat-lover</span>
           <button id="shuffle-btn" class="btn btn-link p-0 ms-2" title="Shuffle Role">
             <i class="bi bi-shuffle"></i>
           </button>
-        </h2>
+        </h3>
 
         <p class="description readable-width animate-on-scroll delay-3">
           An Information Technology student with hands-on experience in project management,
@@ -85,21 +85,22 @@
         </p>
 
         <div
-          class="d-flex gap-4 mb-4 text-start justify-content-center justify-content-lg-start animate-on-scroll delay-3">
+          class="d-flex gap-3 gap-md-4 mb-4 text-center text-lg-start justify-content-center justify-content-lg-start animate-on-scroll delay-3">
           <div>
-            <h2 class="text-accent mb-0">10+</h2><small class="text-uppercase opacity-75 tiny-text">System
+            <h3 class="text-accent mb-0">10+</h3><small class="text-uppercase opacity-75 tiny-text">System
               Deployed</small>
           </div>
           <div>
-            <h2 class="text-accent mb-0">11+</h2><small class="text-uppercase opacity-75 tiny-text">Tech Stack</small>
+            <h3 class="text-accent mb-0">11+</h3><small class="text-uppercase opacity-75 tiny-text">Tech Stack</small>
           </div>
           <div>
-            <h2 class="text-accent mb-0">4+</h2><small class="text-uppercase opacity-75 tiny-text">Industry
+            <h3 class="text-accent mb-0">4+</h3><small class="text-uppercase opacity-75 tiny-text">Industry
               Experience</small>
           </div>
         </div>
 
-        <div class="cta-area justify-content-center justify-content-lg-start animate-on-scroll delay-3">
+        <div
+          class="cta-area d-flex flex-nowrap justify-content-center justify-content-lg-start animate-on-scroll delay-3">
           <a href="experience.html" class="btn-custom btn-explore">Explore My Projects</a>
           <a href="https://drive.google.com/file/d/1jPKkk3PbPPDMbWVBk03UZMuPfnIN_ALc/preview" target="_blank"
             class="btn-custom btn-cv">View my CV</a>
@@ -109,7 +110,7 @@
 
     <section class="container py-5 mt-5">
       <div class="text-center mb-1 animate-on-scroll">
-        <h2 class="mb-0 name-title border-0 text-center mx-auto d-inline-block">My <span>Services</span></h2>
+        <h3 class="mb-0 name-title border-0 text-center mx-auto d-inline-block">My <span>Services</span></h3>
       </div>
       <div class="row g-4 align-items-center">
         <div class="col-lg-6 animate-on-scroll delay-1">
@@ -156,14 +157,16 @@
     </section>
 
     <section class="container py-5 mb-5 animate-on-scroll">
-      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-4 p-lg-3 pb-lg-0">
-        <h2 class="name-title border-0 mb-0">Recognitions & <span>Growth</span></h2>
-        <a href="experience.html" class="btn btn-custom btn-explore px-4 mt-3 mt-md-0">
-          <i class="bi bi-briefcase me-2"></i>View All Recognitions
+      <div class="d-flex flex-row justify-content-between align-items-center mb-4 p-lg-3 pb-lg-0">
+        <h2 class="name-title border-0 mb-0" style="font-size: clamp(1.2rem, 4vw, 1.8rem);">Recognitions &
+          <span>Growth</span>
+        </h2>
+        <a href="experience.html" class="btn btn-custom btn-explore mobile-icon-btn px-4 mt-0">
+          <i class="bi bi-briefcase"></i><span class="d-none d-md-inline ms-2">View All Recognitions</span>
         </a>
       </div>
 
-      <ul class="nav custom-nav-tabs justify-content-center mb-4" role="tablist">
+      <ul class="nav custom-nav-tabs mobile-scroll-tabs justify-content-center mb-4" role="tablist">
         <li class="nav-item" role="presentation">
           <button class="nav-link active fredoka" id="certs-tab" data-bs-toggle="tab" data-bs-target="#certs-pane"
             type="button" role="tab">Certificates & Workshops</button>
@@ -203,11 +206,13 @@
 
     <section class="container py-5 mb-5 animate-on-scroll delay-1"
       style="background: rgba(0,0,0,0.2); border-radius: 20px;">
-      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-4 p-lg-3 pb-lg-0">
-        <h2 class="name-title border-0 mb-0">What People <span>Say</span></h2>
-        <button class="btn btn-custom btn-explore px-4 mt-3 mt-md-0" data-bs-toggle="modal"
+      <!-- Testimonials Header -->
+      <div class="d-flex flex-row justify-content-between align-items-center mb-4 p-lg-3 pb-lg-0">
+        <h2 class="name-title border-0 mb-0" style="font-size: clamp(1.2rem, 4vw, 1.8rem);">What People <span>Say</span>
+        </h2>
+        <button class="btn btn-custom btn-explore mobile-icon-btn px-4 mt-0" data-bs-toggle="modal"
           data-bs-target="#submitTestimonialModal">
-          <i class="bi bi-pencil-square me-2"></i>Leave a Testimonial
+          <i class="bi bi-pencil-square"></i><span class="d-none d-md-inline ms-2">Leave a Testimonial</span>
         </button>
       </div>
 

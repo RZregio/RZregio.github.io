@@ -1,33 +1,33 @@
 [
   {
     "serviceTitle": "Web Development",
-    "serviceDescription": "Building responsive, dynamic, and user-centric websites using modern frontend frameworks and clean code structures.",
+    "serviceDescription": "Building responsive, dynamic, and user-centric websites using modern frontend frameworks and backend logic.",
     "iconClass": "bi-laptop",
-    "notableExperience": "Architected internal systems for Arktech Philippines.",
+    "notableExperience": "Architected complex systems like 'Arkteach' during my internship, and developed full-stack academic platforms such as the STBJobs portal, which earned a perfect 1.00 final grade.",
     "proficiencyLevel": 95,
     "experienceLevel": "Advanced"
   },
   {
     "serviceTitle": "Quality Assurance & Testing",
-    "serviceDescription": "Ensuring software reliability through rigorous evaluation, bug tracking, and performance monitoring utilizing standard industrial protocols.",
+    "serviceDescription": "Ensuring software reliability through rigorous evaluation, bug tracking, and performance monitoring.",
     "iconClass": "bi-patch-check",
-    "notableExperience": "Applied quality assurance principles to various development projects.",
+    "notableExperience": "Integrated industrial 5S standards into Arktech's systems, and rigorously evaluated the LANDAS capstone project to achieve ISO/IEC 25010 compliance and a 4.75/5 user satisfaction rating.",
     "proficiencyLevel": 85,
     "experienceLevel": "Proficient"
   },
   {
     "serviceTitle": "Project Management",
-    "serviceDescription": "Structuring project lifecycles, managing timelines, and ensuring quality-driven development from ideation to server deployment.",
+    "serviceDescription": "Structuring project lifecycles, managing timelines, storyboarding, and leading team coordination.",
     "iconClass": "bi-kanban",
-    "notableExperience": "Led the development of Arkteach and LANDAS systems.",
-    "proficiencyLevel": 80,
+    "notableExperience": "Directed the LANDAS project lifecycle, yielding a 9.8% increase in user learning metrics. Managed server migrations and pitched technical solutions to executive leadership at Arktech.",
+    "proficiencyLevel": 85,
     "experienceLevel": "Proficient"
   },
   {
     "serviceTitle": "Data Administration",
-    "serviceDescription": "Designing relational database schemas, optimizing complex queries using subqueries, and maintaining secure data structures.",
+    "serviceDescription": "Designing relational database schemas, optimizing complex queries, and maintaining secure data structures.",
     "iconClass": "bi-database-gear",
-    "notableExperience": "Manage multiple databases for Arktech's internal systems.",
+    "notableExperience": "Designed optimized database schemas and multi-table subqueries to power real-time routing for Arktech's 'Material Navigator' and academic web systems like STBJobs.",
     "proficiencyLevel": 85,
     "experienceLevel": "Proficient"
   }

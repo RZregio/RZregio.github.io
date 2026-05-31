@@ -1,38 +1,92 @@
 [
   {
-    "category": "certificate",
-    "title": "GenAI Certification",
-    "context": "Microsoft Learn",
-    "date": "August 2025",
-    "description": "Comprehensive training on deploying and managing generative AI solutions securely and efficiently.",
+    "category": "award",
+    "title": "Consistent President's Lister",
+    "context": "PUPSTC BSIT",
+    "date": "2022–Present",
+    "description": "Maintained top-tier academic standing throughout my collegiate journey, reflecting a continuous commitment to excellence.",
     "imageUrl": "main-res/aboutMe.png",
-    "iconClass": "bi-award-fill"
+    "iconClass": "bi-star-fill"
   },
   {
-    "category": "certificate",
-    "title": "Cyber Threat Management",
-    "context": "Cisco",
-    "date": "November 2025",
-    "description": "In-depth workshop on identifying, analyzing, and mitigating modern cybersecurity threats.",
+    "category": "award",
+    "title": "Batch President & VP",
+    "context": "PUPSTC BSIT Batch 2022",
+    "date": "2024–2026",
+    "description": "Led the batch in academic and extracurricular coordination, ensuring efficient communication and organizational success.",
     "imageUrl": "main-res/aboutMe.png",
-    "iconClass": "bi-shield-lock-fill"
+    "iconClass": "bi-person-badge-fill"
+  },
+  {
+    "category": "award",
+    "title": "Top 1 - ICT Department",
+    "context": "OLAC Batch 2019",
+    "date": "2019",
+    "description": "Graduated as the highest-ranking student within the ICT department and ranked 6th overall across all departments.",
+    "imageUrl": "main-res/aboutMe.png",
+    "iconClass": "bi-award-fill"
   },
   {
     "category": "award",
     "title": "Academic Excellence Award",
     "context": "Integrative Programming",
     "date": "2024",
-    "description": "Recognized for outstanding performance, logic building, and clean code architecture.",
+    "description": "Recognized specifically for outstanding performance, logic building, and clean code architecture in integrative systems.",
     "imageUrl": "main-res/aboutMe.png",
     "iconClass": "bi-trophy-fill"
   },
   {
     "category": "award",
-    "title": "Batch President",
-    "context": "PUPSTC BSIT",
-    "date": "2024–2025",
-    "description": "Led the batch in academic and extracurricular coordination, ensuring efficient communication.",
+    "title": "Public Relations Officer",
+    "context": "PUPSTC Computer Society",
+    "date": "2024–Present",
+    "description": "Managed community outreach and technical event communications for the university's premier IT organization.",
     "imageUrl": "main-res/aboutMe.png",
-    "iconClass": "bi-person-badge-fill"
+    "iconClass": "bi-megaphone-fill"
+  },
+  {
+    "category": "certificate",
+    "title": "GenAI Certification",
+    "context": "Microsoft Learn",
+    "date": "Nov 2025",
+    "description": "Comprehensive training covering the deployment, management, and responsible use of generative AI tools and solutions.",
+    "imageUrl": "main-res/aboutMe.png",
+    "iconClass": "bi-cpu-fill"
+  },
+  {
+    "category": "certificate",
+    "title": "Cyber Threat Management",
+    "context": "DICT-ITU / Cisco",
+    "date": "Nov 2025",
+    "description": "In-depth workshop on identifying, analyzing, and mitigating modern cybersecurity threats.",
+    "imageUrl": "main-res/aboutMe.png",
+    "iconClass": "bi-shield-lock-fill"
+  },
+  {
+    "category": "certificate",
+    "title": "Data Science with Python",
+    "context": "DICT-ITU DTC Initiative",
+    "date": "Oct 2025",
+    "description": "Practical application of Python for data manipulation, analytics, and rapid prototyping workflows.",
+    "imageUrl": "main-res/aboutMe.png",
+    "iconClass": "bi-bar-chart-fill"
+  },
+  {
+    "category": "certificate",
+    "title": "JavaScript Essentials 1 & 2",
+    "context": "DICT-ITU / Cisco",
+    "date": "Dec 2025",
+    "description": "Advanced training in dynamic DOM manipulation, async logic, and interactive user interfaces.",
+    "imageUrl": "main-res/aboutMe.png",
+    "iconClass": "bi-filetype-js"
+  },
+  {
+    "category": "certificate",
+    "title": "Agile Design & Handoff",
+    "context": "DICT",
+    "date": "Dec 2025",
+    "description": "Training focused on high-fidelity wireframing, UI/UX prototyping, and efficient design-to-development handoffs.",
+    "imageUrl": "main-res/aboutMe.png",
+    "iconClass": "bi-vector-pen"
   }
 ]

@@ -1,28 +1,33 @@
 [
   {
-    "awardTitle": "Cyber Threat Management",
-    "awardContext": "Cisco (Nov 2025)",
-    "iconClass": "bi-shield-lock-fill"
-  },
-  {
-    "awardTitle": "JavaScript Essentials 1 & 2",
-    "awardContext": "Cisco | Dec 2025",
-    "iconClass": "bi-code-slash"
-  },
-  {
-    "awardTitle": "Networking & OS Basics",
-    "awardContext": "Cisco | Oct 2025",
-    "iconClass": "bi-hdd-network-fill"
+    "awardTitle": "GenAI Certification",
+    "awardContext": "Microsoft Learn (Nov 2025)",
+    "iconClass": "bi-cpu-fill"
   },
   {
     "awardTitle": "HTML & CSS Essentials",
-    "awardContext": "Cisco | Dec 2025",
-    "iconClass": "bi-layout-text-sidebar-reverse"
+    "awardContext": "Newcastle College / Cisco (Dec 2025)",
+    "iconClass": "bi-filetype-html"
   },
   {
-    "awardTitle": "GenAI Certification",
-    "awardContext": "Microsoft Learn (2025)",
-    "iconClass": "bi-cpu-fill"
+    "awardTitle": "JavaScript Essentials 1 & 2",
+    "awardContext": "DICT-ITU DTC Initiative (Dec 2025)",
+    "iconClass": "bi-filetype-js"
+  },
+  {
+    "awardTitle": "Cyber Threat Management",
+    "awardContext": "DICT-ITU DTC Initiative (Nov 2025)",
+    "iconClass": "bi-shield-lock-fill"
+  },
+  {
+    "awardTitle": "Data Science with Python",
+    "awardContext": "DICT-ITU DTC Initiative (Oct 2025)",
+    "iconClass": "bi-bar-chart-fill"
+  },
+  {
+    "awardTitle": "Networking & OS Basics",
+    "awardContext": "DICT-ITU DTC Initiative (Oct 2025)",
+    "iconClass": "bi-hdd-network-fill"
   },
   {
     "awardTitle": "AI for Business Management",
@@ -30,13 +35,63 @@
     "iconClass": "bi-robot"
   },
   {
-    "awardTitle": "TechStart: Git & GitHub",
-    "awardContext": "STARTDOST (Nov 2025)",
-    "iconClass": "bi-git"
+    "awardTitle": "Data Science & Analytics",
+    "awardContext": "HP Life (Nov 2025)",
+    "iconClass": "bi-pie-chart-fill"
+  },
+  {
+    "awardTitle": "Intro to Cybersecurity",
+    "awardContext": "HP Life (Nov 2025)",
+    "iconClass": "bi-shield-check"
+  },
+  {
+    "awardTitle": "Professional Networking",
+    "awardContext": "HP Life (Nov 2025)",
+    "iconClass": "bi-person-lines-fill"
   },
   {
     "awardTitle": "Agile Design & Handoff",
     "awardContext": "DICT (Dec 2025)",
     "iconClass": "bi-vector-pen"
+  },
+  {
+    "awardTitle": "From Algorithms to Intelligence",
+    "awardContext": "COMSOC (Dec 2025)",
+    "iconClass": "bi-lightbulb-fill"
+  },
+  {
+    "awardTitle": "CISO Blueprint: Cyber Leadership",
+    "awardContext": "PECB (Nov 2025)",
+    "iconClass": "bi-lock-fill"
+  },
+  {
+    "awardTitle": "TechStart: Git & GitHub",
+    "awardContext": "STARTDOST (Nov 2025)",
+    "iconClass": "bi-github"
+  },
+  {
+    "awardTitle": "Basic Computer Literacy",
+    "awardContext": "PUPSTC SKTK (Oct 2024)",
+    "iconClass": "bi-pc-display"
+  },
+  {
+    "awardTitle": "Bagani: The Making of a Leader",
+    "awardContext": "PUPSTC (Aug 2024)",
+    "iconClass": "bi-person-raised-hand"
+  },
+  {
+    "awardTitle": "Decoding Software Matrix",
+    "awardContext": "COMSOC TechQuest (Apr 2024)",
+    "iconClass": "bi-code-square"
+  },
+  {
+    "awardTitle": "Navigating Career Transitions",
+    "awardContext": "COMSOC (Dec 2023)",
+    "iconClass": "bi-signpost-split-fill"
+  },
+  {
+    "awardTitle": "Drawming Level Up! (Photoshop)",
+    "awardContext": "PUPSTC (Aug 2023)",
+    "iconClass": "bi-brush-fill"
   }
 ]

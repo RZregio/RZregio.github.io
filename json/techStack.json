@@ -24,6 +24,14 @@
     "iconClass": "bi-filetype-js"
   },
   {
+    "category": "frontend",
+    "title": "Bootstrap",
+    "description": "Rapid mobile-first component styling and grid system layouts.",
+    "stars": 5,
+    "linkUrl": "https://getbootstrap.com/",
+    "iconClass": "bi-bootstrap-fill"
+  },
+  {
     "category": "backend",
     "title": "PHP",
     "description": "Server-side scripting, dynamic page generation, and backend logic.",
@@ -41,19 +49,19 @@
   },
   {
     "category": "programming",
-    "title": "C++",
-    "description": "Core object-oriented principles, memory management, and algorithm design.",
-    "stars": 3,
-    "linkUrl": "https://isocpp.org/",
-    "iconClass": "bi-c-square-fill"
-  },
-  {
-    "category": "programming",
     "title": "C#",
     "description": "Application logic, game scripting, and object-oriented backend structures.",
     "stars": 4,
     "linkUrl": "https://docs.microsoft.com/en-us/dotnet/csharp/",
     "iconClass": "bi-window-sidebar"
+  },
+  {
+    "category": "programming",
+    "title": "Java",
+    "description": "Object-oriented programming, utility software, and Java Swing development.",
+    "stars": 4,
+    "linkUrl": "https://www.java.com/",
+    "iconClass": "bi-cup-hot-fill"
   },
   {
     "category": "programming",
@@ -64,9 +72,25 @@
     "iconClass": "bi-filetype-py"
   },
   {
+    "category": "programming",
+    "title": "C++",
+    "description": "Core object-oriented principles, memory management, and algorithm design.",
+    "stars": 3,
+    "linkUrl": "https://isocpp.org/",
+    "iconClass": "bi-c-square-fill"
+  },
+  {
     "category": "tools",
-    "title": "Git & GitHub",
-    "description": "Version control tracking and collaborative repository management.",
+    "title": "Git",
+    "description": "Version control tracking and local repository management.",
+    "stars": 4,
+    "linkUrl": "https://git-scm.com/",
+    "iconClass": "bi-git"
+  },
+  {
+    "category": "tools",
+    "title": "GitHub",
+    "description": "Collaborative cloud repository management and deployment.",
     "stars": 4,
     "linkUrl": "https://github.com/",
     "iconClass": "bi-github"
@@ -78,6 +102,38 @@
     "stars": 4,
     "linkUrl": "https://unity.com/",
     "iconClass": "bi-unity"
+  },
+  {
+    "category": "tools",
+    "title": "VS Code",
+    "description": "Lightweight integrated development environment for full-stack engineering.",
+    "stars": 5,
+    "linkUrl": "https://code.visualstudio.com/",
+    "iconClass": "bi-code-slash"
+  },
+  {
+    "category": "tools",
+    "title": "Eclipse",
+    "description": "Robust IDE primarily utilized for complex Java and C++ application development.",
+    "stars": 4,
+    "linkUrl": "https://eclipseide.org/",
+    "iconClass": "bi-moon-fill"
+  },
+  {
+    "category": "tools",
+    "title": "PhpMyAdmin",
+    "description": "Visual database administration tool for managing MySQL databases.",
+    "stars": 4,
+    "linkUrl": "https://www.phpmyadmin.net/",
+    "iconClass": "bi-database-gear"
+  },
+  {
+    "category": "tools",
+    "title": "XAMPP",
+    "description": "Local server deployment stack for testing PHP and database scripts.",
+    "stars": 4,
+    "linkUrl": "https://www.apachefriends.org/",
+    "iconClass": "bi-server"
   },
   {
     "category": "tools",
@@ -94,5 +150,13 @@
     "stars": 5,
     "linkUrl": "https://www.canva.com/",
     "iconClass": "bi-brush-fill"
+  },
+  {
+    "category": "tools",
+    "title": "Cisco Packet Tracer",
+    "description": "Network simulation, system setup, and OS configuration visualization.",
+    "stars": 3,
+    "linkUrl": "https://www.netacad.com/",
+    "iconClass": "bi-router-fill"
   }
 ]

@@ -44,7 +44,7 @@
 }
 
 .stack-card:hover {
-    transform: translateY(-8px);
+    transform: rotate(2deg);
     border-color: #DAA520;
     background: rgba(27, 43, 75, 0.9);
 }
@@ -115,7 +115,6 @@
 
 .project-card:hover {
     border-color: #DAA520;
-    transform: translateY(-10px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
 }
 
@@ -239,10 +238,73 @@
     z-index: 2;
 }
 
+/* --- Heavy Rendering Optimization --- */
+.live-embed iframe {
+    /* Skips rendering the iframe layout until it is on the screen */
+    content-visibility: auto;
+    contain-intrinsic-size: 350px; /* Gives the browser a placeholder size */
+}
+
 /* ============================================================
    MOBILE RESPONSIVE ADJUSTMENTS
    Overrides fixed widths and body grid constraints
    ============================================================ */
+@media (max-width: 991px) {
+
+    /* --- Convert Vertical Category Tabs to Horizontal Scroll --- */
+    /* Target the container holding the Frontend, Backend, etc. buttons */
+    .tab-content {
+        margin-top: 15px;
+    }
+
+    /* Target the nav-pills/timeline buttons specifically */
+    .nav-pills.flex-column,
+    .timeline-container {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        padding-bottom: 15px;
+        border-left: none !important;
+        /* Removes vertical line if timeline was used */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .nav-pills.flex-column::-webkit-scrollbar,
+    .timeline-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Force buttons to shrink-wrap their text and sit side-by-side */
+    .nav-pills.flex-column .nav-item,
+    .nav-pills.flex-column .nav-link,
+    .timeline-item {
+        flex: 0 0 auto !important;
+        width: auto !important;
+        white-space: nowrap;
+        margin-bottom: 0 !important;
+        margin-right: 15px;
+    }
+
+    /* --- Force Project Tabs into a horizontally scrollable row --- */
+    .nav-tabs,
+    .custom-nav-tabs {
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        overflow-y: hidden;
+        justify-content: flex-start !important;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        padding-bottom: 5px;
+        border-bottom: none;
+    }
+
+    .nav-tabs::-webkit-scrollbar,
+    .custom-nav-tabs::-webkit-scrollbar {
+        display: none;
+    }
+}
 
 @media (max-width: 768px) {
 
@@ -314,8 +376,9 @@
 /* --- Modal Overrides --- */
 #projectDetailsModal .modal-content {
     background: #162447;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 .modal-media-container {
     background: #101A30;
     border-radius: 10px;
@@ -326,6 +389,7 @@
     align-items: center;
     justify-content: center;
 }
+
 .modal-media-container iframe {
     width: 100%;
     height: 100%;
@@ -341,4 +405,3 @@
         padding: 20px;
     }
 }
-

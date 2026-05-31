@@ -1,18 +1,23 @@
 [
     {
-        "awardTitle": "Best in Capstone Project",
-        "awardContext": "PUPSTC BSIT (2025–2026)",
-        "iconClass": "bi-trophy-fill"
+        "awardTitle": "Consistent President's Lister",
+        "awardContext": "PUPSTC BSIT (2022–Present)",
+        "iconClass": "bi-star-fill"
     },
     {
-        "awardTitle": "Academic Excellence Award",
-        "awardContext": "Integrative Programming (2024)",
-        "iconClass": "bi-trophy-fill"
-    },
-    {
-        "awardTitle": "Batch President",
-        "awardContext": "PUPSTC BSIT (2024–2025)",
+        "awardTitle": "Vice President",
+        "awardContext": "PUPSTC BSIT Batch 2022 (2025–2026)",
         "iconClass": "bi-person-badge-fill"
+    },
+    {
+        "awardTitle": "President",
+        "awardContext": "PUPSTC BSIT Batch 2022 (2024–2025)",
+        "iconClass": "bi-person-badge-fill"
+    },
+    {
+        "awardTitle": "Assistant Secretary",
+        "awardContext": "PUPSTC BSIT Batch 2022 (2023–2024)",
+        "iconClass": "bi-person-vcard-fill"
     },
     {
         "awardTitle": "Public Relations Officer",
@@ -20,13 +25,18 @@
         "iconClass": "bi-megaphone-fill"
     },
     {
+        "awardTitle": "Academic Excellence Award",
+        "awardContext": "Integrative Programming and Technologies (2024)",
+        "iconClass": "bi-trophy-fill"
+    },
+    {
         "awardTitle": "Top 1 - ICT Department",
-        "awardContext": "OLAC Batch 2019",
+        "awardContext": "OLAC Batch 2019 (Ranked 6th Overall)",
         "iconClass": "bi-award-fill"
     },
     {
         "awardTitle": "Best in Thesis Writing",
-        "awardContext": "OLAC ICT Department",
+        "awardContext": "OLAC ICT Department Batch 2019",
         "iconClass": "bi-journal-check"
     }
 ]

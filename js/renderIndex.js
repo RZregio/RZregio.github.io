@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!certData) return;
                 certDetailsCard.innerHTML = `
                 <img src="${certData.imageUrl}" class="img-fluid rounded mb-4 interactive-card" style="max-height: 220px; object-fit: contain; background: rgba(0,0,0,0.2); padding: 10px; cursor: zoom-in;" alt="${certData.title}" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="document.getElementById('fullscreen-image-target').src=this.src">
-                <h3 class="fredoka mb-1">${certData.title}</h3>
+                <h2 class="fredoka mb-1">${certData.title}</h2>
                 <p class="text-accent small fw-bold mb-3">${certData.context} &bull; ${certData.date}</p>
                 <p class="opacity-75 mb-0">${certData.description}</p>
             `;
