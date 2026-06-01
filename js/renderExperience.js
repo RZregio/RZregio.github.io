@@ -1,10 +1,18 @@
 /* -----
 Experience Page Dynamic Renderer
-Handles Tech Stack pagination, Project cards, and Dynamic Modals.
+Handles Tech Stack pagination, Project filtering, and Dynamic Modals.
 ----- */
 document.addEventListener('DOMContentLoaded', () => {
 
     let globalProjectsData = [];
+
+    // --- Mobile Scroll Helper ---
+    window.scrollRow = function(containerId) {
+        const container = document.getElementById(containerId);
+        if (container) {
+            container.scrollBy({ left: 200, behavior: 'smooth' });
+        }
+    };
 
     const generateStars = (rating) => {
         let starsHTML = '<div class="d-flex mt-auto" style="gap: 4px;">';
@@ -66,9 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const tabElms = document.querySelectorAll('button[data-bs-toggle="tab"], button[data-bs-toggle="pill"]');
             tabElms.forEach(tab => {
-                tab.addEventListener('shown.bs.tab', () => {
-                    setTimeout(updateTechNavButtons, 150); 
-                });
+                tab.addEventListener('shown.bs.tab', () => { setTimeout(updateTechNavButtons, 150); });
             });
 
             setTimeout(updateTechNavButtons, 200);
@@ -76,8 +82,11 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (e) { console.error("Error loading tech stack:", e); }
     }
 
-    /* ----- Render Projects ----- */
-    async function loadProjects() {
+    /* ----- Project Filtering & Rendering ----- */
+    function renderFilteredProjects() {
+        const query = document.getElementById('project-search').value.toLowerCase();
+        const techFilter = document.getElementById('tech-stack-filter').value;
+
         const containers = {
             school: document.getElementById('proj-school'),
             personal: document.getElementById('proj-personal'),
@@ -85,86 +94,114 @@ document.addEventListener('DOMContentLoaded', () => {
             other: document.getElementById('proj-other')
         };
 
+        Object.values(containers).forEach(c => { if(c) c.innerHTML = ''; });
+
+        const filteredData = globalProjectsData.filter(proj => {
+            const matchesSearch = proj.title.toLowerCase().includes(query) || 
+                                 (proj.techStack && proj.techStack.some(t => t.toLowerCase().includes(query)));
+            const matchesFilter = techFilter === 'all' || 
+                                 (proj.techStack && proj.techStack.some(t => t.includes(techFilter)));
+            return matchesSearch && matchesFilter;
+        });
+
+        filteredData.forEach((proj) => {
+            const targetContainer = containers[proj.category];
+            if (!targetContainer) return;
+
+            // We need the original index to map properly to the global array for the modal
+            const globalIndex = globalProjectsData.indexOf(proj);
+
+            let mediaHTML = '';
+            let contentHTML = '';
+
+            const btnLaunch = proj.liveLink ? `<a href="${proj.liveLink}" target="_blank" class="btn-view text-center flex-grow-1"><i class="bi bi-box-arrow-up-right me-1"></i> Launch</a>` : '';
+            const btnDetails = `<button onclick="openProjectModal(${globalIndex})" class="btn-view flex-grow-1" style="background: rgba(255,255,255,0.05);"><i class="bi bi-info-circle me-1"></i> Details</button>`;
+
+            if (proj.mediaType === 'iframe') {
+                const iframeSrc = proj.mediaSource[0] ? `src="${proj.mediaSource[0]}"` : '';
+                mediaHTML = `<div class="project-thumb live-embed" style="flex: 1 1 auto !important; height: 100% !important; min-height: 220px !important;"><iframe ${iframeSrc} loading="lazy" onerror="this.style.display='none'"></iframe><div class="embed-overlay"></div></div>`;
+                
+                contentHTML = `
+                    <div class="project-content d-flex flex-column" style="flex: 0 0 auto !important; padding-top: 25px !important;">
+                        <h3 class="mb-4">${proj.title}</h3>
+                        <div class="d-flex gap-2 w-100">
+                            ${btnLaunch}
+                            ${btnDetails}
+                        </div>
+                    </div>
+                `;
+            } else {
+                const isMulti = proj.mediaSource.length > 1;
+                const cursorStyle = isMulti ? 'cursor: pointer;' : '';
+                const tooltip = isMulti ? 'title="Click to see next image"' : '';
+                const arrayData = encodeURIComponent(JSON.stringify(proj.mediaSource));
+                
+                mediaHTML = `
+                    <div class="project-thumb overflow-hidden d-flex align-items-center justify-content-center bg-dark" style="flex: 0 0 200px !important; height: 200px !important;">
+                        <img src="${proj.mediaSource[0] || 'main-res/profile.jpg'}" class="img-fluid project-cycler-img" 
+                             style="${cursorStyle} width: 100%; height: 100%; object-fit: cover;" 
+                             ${tooltip}
+                             data-media-array="${arrayData}" 
+                             data-current-index="0"
+                             onclick="cycleProjectImage(this)"
+                             onerror="this.src='main-res/profile.jpg'; this.style.objectFit='contain';">
+                    </div>`;
+
+                const techStackBadges = (proj.techStack && Array.isArray(proj.techStack)) 
+                    ? proj.techStack.map(tech => `<span class="badge bg-secondary me-1 mb-2" style="font-size: 0.75rem;">${tech}</span>`).join('')
+                    : '';
+
+                contentHTML = `
+                    <div class="project-content d-flex flex-column" style="flex: 1 1 auto !important;">
+                        <h3 class="mb-3">${proj.title}</h3>
+                        <p class="mb-auto">${proj.description}</p>
+                        <div class="mt-4 mb-3">${techStackBadges}</div>
+                        <div class="d-flex gap-2 w-100 mt-2">
+                            ${btnLaunch}
+                            ${btnDetails}
+                        </div>
+                    </div>
+                `;
+            }
+
+            targetContainer.innerHTML += `
+                <div class="project-card d-flex flex-column" style="flex: 0 0 350px;">
+                    ${mediaHTML}
+                    ${contentHTML}
+                </div>
+            `;
+        });
+
+        // Add empty state messages if filters yield no results
+        Object.values(containers).forEach(c => {
+            if (c && c.innerHTML === '') {
+                c.innerHTML = '<p class="text-muted w-100 mt-3">No projects found matching your criteria.</p>';
+            }
+        });
+    }
+
+    async function loadProjects() {
         try {
             const response = await fetch('json/projects.json');
             globalProjectsData = await response.json(); 
             
-            Object.values(containers).forEach(c => { if(c) c.innerHTML = ''; });
+            // Initial Render
+            renderFilteredProjects();
 
-            globalProjectsData.forEach((proj, index) => {
-                const targetContainer = containers[proj.category];
-                if (!targetContainer) return;
+            // Bind Filter Listeners
+            const searchInput = document.getElementById('project-search');
+            const techFilter = document.getElementById('tech-stack-filter');
+            
+            if (searchInput) searchInput.addEventListener('input', renderFilteredProjects);
+            if (techFilter) techFilter.addEventListener('change', renderFilteredProjects);
 
-                let mediaHTML = '';
-                let contentHTML = '';
-
-                const btnLaunch = proj.liveLink ? `<a href="${proj.liveLink}" target="_blank" class="btn-view text-center flex-grow-1"><i class="bi bi-box-arrow-up-right me-1"></i> Launch</a>` : '';
-                const btnDetails = `<button onclick="openProjectModal(${index})" class="btn-view flex-grow-1" style="background: rgba(255,255,255,0.05);"><i class="bi bi-info-circle me-1"></i> Details</button>`;
-
-                if (proj.mediaType === 'iframe') {
-                    // --- IFRAME LAYOUT: Iframe Grows, Text Box Shrinks ---
-                    const iframeSrc = proj.mediaSource[0] ? `src="${proj.mediaSource[0]}"` : '';
-                    
-                    // Added !important overrides to force the iframe to stretch and fill the space
-                    mediaHTML = `<div class="project-thumb live-embed" style="flex: 1 1 auto !important; height: 100% !important; min-height: 220px !important;"><iframe ${iframeSrc} loading="lazy" onerror="this.style.display='none'"></iframe><div class="embed-overlay"></div></div>`;
-                    
-                    contentHTML = `
-                        <div class="project-content d-flex flex-column" style="flex: 0 0 auto !important; padding-top: 25px !important;">
-                            <h3 class="mb-4">${proj.title}</h3>
-                            <div class="d-flex gap-2 w-100">
-                                ${btnLaunch}
-                                ${btnDetails}
-                            </div>
-                        </div>
-                    `;
-                } else {
-                    // --- IMAGE LAYOUT: Image is Fixed Height, Text Box Grows ---
-                    const isMulti = proj.mediaSource.length > 1;
-                    const cursorStyle = isMulti ? 'cursor: pointer;' : '';
-                    const tooltip = isMulti ? 'title="Click to see next image"' : '';
-                    const arrayData = encodeURIComponent(JSON.stringify(proj.mediaSource));
-                    
-                    mediaHTML = `
-                        <div class="project-thumb overflow-hidden d-flex align-items-center justify-content-center bg-dark" style="flex: 0 0 200px !important; height: 200px !important;">
-                            <img src="${proj.mediaSource[0] || 'main-res/profile.jpg'}" class="img-fluid project-cycler-img" 
-                                 style="${cursorStyle} width: 100%; height: 100%; object-fit: cover;" 
-                                 ${tooltip}
-                                 data-media-array="${arrayData}" 
-                                 data-current-index="0"
-                                 onclick="cycleProjectImage(this)"
-                                 onerror="this.src='main-res/profile.jpg'; this.style.objectFit='contain';">
-                        </div>`;
-
-                    const techStackBadges = (proj.techStack && Array.isArray(proj.techStack)) 
-                        ? proj.techStack.map(tech => `<span class="badge bg-secondary me-1 mb-2" style="font-size: 0.75rem;">${tech}</span>`).join('')
-                        : '';
-
-                    contentHTML = `
-                        <div class="project-content d-flex flex-column" style="flex: 1 1 auto !important;">
-                            <h3 class="mb-3">${proj.title}</h3>
-                            <p class="mb-auto">${proj.description}</p>
-                            <div class="mt-4 mb-3">${techStackBadges}</div>
-                            <div class="d-flex gap-2 w-100 mt-2">
-                                ${btnLaunch}
-                                ${btnDetails}
-                            </div>
-                        </div>
-                    `;
-                }
-
-                targetContainer.innerHTML += `
-                    <div class="project-card d-flex flex-column" style="flex: 0 0 350px;">
-                        ${mediaHTML}
-                        ${contentHTML}
-                    </div>
-                `;
-            });
         } catch (e) { console.error("Error loading projects:", e); }
     }
 
     loadTechStack();
     loadProjects();
 
+    /* ----- Modals and Image Cycler ----- */
     window.openProjectModal = function(index) {
         const proj = globalProjectsData[index];
         if (!proj) return;

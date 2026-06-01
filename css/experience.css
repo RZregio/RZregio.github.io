@@ -242,7 +242,66 @@
 .live-embed iframe {
     /* Skips rendering the iframe layout until it is on the screen */
     content-visibility: auto;
-    contain-intrinsic-size: 350px; /* Gives the browser a placeholder size */
+    contain-intrinsic-size: 350px;
+    /* Gives the browser a placeholder size */
+}
+
+/* --- Scroll Hint Button --- */
+.scroll-hint-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--accent-yellow);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+
+.scroll-hint-btn:active {
+    background: rgba(212, 140, 28, 0.2);
+}
+
+/* --- Fix Native Select Dropdown Readability --- */
+select.custom-input {
+    background-color: var(--blue-2) !important;
+    color: white !important;
+}
+
+select.custom-input option {
+    background-color: var(--blue-1);
+    color: white;
+    padding: 10px;
+}
+
+select.custom-input:focus {
+    border-color: var(--accent-yellow);
+    box-shadow: 0 0 5px rgba(212, 140, 28, 0.5);
+}
+
+/* --- Fix Input Placeholder Visibility --- */
+.custom-input::placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
+    opacity: 1 !important;
+    font-size: clamp(0.85rem, 1.5vw, 0.9rem);
+}
+
+.custom-input {
+    color: #ffffff !important;
+}
+
+/* --- Fix Search Icon Box --- */
+.input-group-text {
+    background-color: var(--blue-2) !important;
+    color: var(--accent-yellow) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Ensure the input borders match the icon box */
+.input-group .custom-input {
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.name-title span {
+    color: var(--accent-yellow);
 }
 
 /* ============================================================

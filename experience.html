@@ -12,8 +12,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-  <link rel="stylesheet" href="css/navFoot.css?v=1.0.4">
-  <link rel="stylesheet" href="css/experience.css?v=1.0.4">
+  <link rel="stylesheet" href="css/navFoot.css?v=1.0.4.1">
+  <link rel="stylesheet" href="css/experience.css?v=1.0.4.1">
 </head>
 
 <body>
@@ -55,8 +55,10 @@
       </div>
 
       <div class="row g-4">
+
         <div class="col-lg-3">
-          <div class="nav flex-column nav-pills custom-nav-tabs h-100" role="tablist" aria-orientation="vertical">
+          <div class="nav flex-column nav-pills custom-nav-tabs h-100" id="tech-category-pills" role="tablist"
+            aria-orientation="vertical">
             <button class="nav-link active text-start mb-2 py-3" data-bs-toggle="pill" data-bs-target="#tab-frontend"
               type="button" role="tab">Frontend</button>
             <button class="nav-link text-start mb-2 py-3" data-bs-toggle="pill" data-bs-target="#tab-backend"
@@ -91,8 +93,9 @@
               </div>
             </div>
           </div>
+          <button class="btn scroll-hint-btn d-lg-none mt-3 w-100" onclick="scrollRow('tech-category-pills')">Swipe to
+            see more <i class="bi bi-arrow-right"></i></button>
         </div>
-      </div>
     </section>
 
     <section class="container py-5 mb-5 animate-on-scroll delay-1"
@@ -102,25 +105,37 @@
         <p class="opacity-75 tiny-text">Browse through my academic, personal, and professional repositories.</p>
       </div>
 
-      <ul class="nav custom-nav-tabs justify-content-center mb-5" role="tablist">
-        <li class="nav-item" role="presentation">
-          <button class="nav-link active fredoka" data-bs-toggle="tab" data-bs-target="#pane-school" type="button"
-            role="tab">School Projects</button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button class="nav-link fredoka" data-bs-toggle="tab" data-bs-target="#pane-personal" type="button"
-            role="tab">Personal</button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button class="nav-link fredoka" data-bs-toggle="tab" data-bs-target="#pane-company" type="button"
-            role="tab">Company</button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button class="nav-link fredoka" data-bs-toggle="tab" data-bs-target="#pane-other" type="button"
-            role="tab">Other</button>
-        </li>
-      </ul>
+      <!-- Advanced Search and Filter Section -->
+      <div class="d-flex flex-column flex-sm-row gap-3 mb-4 w-100 justify-content-center px-3">
+        <div class="input-group" style="max-width: 400px;">
+          <span class="input-group-text bg-dark border-secondary text-accent"><i class="bi bi-search"></i></span>
+          <input type="text" id="project-search" class="form-control custom-input bg-dark text-white border-secondary"
+            placeholder="Search project or tech...">
+        </div>
+        <select id="tech-stack-filter" class="form-select custom-input bg-dark text-white border-secondary"
+          style="max-width: 200px;">
+          <option value="all">All Tech Stacks</option>
+          <option value="PHP">PHP</option>
+          <option value="JavaScript">JavaScript</option>
+          <option value="HTML5">HTML5 / CSS3</option>
+          <option value="C#">C# / Unity</option>
+          <option value="Java">Java</option>
+          <option value="React">React</option>
+          <option value="MySQL">MySQL</option>
+        </select>
+      </div>
 
+      <!-- Project Category Tabs (Added ID: project-category-tabs) -->
+      <ul class="nav custom-nav-tabs justify-content-center mb-3" id="project-category-tabs" role="tablist">
+        <li class="nav-item" role="presentation"><button class="nav-link active fredoka" data-bs-toggle="tab"
+            data-bs-target="#pane-school" type="button" role="tab">School Projects</button></li>
+        <li class="nav-item" role="presentation"><button class="nav-link fredoka" data-bs-toggle="tab"
+            data-bs-target="#pane-personal" type="button" role="tab">Personal</button></li>
+        <li class="nav-item" role="presentation"><button class="nav-link fredoka" data-bs-toggle="tab"
+            data-bs-target="#pane-company" type="button" role="tab">Company</button></li>
+        <li class="nav-item" role="presentation"><button class="nav-link fredoka" data-bs-toggle="tab"
+            data-bs-target="#pane-other" type="button" role="tab">Other</button></li>
+      </ul>
       <div class="tab-content px-lg-4 pb-4">
         <div class="tab-pane fade show active" id="pane-school" role="tabpanel">
           <div id="proj-school"
@@ -142,6 +157,10 @@
             style="display: flex; flex-wrap: nowrap; gap: 25px; overflow-x: auto; padding-bottom: 20px; scroll-behavior: smooth; scrollbar-width: none;">
           </div>
         </div>
+        <!-- Mobile Scroll Hint for Project Tabs -->
+        <button class="btn scroll-hint-btn d-lg-none mb-4 mx-auto d-block"
+          onclick="scrollRow('project-category-tabs')">Swipe to see more projects <i
+            class="bi bi-arrow-right"></i></button>
       </div>
     </section>
 
@@ -202,9 +221,9 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/slider.js?v=1.0.4"></script>
-  <script src="js/globalUI.js?v=1.0.4"></script>
-  <script src="js/renderExperience.js?v=1.0.4"></script>
+  <script src="js/slider.js?v=1.0.4.1"></script>
+  <script src="js/globalUI.js?v=1.0.4.1"></script>
+  <script src="js/renderExperience.js?v=1.0.4.1"></script>
 </body>
 
 </html>
