@@ -12,8 +12,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-  <link rel="stylesheet" href="css/navFoot.css?v=1.0.2">
-  <link rel="stylesheet" href="css/about.css?v=1.0.2">
+  <link rel="stylesheet" href="css/navFoot.css?v=1.0.3">
+  <link rel="stylesheet" href="css/about.css?v=1.0.3">
 </head>
 
 
@@ -51,83 +51,108 @@
 
 
   <main class="container py-5">
-    <div class="row align-items-center mb-5 gy-4">
+    <!-- 1. Hero Section with Floating Orbs -->
+    <div class="row align-items-center mb-5 gy-4 position-relative">
       <div class="col-lg-5">
         <div class="visual-placeholder card-style d-flex align-items-end p-3">
           <h3 class="fredoka fs-5 text-white text-shadow">Building with Purpose.</h3>
         </div>
       </div>
-      <div class="col-lg-7 ps-lg-5 text-center text-lg-start">
-        <h1 class="welcome-text fredoka">ABOUT <span>ME.</span></h1>
-        <p class="quote-text my-3">
+
+      <!-- Text Content -->
+      <div class="col-lg-5 ps-lg-5 text-center text-lg-start">
+        <h2 class="welcome-text fredoka">ABOUT <span>ME.</span></h2>
+        <h3 class="quote-text my-3">
           “Pause for Clarity. <span>Build with Purpose</span>”<br>
           <small class="opacity-75">~ R. R</small>
-        </p>
-        <a href="contact.html" class="btn btn-custom btn-explore">LEARN MORE</a>
+        </h3>
+        <a href="#learnMore" class="btn btn-custom btn-explore mt-3">LEARN MORE</a>
       </div>
     </div>
 
-    <section class="container py-5 mt-4 animate-on-scroll">
+    <!-- 2. Fun Facts (Horizontal Scroll) -->
+    <section id= "learnMore" class="container py-5 mt-4 animate-on-scroll">
       <h2 class="fredoka mb-4 section-title">Fun <span>Facts</span></h2>
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3" id="fun-facts-container">
+      <!-- Removed row/cols classes to allow horizontal flex layout -->
+      <div class="fun-facts-scrollable" id="fun-facts-container">
       </div>
+      <!-- Scroll Hint Button (Mobile Only) -->
+      <button class="btn scroll-hint-btn d-lg-none mt-3 mx-auto d-block" onclick="scrollRow('fun-facts-container')">
+        Swipe or click to see more <i class="bi bi-arrow-right"></i>
+      </button>
     </section>
 
-    <section id="educational-journey" class="container py-5 mt-4 animate-on-scroll">
-      <h2 class="fredoka mb-4 section-title">Educational <span>Journey</span></h2>
-      <div class="edu-card card-style p-4 mb-3">
-        <div class="d-flex align-items-center gap-3">
-          <div class="edu-icon"><i class="bi bi-mortarboard-fill"></i></div>
-          <div>
-            <h4 class="fredoka mb-1 fs-5">Polytechnic University of the Philippines</h4>
-            <p class="mb-0 text-accent small fw-bold">Sto. Tomas Campus</p>
-            <p class="mb-0 opacity-75 tiny-text">BS Information Technology (2022 - Present)</p>
-          </div>
-        </div>
+    <!-- 3. Career & Academic Trail (Ready for JSON) -->
+    <section id="career-journey" class="container py-5 mt-4 animate-on-scroll">
+      <h2 class="fredoka mb-5 section-title">Career & Academic <span>Trail</span></h2>
+      <!-- Dynamic Map Container -->
+      <div class="career-map-container" id="career-timeline-container">
+        <!-- JSON data will be injected here -->
       </div>
-
-      <div class="collapse" id="moreSchools">
-        <div class="edu-card card-style p-4 mb-3">
-          <div class="d-flex align-items-center gap-3">
-            <div class="edu-icon"><i class="bi bi-bank2"></i></div>
-            <div>
-              <h4 class="fredoka mb-1 fs-5"> Our Lady of Assumption College Tanauan</h4>
-              <p class="mb-0 opacity-75 tiny-text">ICT - Software Development (2020 - 2022)</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="text-center">
-        <button class="btn btn-custom btn-explore py-2 px-4" id="schoolButton" data-bs-toggle="collapse"
-          data-bs-target="#moreSchools">
+      <div class="text-center mt-4">
+        <button class="btn btn-custom btn-explore py-2 px-4" id="toggle-career-btn">
           SHOW MORE <i class="bi bi-chevron-down"></i>
         </button>
       </div>
     </section>
 
-    <section class="container py-5 mt-4 animate-on-scroll">
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2 class="fredoka section-title mb-0">Affiliations & <span>Awards</span></h2>
-        <div class="slider-controls d-none d-sm-block">
-          <button class="slider-btn" onclick="slide('aff-slider', -1)"><i class="bi bi-chevron-left"></i></button>
-          <button class="slider-btn" onclick="slide('aff-slider', 1)"><i class="bi bi-chevron-right"></i></button>
+    <!-- 4. Advanced Recognitions & Growth Section -->
+    <section class="container py-5 mt-4 animate-on-scroll" id="full-recognitions-section">
+      <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center mb-4 gap-3">
+        <h2 class="fredoka section-title mb-0">Recognitions & <span>Growth</span></h2>
+
+        <!-- Search and Sort Controls -->
+        <div class="d-flex flex-column flex-sm-row gap-2 w-100" style="max-width: 500px;">
+          <div class="input-group">
+            <span class="input-group-text bg-dark border-secondary text-white"><i class="bi bi-search"></i></span>
+            <input type="text" id="recog-search" class="form-control custom-input bg-dark text-white border-secondary"
+              placeholder="Search name or date...">
+          </div>
+          <select id="recog-sort" class="form-select custom-input bg-dark text-white border-secondary"
+            style="min-width: 160px;">
+            <option value="newest">Newest First</option>
+            <option value="oldest">Oldest First</option>
+            <option value="name-asc">Name (A-Z)</option>
+            <option value="name-desc">Name (Z-A)</option>
+          </select>
         </div>
       </div>
 
-      <div id="aff-slider" class="custom-slider">
-      </div>
-    </section>
+      <!-- Categories Tab Row (Uses the same mobile scroll CSS from index) -->
+      <ul class="nav custom-nav-tabs mobile-scroll-tabs justify-content-center mb-4" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active fredoka" id="all-certs-tab" data-bs-toggle="tab"
+            data-bs-target="#all-certs-pane" type="button" role="tab">Certificates & Workshops</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link fredoka" id="all-awards-tab" data-bs-toggle="tab" data-bs-target="#all-awards-pane"
+            type="button" role="tab">Affiliations & Awards</button>
+        </li>
+      </ul>
 
-    <section class="container py-5 mt-4 animate-on-scroll">
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2 class="fredoka section-title mb-0">Certifications & <span>Workshops</span></h2>
-        <div class="slider-controls d-none d-sm-block">
-          <button class="slider-btn" onclick="slide('cert-slider', -1)"><i class="bi bi-chevron-left"></i></button>
-          <button class="slider-btn" onclick="slide('cert-slider', 1)"><i class="bi bi-chevron-right"></i></button>
+      <!-- Tab Content Grids -->
+      <div class="tab-content position-relative">
+        <div class="tab-pane fade show active" id="all-certs-pane" role="tabpanel">
+          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="full-certs-container"></div>
+
+          <button class="btn scroll-hint-btn d-lg-none mt-3 mx-auto d-block"
+            onclick="scrollRow('full-certs-container')">Swipe or click to see more <i
+              class="bi bi-arrow-right"></i></button>
+          <nav aria-label="Certificates pagination" class="mt-5 d-none d-lg-block">
+            <ul class="pagination custom-pagination justify-content-center" id="certs-pagination"></ul>
+          </nav>
         </div>
-      </div>
 
-      <div id="cert-slider" class="custom-slider">
+        <div class="tab-pane fade" id="all-awards-pane" role="tabpanel">
+          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="full-awards-container"></div>
+
+          <button class="btn scroll-hint-btn d-lg-none mt-3 mx-auto d-block"
+            onclick="scrollRow('full-awards-container')">Swipe or click to see more <i
+              class="bi bi-arrow-right"></i></button>
+          <nav aria-label="Awards pagination" class="mt-5 d-none d-lg-block">
+            <ul class="pagination custom-pagination justify-content-center" id="awards-pagination"></ul>
+          </nav>
+        </div>
       </div>
     </section>
 
@@ -143,6 +168,22 @@
       </div>
     </section>
   </main>
+
+  <!-- Image Viewer Modal for Floating Orbs -->
+  <div class="modal fade" id="imageViewerModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content bg-transparent border-0">
+        <div class="modal-header border-0 pb-0 justify-content-end">
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"
+            style="filter: drop-shadow(0 0 5px rgba(0,0,0,0.8));"></button>
+        </div>
+        <div class="modal-body text-center pt-0">
+          <img id="fullscreen-image-target" src="" class="img-fluid rounded shadow-lg" alt="Fullscreen View"
+            style="max-height: 85vh; object-fit: contain;">
+        </div>
+      </div>
+    </div>
+  </div>
 
   <footer class="footer footer-section">
     <div class="container-fluid px-4 px-md-5">
@@ -183,10 +224,10 @@
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
     crossorigin="anonymous"></script>
 
-  <script src="js/showMore.js?v=1.0.2"></script>
-  <script src="js/slider.js?v=1.0.2"></script>
-  <script src="js/globalUI.js?v=1.0.2"></script>
-  <script src="js/renderAbout.js?v=1.0.2"></script>
+  <script src="js/showMore.js?v=1.0.3"></script>
+  <script src="js/slider.js?v=1.0.3"></script>
+  <script src="js/globalUI.js?v=1.0.3"></script>
+  <script src="js/renderAbout.js?v=1.0.3"></script>
 </body>
 
 </html>

@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Render Timeline UI
             timelineContainer.innerHTML = servicesDataList.map((service, index) => `
             <div class="timeline-item ${index === 0 ? 'active' : ''}" data-index="${index}">
-                <h5 class="fredoka mb-0">${service.serviceTitle}</h5>
+                <h6 class="fredoka mb-0">${service.serviceTitle}</h6>
             </div>
         `).join('');
 
@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!certData) return;
                 certDetailsCard.innerHTML = `
                 <img src="${certData.imageUrl}" class="img-fluid rounded mb-4 interactive-card" style="max-height: 220px; object-fit: contain; background: rgba(0,0,0,0.2); padding: 10px; cursor: zoom-in;" alt="${certData.title}" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="document.getElementById('fullscreen-image-target').src=this.src">
-                <h2 class="fredoka mb-1">${certData.title}</h2>
+                <h3 class="fredoka mb-1">${certData.title}</h3>
                 <p class="text-accent small fw-bold mb-3">${certData.context} &bull; ${certData.date}</p>
                 <p class="opacity-75 mb-0">${certData.description}</p>
             `;

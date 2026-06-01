@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Polytechnic University of the Philippines",
+    "subtitle": "BS Information Technology (Sto. Tomas Campus)",
+    "dateRange": "2022 – Present",
+    "description": "Consistent President's Lister and active student leader. Spearheaded award-winning projects like the ISO/IEC 25010 compliant 'LANDAS' capstone game and the 'stbJobs' portal.",
+    "iconClass": "bi-mortarboard-fill",
+    "isCurrent": true
+  },
+  {
+    "title": "Arktech Philippines",
+    "subtitle": "Full-Stack Developer Intern",
+    "dateRange": "February 9, 2026 – May 20, 2026",
+    "description": "Architected and deployed complex internal systems including 'Arkteach', 'Material Navigator', and a dynamic 'Assembly Tree Finder'. Successfully managed environment migrations from localhost to live company production servers.",
+    "iconClass": "bi-laptop",
+    "isCurrent": false
+  },
+  {
+    "title": "Our Lady of Assumption College (OLAC)",
+    "subtitle": "ICT - Software Development (Tanauan)",
+    "dateRange": "Graduated 2021",
+    "description": "Graduated Top 1 in the ICT Department (Batch 2019) and ranked 6th overall across all departments. Awarded Best in Thesis Writing.",
+    "iconClass": "bi-bank2",
+    "isCurrent": false
+  }
+]

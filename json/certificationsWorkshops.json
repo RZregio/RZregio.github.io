@@ -2,96 +2,134 @@
   {
     "awardTitle": "GenAI Certification",
     "awardContext": "Microsoft Learn (Nov 2025)",
-    "iconClass": "bi-cpu-fill"
+    "description": "Comprehensive training covering the deployment, management, and responsible use of generative AI tools and solutions.",
+    "iconClass": "bi-cpu-fill",
+    "imageUrl": "main-res/aboutMe.png"
   },
   {
     "awardTitle": "HTML & CSS Essentials",
     "awardContext": "Newcastle College / Cisco (Dec 2025)",
-    "iconClass": "bi-filetype-html"
+    "description": "Foundational and advanced responsive styling techniques, semantic markup, and structural architecture.",
+    "iconClass": "bi-filetype-html",
+    "imageUrl": "main-res/aboutMe.png"
   },
   {
     "awardTitle": "JavaScript Essentials 1 & 2",
     "awardContext": "DICT-ITU DTC Initiative (Dec 2025)",
-    "iconClass": "bi-filetype-js"
+    "description": "Advanced training in dynamic DOM manipulation, async logic, and interactive user interfaces.",
+    "iconClass": "bi-filetype-js",
+    "imageUrl": "main-res/aboutMe.png"
   },
   {
     "awardTitle": "Cyber Threat Management",
     "awardContext": "DICT-ITU DTC Initiative (Nov 2025)",
-    "iconClass": "bi-shield-lock-fill"
+    "description": "In-depth workshop on identifying, analyzing, and mitigating modern cybersecurity threats.",
+    "iconClass": "bi-shield-lock-fill",
+    "imageUrl": "main-res/aboutMe.png"
   },
   {
     "awardTitle": "Data Science with Python",
     "awardContext": "DICT-ITU DTC Initiative (Oct 2025)",
-    "iconClass": "bi-bar-chart-fill"
+    "description": "Practical application of Python for data manipulation, analytics, and rapid prototyping workflows.",
+    "iconClass": "bi-bar-chart-fill",
+    "imageUrl": "main-res/aboutMe.png"
   },
   {
     "awardTitle": "Networking & OS Basics",
     "awardContext": "DICT-ITU DTC Initiative (Oct 2025)",
-    "iconClass": "bi-hdd-network-fill"
+    "description": "Fundamentals of operating system configuration, network protocols, and infrastructure deployment.",
+    "iconClass": "bi-hdd-network-fill",
+    "imageUrl": "main-res/aboutMe.png"
   },
   {
     "awardTitle": "AI for Business Management",
     "awardContext": "HP Life (Nov 2025)",
-    "iconClass": "bi-robot"
+    "description": "Strategic implementation of artificial intelligence to optimize business workflows and decision-making.",
+    "iconClass": "bi-robot",
+    "imageUrl": "main-res/aboutMe.png"
   },
   {
     "awardTitle": "Data Science & Analytics",
     "awardContext": "HP Life (Nov 2025)",
-    "iconClass": "bi-pie-chart-fill"
+    "description": "Analytical frameworks for extracting actionable insights from large datasets.",
+    "iconClass": "bi-pie-chart-fill",
+    "imageUrl": "main-res/aboutMe.png"
   },
   {
     "awardTitle": "Intro to Cybersecurity",
     "awardContext": "HP Life (Nov 2025)",
-    "iconClass": "bi-shield-check"
+    "description": "Awareness and best practices for maintaining secure digital environments and protecting user data.",
+    "iconClass": "bi-shield-check",
+    "imageUrl": "main-res/aboutMe.png"
   },
   {
     "awardTitle": "Professional Networking",
     "awardContext": "HP Life (Nov 2025)",
-    "iconClass": "bi-person-lines-fill"
+    "description": "Strategies for career growth, relationship building, and effective professional communication.",
+    "iconClass": "bi-person-lines-fill",
+    "imageUrl": "main-res/aboutMe.png"
   },
   {
     "awardTitle": "Agile Design & Handoff",
     "awardContext": "DICT (Dec 2025)",
-    "iconClass": "bi-vector-pen"
+    "description": "Training focused on high-fidelity wireframing, UI/UX prototyping, and efficient design-to-development handoffs.",
+    "iconClass": "bi-vector-pen",
+    "imageUrl": "main-res/aboutMe.png"
   },
   {
     "awardTitle": "From Algorithms to Intelligence",
     "awardContext": "COMSOC (Dec 2025)",
-    "iconClass": "bi-lightbulb-fill"
+    "description": "Journey into AI and Machine Learning concepts and practical implementations.",
+    "iconClass": "bi-lightbulb-fill",
+    "imageUrl": "main-res/aboutMe.png"
   },
   {
     "awardTitle": "CISO Blueprint: Cyber Leadership",
     "awardContext": "PECB (Nov 2025)",
-    "iconClass": "bi-lock-fill"
+    "description": "Mastering skills and executive strategies for proactive cybersecurity leadership.",
+    "iconClass": "bi-lock-fill",
+    "imageUrl": "main-res/aboutMe.png"
   },
   {
     "awardTitle": "TechStart: Git & GitHub",
     "awardContext": "STARTDOST (Nov 2025)",
-    "iconClass": "bi-github"
+    "description": "Introduction to version control, branch management, and collaborative repository workflows.",
+    "iconClass": "bi-github",
+    "imageUrl": "main-res/aboutMe.png"
   },
   {
     "awardTitle": "Basic Computer Literacy",
     "awardContext": "PUPSTC SKTK (Oct 2024)",
-    "iconClass": "bi-pc-display"
+    "description": "Foundational computing skills paired with personality development methodologies.",
+    "iconClass": "bi-pc-display",
+    "imageUrl": "main-res/aboutMe.png"
   },
   {
     "awardTitle": "Bagani: The Making of a Leader",
     "awardContext": "PUPSTC (Aug 2024)",
-    "iconClass": "bi-person-raised-hand"
+    "description": "Leadership training focused on community management, team coordination, and strategic planning.",
+    "iconClass": "bi-person-raised-hand",
+    "imageUrl": "main-res/aboutMe.png"
   },
   {
     "awardTitle": "Decoding Software Matrix",
     "awardContext": "COMSOC TechQuest (Apr 2024)",
-    "iconClass": "bi-code-square"
+    "description": "Exploration of modern software development lifecycles and architectural patterns.",
+    "iconClass": "bi-code-square",
+    "imageUrl": "main-res/aboutMe.png"
   },
   {
     "awardTitle": "Navigating Career Transitions",
     "awardContext": "COMSOC (Dec 2023)",
-    "iconClass": "bi-signpost-split-fill"
+    "description": "Strategies for success, adaptability, and continuous learning in the IT industry.",
+    "iconClass": "bi-signpost-split-fill",
+    "imageUrl": "main-res/aboutMe.png"
   },
   {
     "awardTitle": "Drawming Level Up! (Photoshop)",
     "awardContext": "PUPSTC (Aug 2023)",
-    "iconClass": "bi-brush-fill"
+    "description": "Deep dive into Adobe Photoshop techniques and core visual design principles.",
+    "iconClass": "bi-brush-fill",
+    "imageUrl": "main-res/aboutMe.png"
   }
 ]

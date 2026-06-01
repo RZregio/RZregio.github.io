@@ -1,42 +1,58 @@
 [
-    {
-        "awardTitle": "Consistent President's Lister",
-        "awardContext": "PUPSTC BSIT (2022–Present)",
-        "iconClass": "bi-star-fill"
-    },
-    {
-        "awardTitle": "Vice President",
-        "awardContext": "PUPSTC BSIT Batch 2022 (2025–2026)",
-        "iconClass": "bi-person-badge-fill"
-    },
-    {
-        "awardTitle": "President",
-        "awardContext": "PUPSTC BSIT Batch 2022 (2024–2025)",
-        "iconClass": "bi-person-badge-fill"
-    },
-    {
-        "awardTitle": "Assistant Secretary",
-        "awardContext": "PUPSTC BSIT Batch 2022 (2023–2024)",
-        "iconClass": "bi-person-vcard-fill"
-    },
-    {
-        "awardTitle": "Public Relations Officer",
-        "awardContext": "PUPSTC Computer Society (2024–Present)",
-        "iconClass": "bi-megaphone-fill"
-    },
-    {
-        "awardTitle": "Academic Excellence Award",
-        "awardContext": "Integrative Programming and Technologies (2024)",
-        "iconClass": "bi-trophy-fill"
-    },
-    {
-        "awardTitle": "Top 1 - ICT Department",
-        "awardContext": "OLAC Batch 2019 (Ranked 6th Overall)",
-        "iconClass": "bi-award-fill"
-    },
-    {
-        "awardTitle": "Best in Thesis Writing",
-        "awardContext": "OLAC ICT Department Batch 2019",
-        "iconClass": "bi-journal-check"
-    }
+  {
+    "awardTitle": "Consistent President's Lister",
+    "awardContext": "PUPSTC BSIT (2022–Present)",
+    "description": "Maintained top-tier academic standing throughout my collegiate journey, reflecting a continuous commitment to excellence.",
+    "iconClass": "bi-star-fill",
+    "imageUrl": "main-res/aboutMe.png"
+  },
+  {
+    "awardTitle": "Vice President",
+    "awardContext": "PUPSTC BSIT Batch 2022 (2025–2026)",
+    "description": "Assisted in batch management, event planning, and student representation for the IT department.",
+    "iconClass": "bi-person-badge-fill",
+    "imageUrl": "main-res/aboutMe.png"
+  },
+  {
+    "awardTitle": "President",
+    "awardContext": "PUPSTC BSIT Batch 2022 (2024–2025)",
+    "description": "Led the batch in academic and extracurricular coordination, ensuring efficient communication and organizational success.",
+    "iconClass": "bi-person-badge-fill",
+    "imageUrl": "main-res/aboutMe.png"
+  },
+  {
+    "awardTitle": "Assistant Secretary",
+    "awardContext": "PUPSTC BSIT Batch 2022 (2023–2024)",
+    "description": "Handled documentation, meeting minutes, and administrative support for batch activities.",
+    "iconClass": "bi-person-vcard-fill",
+    "imageUrl": "main-res/aboutMe.png"
+  },
+  {
+    "awardTitle": "Public Relations Officer",
+    "awardContext": "PUPSTC Computer Society (2024–Present)",
+    "description": "Managed community outreach, social media presence, and technical event communications for the premier IT organization.",
+    "iconClass": "bi-megaphone-fill",
+    "imageUrl": "main-res/aboutMe.png"
+  },
+  {
+    "awardTitle": "Academic Excellence Award",
+    "awardContext": "Integrative Programming (2024)",
+    "description": "Recognized specifically for outstanding performance, logic building, and clean code architecture in integrative systems.",
+    "iconClass": "bi-trophy-fill",
+    "imageUrl": "main-res/aboutMe.png"
+  },
+  {
+    "awardTitle": "Top 1 - ICT Department",
+    "awardContext": "OLAC Batch 2019",
+    "description": "Graduated as the highest-ranking student within the ICT department and ranked 6th overall across all departments.",
+    "iconClass": "bi-award-fill",
+    "imageUrl": "main-res/aboutMe.png"
+  },
+  {
+    "awardTitle": "Best in Thesis Writing",
+    "awardContext": "OLAC ICT Department Batch 2019",
+    "description": "Awarded for exceptional research, documentation, and technical writing for the final senior high school capstone.",
+    "iconClass": "bi-journal-check",
+    "imageUrl": "main-res/aboutMe.png"
+  }
 ]
