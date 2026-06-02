@@ -217,6 +217,26 @@
     border-radius: 8px 8px 0 0;
 }
 
+/* --- New Project List Layout --- */
+.project-list-scroll {
+    max-height: 380px;
+    overflow-y: auto;
+    padding-right: 8px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.project-list-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.img-count-badge {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    border-radius: 20px;
+    pointer-events: none;
+}
+
 /* The Iframe setup */
 .project-thumb.live-embed iframe {
     width: 200%;
@@ -304,14 +324,76 @@ select.custom-input:focus {
     color: var(--accent-yellow);
 }
 
+/* --- New Project Detail Split Layout --- */
+.proj-detail-media {
+    height: 100%;
+    min-height: 280px;
+    border-radius: 12px;
+}
+
+.img-count-badge {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    border-radius: 20px;
+    pointer-events: none;
+    z-index: 5;
+}
+
 /* ============================================================
    MOBILE RESPONSIVE ADJUSTMENTS
    Overrides fixed widths and body grid constraints
    ============================================================ */
+/* Hide horizontal hint on desktop */
+@media (min-width: 992px) {
+    .horizontal-scroll-hint {
+        display: none !important;
+    }
+}
+
 @media (max-width: 991px) {
 
     /* --- Convert Vertical Category Tabs to Horizontal Scroll --- */
     /* Target the container holding the Frontend, Backend, etc. buttons */
+    .project-list-scroll {
+        max-height: none !important;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        overflow-y: hidden;
+        gap: 15px;
+        padding-bottom: 10px;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .project-list-scroll::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Force list buttons to sit side-by-side */
+    .project-list-scroll .proj-list-btn {
+        flex: 0 0 auto !important;
+        width: auto !important;
+        white-space: nowrap;
+        margin-bottom: 0 !important;
+    }
+
+    /* Shrink the Media Viewer on Mobile */
+    .proj-detail-media {
+        height: 200px;
+        min-height: 200px;
+    }
+
+    /* Swap scroll hints */
+    .vertical-scroll-hint {
+        display: none !important;
+    }
+
+    .horizontal-scroll-hint {
+        display: block !important;
+    }
+
     .tab-content {
         margin-top: 15px;
     }

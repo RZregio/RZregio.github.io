@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!container) return;
 
         if (dataArray.length === 0) {
-            container.innerHTML = `<div class="col-12 text-center text-muted py-5 w-100">No results found matching your criteria.</div>`;
+            container.innerHTML = `<div class="col-12 text-center text-white py-5 w-100">No results found matching your criteria.</div>`;
             if (paginationContainer) paginationContainer.innerHTML = '';
             return;
         }

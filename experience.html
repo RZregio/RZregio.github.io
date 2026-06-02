@@ -12,8 +12,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-  <link rel="stylesheet" href="css/navFoot.css?v=1.0.4.2">
-  <link rel="stylesheet" href="css/experience.css?v=1.0.4.2">
+  <link rel="stylesheet" href="css/navFoot.css?v=2.0.1">
+  <link rel="stylesheet" href="css/experience.css?v=2.0.1">
 </head>
 
 <body>
@@ -147,45 +147,10 @@
             data-bs-target="#pane-other" type="button" role="tab">Other</button></li>
       </ul>
       <div class="tab-content px-lg-4 pb-4" id="project-content">
-        <div class="tab-pane fade show active" id="pane-school" role="tabpanel">
-          <div id="proj-school"
-            style="display: flex; flex-wrap: nowrap; gap: 25px; overflow-x: auto; padding-bottom: 20px; scroll-behavior: smooth; scrollbar-width: none;">
-          </div>
-          <!-- Mobile Scroll Hint for Project Tabs -->
-          <button class="btn scroll-hint-btn d-lg-none mb-4 mx-auto d-block"
-            onclick="scrollRow('proj-school')">Swipe
-            to see more projects <i class="bi bi-arrow-right"></i></button>
-        </div>
-
-        <div class="tab-pane fade" id="pane-personal" role="tabpanel">
-          <div id="proj-personal"
-            style="display: flex; flex-wrap: nowrap; gap: 25px; overflow-x: auto; padding-bottom: 20px; scroll-behavior: smooth; scrollbar-width: none;">
-          </div>
-          <!-- Mobile Scroll Hint for Project Tabs -->
-          <button class="btn scroll-hint-btn d-lg-none mb-4 mx-auto d-block"
-            onclick="scrollRow('proj-personal')">Swipe
-            to see more projects <i class="bi bi-arrow-right"></i></button>
-        </div>
-
-        <div class="tab-pane fade" id="pane-company" role="tabpanel">
-          <div id="proj-company"
-            style="display: flex; flex-wrap: nowrap; gap: 25px; overflow-x: auto; padding-bottom: 20px; scroll-behavior: smooth; scrollbar-width: none;">
-          </div>
-          <!-- Mobile Scroll Hint for Project Tabs -->
-          <button class="btn scroll-hint-btn d-lg-none mb-4 mx-auto d-block"
-            onclick="scrollRow('proj-company')">Swipe
-            to see more projects <i class="bi bi-arrow-right"></i></button>
-        </div>
-
-        <div class="tab-pane fade" id="pane-other" role="tabpanel">
-          <div id="proj-other"
-            style="display: flex; flex-wrap: nowrap; gap: 25px; overflow-x: auto; padding-bottom: 20px; scroll-behavior: smooth; scrollbar-width: none;">
-          </div>
-          <!-- Mobile Scroll Hint for Project Tabs -->
-          <button class="btn scroll-hint-btn d-lg-none mb-4 mx-auto d-block"
-            onclick="scrollRow('proj-other')">Swipe
-            to see more projects <i class="bi bi-arrow-right"></i></button>
-        </div>
+        <div class="tab-pane fade show active" id="pane-school" role="tabpanel"></div>
+        <div class="tab-pane fade" id="pane-personal" role="tabpanel"></div>
+        <div class="tab-pane fade" id="pane-company" role="tabpanel"></div>
+        <div class="tab-pane fade" id="pane-other" role="tabpanel"></div>
       </div>
     </section>
 
@@ -201,23 +166,31 @@
       </div>
     </section>
 
-    <div class="modal fade" id="projectDetailsModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content text-white">
-          <div class="modal-header border-bottom-0 pb-0">
-            <h4 class="modal-title fredoka text-warning" id="modalProjTitle">Project Title</h4>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal fade" id="imageViewerModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content bg-transparent border-0">
+          <div class="modal-header border-0 pb-0 justify-content-end position-absolute w-100" style="z-index: 10;">
+            <button type="button" class="btn-close btn-close-white me-3 mt-3" data-bs-dismiss="modal" aria-label="Close"
+              style="filter: drop-shadow(0 0 5px rgba(0,0,0,0.8));"></button>
           </div>
-          <div class="modal-body pt-3">
-            <div class="modal-media-container mb-4 shadow" id="modalProjMedia"></div>
 
-            <h6 class="text-accent small text-uppercase fw-bold mb-2">Overview</h6>
-            <p class="opacity-75 mb-4" id="modalProjDesc">Project description goes here.</p>
+          <div class="modal-body text-center p-0 position-relative">
+            <button id="viewer-prev"
+              class="btn btn-dark position-absolute top-50 start-0 translate-middle-y ms-2 rounded-circle"
+              onclick="navigateViewer(-1)"
+              style="width: 45px; height: 45px; z-index: 5; display: none; background: rgba(0,0,0,0.5);">
+              <i class="bi bi-chevron-left text-white"></i>
+            </button>
 
-            <h6 class="text-accent small text-uppercase fw-bold mb-2">Tech Stack</h6>
-            <div id="modalProjTech" class="mb-2"></div>
-          </div>
-          <div class="modal-footer border-top-0 pt-0" id="modalProjFooter">
+            <img id="fullscreen-image-target" src="" class="img-fluid rounded shadow-lg" alt="Fullscreen View"
+              style="max-height: 85vh; object-fit: contain;">
+
+            <button id="viewer-next"
+              class="btn btn-dark position-absolute top-50 end-0 translate-middle-y me-2 rounded-circle"
+              onclick="navigateViewer(1)"
+              style="width: 45px; height: 45px; z-index: 5; display: none; background: rgba(0,0,0,0.5);">
+              <i class="bi bi-chevron-right text-white"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -246,9 +219,9 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/slider.js?v=1.0.4.2"></script>
-  <script src="js/globalUI.js?v=1.0.4.2"></script>
-  <script src="js/renderExperience.js?v=1.0.4.2"></script>
+  <script src="js/slider.js?v=2.0.1"></script>
+  <script src="js/globalUI.js?v=2.0.1"></script>
+  <script src="js/renderExperience.js?v=2.0.1"></script>
 </body>
 
 </html>

@@ -267,8 +267,8 @@
     "description": "Dynamic visualization tool utilizing a 'Family Tree' hierarchy to map manufacturing components.",
     "mediaType": "image",
     "mediaSource": [
-      "main-res/assembly-1.jpg",
-      "main-res/assembly-2.jpg"
+      "main-res/ContactProfile.jpg",
+      "main-res/coding.jpg"
     ],
     "liveLink": "",
     "techStack": [
