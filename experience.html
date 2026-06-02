@@ -12,8 +12,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-  <link rel="stylesheet" href="css/navFoot.css?v=1.0.4.1">
-  <link rel="stylesheet" href="css/experience.css?v=1.0.4.1">
+  <link rel="stylesheet" href="css/navFoot.css?v=1.0.4.2">
+  <link rel="stylesheet" href="css/experience.css?v=1.0.4.2">
 </head>
 
 <body>
@@ -57,8 +57,7 @@
       <div class="row g-4">
 
         <div class="col-lg-3">
-          <div class="nav flex-column nav-pills custom-nav-tabs h-100" id="tech-category-pills" role="tablist"
-            aria-orientation="vertical">
+          <div class="nav flex-column nav-pills custom-nav-tabs h-100" role="tablist" aria-orientation="vertical">
             <button class="nav-link active text-start mb-2 py-3" data-bs-toggle="pill" data-bs-target="#tab-frontend"
               type="button" role="tab">Frontend</button>
             <button class="nav-link text-start mb-2 py-3" data-bs-toggle="pill" data-bs-target="#tab-backend"
@@ -71,30 +70,41 @@
         </div>
 
         <div class="col-lg-9 ps-lg-4">
-          <div class="tab-content">
+          <div class="tab-content" id="tech-card">
             <div class="tab-pane fade show active" id="tab-frontend" role="tabpanel">
               <div class="tech-slider py-3 px-2" id="tech-frontend"
                 style="display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none;">
               </div>
+              <button class="btn scroll-hint-btn d-lg-none mt-3 w-100" onclick="scrollRow('tech-frontend')">Swipe to
+                see more <i class="bi bi-arrow-right"></i></button>
             </div>
+
             <div class="tab-pane fade" id="tab-backend" role="tabpanel">
               <div class="tech-slider py-3 px-2" id="tech-backend"
                 style="display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none;">
               </div>
+              <button class="btn scroll-hint-btn d-lg-none mt-3 w-100" onclick="scrollRow('tech-backend')">Swipe to
+                see more <i class="bi bi-arrow-right"></i></button>
             </div>
+
             <div class="tab-pane fade" id="tab-programming" role="tabpanel">
               <div class="tech-slider py-3 px-2" id="tech-programming"
                 style="display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none;">
               </div>
+              <button class="btn scroll-hint-btn d-lg-none mt-3 w-100" onclick="scrollRow('tech-programming')">Swipe to
+                see more <i class="bi bi-arrow-right"></i></button>
             </div>
+
             <div class="tab-pane fade" id="tab-tools" role="tabpanel">
               <div class="tech-slider py-3 px-2" id="tech-tools"
                 style="display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none;">
               </div>
+              <button class="btn scroll-hint-btn d-lg-none mt-3 w-100" onclick="scrollRow('tech-tools')">Swipe to
+                see more <i class="bi bi-arrow-right"></i></button>
             </div>
+
           </div>
-          <button class="btn scroll-hint-btn d-lg-none mt-3 w-100" onclick="scrollRow('tech-category-pills')">Swipe to
-            see more <i class="bi bi-arrow-right"></i></button>
+
         </div>
     </section>
 
@@ -125,8 +135,8 @@
         </select>
       </div>
 
-      <!-- Project Category Tabs (Added ID: project-category-tabs) -->
-      <ul class="nav custom-nav-tabs justify-content-center mb-3" id="project-category-tabs" role="tablist">
+      <!-- Project Category Tabs -->
+      <ul class="nav custom-nav-tabs justify-content-center mb-3" role="tablist">
         <li class="nav-item" role="presentation"><button class="nav-link active fredoka" data-bs-toggle="tab"
             data-bs-target="#pane-school" type="button" role="tab">School Projects</button></li>
         <li class="nav-item" role="presentation"><button class="nav-link fredoka" data-bs-toggle="tab"
@@ -136,31 +146,46 @@
         <li class="nav-item" role="presentation"><button class="nav-link fredoka" data-bs-toggle="tab"
             data-bs-target="#pane-other" type="button" role="tab">Other</button></li>
       </ul>
-      <div class="tab-content px-lg-4 pb-4">
+      <div class="tab-content px-lg-4 pb-4" id="project-content">
         <div class="tab-pane fade show active" id="pane-school" role="tabpanel">
           <div id="proj-school"
             style="display: flex; flex-wrap: nowrap; gap: 25px; overflow-x: auto; padding-bottom: 20px; scroll-behavior: smooth; scrollbar-width: none;">
           </div>
+          <!-- Mobile Scroll Hint for Project Tabs -->
+          <button class="btn scroll-hint-btn d-lg-none mb-4 mx-auto d-block"
+            onclick="scrollRow('proj-school')">Swipe
+            to see more projects <i class="bi bi-arrow-right"></i></button>
         </div>
+
         <div class="tab-pane fade" id="pane-personal" role="tabpanel">
           <div id="proj-personal"
             style="display: flex; flex-wrap: nowrap; gap: 25px; overflow-x: auto; padding-bottom: 20px; scroll-behavior: smooth; scrollbar-width: none;">
           </div>
+          <!-- Mobile Scroll Hint for Project Tabs -->
+          <button class="btn scroll-hint-btn d-lg-none mb-4 mx-auto d-block"
+            onclick="scrollRow('proj-personal')">Swipe
+            to see more projects <i class="bi bi-arrow-right"></i></button>
         </div>
+
         <div class="tab-pane fade" id="pane-company" role="tabpanel">
           <div id="proj-company"
             style="display: flex; flex-wrap: nowrap; gap: 25px; overflow-x: auto; padding-bottom: 20px; scroll-behavior: smooth; scrollbar-width: none;">
           </div>
+          <!-- Mobile Scroll Hint for Project Tabs -->
+          <button class="btn scroll-hint-btn d-lg-none mb-4 mx-auto d-block"
+            onclick="scrollRow('proj-company')">Swipe
+            to see more projects <i class="bi bi-arrow-right"></i></button>
         </div>
+
         <div class="tab-pane fade" id="pane-other" role="tabpanel">
           <div id="proj-other"
             style="display: flex; flex-wrap: nowrap; gap: 25px; overflow-x: auto; padding-bottom: 20px; scroll-behavior: smooth; scrollbar-width: none;">
           </div>
+          <!-- Mobile Scroll Hint for Project Tabs -->
+          <button class="btn scroll-hint-btn d-lg-none mb-4 mx-auto d-block"
+            onclick="scrollRow('proj-other')">Swipe
+            to see more projects <i class="bi bi-arrow-right"></i></button>
         </div>
-        <!-- Mobile Scroll Hint for Project Tabs -->
-        <button class="btn scroll-hint-btn d-lg-none mb-4 mx-auto d-block"
-          onclick="scrollRow('project-category-tabs')">Swipe to see more projects <i
-            class="bi bi-arrow-right"></i></button>
       </div>
     </section>
 
@@ -221,9 +246,9 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/slider.js?v=1.0.4.1"></script>
-  <script src="js/globalUI.js?v=1.0.4.1"></script>
-  <script src="js/renderExperience.js?v=1.0.4.1"></script>
+  <script src="js/slider.js?v=1.0.4.2"></script>
+  <script src="js/globalUI.js?v=1.0.4.2"></script>
+  <script src="js/renderExperience.js?v=1.0.4.2"></script>
 </body>
 
 </html>

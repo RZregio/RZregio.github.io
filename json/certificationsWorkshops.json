@@ -4,7 +4,11 @@
     "awardContext": "Microsoft Learn (Nov 2025)",
     "description": "Comprehensive training covering the deployment, management, and responsible use of generative AI tools and solutions.",
     "iconClass": "bi-cpu-fill",
-    "imageUrl": "main-res/aboutMe.png"
+    "images": [
+      "main-res/aboutMe.png",
+      "main-res/ContactProfile.jpg",
+      "main-res/coding.jpg"
+    ]
   },
   {
     "awardTitle": "HTML & CSS Essentials",

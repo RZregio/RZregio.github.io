@@ -275,7 +275,7 @@ select.custom-input:focus {
 .custom-input::placeholder {
     color: rgba(255, 255, 255, 0.6) !important;
     opacity: 1 !important;
-    font-size:clamp(0.85rem, 1.5vw, 0.9rem);
+    font-size: clamp(0.85rem, 1.5vw, 0.9rem);
 }
 
 /* Ensure the text typed by the user stays stark white */
@@ -290,20 +290,30 @@ select.custom-input:focus {
     #full-certs-container,
     #full-awards-container {
         display: flex !important;
+        justify-content: flex-start !important;
         flex-wrap: nowrap !important;
         overflow-x: auto;
         gap: 15px;
-        padding-bottom: 15px;
+        padding-bottom: 5px;
         scrollbar-width: none;
-        /* Firefox */
         -ms-overflow-style: none;
-        /* IE/Edge */
+        border-bottom: none;
+    }
+
+    .custom-nav-tabs {
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        overflow-y: hidden;
+        justify-content: flex-start !important;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        padding-bottom: 5px;
+        border-bottom: none;
     }
 
     #full-certs-container::-webkit-scrollbar,
     #full-awards-container::-webkit-scrollbar {
         display: none;
-        /* Chrome/Safari */
     }
 
     /* Force the cards to sit side-by-side on small screens */

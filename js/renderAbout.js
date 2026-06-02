@@ -1,6 +1,6 @@
 /* -----
 About Page Dynamic Renderer
-Handles Fun Facts, Career Map (Expandable), and Advanced Recognitions (Pagination/Sort/Search)
+Handles Fun Facts, Career Map (Expandable), and Advanced Recognitions (Responsive Pagination/Sort/Search)
 ----- */
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollRow = function (containerId) {
         const container = document.getElementById(containerId);
         if (container) {
-            container.scrollBy({ left: 250, behavior: 'smooth' });
+            container.scrollBy({ left: 280, behavior: 'smooth' });
         }
     };
 
@@ -42,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const btn = document.getElementById('toggle-career-btn');
         if (!container) return;
 
-        // Limit to 2 items if not expanded
         const displayData = careerExpanded ? fullCareerData : fullCareerData.slice(0, 2);
 
         container.innerHTML = displayData.map(item => `
@@ -85,21 +84,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    /* --- 3. Advanced Recognitions Engine (Pagination) --- */
+    /* --- 3. Advanced Recognitions Engine (Responsive Pagination) --- */
     let allCerts = [];
     let allAwards = [];
 
-    // Pagination Configuration
     const ITEMS_PER_PAGE = 6;
     let currentCertsPage = 1;
     let currentAwardsPage = 1;
 
-    // Make page changer globally accessible for the inline onclick handlers
     window.changePage = function (type, newPage) {
         if (type === 'certs') currentCertsPage = newPage;
         if (type === 'awards') currentAwardsPage = newPage;
         filterAndSortData();
-        // Scroll slightly up so the user sees the new top row
+        // Scrolls back to the top of the section when clicking a page number
         document.getElementById('full-recognitions-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
 
@@ -114,6 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderRecognitionsCards(dataArray, containerId, page, paginationId, typeString) {
         const container = document.getElementById(containerId);
         const paginationContainer = document.getElementById(paginationId);
+        
         if (!container) return;
 
         if (dataArray.length === 0) {
@@ -122,24 +120,30 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // --- Calculate Pagination ---
-        const totalPages = Math.ceil(dataArray.length / ITEMS_PER_PAGE);
-        // Safety check if search reduces total pages below current page
-        if (page > totalPages) page = totalPages;
-        if (page < 1) page = 1;
+        const isDesktop = window.innerWidth > 991;
+        let displayData = dataArray;
+        let totalPages = 1;
 
-        const startIndex = (page - 1) * ITEMS_PER_PAGE;
-        const displayData = dataArray.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+        if (isDesktop) {
+            totalPages = Math.ceil(dataArray.length / ITEMS_PER_PAGE);
+            if (page > totalPages) page = totalPages;
+            if (page < 1) page = 1;
 
-        // --- Render Cards ---
+            const startIndex = (page - 1) * ITEMS_PER_PAGE;
+            displayData = dataArray.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+        }
+
         container.innerHTML = displayData.map(item => {
             const images = item.images || (item.imageUrl ? [item.imageUrl] : []);
             const primaryImg = images.length > 0 ? images[0] : '';
             const imgCountHTML = images.length > 1 ? `<span class="img-count-badge">+${images.length - 1} Images</span>` : '';
 
+            // This is the crucial update that passes the array to the modal
+            const arrayData = encodeURIComponent(JSON.stringify(images));
+
             const imageContainerHTML = primaryImg
                 ? `<div class="recog-img-container">
-                       <img src="${primaryImg}" alt="${item.awardTitle}" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="document.getElementById('fullscreen-image-target').src=this.src">
+                       <img src="${primaryImg}" alt="${item.awardTitle}" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="openImageViewer('${arrayData}')">
                        ${imgCountHTML}
                    </div>`
                 : `<div class="recog-img-container recog-no-img"><i class="bi ${item.iconClass || 'bi-award-fill'}"></i></div>`;
@@ -156,23 +160,19 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         }).join('');
 
-        // --- Render Pagination UI ---
         if (paginationContainer) {
-            if (totalPages <= 1) {
-                paginationContainer.innerHTML = ''; // Hide if only 1 page
+            if (!isDesktop || totalPages <= 1) {
+                paginationContainer.innerHTML = '';
             } else {
                 let pagHTML = '';
-                // Previous Button
                 pagHTML += `<li class="page-item ${page === 1 ? 'disabled' : ''}">
                                 <button class="page-link" onclick="changePage('${typeString}', ${page - 1})"><i class="bi bi-chevron-left"></i></button>
                             </li>`;
-                // Numbered Buttons
                 for (let i = 1; i <= totalPages; i++) {
                     pagHTML += `<li class="page-item ${page === i ? 'active' : ''}">
                                     <button class="page-link" onclick="changePage('${typeString}', ${i})">${i}</button>
                                 </li>`;
                 }
-                // Next Button
                 pagHTML += `<li class="page-item ${page === totalPages ? 'disabled' : ''}">
                                 <button class="page-link" onclick="changePage('${typeString}', ${page + 1})"><i class="bi bi-chevron-right"></i></button>
                             </li>`;
@@ -183,8 +183,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function filterAndSortData() {
-        const query = document.getElementById('recog-search').value.toLowerCase();
-        const sortMode = document.getElementById('recog-sort').value;
+        const searchInput = document.getElementById('recog-search');
+        const sortSelect = document.getElementById('recog-sort');
+        const query = searchInput ? searchInput.value.toLowerCase() : '';
+        const sortMode = sortSelect ? sortSelect.value : 'newest';
 
         const processList = (list) => {
             let processed = list.filter(item =>
@@ -203,12 +205,10 @@ document.addEventListener('DOMContentLoaded', () => {
             return processed;
         };
 
-        // Pass the updated page numbers and target pagination containers
         renderRecognitionsCards(processList(allCerts), 'full-certs-container', currentCertsPage, 'certs-pagination', 'certs');
         renderRecognitionsCards(processList(allAwards), 'full-awards-container', currentAwardsPage, 'awards-pagination', 'awards');
     }
 
-    // Reset pagination to Page 1 when searching or sorting
     function handleFiltersChanged() {
         currentCertsPage = 1;
         currentAwardsPage = 1;
@@ -225,12 +225,19 @@ document.addEventListener('DOMContentLoaded', () => {
             allCerts = await certsRes.json();
             allAwards = await awardsRes.json();
 
-            // Initial Render
             filterAndSortData();
 
-            // Bind Event Listeners
-            document.getElementById('recog-search').addEventListener('input', handleFiltersChanged);
-            document.getElementById('recog-sort').addEventListener('change', handleFiltersChanged);
+            const searchInput = document.getElementById('recog-search');
+            const sortSelect = document.getElementById('recog-sort');
+
+            if (searchInput) searchInput.addEventListener('input', handleFiltersChanged);
+            if (sortSelect) sortSelect.addEventListener('change', handleFiltersChanged);
+
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(filterAndSortData, 150);
+            });
 
         } catch (e) {
             console.error('Failed to load recognitions data:', e);
@@ -242,3 +249,44 @@ document.addEventListener('DOMContentLoaded', () => {
     loadCareerTrail();
     loadRecognitionsData();
 });
+
+
+/* --- Multi-Image Modal Viewer Logic --- */
+window.currentViewerImages = [];
+window.currentViewerIndex = 0;
+
+window.openImageViewer = function(imagesString) {
+    window.currentViewerImages = JSON.parse(decodeURIComponent(imagesString));
+    window.currentViewerIndex = 0;
+    updateViewerImage();
+};
+
+window.navigateViewer = function(direction) {
+    window.currentViewerIndex += direction;
+    
+    // Loop back to start or end
+    if (window.currentViewerIndex < 0) {
+        window.currentViewerIndex = window.currentViewerImages.length - 1;
+    }
+    if (window.currentViewerIndex >= window.currentViewerImages.length) {
+        window.currentViewerIndex = 0;
+    }
+    updateViewerImage();
+};
+
+function updateViewerImage() {
+    const img = document.getElementById('fullscreen-image-target');
+    const prev = document.getElementById('viewer-prev');
+    const next = document.getElementById('viewer-next');
+    
+    if (img) img.src = window.currentViewerImages[window.currentViewerIndex];
+    
+    // Only show arrows if there is more than 1 image in the array
+    if (window.currentViewerImages.length > 1) {
+        if (prev) prev.style.display = 'block';
+        if (next) next.style.display = 'block';
+    } else {
+        if (prev) prev.style.display = 'none';
+        if (next) next.style.display = 'none';
+    }
+}
