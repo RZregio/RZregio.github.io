@@ -11,8 +11,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-  <link rel="stylesheet" href="css/navFoot.css?v=2.0.1">
-  <link rel="stylesheet" href="css/home.css?v=2.0.1">
+  <link rel="stylesheet" href="css/navFoot.css?v=2.0.2">
+  <link rel="stylesheet" href="css/home.css?v=2.0.2">
 </head>
 
 <body>
@@ -47,10 +47,10 @@
     </div>
   </nav>
 
-  <main class="container header-section py-5 mt-4">
+  <main class="container header-section py-5 pt-5 mt-2">
     <div class="row align-items-center animate-on-scroll">
 
-      <div class="col-lg-5 mb-5 mb-lg-0 text-center">
+      <div class="introInfo col-lg-5 mb-5 mb-lg-0 text-center">
         <div class="profile-img-container text-center px-4">
           <img src="main-res/profile.jpg" alt="Roland Z. Regio" class="profile-img">
         </div>
@@ -113,11 +113,11 @@
         <h3 class="mb-0 name-title border-0 text-center mx-auto d-inline-block">My <span>Services</span></h3>
       </div>
       <div class="row g-4 align-items-center">
-        <div class="col-lg-6 animate-on-scroll delay-1">
+        <div class="serviceDetails col-lg-6 order-2 order-lg-1 animate-on-scroll delay-1">
           <div class="card-style p-4 h-100" id="service-details-pane">
           </div>
         </div>
-        <div class="col-lg-6 animate-on-scroll delay-2">
+        <div class="col-lg-6 order-1 order-lg-2 animate-on-scroll delay-2">
           <div class="timeline-container" id="services-timeline-container">
           </div>
         </div>
@@ -128,7 +128,9 @@
       style="background: rgba(0,0,0,0.2); border-radius: 20px;">
       <div class="d-flex justify-content-between align-items-center mb-4 p-lg-3">
         <h2 class="name-title border-0 mb-0">Featured <span>Projects</span></h2>
-        <a href="experience.html" class="btn btn-custom btn-explore px-4">View All Experience</a>
+        <a href="experience.html" class="btn btn-custom btn-explore mobile-icon-btn px-4 mt-0">
+          <i class="bi bi-briefcase"></i><span class="d-none d-md-inline ms-2">View All Experience</span>
+        </a>
       </div>
 
       <div class="row g-4 align-items-center px-lg-3 pb-lg-3">
@@ -161,8 +163,8 @@
         <h2 class="name-title border-0 mb-0" style="font-size: clamp(1.2rem, 4vw, 1.8rem);">Recognitions &
           <span>Growth</span>
         </h2>
-        <a href="experience.html" class="btn btn-custom btn-explore mobile-icon-btn px-4 mt-0">
-          <i class="bi bi-briefcase"></i><span class="d-none d-md-inline ms-2">View All Recognitions</span>
+        <a href="about.html" class="btn btn-custom btn-explore mobile-icon-btn px-4 mt-0">
+          <i class="bi bi-person"></i><span class="d-none d-md-inline ms-2">View All Recognitions</span>
         </a>
       </div>
 
@@ -391,10 +393,10 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/textSwitch.js?v=2.0.1"></script>
-  <script src="js/renderIndex.js?v=2.0.1"></script>
-  <script src="js/sendTestimonial.js?v=2.0.1"></script>
-  <script src="js/globalUI.js?v=2.0.1"></script>
+  <script src="js/textSwitch.js?v=2.0.2"></script>
+  <script src="js/renderIndex.js?v=2.0.2"></script>
+  <script src="js/sendTestimonial.js?v=2.0.2"></script>
+  <script src="js/globalUI.js?v=2.0.2"></script>
 </body>
 
 </html>

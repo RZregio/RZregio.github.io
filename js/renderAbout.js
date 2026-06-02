@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const btn = document.getElementById('toggle-career-btn');
         if (!container) return;
 
-        const displayData = careerExpanded ? fullCareerData : fullCareerData.slice(0, 2);
+        const displayData = careerExpanded ? fullCareerData : fullCareerData.slice(0, 1);
 
         container.innerHTML = displayData.map(item => `
             <div class="career-node ${item.isCurrent ? 'current-node' : ''}">
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `).join('');
 
         if (btn) {
-            btn.style.display = fullCareerData.length > 2 ? 'inline-block' : 'none';
+            btn.style.display = fullCareerData.length > 1 ? 'inline-block' : 'none';
             btn.innerHTML = careerExpanded ? 'SHOW LESS <i class="bi bi-chevron-up"></i>' : 'SHOW MORE <i class="bi bi-chevron-down"></i>';
         }
     }

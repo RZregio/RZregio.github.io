@@ -74,7 +74,12 @@
 }
 
 @media (max-width: 991px) {
-    .welcome-text {
-        text-align: center;
+    .visual-placeholder {
+        display: none !important;
+    }
+
+    .introWelcome {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
     }
 }

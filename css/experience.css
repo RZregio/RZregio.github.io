@@ -412,6 +412,16 @@ select.custom-input:focus {
         -ms-overflow-style: none;
     }
 
+    .tech-list,
+    .tech-slider {
+        padding-top: 0px !important;
+        margin-top: 0 !important;
+    }
+
+    .slider-controls {
+        display: none !important;
+    }
+
     .nav-pills.flex-column::-webkit-scrollbar,
     .timeline-container::-webkit-scrollbar {
         display: none;
