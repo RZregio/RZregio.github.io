@@ -268,7 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 testimonialChunk.forEach(item => {
                     rowHTML += `
                     <div class="col-lg-6 mb-3">
-                        <div class="card-style p-4 h-100">
+                        <div class="card-style p-4 h-100" style="background: rgba(255,255,255,0.05); border-radius: 10px">
                             <i class="bi bi-quote fs-1 text-accent opacity-50"></i>
                             <p class="fst-italic opacity-75 mb-4">"${item.testimonialMessage}"</p>
                             <div class="d-flex align-items-center mt-auto">

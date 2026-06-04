@@ -2,31 +2,52 @@
   {
     "projectTitle": "Landas (Capstone)",
     "projectCategory": "Academic Project",
-    "techStack": ["C#", "Unity", "Game Design"],
+    "techStack": [
+      "C#",
+      "Unity",
+      "Game Design"
+    ],
     "projectContext": "2D mobile Android Game on Philippine history and culture. Achieved ISO/IEC 25010 compliance across 8 metrics and a 4.75/5 user satisfaction rating.",
-    "previewImageUrl": "main-res/landas-1.jpg",
+    "previewImageUrl": "main-res/projects/landas.png",
     "projectLinkUrl": "https://landas2d.github.io/"
-  },
-  {
-    "projectTitle": "stbJobs Portal",
-    "projectCategory": "Web Development",
-    "techStack": ["PHP", "MySQL", "JavaScript", "Bootstrap"],
-    "projectContext": "A full-stack local job-portal connecting opportunities in Santo Tomas, Batangas. Recognized for strong leadership and earned a perfect 1.00 final grade.",
-    "previewImageUrl": "main-res/aboutMe.png",
-    "projectLinkUrl": "WEBDEV/stbJobs/index.html"
   },
   {
     "projectTitle": "Arkteach Platform",
     "projectCategory": "Company System",
-    "techStack": ["PHP", "MySQL", "JavaScript", "Bootstrap", "AJAX", "ChatGPT API", "AI Video Generation"],
+    "techStack": [
+      "PHP",
+      "MySQL",
+      "JavaScript",
+      "Bootstrap",
+      "AJAX",
+      "ChatGPT API",
+      "AI Video Generation"
+    ],
     "projectContext": "Educational training platform developed for Arktech Philippines featuring tutorial progression, dynamic quizzes, and analytics tracking.",
-    "previewImageUrl": "main-res/arkteach-1.jpg",
+    "previewImageUrl": "main-res/projects/arkteach.png",
     "projectLinkUrl": ""
+  },
+  {
+    "projectTitle": "stbJobs Portal",
+    "projectCategory": "Web Development",
+    "techStack": [
+      "PHP",
+      "MySQL",
+      "JavaScript",
+      "Bootstrap"
+    ],
+    "projectContext": "A full-stack local job-portal connecting opportunities in Santo Tomas, Batangas. Recognized for strong leadership and earned a perfect 1.00 final grade.",
+    "previewImageUrl": "main-res/projects/stbjobs.png",
+    "projectLinkUrl": "WEBDEV/stbJobs/index.html"
   },
   {
     "projectTitle": "ICommunaPH",
     "projectCategory": "Advanced Web App",
-    "techStack": ["PHP", "MySQL", "Web Development"],
+    "techStack": [
+      "PHP",
+      "MySQL",
+      "Web Development"
+    ],
     "projectContext": "A Community Event Discovery and Management Website integrating modern framework solutions and scalable database architecture.",
     "previewImageUrl": "main-res/icommuna-1.jpg",
     "projectLinkUrl": ""
@@ -34,7 +55,12 @@
   {
     "projectTitle": "Assembly Tree Finder",
     "projectCategory": "Company System",
-    "techStack": ["PHP", "JavaScript", "MySQL", "AJAX"],
+    "techStack": [
+      "PHP",
+      "JavaScript",
+      "MySQL",
+      "AJAX"
+    ],
     "projectContext": "Dynamic visualization tool utilizing a 'Family Tree' hierarchy to map manufacturing components for industrial optimization.",
     "previewImageUrl": "main-res/assembly-1.jpg",
     "projectLinkUrl": ""
@@ -42,7 +68,11 @@
   {
     "projectTitle": "KuroNeko: Journey",
     "projectCategory": "Software Development",
-    "techStack": ["Java", "Java Swing", "OOP"],
+    "techStack": [
+      "Java",
+      "Java Swing",
+      "OOP"
+    ],
     "projectContext": "A 2D Cat-Themed desktop game featuring custom gameplay mechanics, input handling, and rigorous object-oriented architecture.",
     "previewImageUrl": "main-res/kuroneko-1.jpg",
     "projectLinkUrl": ""
@@ -50,7 +80,12 @@
   {
     "projectTitle": "AIB Landing Page",
     "projectCategory": "UI/UX Design",
-    "techStack": ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Bootstrap"
+    ],
     "projectContext": "A landing page applying bento-style design principles, showcasing a clean and organized layout for Alice in Borderland, a fictional thriller series.",
     "previewImageUrl": "main-res/aboutMe.png",
     "projectLinkUrl": "ADET/A03/index.html"
@@ -58,7 +93,11 @@
   {
     "projectTitle": "StillLife Parallax V2",
     "projectCategory": "UI/UX Design",
-    "techStack": ["HTML5", "CSS3", "JavaScript"],
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript"
+    ],
     "projectContext": "Advanced UI project utilizing layered CSS parallax techniques to create a dynamic and immersive visual experience.",
     "previewImageUrl": "main-res/aboutMe.png",
     "projectLinkUrl": "WEBDEV/stillLifeParallax/index.html"
