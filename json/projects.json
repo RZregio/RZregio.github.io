@@ -20,9 +20,9 @@
     "description": "Advanced UI project utilizing CSS parallax techniques.",
     "mediaType": "iframe",
     "mediaSource": [
-      "WEBDEV/stillLifeParallax/index.html"
+      "schoolProjects/stillLifeParallax/index.html"
     ],
-    "liveLink": "WEBDEV/stillLifeParallax/index.html",
+    "liveLink": "schoolProjects/stillLifeParallax/index.html",
     "techStack": [
       "HTML5",
       "CSS3",
@@ -35,9 +35,9 @@
     "description": "Interactive gallery showcasing visual assets with responsive grid layouts.",
     "mediaType": "iframe",
     "mediaSource": [
-      "WEBDEV/photoGallery/index.html"
+      "schoolProjects/photoGallery/index.html"
     ],
-    "liveLink": "WEBDEV/photoGallery/index.html",
+    "liveLink": "schoolProjects/photoGallery/index.html",
     "techStack": [
       "HTML5",
       "CSS3",
@@ -50,9 +50,9 @@
     "description": "Utility project exploring user interaction through confirmation prompts.",
     "mediaType": "iframe",
     "mediaSource": [
-      "WEBDEV/wordYouSure/index.html"
+      "schoolProjects/wordYouSure/index.html"
     ],
-    "liveLink": "WEBDEV/wordYouSure/index.html",
+    "liveLink": "schoolProjects/wordYouSure/index.html",
     "techStack": [
       "HTML5",
       "CSS3",
@@ -65,9 +65,9 @@
     "description": "A refined product information layout focusing on UI/UX and clean presentation.",
     "mediaType": "iframe",
     "mediaSource": [
-      "WEBDEV/productInfo/index.html"
+      "schoolProjects/productInfo/index.html"
     ],
-    "liveLink": "WEBDEV/productInfo/index.html",
+    "liveLink": "schoolProjects/productInfo/index.html",
     "techStack": [
       "HTML5",
       "CSS3",
@@ -80,9 +80,9 @@
     "description": "A specialized interface for log tracking and data visualization.",
     "mediaType": "iframe",
     "mediaSource": [
-      "WEBDEV/arcaneLog/index.html"
+      "schoolProjects/arcaneLog/index.html"
     ],
-    "liveLink": "WEBDEV/arcaneLog/index.html",
+    "liveLink": "schoolProjects/arcaneLog/index.html",
     "techStack": [
       "HTML5",
       "CSS3",
@@ -95,9 +95,9 @@
     "description": "A web-based platform designed for location discovery and community interaction.",
     "mediaType": "iframe",
     "mediaSource": [
-      "WEBDEV/placeHub/index.html"
+      "schoolProjects/placeHub/index.html"
     ],
-    "liveLink": "WEBDEV/placeHub/index.html",
+    "liveLink": "schoolProjects/placeHub/index.html",
     "techStack": [
       "HTML5",
       "CSS3",
@@ -142,9 +142,9 @@
     "description": "A local job-portal connecting opportunities in Santo Tomas, Batangas. Led the full-stack development and earned a 1.00 final grade.",
     "mediaType": "image",
     "mediaSource": [
-      "WEBDEV/stbJobs/index.html"
+      "schoolProjects/stbJobs/index.html"
     ],
-    "liveLink": "WEBDEV/stbJobs/index.html",
+    "liveLink": "schoolProjects/stbJobs/index.html",
     "techStack": [
       "PHP",
       "MySQL",
@@ -154,13 +154,13 @@
   },
   {
     "category": "other",
-    "title": "Welcome to ADET",
-    "description": "Foundation project for ADET emerging tech.",
+    "title": "Welcome to schoolProjects",
+    "description": "Foundation project for schoolProjects emerging tech.",
     "mediaType": "iframe",
     "mediaSource": [
-      "ADET/A01/index.html"
+      "schoolProjects/A01/index.html"
     ],
-    "liveLink": "ADET/A01/index.html",
+    "liveLink": "schoolProjects/A01/index.html",
     "techStack": [
       "HTML5",
       "CSS3"
@@ -172,9 +172,9 @@
     "description": "Backend logic exploration using PHP and dynamic data retrieval.",
     "mediaType": "iframe",
     "mediaSource": [
-      "ADET/A02/index-preview.html"
+      "schoolProjects/A02/index-preview.html"
     ],
-    "liveLink": "ADET/A02/index-preview.html",
+    "liveLink": "schoolProjects/A02/index-preview.html",
     "techStack": [
       "PHP",
       "MySQL",
@@ -187,9 +187,9 @@
     "description": "Study on interface boundaries and visual hierarchy.",
     "mediaType": "iframe",
     "mediaSource": [
-      "ADET/A03/index.html"
+      "schoolProjects/A03/index.html"
     ],
-    "liveLink": "ADET/A03/index.html",
+    "liveLink": "schoolProjects/A03/index.html",
     "techStack": [
       "HTML5",
       "CSS3"
@@ -201,9 +201,9 @@
     "description": "Initial beta version of the feline care management system.",
     "mediaType": "iframe",
     "mediaSource": [
-      "ADET/A04_BETA/index.html"
+      "schoolProjects/A04_BETA/index.html"
     ],
-    "liveLink": "ADET/A04_BETA/index.html",
+    "liveLink": "schoolProjects/A04_BETA/index.html",
     "techStack": [
       "PHP",
       "MySQL",
@@ -216,9 +216,9 @@
     "description": "Refined feline care system with improved UI/UX and system configuration.",
     "mediaType": "iframe",
     "mediaSource": [
-      "ADET/A04/index.html"
+      "schoolProjects/A04/index.html"
     ],
-    "liveLink": "ADET/A04/index.html",
+    "liveLink": "schoolProjects/A04/index.html",
     "techStack": [
       "PHP",
       "MySQL",
@@ -232,9 +232,9 @@
     "description": "Emerging technology tool designed for motivation and interactive engagement.",
     "mediaType": "iframe",
     "mediaSource": [
-      "ADET/A07/index.html"
+      "schoolProjects/A07/index.html"
     ],
-    "liveLink": "ADET/A07/index.html",
+    "liveLink": "schoolProjects/A07/index.html",
     "techStack": [
       "HTML5",
       "CSS3",

@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const isActiveClass = index === 0 ? 'active' : '';
                 compiledCarouselHTML += `
                     <div class="carousel-item ${isActiveClass}">
-                        <img src="${projectItem.previewImageUrl}" class="d-block w-100 rounded" style="object-fit: cover; height: 350px; cursor: zoom-in;" alt="${projectItem.projectTitle}" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="document.getElementById('fullscreen-image-target').src=this.src">
+                        <img src="${projectItem.previewImageUrl}" class="d-block w-100 rounded bg-dark" style="object-fit: contain; height: 350px; cursor: zoom-in;" alt="${projectItem.projectTitle}" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="document.getElementById('fullscreen-image-target').src=this.src">
                     </div>
                 `;
             });

@@ -5,7 +5,7 @@ var products = [];
 
 const getAllCategories = async () => {
     fetch(
-        'http://localhost/RZregio.github.io/ADET/A06/categories.php'
+        'http://localhost/RZregio.github.io/schoolProjects/A06/categories.php'
     )
         .then(response => response.json())
         .then(data => {
@@ -20,7 +20,7 @@ const getAllProducts = async (categoryID, categoryName) => {
     };
 
     fetch(
-        'http://localhost/RZregio.github.io/ADET/A06/products.php', {
+        'http://localhost/RZregio.github.io/schoolProjects/A06/products.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

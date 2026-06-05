@@ -15,12 +15,15 @@
     "projectTitle": "Arkteach Platform",
     "projectCategory": "Company System",
     "techStack": [
+      "HTML5",
+      "CSS3",
       "PHP",
       "MySQL",
       "JavaScript",
       "Bootstrap",
-      "AJAX",
       "ChatGPT API",
+      "FPDF",
+      "ChartJS",
       "AI Video Generation"
     ],
     "projectContext": "Educational training platform developed for Arktech Philippines featuring tutorial progression, dynamic quizzes, and analytics tracking.",
@@ -31,6 +34,8 @@
     "projectTitle": "stbJobs Portal",
     "projectCategory": "Web Development",
     "techStack": [
+      "HTML5",
+      "CSS3",
       "PHP",
       "MySQL",
       "JavaScript",
@@ -38,31 +43,35 @@
     ],
     "projectContext": "A full-stack local job-portal connecting opportunities in Santo Tomas, Batangas. Recognized for strong leadership and earned a perfect 1.00 final grade.",
     "previewImageUrl": "main-res/projects/stbjobs.png",
-    "projectLinkUrl": "WEBDEV/stbJobs/index.html"
+    "projectLinkUrl": ""
   },
   {
     "projectTitle": "ICommunaPH",
     "projectCategory": "Advanced Web App",
     "techStack": [
+      "HTML5",
+      "CSS3",
       "PHP",
       "MySQL",
-      "Web Development"
+      "JavaScript"
     ],
     "projectContext": "A Community Event Discovery and Management Website integrating modern framework solutions and scalable database architecture.",
-    "previewImageUrl": "main-res/icommuna-1.jpg",
+    "previewImageUrl": "main-res/projects/iCommuna.png",
     "projectLinkUrl": ""
   },
   {
     "projectTitle": "Assembly Tree Finder",
     "projectCategory": "Company System",
     "techStack": [
+      "HTML5",
+      "CSS3",
       "PHP",
       "JavaScript",
       "MySQL",
-      "AJAX"
+      "Bootstrap"
     ],
     "projectContext": "Dynamic visualization tool utilizing a 'Family Tree' hierarchy to map manufacturing components for industrial optimization.",
-    "previewImageUrl": "main-res/assembly-1.jpg",
+    "previewImageUrl": "main-res/projects/assembly.png",
     "projectLinkUrl": ""
   },
   {
@@ -74,7 +83,7 @@
       "OOP"
     ],
     "projectContext": "A 2D Cat-Themed desktop game featuring custom gameplay mechanics, input handling, and rigorous object-oriented architecture.",
-    "previewImageUrl": "main-res/kuroneko-1.jpg",
+    "previewImageUrl": "main-res/projects/kuroneko.png",
     "projectLinkUrl": ""
   },
   {
@@ -87,8 +96,8 @@
       "Bootstrap"
     ],
     "projectContext": "A landing page applying bento-style design principles, showcasing a clean and organized layout for Alice in Borderland, a fictional thriller series.",
-    "previewImageUrl": "main-res/aboutMe.png",
-    "projectLinkUrl": "ADET/A03/index.html"
+    "previewImageUrl": "main-res/projects/aIB.png",
+    "projectLinkUrl": "schoolProjects/A03/index.html"
   },
   {
     "projectTitle": "StillLife Parallax V2",
@@ -96,10 +105,11 @@
     "techStack": [
       "HTML5",
       "CSS3",
-      "JavaScript"
+      "JavaScript",
+      "Bootstrap"
     ],
     "projectContext": "Advanced UI project utilizing layered CSS parallax techniques to create a dynamic and immersive visual experience.",
-    "previewImageUrl": "main-res/aboutMe.png",
-    "projectLinkUrl": "WEBDEV/stillLifeParallax/index.html"
+    "previewImageUrl": "main-res/projects/alpsAndSeeker.png",
+    "projectLinkUrl": "schoolProjects/stillLifeParallax/index.html"
   }
 ]
