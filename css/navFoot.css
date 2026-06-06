@@ -318,3 +318,81 @@ body {
     color: white;
     border: none;
 }
+
+/* ============================================================
+   GLOBAL BUG FIXES & MOBILE RESIZING
+   ============================================================ */
+
+/* --- Fix White Row on Scroll (Browser Overscroll Bounce) --- */
+html,
+body {
+    background-color: #060b1a !important;
+    /* Forces background to remain dark */
+    overscroll-behavior-y: none;
+    /* Stops the white bounce effect on mobile */
+}
+
+/* --- Yellow Modal Close Button --- */
+.custom-yellow-close {
+    background-color: var(--accent-yellow) !important;
+    opacity: 1 !important;
+    border-radius: 50%;
+    padding: 12px !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    transition: transform 0.2s ease;
+}
+
+.custom-yellow-close:hover {
+    transform: scale(1.1);
+}
+
+/* --- Global Mobile Shrinking (Typography & Padding) --- */
+@media (max-width: 768px) {
+
+    body,
+    p,
+    .opacity-75,
+    .tiny-text,
+    .small {
+        font-size: 0.85rem !important;
+    }
+
+    .card-style {
+        padding: 15px !important;
+        /* Shrinks bulky card padding */
+    }
+
+    .timeline-item {
+        padding: 12px 15px !important;
+    }
+
+    /* Smoothly clamp headers to be smaller */
+    h1,
+    .welcome-text {
+        font-size: clamp(1.8rem, 5vw, 2.2rem) !important;
+    }
+
+    h2,
+    .name-title {
+        font-size: clamp(1.3rem, 4vw, 1.6rem) !important;
+    }
+
+    h3,
+    h4,
+    .fs-5 {
+        font-size: clamp(1.05rem, 3vw, 1.25rem) !important;
+    }
+
+    .btn-custom {
+        font-size: 0.85rem !important;
+        padding: 8px 16px !important;
+    }
+
+    .bi {
+        font-size: 0.9em;
+    }
+
+    .card-style .bi.fs-1 {
+        font-size: 2rem !important;
+    }
+}

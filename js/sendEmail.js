@@ -34,6 +34,18 @@ document.addEventListener('DOMContentLoaded', function () {
     contactForm.addEventListener('submit', async function (event) {
         event.preventDefault();
 
+        // --- NEW: Strict Email Format Validation ---
+        const emailValue = emailInput.value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailValue)) {
+            const invalidEmailModalEl = document.getElementById('invalidEmailModal');
+            if (invalidEmailModalEl) {
+                const invalidEmailModal = new bootstrap.Modal(invalidEmailModalEl);
+                invalidEmailModal.show();
+            }
+            return; // Stops the submission process immediately
+        }
+
         // Native Bootstrap validation
         if (!contactForm.checkValidity()) {
             event.stopPropagation();

@@ -129,14 +129,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    /* ----- Render Interactive Dual Tabs (Unified JSON Architecture) ----- */
+    /* ----- Render Interactive Dual Tabs (Filtered Certificates) ----- */
     async function loadDualTabRecognitions() {
         const certButtonsContainer = document.getElementById('certificate-buttons-container');
         const awardButtonsContainer = document.getElementById('award-buttons-container');
         const certDetailsCard = document.getElementById('cert-details-card');
         const awardDetailsCard = document.getElementById('award-details-card');
 
-        // --- Helper: Highlight Active Button (Forces text/icon to white) ---
         const highlightActiveButton = (container, activeIndex) => {
             container.querySelectorAll('button').forEach((btn, idx) => {
                 const icon = btn.querySelector('.indicator-icon');
@@ -150,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     btn.style.borderColor = "rgba(255,255,255,0.1)";
                     btn.style.background = "rgba(255,255,255,0.05)";
-                    btn.style.color = "rgba(255,255,255,0.3)"; // Revert to default CSS
+                    btn.style.color = "rgba(255,255,255,0.3)";
                     if (icon) { icon.classList.remove('bi-check-circle-fill', 'text-white'); icon.classList.add('bi-chevron-right', 'opacity-50'); }
                     if (mainIcon) { mainIcon.classList.remove('text-white'); mainIcon.classList.add('text-accent'); }
                 }
@@ -158,94 +157,109 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            // Fetch the unified JSON once
             const response = await fetch('json/recognitions.json');
             const allRecognitions = await response.json();
 
-            // Filter into respective categories
-            const certsList = allRecognitions.filter(item => item.category === 'certificate');
-            const awardsList = allRecognitions.filter(item => item.category === 'award');
+            // Simply filter by category and grab the first 6 items for the Index preview
+            const certsList = allRecognitions.filter(item => item.category === 'certificate').slice(0, 6); 
+            const awardsList = allRecognitions.filter(item => item.category === 'award').slice(0, 6);
 
-            // --- Tab 1: Certificates Logic ---
+            // --- Certificates Logic ---
             let activeCertIndex = 0;
+            if (certButtonsContainer) {
+                certButtonsContainer.innerHTML = certsList.map((cert, index) => `
+                <button class="btn btn-custom w-100 mb-3 text-start d-flex align-items-center justify-content-between interactive-card" 
+                        style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); transition: 0.3s;" 
+                        data-cert-index="${index}">
+                    <span class="text-truncate me-2"><i class="bi ${cert.iconClass} text-accent me-2"></i> ${cert.title}</span>
+                    <i class="bi bi-chevron-right opacity-50 indicator-icon flex-shrink-0"></i>
+                </button>
+                `).join('');
 
-            certButtonsContainer.innerHTML = certsList.map((cert, index) => `
-            <button class="btn btn-custom w-100 mb-3 text-start d-flex align-items-center justify-content-between interactive-card" 
-                    style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); transition: 0.3s;" 
-                    data-cert-index="${index}">
-                <span><i class="bi ${cert.iconClass} text-accent me-2"></i> ${cert.title}</span>
-                <i class="bi bi-chevron-right opacity-50 indicator-icon"></i>
-            </button>
-        `).join('');
+                const updateCertDisplay = (index) => {
+                    const certData = certsList[index];
+                    if (!certData) return;
 
-            // Inside Certificates Logic
-            const updateCertDisplay = (index) => {
-                const certData = certsList[index];
-                if (!certData) return;
-                certDetailsCard.innerHTML = `
-                <img src="${certData.imageUrl}" class="img-fluid rounded mb-4 interactive-card" style="max-height: 220px; object-fit: contain; background: rgba(0,0,0,0.2); padding: 10px; cursor: zoom-in;" alt="${certData.title}" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="document.getElementById('fullscreen-image-target').src=this.src">
-                <h3 class="fredoka mb-1">${certData.title}</h3>
-                <p class="text-accent small fw-bold mb-3">${certData.context} &bull; ${certData.date}</p>
-                <p class="opacity-75 mb-0">${certData.description}</p>
-            `;
-            };
-            if (certsList.length > 0) {
-                updateCertDisplay(0);
-                highlightActiveButton(certButtonsContainer, 0);
+                    const images = certData.images || (certData.imageUrl ? [certData.imageUrl] : []);
+                    const primaryImg = images.length > 0 ? images[0] : '';
+                    const imgCountHTML = images.length > 1 ? `<span class="badge bg-dark position-absolute bottom-0 end-0 m-2">+${images.length - 1} Images</span>` : '';
+                    const arrayData = encodeURIComponent(JSON.stringify(images));
+
+                    certDetailsCard.innerHTML = `
+                    <div class="position-relative d-inline-block w-100 mb-4 text-center">
+                        <img src="${primaryImg}" class="img-fluid rounded interactive-card w-100" style="max-height: 220px; object-fit: contain; background: rgba(0,0,0,0.2); padding: 10px; cursor: zoom-in;" alt="${certData.title}" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="openImageViewer('${arrayData}')">
+                        ${imgCountHTML}
+                    </div>
+                    <h3 class="fredoka mb-1">${certData.title}</h3>
+                    <p class="text-accent small fw-bold mb-3">${certData.context} &bull; ${certData.date}</p>
+                    <p class="opacity-75 mb-0">${certData.description}</p>
+                `;
+                };
+
+                if (certsList.length > 0) {
+                    updateCertDisplay(0);
+                    highlightActiveButton(certButtonsContainer, 0);
+                }
+
+                certButtonsContainer.querySelectorAll('button').forEach(btn => {
+                    btn.addEventListener('mouseenter', (e) => updateCertDisplay(e.currentTarget.getAttribute('data-cert-index')));
+                    btn.addEventListener('mouseleave', () => updateCertDisplay(activeCertIndex));
+                    btn.addEventListener('click', (e) => {
+                        activeCertIndex = e.currentTarget.getAttribute('data-cert-index');
+                        updateCertDisplay(activeCertIndex);
+                        highlightActiveButton(certButtonsContainer, activeCertIndex);
+                    });
+                });
             }
 
-            certButtonsContainer.querySelectorAll('button').forEach(btn => {
-                btn.addEventListener('mouseenter', (e) => updateCertDisplay(e.currentTarget.getAttribute('data-cert-index')));
-                btn.addEventListener('mouseleave', () => updateCertDisplay(activeCertIndex));
-                btn.addEventListener('click', (e) => {
-                    activeCertIndex = e.currentTarget.getAttribute('data-cert-index');
-                    updateCertDisplay(activeCertIndex);
-                    highlightActiveButton(certButtonsContainer, activeCertIndex);
-                });
-            });
-
-            // --- Tab 2: Awards Logic ---
+            // --- Awards Logic ---
             let activeAwardIndex = 0;
+            if (awardButtonsContainer) {
+                awardButtonsContainer.innerHTML = awardsList.map((award, index) => `
+                <button class="btn btn-custom w-100 mb-3 text-start d-flex align-items-center justify-content-between interactive-card" 
+                        style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); transition: 0.3s;" 
+                        data-award-index="${index}">
+                    <span class="text-truncate me-2"><i class="bi ${award.iconClass} text-accent me-2"></i> ${award.title}</span>
+                    <i class="bi bi-chevron-right opacity-50 indicator-icon flex-shrink-0"></i>
+                </button>
+                `).join('');
 
-            awardButtonsContainer.innerHTML = awardsList.map((award, index) => `
-            <button class="btn btn-custom w-100 mb-3 text-start d-flex align-items-center justify-content-between interactive-card" 
-                    style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); transition: 0.3s;" 
-                    data-award-index="${index}">
-                <span><i class="bi ${award.iconClass} text-accent me-2"></i> ${award.title}</span>
-                <i class="bi bi-chevron-right opacity-50 indicator-icon"></i>
-            </button>
-        `).join('');
+                const updateAwardDisplay = (index) => {
+                    const awardData = awardsList[index];
+                    if (!awardData) return;
 
-            // Inside Awards Logic
-            const updateAwardDisplay = (index) => {
-                const awardData = awardsList[index];
-                if (!awardData) return;
-                awardDetailsCard.innerHTML = `
-                <img src="${awardData.imageUrl}" class="img-fluid rounded mb-4 interactive-card" style="max-height: 220px; object-fit: contain; background: rgba(0,0,0,0.2); padding: 10px; cursor: zoom-in;" alt="${awardData.title}" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="document.getElementById('fullscreen-image-target').src=this.src">
-                <h3 class="fredoka mb-1">${awardData.title}</h3>
-                <p class="text-accent small fw-bold mb-3">${awardData.context} &bull; ${awardData.date}</p>
-                <p class="opacity-75 mb-0">${awardData.description}</p>
-            `;
-            };
+                    const images = awardData.images || (awardData.imageUrl ? [awardData.imageUrl] : []);
+                    const primaryImg = images.length > 0 ? images[0] : '';
+                    const imgCountHTML = images.length > 1 ? `<span class="badge bg-dark position-absolute bottom-0 end-0 m-2">+${images.length - 1} Images</span>` : '';
+                    const arrayData = encodeURIComponent(JSON.stringify(images));
 
-            if (awardsList.length > 0) {
-                updateAwardDisplay(0);
-                highlightActiveButton(awardButtonsContainer, 0);
-            }
+                    awardDetailsCard.innerHTML = `
+                    <div class="position-relative d-inline-block w-100 mb-4 text-center">
+                        <img src="${primaryImg}" class="img-fluid rounded interactive-card w-100" style="max-height: 220px; object-fit: contain; background: rgba(0,0,0,0.2); padding: 10px; cursor: zoom-in;" alt="${awardData.title}" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="openImageViewer('${arrayData}')">
+                        ${imgCountHTML}
+                    </div>
+                    <h3 class="fredoka mb-1">${awardData.title}</h3>
+                    <p class="text-accent small fw-bold mb-3">${awardData.context} &bull; ${awardData.date}</p>
+                    <p class="opacity-75 mb-0">${awardData.description}</p>
+                `;
+                };
 
-            awardButtonsContainer.querySelectorAll('button').forEach(btn => {
-                btn.addEventListener('mouseenter', (e) => updateAwardDisplay(e.currentTarget.getAttribute('data-award-index')));
-                btn.addEventListener('mouseleave', () => updateAwardDisplay(activeAwardIndex));
-                btn.addEventListener('click', (e) => {
-                    activeAwardIndex = e.currentTarget.getAttribute('data-award-index');
-                    updateAwardDisplay(activeAwardIndex);
-                    highlightActiveButton(awardButtonsContainer, activeAwardIndex);
+                if (awardsList.length > 0) {
+                    updateAwardDisplay(0);
+                    highlightActiveButton(awardButtonsContainer, 0);
+                }
+
+                awardButtonsContainer.querySelectorAll('button').forEach(btn => {
+                    btn.addEventListener('mouseenter', (e) => updateAwardDisplay(e.currentTarget.getAttribute('data-award-index')));
+                    btn.addEventListener('mouseleave', () => updateAwardDisplay(activeAwardIndex));
+                    btn.addEventListener('click', (e) => {
+                        activeAwardIndex = e.currentTarget.getAttribute('data-award-index');
+                        updateAwardDisplay(activeAwardIndex);
+                        highlightActiveButton(awardButtonsContainer, activeAwardIndex);
+                    });
                 });
-            });
-
-        } catch (networkError) {
-            console.error('Failed to load recognitions data:', networkError);
-        }
+            }
+        } catch (networkError) { console.error('Failed to load recognitions data:', networkError); }
     }
 
 
@@ -317,3 +331,34 @@ document.addEventListener('DOMContentLoaded', () => {
     loadDualTabRecognitions();
     loadTestimonials();
 });
+
+/* --- Multi-Image Modal Viewer Logic --- */
+window.currentViewerImages = [];
+window.currentViewerIndex = 0;
+
+window.openImageViewer = function (imagesString) {
+    window.currentViewerImages = JSON.parse(decodeURIComponent(imagesString));
+    window.currentViewerIndex = 0;
+    updateViewerImage();
+};
+
+window.navigateViewer = function (direction) {
+    window.currentViewerIndex += direction;
+    if (window.currentViewerIndex < 0) window.currentViewerIndex = window.currentViewerImages.length - 1;
+    if (window.currentViewerIndex >= window.currentViewerImages.length) window.currentViewerIndex = 0;
+    updateViewerImage();
+};
+
+function updateViewerImage() {
+    const img = document.getElementById('fullscreen-image-target');
+    const prev = document.getElementById('viewer-prev');
+    const next = document.getElementById('viewer-next');
+    if (img) img.src = window.currentViewerImages[window.currentViewerIndex];
+    if (window.currentViewerImages.length > 1) {
+        if (prev) prev.style.display = 'block';
+        if (next) next.style.display = 'block';
+    } else {
+        if (prev) prev.style.display = 'none';
+        if (next) next.style.display = 'none';
+    }
+}

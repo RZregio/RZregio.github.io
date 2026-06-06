@@ -39,6 +39,17 @@ document.addEventListener('DOMContentLoaded', function () {
     testimonialForm.addEventListener('submit', async function (event) {
         event.preventDefault();
 
+        // --- NEW: Strict Email Format Validation ---
+        const emailValue = emailInput.value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailValue)) {
+            testimonialInputModal.hide();
+            const invalidEmailModalEl = document.getElementById('invalidEmailModal');
+            const invalidEmailModal = new bootstrap.Modal(invalidEmailModalEl);
+            setTimeout(() => invalidEmailModal.show(), 400);
+            return; // Stops the submission process immediately
+        }
+
         if (!testimonialForm.checkValidity()) {
             event.stopPropagation();
             testimonialForm.classList.add('was-validated');

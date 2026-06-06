@@ -46,47 +46,79 @@
   },
   {
     "category": "certificate",
-    "title": "GenAI Certification",
-    "context": "Microsoft Learn",
-    "date": "Nov 2025",
-    "description": "Comprehensive training covering the deployment, management, and responsible use of generative AI tools and solutions.",
-    "imageUrl": "main-res/aboutMe.png",
-    "iconClass": "bi-cpu-fill"
-  },
-  {
-    "category": "certificate",
-    "title": "Cyber Threat Management",
-    "context": "DICT-ITU / Cisco",
-    "date": "Nov 2025",
-    "description": "In-depth workshop on identifying, analyzing, and mitigating modern cybersecurity threats.",
-    "imageUrl": "main-res/aboutMe.png",
-    "iconClass": "bi-shield-lock-fill"
-  },
-  {
-    "category": "certificate",
-    "title": "Data Science with Python",
-    "context": "DICT-ITU DTC Initiative",
-    "date": "Oct 2025",
-    "description": "Practical application of Python for data manipulation, analytics, and rapid prototyping workflows.",
-    "imageUrl": "main-res/aboutMe.png",
-    "iconClass": "bi-bar-chart-fill"
+    "title": "HTML & CSS Essentials",
+    "context": "Newcastle College / Cisco",
+    "date": "Dec 2025",
+    "description": "Foundational and advanced responsive styling techniques.",
+    "iconClass": "bi-filetype-html",
+    "images": [
+      "main-res/certificates/html1.jpg",
+      "main-res/certificates/css1.jpg"
+    ]
   },
   {
     "category": "certificate",
     "title": "JavaScript Essentials 1 & 2",
     "context": "DICT-ITU / Cisco",
     "date": "Dec 2025",
-    "description": "Advanced training in dynamic DOM manipulation, async logic, and interactive user interfaces.",
-    "imageUrl": "main-res/aboutMe.png",
-    "iconClass": "bi-filetype-js"
+    "description": "Advanced training in dynamic DOM manipulation and async logic.",
+    "iconClass": "bi-filetype-js",
+    "images": [
+      "main-res/certificates/js1-1.jpg",
+      "main-res/certificates/js1-2.jpg",
+      "main-res/certificates/js2-1.jpg",
+      "main-res/certificates/js2-2.jpg"
+    ]
   },
   {
     "category": "certificate",
-    "title": "Agile Design & Handoff",
-    "context": "DICT",
-    "date": "Dec 2025",
-    "description": "Training focused on high-fidelity wireframing, UI/UX prototyping, and efficient design-to-development handoffs.",
-    "imageUrl": "main-res/aboutMe.png",
-    "iconClass": "bi-vector-pen"
+    "title": "Networking & OS Basics",
+    "context": "Cisco Networking Academy",
+    "date": "2024",
+    "description": "Core concepts of networking protocols and operating systems.",
+    "iconClass": "bi-hdd-network",
+    "images": [
+      "main-res/certificates/networking1.jpg",
+      "main-res/certificates/networking2.jpg",
+      "main-res/certificates/OSBasics1.jpg",
+      "main-res/certificates/OSBasics2.jpg"
+    ]
+  },
+  {
+    "category": "certificate",
+    "title": "From Algorithms to Intelligence",
+    "context": "Institution Name",
+    "date": "2024",
+    "description": "Exploration of algorithms and introductory artificial intelligence.",
+    "iconClass": "bi-cpu",
+    "images": [
+      "main-res/certificates/fromAlgoToAI&ML.jpg"
+    ]
+  },
+  {
+    "category": "certificate",
+    "title": "TechStart: Git & GitHub",
+    "context": "Institution Name",
+    "date": "2024",
+    "description": "Version control, repository management, and collaboration.",
+    "iconClass": "bi-github",
+    "images": [
+      "main-res/certificates/techstart.jpg",
+      "main-res/certificates/techstart2.jpg"
+    ]
+  },
+  {
+    "category": "certificate",
+    "title": "Bagani: The Making of a Leader",
+    "context": "PUPSTC",
+    "date": "Aug 2024",
+    "description": "Leadership training focused on community management and strategic planning.",
+    "iconClass": "bi-person-raised-hand",
+    "images": [
+      "main-res/certificates/bagani1.png",
+      "main-res/certificates/bagani2.jpg",
+      "main-res/certificates/bagani3.jpg",
+      "main-res/certificates/bagani4.jpg"
+    ]
   }
 ]
