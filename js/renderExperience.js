@@ -54,20 +54,55 @@ document.addEventListener('DOMContentLoaded', () => {
                 const targetContainer = containers[tech.category];
                 if (!targetContainer) return;
 
+                // Check if you added an 'experienceText' field in your JSON, gracefully hide if not
+                const expText = tech.experienceText ? `<p class="small text-warning opacity-75 mb-2"><i class="bi bi-clock-history me-1"></i>${tech.experienceText}</p>` : '';
+
+
                 targetContainer.innerHTML += `
                     <div style="flex: 0 0 calc(33.333% - 14px); min-width: 240px;">
-                        <a href="${tech.linkUrl}" target="_blank" class="stack-card text-decoration-none d-flex flex-column h-100 p-4 text-start">
-                            <i class="bi ${tech.iconClass} text-accent mb-3" style="font-size: 2.5rem;"></i>
-                            <h5 class="fredoka text-white mb-2">${tech.title}</h5>
-                            <p class="tiny-text opacity-75 mb-3 flex-grow-1">${tech.description}</p>
-                            ${generateStars(tech.stars)}
-                        </a>
+                        <div class="stack-card d-flex flex-column h-100 text-start" style="padding: 1.25rem;">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <i class="bi ${tech.iconClass} text-accent" style="font-size: 2.2rem;"></i>
+                                ${generateStars(tech.stars)}
+                            </div>
+                            <h5 class="fredoka text-white mb-1">${tech.title}</h5>
+                            ${expText}
+                            <p class="tiny-text opacity-75 mb-4 flex-grow-1">${tech.description}</p>
+                            
+                            <a href="${tech.linkUrl}" target="_blank" class="btn btn-sm btn-outline-warning rounded-pill mt-auto interactive-card w-100" style="border-width: 1px;">
+                                <i class="bi bi-box-arrow-up-right me-2"></i>View Official
+                            </a>
+                        </div>
                     </div>
                 `;
             });
 
             document.querySelectorAll('.tech-slider').forEach(slider => {
+                // 1. Existing Nav Button Listener
                 slider.addEventListener('scroll', updateTechNavButtons);
+
+                // 2. Count the number of tech cards injected into this slider
+                const techCount = slider.children.length;
+
+                // 3. Only inject dots if there are more than 2 items
+                if (techCount > 2) {
+                    if (!slider.nextElementSibling || !slider.nextElementSibling.classList.contains('mobile-scroll-dots')) {
+                        slider.insertAdjacentHTML('afterend', `
+                            <div class="mobile-scroll-dots d-mobile-flex mt-3 mb-4">
+                                <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+                            </div>
+                        `);
+                    }
+
+                    // 4. Attach Scroll Listener to Sync Dots
+                    const dotsContainer = slider.nextElementSibling;
+                    slider.addEventListener('scroll', () => {
+                        window.updateScrollDots(slider, dotsContainer);
+                    });
+
+                    // 5. Initialize state on load
+                    window.updateScrollDots(slider, dotsContainer);
+                }
             });
 
             const tabElms = document.querySelectorAll('button[data-bs-toggle="tab"], button[data-bs-toggle="pill"]');
@@ -111,15 +146,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 listHTML += `
                     <button class="btn btn-custom w-100 mb-lg-3 text-start d-flex justify-content-between align-items-center proj-list-btn interactive-card" 
                             data-idx="${idx}" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.6); transition: 0.3s; border-radius: 12px; padding: 15px;">
-                        <span class="text-nowrap me-2 fw-bold" style="font-size: 1.05rem;">${proj.title}</span>
+                        <span class="text-nowrap me-2 fw-normal">${proj.title}</span>
                         <i class="bi bi-chevron-right opacity-50 indicator-icon d-none d-lg-block"></i>
                     </button>
                 `;
             });
 
-            // 2. Generate Scroll Hints
+            // 2. Generate Scroll Hints (Now using sleek dots for mobile)
             const scrollHintVertical = catData.length > 5 ? `<div class="text-center mt-1 mb-3 small text-warning opacity-75 vertical-scroll-hint"><i class="bi bi-chevron-down mb-1 d-block"></i>Scroll for more</div>` : '';
-            const scrollHintHorizontal = catData.length > 1 ? `<div class="text-center mt-1 mb-3 small text-warning opacity-75 horizontal-scroll-hint"><i class="bi bi-arrow-right mb-1 d-inline"></i> Swipe for more</div>` : '';
 
             // 3. Inject Layout
             pane.innerHTML = `
@@ -129,7 +163,6 @@ document.addEventListener('DOMContentLoaded', () => {
                             ${listHTML}
                         </div>
                         ${scrollHintVertical}
-                        ${scrollHintHorizontal}
                     </div>
                     <div class="col-lg-8">
                         <div class="card-style p-3 p-lg-4 h-100" id="detail-${cat}">
@@ -179,23 +212,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (proj.mediaType === 'iframe') {
             const iframeSrc = proj.mediaSource[0] ? `src="${proj.mediaSource[0]}"` : '';
-            // Notice: Removed 'live-embed' class. It now behaves like a native, scrollable iframe!
             mediaHTML = `
-                <div class="w-100 proj-detail-media position-relative" style="background: #101A30; overflow: hidden; border: 2px solid rgba(255,255,255,0.05);">
-                    <iframe ${iframeSrc} loading="lazy" style="width: 100%; height: 100%; border: none;" onerror="this.style.display='none'"></iframe>
+                <div class="w-100 proj-detail-media position-relative" style="background: #101A30; overflow: hidden; border: 2px solid rgba(255,255,255,0.05); height: 400px;">
+                    <iframe ${iframeSrc} 
+                            class="scaled-iframe" 
+                            loading="lazy" 
+                            style="border: none;" 
+                            onerror="this.style.display='none'">
+                    </iframe>
                 </div>`;
         } else {
             const images = proj.mediaSource || [];
-            const primaryImg = images.length > 0 ? images[0] : 'main-res/profile.jpg';
-            const imgCountHTML = images.length > 1 ? `<span class="img-count-badge badge bg-dark position-absolute bottom-0 end-0 m-3 border border-secondary">+${images.length - 1} Images</span>` : '';
-            const arrayData = encodeURIComponent(JSON.stringify(images));
+            const hasImages = images.length > 0 && images[0] !== "";
 
-            mediaHTML = `
-                <div class="w-100 position-relative proj-detail-media" style="background: #101A30; overflow: hidden; cursor: zoom-in; border: 2px solid rgba(255,255,255,0.05);" 
-                     data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="if(window.openImageViewer) window.openImageViewer('${arrayData}')">
-                    <img src="${primaryImg}" class="w-100 h-100" style="object-fit: contain;" onerror="this.src='main-res/profile.jpg';">
-                    ${imgCountHTML}
-                </div>`;
+            if (hasImages) {
+                const primaryImg = images[0];
+                const imgCountHTML = images.length > 1 ? `<span class="img-count-badge badge bg-dark position-absolute bottom-0 end-0 m-3 border border-secondary">+${images.length - 1} Images</span>` : '';
+                const arrayData = encodeURIComponent(JSON.stringify(images));
+
+                mediaHTML = `
+                    <div class="w-100 position-relative proj-detail-media" style="background: #101A30; overflow: hidden; cursor: zoom-in; border: 2px solid rgba(255,255,255,0.05);" 
+                         data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="if(window.openImageViewer) window.openImageViewer('${arrayData}')">
+                        <img src="${primaryImg}" class="w-100 h-100" style="object-fit: contain;">
+                        ${imgCountHTML}
+                    </div>`;
+            } else {
+                // Returns the static placeholder instead of the clickable modal trigger
+                mediaHTML = `
+                    <div class="w-100 position-relative proj-detail-media image-unavailable-placeholder d-flex flex-column justify-content-center align-items-center" style="background: #101A30; overflow: hidden; border: 2px dashed rgba(255,255,255,0.1); min-height: 250px;">
+                        <i class="bi bi-image mb-2" style="font-size: 2.5rem; opacity: 0.5;"></i>
+                        <span style="color: rgba(255,255,255,0.5); font-size: 0.9rem;">Not Available</span>
+                    </div>`;
+            }
         }
 
         const techStackBadges = (proj.techStack && Array.isArray(proj.techStack))
@@ -251,41 +299,3 @@ document.addEventListener('DOMContentLoaded', () => {
     loadTechStack();
     loadProjects();
 });
-
-/* --- Multi-Image Modal Viewer Logic --- */
-window.currentViewerImages = [];
-window.currentViewerIndex = 0;
-
-window.openImageViewer = function (imagesString) {
-    window.currentViewerImages = JSON.parse(decodeURIComponent(imagesString));
-    window.currentViewerIndex = 0;
-    updateViewerImage();
-};
-
-window.navigateViewer = function (direction) {
-    window.currentViewerIndex += direction;
-
-    if (window.currentViewerIndex < 0) {
-        window.currentViewerIndex = window.currentViewerImages.length - 1;
-    }
-    if (window.currentViewerIndex >= window.currentViewerImages.length) {
-        window.currentViewerIndex = 0;
-    }
-    updateViewerImage();
-};
-
-function updateViewerImage() {
-    const img = document.getElementById('fullscreen-image-target');
-    const prev = document.getElementById('viewer-prev');
-    const next = document.getElementById('viewer-next');
-
-    if (img) img.src = window.currentViewerImages[window.currentViewerIndex];
-
-    if (window.currentViewerImages.length > 1) {
-        if (prev) prev.style.display = 'block';
-        if (next) next.style.display = 'block';
-    } else {
-        if (prev) prev.style.display = 'none';
-        if (next) next.style.display = 'none';
-    }
-}

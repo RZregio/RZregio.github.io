@@ -5,6 +5,7 @@
     "description": "Semantic markup and structural foundation for web applications.",
     "stars": 5,
     "linkUrl": "https://developer.mozilla.org/en-US/docs/Web/HTML",
+    "experienceText": "4 Years Experience",
     "iconClass": "bi-filetype-html"
   },
   {
@@ -13,6 +14,7 @@
     "description": "Advanced styling, flexbox layouts, grid systems, and animations.",
     "stars": 5,
     "linkUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS",
+    "experienceText": "4 Years Experience",
     "iconClass": "bi-filetype-css"
   },
   {
@@ -21,6 +23,7 @@
     "description": "Dynamic DOM manipulation, async logic, and interactive user interfaces.",
     "stars": 4,
     "linkUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    "experienceText": "4 Years Experience",
     "iconClass": "bi-filetype-js"
   },
   {
@@ -29,6 +32,7 @@
     "description": "Rapid mobile-first component styling and grid system layouts.",
     "stars": 5,
     "linkUrl": "https://getbootstrap.com/",
+    "experienceText": "3 Years Experience",
     "iconClass": "bi-bootstrap-fill"
   },
   {
@@ -37,6 +41,7 @@
     "description": "Server-side scripting, dynamic page generation, and backend logic.",
     "stars": 4,
     "linkUrl": "https://www.php.net/",
+    "experienceText": "3 Years Experience",
     "iconClass": "bi-filetype-php"
   },
   {
@@ -45,6 +50,7 @@
     "description": "Relational database schema design and complex SQL query optimization.",
     "stars": 5,
     "linkUrl": "https://www.mysql.com/",
+    "experienceText": "3 Years Experience",
     "iconClass": "bi-database-fill"
   },
   {
@@ -53,6 +59,7 @@
     "description": "Application logic, game scripting, and object-oriented backend structures.",
     "stars": 4,
     "linkUrl": "https://docs.microsoft.com/en-us/dotnet/csharp/",
+    "experienceText": "1 Year Experience",
     "iconClass": "bi-window-sidebar"
   },
   {
@@ -61,6 +68,7 @@
     "description": "Object-oriented programming, utility software, and Java Swing development.",
     "stars": 4,
     "linkUrl": "https://www.java.com/",
+    "experienceText": "1 Year Experience",
     "iconClass": "bi-cup-hot-fill"
   },
   {
@@ -69,6 +77,7 @@
     "description": "Scripting, data handling, and rapid logic prototyping.",
     "stars": 3,
     "linkUrl": "https://www.python.org/",
+    "experienceText": "1 Year Experience",
     "iconClass": "bi-filetype-py"
   },
   {
@@ -77,6 +86,7 @@
     "description": "Core object-oriented principles, memory management, and algorithm design.",
     "stars": 3,
     "linkUrl": "https://isocpp.org/",
+    "experienceText": "1 Year Experience",
     "iconClass": "bi-c-square-fill"
   },
   {
@@ -85,6 +95,7 @@
     "description": "Version control tracking and local repository management.",
     "stars": 4,
     "linkUrl": "https://git-scm.com/",
+    "experienceText": "3 Years Experience",
     "iconClass": "bi-git"
   },
   {
@@ -93,6 +104,7 @@
     "description": "Collaborative cloud repository management and deployment.",
     "stars": 4,
     "linkUrl": "https://github.com/",
+    "experienceText": "3 Years Experience",
     "iconClass": "bi-github"
   },
   {
@@ -101,6 +113,7 @@
     "description": "2D/3D game engine workflow, physics integration, and scene management.",
     "stars": 4,
     "linkUrl": "https://unity.com/",
+    "experienceText": "1 Year Experience",
     "iconClass": "bi-unity"
   },
   {
@@ -109,6 +122,7 @@
     "description": "Lightweight integrated development environment for full-stack engineering.",
     "stars": 5,
     "linkUrl": "https://code.visualstudio.com/",
+    "experienceText": "3 Years Experience",
     "iconClass": "bi-code-slash"
   },
   {
@@ -117,6 +131,7 @@
     "description": "Robust IDE primarily utilized for complex Java and C++ application development.",
     "stars": 4,
     "linkUrl": "https://eclipseide.org/",
+    "experienceText": "1 Year Experience",
     "iconClass": "bi-moon-fill"
   },
   {
@@ -125,6 +140,7 @@
     "description": "Visual database administration tool for managing MySQL databases.",
     "stars": 4,
     "linkUrl": "https://www.phpmyadmin.net/",
+    "experienceText": "3 Years Experience",
     "iconClass": "bi-database-gear"
   },
   {
@@ -133,6 +149,7 @@
     "description": "Local server deployment stack for testing PHP and database scripts.",
     "stars": 4,
     "linkUrl": "https://www.apachefriends.org/",
+    "experienceText": "3 Years Experience",
     "iconClass": "bi-server"
   },
   {
@@ -141,6 +158,7 @@
     "description": "High-fidelity wireframing, UI/UX prototyping, and agile design handoffs.",
     "stars": 5,
     "linkUrl": "https://www.figma.com/",
+    "experienceText": "4 Years Experience",
     "iconClass": "bi-palette-fill"
   },
   {
@@ -149,6 +167,7 @@
     "description": "Rapid digital asset creation, presentation design, and visual marketing.",
     "stars": 5,
     "linkUrl": "https://www.canva.com/",
+    "experienceText": "4 Years Experience",
     "iconClass": "bi-brush-fill"
   },
   {
@@ -157,6 +176,7 @@
     "description": "Network simulation, system setup, and OS configuration visualization.",
     "stars": 3,
     "linkUrl": "https://www.netacad.com/",
+    "experienceText": "1 Year Experience",
     "iconClass": "bi-router-fill"
   }
 ]

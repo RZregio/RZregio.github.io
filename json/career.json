@@ -5,6 +5,7 @@
     "dateRange": "2022 – Present",
     "description": "Consistent President's Lister and active student leader. Spearheaded award-winning projects like the ISO/IEC 25010 compliant 'LANDAS' capstone game and the 'stbJobs' portal.",
     "iconClass": "bi-mortarboard-fill",
+    "logoUrl": "main-res/journey/pup.png",
     "isCurrent": true
   },
   {
@@ -13,6 +14,7 @@
     "dateRange": "February 9, 2026 – May 20, 2026",
     "description": "Architected and deployed complex internal systems including 'Arkteach', 'Material Navigator', and a dynamic 'Assembly Tree Finder'. Successfully managed environment migrations from localhost to live company production servers.",
     "iconClass": "bi-laptop",
+    "logoUrl": "main-res/journey/arktech.png",
     "isCurrent": false
   },
   {
@@ -21,6 +23,7 @@
     "dateRange": "Graduated 2021",
     "description": "Graduated Top 1 in the ICT Department (Batch 2019) and ranked 6th overall across all departments. Awarded Best in Thesis Writing.",
     "iconClass": "bi-bank2",
+    "logoUrl": "main-res/journey/olac.png",
     "isCurrent": false
   }
 ]

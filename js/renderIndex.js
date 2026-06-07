@@ -5,7 +5,6 @@ Links the project carousel state to the dynamic description container.
 ----- */
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* ----- Render Timeline Services ----- */
     async function loadServices() {
         const timelineContainer = document.getElementById('services-timeline-container');
         const detailsPane = document.getElementById('service-details-pane');
@@ -17,49 +16,84 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Render Timeline UI
             timelineContainer.innerHTML = servicesDataList.map((service, index) => `
-            <div class="timeline-item ${index === 0 ? 'active' : ''}" data-index="${index}">
-                <h6 class="fredoka mb-0">${service.serviceTitle}</h6>
-            </div>
-        `).join('');
+                <div class="timeline-item ${index === 0 ? 'active' : ''}" data-index="${index}">
+                    <h6 class="fredoka mb-0">${service.serviceTitle}</h6>
+                </div>
+            `).join('');
 
             // Function to update the Left Pane
             function updateServiceDetails(index) {
                 const service = servicesDataList[index];
+                const expText = service.experienceText || service.experienceLevel || "";
+                const expBadgeHTML = expText ? `<span class="badge bg-dark border border-secondary text-warning small ms-3" style="font-size: 0.8rem;"><i class="bi bi-clock-history me-1"></i>${expText}</span>` : '';
+
                 detailsPane.innerHTML = `
-                <i class="bi ${service.iconClass} fs-1 text-accent mb-3 d-block"></i>
-                <h3 class="fredoka mb-3">${service.serviceTitle}</h3>
-                <p class="opacity-75 mb-4">${service.serviceDescription}</p>
-                <h6 class="fredoka small text-accent">Notable Experience:</h6>
-                <p class="small opacity-75">${service.notableExperience}</p>
-                
-                <div class="mt-4 pt-3 border-top border-secondary">
-                    <div class="d-flex justify-content-between mb-1">
-                        <span class="small fw-bold">Proficiency</span>
-                        <span class="small text-accent">${service.experienceLevel}</span>
+                    <i class="bi ${service.iconClass} fs-1 text-accent mb-3 d-block"></i>
+                    <div class="d-flex align-items-center mb-3">
+                        <h3 class="fredoka mb-0">${service.serviceTitle}</h3>
+                        ${expBadgeHTML}
                     </div>
-                    <div class="progress bg-dark" style="height: 6px;">
-                        <div class="progress-bar bg-warning" role="progressbar" style="width: ${service.proficiencyLevel}%"></div>
-                    </div>
-                </div>
-            `;
+                    <p class="opacity-75 mb-4">${service.serviceDescription}</p>
+                    <h6 class="fredoka small text-accent">Notable Experience:</h6>
+                    <p class="small opacity-75 mb-0">${service.notableExperience}</p>
+                `;
             }
 
             // Set Default
             if (servicesDataList.length > 0) updateServiceDetails(0);
 
-            // Attach Click Listeners to Timeline
-            const timelineNodes = timelineContainer.querySelectorAll('.timeline-item');
-            timelineNodes.forEach(node => {
-                node.addEventListener('click', (e) => {
-                    // Clear active states
-                    timelineNodes.forEach(n => n.classList.remove('active'));
-                    // Set new active state
-                    const targetNode = e.currentTarget;
-                    targetNode.classList.add('active');
-                    updateServiceDetails(targetNode.getAttribute('data-index'));
-                });
-            });
+            // FIX: Use Event Delegation + Sync Dots
+            timelineContainer.onclick = (e) => {
+                const clickedItem = e.target.closest('.timeline-item');
+                if (!clickedItem) return;
 
+                // 1. Clear active states from timeline items
+                timelineContainer.querySelectorAll('.timeline-item').forEach(n => n.classList.remove('active'));
+
+                // 2. Set new active state
+                clickedItem.classList.add('active');
+
+                // 3. Update the details pane
+                const index = clickedItem.getAttribute('data-index');
+                updateServiceDetails(index);
+
+                // 4. SYNC DOTS: Determine which dot to activate (Start, Middle, or End)
+                const mobileDots = document.getElementById('service-mobile-dots');
+                if (mobileDots) {
+                    const dots = mobileDots.querySelectorAll('.dot');
+                    const totalServices = servicesDataList.length;
+                    const currentIndex = parseInt(index);
+
+                    let dotToActivate = 0; // Default to first
+
+                    if (currentIndex === 0) {
+                        dotToActivate = 0; // Start
+                    } else if (currentIndex === totalServices - 1) {
+                        dotToActivate = 2; // End
+                    } else {
+                        dotToActivate = 1; // Middle
+                    }
+
+                    dots.forEach((dot, idx) => {
+                        dot.classList.toggle('active', idx === dotToActivate);
+                    });
+                }
+            };
+
+            // Inject mobile dots
+            if (!document.getElementById('service-mobile-dots')) {
+                timelineContainer.insertAdjacentHTML('afterend', `
+                    <div id="service-mobile-dots" class="mobile-scroll-dots d-mobile-flex mt-3">
+                        <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+                    </div>
+                `);
+            }
+
+            // --- ADD THIS SCROLL LISTENER HERE ---
+            const mobileDots = document.getElementById('service-mobile-dots');
+            timelineContainer.addEventListener('scroll', () => {
+                window.updateScrollDots(timelineContainer, mobileDots);
+            });
         } catch (error) {
             console.error('Failed to load services:', error);
         }
@@ -78,16 +112,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let compiledCarouselHTML = '';
 
-            // 1. Build the Carousel Images (Now with modal trigger)
+            let compiledIndicatorsHTML = '<div class="carousel-indicators">';
+
+            // 1. Build the Carousel Images & Indicators
             featuredProjectsList.forEach((projectItem, index) => {
                 const isActiveClass = index === 0 ? 'active' : '';
+
+                // Add the dynamic dot indicator
+                compiledIndicatorsHTML += `<button type="button" data-bs-target="#featuredProjectsCarousel" data-bs-slide-to="${index}" class="${isActiveClass}" aria-label="Slide ${index + 1}"></button>`;
+
+                const hasPreview = projectItem.previewImageUrl && projectItem.previewImageUrl !== "";
+                let innerContent = "";
+
+                if (hasPreview) {
+                    const imageString = encodeURIComponent(JSON.stringify([projectItem.previewImageUrl]));
+                    innerContent = `
+                        <img src="${projectItem.previewImageUrl}" class="d-block w-100 rounded bg-dark" style="object-fit: contain; height: 350px; cursor: zoom-in;" alt="${projectItem.projectTitle}" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="if(window.openImageViewer) window.openImageViewer('${imageString}')">
+                    `;
+                } else {
+                    innerContent = `
+                        <div class="image-unavailable-placeholder w-100 d-flex flex-column justify-content-center align-items-center rounded" style="height: 350px; border: 1px dashed rgba(255,255,255,0.15); background: rgba(255,255,255,0.03);">
+                            <i class="bi bi-image mb-2" style="font-size: 2rem; opacity: 0.5;"></i>
+                            <span style="color: rgba(255,255,255,0.5); font-size: 0.85rem;">Not Available</span>
+                        </div>
+                    `;
+                }
+
                 compiledCarouselHTML += `
                     <div class="carousel-item ${isActiveClass}">
-                        <img src="${projectItem.previewImageUrl}" class="d-block w-100 rounded bg-dark" style="object-fit: contain; height: 350px; cursor: zoom-in;" alt="${projectItem.projectTitle}" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="document.getElementById('fullscreen-image-target').src=this.src">
+                        ${innerContent}
                     </div>
                 `;
             });
+
+            compiledIndicatorsHTML += '</div>';
             carouselInnerContainer.innerHTML = compiledCarouselHTML;
+
+            const carouselWrapper = document.getElementById('featuredProjectsCarousel');
+            if (carouselWrapper) {
+                // Inject indicators
+                carouselWrapper.insertAdjacentHTML('afterbegin', compiledIndicatorsHTML);
+
+                // IMPORTANT: Tell Bootstrap to re-initialize or update the indicators
+                const carouselInstance = new bootstrap.Carousel(carouselWrapper);
+            }
 
             // 2. Helper function to update the text details
             function updateProjectDetails(projectIndex) {
@@ -161,14 +229,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const allRecognitions = await response.json();
 
             // Simply filter by category and grab the first 6 items for the Index preview
-            const certsList = allRecognitions.filter(item => item.category === 'certificate').slice(0, 6); 
+            const certsList = allRecognitions.filter(item => item.category === 'certificate').slice(0, 6);
             const awardsList = allRecognitions.filter(item => item.category === 'award').slice(0, 6);
 
             // --- Certificates Logic ---
             let activeCertIndex = 0;
             if (certButtonsContainer) {
                 certButtonsContainer.innerHTML = certsList.map((cert, index) => `
-                <button class="btn btn-custom w-100 mb-3 text-start d-flex align-items-center justify-content-between interactive-card" 
+                <button class="btn btn-custom btn-auto-width w-100 mb-3 text-start d-flex align-items-center justify-content-between interactive-card" 
                         style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); transition: 0.3s;" 
                         data-cert-index="${index}">
                     <span class="text-truncate me-2"><i class="bi ${cert.iconClass} text-accent me-2"></i> ${cert.title}</span>
@@ -181,15 +249,31 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (!certData) return;
 
                     const images = certData.images || (certData.imageUrl ? [certData.imageUrl] : []);
-                    const primaryImg = images.length > 0 ? images[0] : '';
-                    const imgCountHTML = images.length > 1 ? `<span class="badge bg-dark position-absolute bottom-0 end-0 m-2">+${images.length - 1} Images</span>` : '';
-                    const arrayData = encodeURIComponent(JSON.stringify(images));
+                    const hasImages = images.length > 0 && images[0] !== "";
+
+                    let imageHTML = "";
+
+                    if (hasImages) {
+                        const primaryImg = images[0];
+                        const imgCountHTML = images.length > 1 ? `<span class="badge bg-dark position-absolute bottom-0 end-0 m-2">+${images.length - 1} Images</span>` : '';
+                        const arrayData = encodeURIComponent(JSON.stringify(images));
+
+                        imageHTML = `
+                        <div class="position-relative d-inline-block w-100 mb-4 text-center">
+                            <img src="${primaryImg}" class="img-fluid rounded interactive-card w-100" style="max-height: 220px; object-fit: contain; background: rgba(0,0,0,0.2); padding: 10px; cursor: zoom-in;" alt="${certData.title}" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="if(window.openImageViewer) window.openImageViewer('${arrayData}')">
+                            ${imgCountHTML}
+                        </div>`;
+                    } else {
+                        // Secure Placeholder for missing images
+                        imageHTML = `
+                        <div class="image-unavailable-placeholder w-100 mb-4 rounded d-flex flex-column justify-content-center align-items-center" style="height: 220px; border: 1px dashed rgba(255,255,255,0.15); background: rgba(255,255,255,0.03);">
+                            <i class="bi bi-image mb-2" style="font-size: 2rem; opacity: 0.5;"></i>
+                            <span style="color: rgba(255,255,255,0.5); font-size: 0.85rem;">Not Available</span>
+                        </div>`;
+                    }
 
                     certDetailsCard.innerHTML = `
-                    <div class="position-relative d-inline-block w-100 mb-4 text-center">
-                        <img src="${primaryImg}" class="img-fluid rounded interactive-card w-100" style="max-height: 220px; object-fit: contain; background: rgba(0,0,0,0.2); padding: 10px; cursor: zoom-in;" alt="${certData.title}" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="openImageViewer('${arrayData}')">
-                        ${imgCountHTML}
-                    </div>
+                    ${imageHTML}
                     <h3 class="fredoka mb-1">${certData.title}</h3>
                     <p class="text-accent small fw-bold mb-3">${certData.context} &bull; ${certData.date}</p>
                     <p class="opacity-75 mb-0">${certData.description}</p>
@@ -216,7 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let activeAwardIndex = 0;
             if (awardButtonsContainer) {
                 awardButtonsContainer.innerHTML = awardsList.map((award, index) => `
-                <button class="btn btn-custom w-100 mb-3 text-start d-flex align-items-center justify-content-between interactive-card" 
+                <button class="btn btn-custom awardCertButton w-100 mb-3 text-start d-flex align-items-center justify-content-between interactive-card" 
                         style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); transition: 0.3s;" 
                         data-award-index="${index}">
                     <span class="text-truncate me-2"><i class="bi ${award.iconClass} text-accent me-2"></i> ${award.title}</span>
@@ -229,15 +313,31 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (!awardData) return;
 
                     const images = awardData.images || (awardData.imageUrl ? [awardData.imageUrl] : []);
-                    const primaryImg = images.length > 0 ? images[0] : '';
-                    const imgCountHTML = images.length > 1 ? `<span class="badge bg-dark position-absolute bottom-0 end-0 m-2">+${images.length - 1} Images</span>` : '';
-                    const arrayData = encodeURIComponent(JSON.stringify(images));
+                    const hasImages = images.length > 0 && images[0] !== "";
+
+                    let imageHTML = "";
+
+                    if (hasImages) {
+                        const primaryImg = images[0];
+                        const imgCountHTML = images.length > 1 ? `<span class="badge bg-dark position-absolute bottom-0 end-0 m-2">+${images.length - 1} Images</span>` : '';
+                        const arrayData = encodeURIComponent(JSON.stringify(images));
+
+                        imageHTML = `
+                        <div class="position-relative d-inline-block w-100 mb-4 text-center">
+                            <img src="${primaryImg}" class="img-fluid rounded interactive-card w-100" style="max-height: 220px; object-fit: contain; background: rgba(0,0,0,0.2); padding: 10px; cursor: zoom-in;" alt="${awardData.title}" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="if(window.openImageViewer) window.openImageViewer('${arrayData}')">
+                            ${imgCountHTML}
+                        </div>`;
+                    } else {
+                        // Secure Placeholder for missing images
+                        imageHTML = `
+                        <div class="image-unavailable-placeholder w-100 mb-4 rounded d-flex flex-column justify-content-center align-items-center" style="height: 220px; border: 1px dashed rgba(255,255,255,0.15); background: rgba(255,255,255,0.03);">
+                            <i class="bi bi-image mb-2" style="font-size: 2rem; opacity: 0.5;"></i>
+                            <span style="color: rgba(255,255,255,0.5); font-size: 0.85rem;">Not Available</span>
+                        </div>`;
+                    }
 
                     awardDetailsCard.innerHTML = `
-                    <div class="position-relative d-inline-block w-100 mb-4 text-center">
-                        <img src="${primaryImg}" class="img-fluid rounded interactive-card w-100" style="max-height: 220px; object-fit: contain; background: rgba(0,0,0,0.2); padding: 10px; cursor: zoom-in;" alt="${awardData.title}" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="openImageViewer('${arrayData}')">
-                        ${imgCountHTML}
-                    </div>
+                    ${imageHTML}
                     <h3 class="fredoka mb-1">${awardData.title}</h3>
                     <p class="text-accent small fw-bold mb-3">${awardData.context} &bull; ${awardData.date}</p>
                     <p class="opacity-75 mb-0">${awardData.description}</p>
@@ -278,15 +378,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 const testimonialChunk = testimonialsDataList.slice(i, i + 2);
                 const isActive = i === 0 ? 'active' : '';
 
+                // Add 'd-flex flex-column' to the card-style div
                 let rowHTML = '<div class="row">';
                 testimonialChunk.forEach(item => {
                     rowHTML += `
                     <div class="col-lg-6 mb-3">
-                        <div class="card-style p-4 h-100" style="background: rgba(255,255,255,0.05); border-radius: 10px">
+                        <div class="card-style p-4 h-100 d-flex flex-column" style="background: rgba(255,255,255,0.05); border-radius: 10px">
                             <i class="bi bi-quote fs-1 text-accent opacity-50"></i>
                             <p class="fst-italic opacity-75 mb-4">"${item.testimonialMessage}"</p>
+                            
                             <div class="d-flex align-items-center mt-auto">
-                                <div class="bg-dark rounded-circle d-flex align-items-center justify-content-center border border-secondary" style="width: 50px; height: 50px;">
+                                <div class="humanIcon bg-dark rounded-circle d-flex align-items-center justify-content-center border border-secondary" style="width: 50px; height: 50px;">
                                     <i class="bi bi-person-fill fs-3 text-secondary"></i>
                                 </div>
                                 <div class="ms-3">
@@ -296,7 +398,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             </div>
                         </div>
                     </div>
-                `;
+                    `;
                 });
                 rowHTML += '</div>';
                 compiledHTML += `<div class="carousel-item ${isActive}">${rowHTML}</div>`;
@@ -331,34 +433,3 @@ document.addEventListener('DOMContentLoaded', () => {
     loadDualTabRecognitions();
     loadTestimonials();
 });
-
-/* --- Multi-Image Modal Viewer Logic --- */
-window.currentViewerImages = [];
-window.currentViewerIndex = 0;
-
-window.openImageViewer = function (imagesString) {
-    window.currentViewerImages = JSON.parse(decodeURIComponent(imagesString));
-    window.currentViewerIndex = 0;
-    updateViewerImage();
-};
-
-window.navigateViewer = function (direction) {
-    window.currentViewerIndex += direction;
-    if (window.currentViewerIndex < 0) window.currentViewerIndex = window.currentViewerImages.length - 1;
-    if (window.currentViewerIndex >= window.currentViewerImages.length) window.currentViewerIndex = 0;
-    updateViewerImage();
-};
-
-function updateViewerImage() {
-    const img = document.getElementById('fullscreen-image-target');
-    const prev = document.getElementById('viewer-prev');
-    const next = document.getElementById('viewer-next');
-    if (img) img.src = window.currentViewerImages[window.currentViewerIndex];
-    if (window.currentViewerImages.length > 1) {
-        if (prev) prev.style.display = 'block';
-        if (next) next.style.display = 'block';
-    } else {
-        if (prev) prev.style.display = 'none';
-        if (next) next.style.display = 'none';
-    }
-}

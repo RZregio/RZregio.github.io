@@ -241,6 +241,10 @@
     border-bottom: 3px solid var(--accent-yellow);
 }
 
+.humanIcon i.bi {
+    color: var(--accent-yellow) !important;
+}
+
 @media (max-width: 991px) {
 
     /* Fix global horizontal scrollbar overflow */
@@ -249,7 +253,12 @@
         overflow-x: hidden;
     }
 
-    .introInfo{
+    .description {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+
+    .introInfo {
         margin-bottom: 0px !important;
     }
 
@@ -270,6 +279,10 @@
         justify-content: center;
         flex-wrap: nowrap !important;
         gap: 10px !important;
+    }
+
+    .awardCertButton {
+        max-width: 50px;
     }
 
     .cta-area .btn-custom {
@@ -374,7 +387,8 @@
         display: none;
     }
 
-    .serviceDetails, #service-details-pane {
+    .serviceDetails,
+    #service-details-pane {
         padding-top: 0px !important;
         margin-top: 0px;
     }

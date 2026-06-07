@@ -12,8 +12,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-  <link rel="stylesheet" href="css/navFoot.css?v=2.0.4">
-  <link rel="stylesheet" href="css/about.css?v=2.0.4">
+  <link rel="stylesheet" href="css/navFoot.css?v=2.0.4.2">
+  <link rel="stylesheet" href="css/about.css?v=2.0.4.2">
 </head>
 
 
@@ -76,10 +76,6 @@
       <!-- Removed row/cols classes to allow horizontal flex layout -->
       <div class="fun-facts-scrollable" id="fun-facts-container">
       </div>
-      <!-- Scroll Hint Button (Mobile Only) -->
-      <button class="btn scroll-hint-btn d-lg-none mt-3 mx-auto d-block" onclick="scrollRow('fun-facts-container')">
-        Swipe or click to see more <i class="bi bi-arrow-right"></i>
-      </button>
     </section>
 
     <!-- 3. Career & Academic Trail (Ready for JSON) -->
@@ -119,7 +115,7 @@
       </div>
 
       <!-- Categories Tab Row (Uses the same mobile scroll CSS from index) -->
-      <ul class="nav custom-nav-tabs mobile-scroll-tabs justify-content-center mb-4" role="tablist">
+      <ul class="nav custom-nav-tabs mobile-scroll-tabs justify-content-left mb-4" role="tablist">
         <li class="nav-item" role="presentation">
           <button class="nav-link active fredoka" id="all-certs-tab" data-bs-toggle="tab"
             data-bs-target="#all-certs-pane" type="button" role="tab">Certificates & Workshops</button>
@@ -135,9 +131,6 @@
         <div class="tab-pane fade show active" id="all-certs-pane" role="tabpanel">
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="full-certs-container"></div>
 
-          <button class="btn scroll-hint-btn d-lg-none mt-3 mx-auto d-block"
-            onclick="scrollRow('full-certs-container')">Swipe or click to see more <i
-              class="bi bi-arrow-right"></i></button>
           <nav aria-label="Certificates pagination" class="mt-5 d-none d-lg-block">
             <ul class="pagination custom-pagination justify-content-center" id="certs-pagination"></ul>
           </nav>
@@ -146,9 +139,6 @@
         <div class="tab-pane fade" id="all-awards-pane" role="tabpanel">
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="full-awards-container"></div>
 
-          <button class="btn scroll-hint-btn d-lg-none mt-3 mx-auto d-block"
-            onclick="scrollRow('full-awards-container')">Swipe or click to see more <i
-              class="bi bi-arrow-right"></i></button>
           <nav aria-label="Awards pagination" class="mt-5 d-none d-lg-block">
             <ul class="pagination custom-pagination justify-content-center" id="awards-pagination"></ul>
           </nav>
@@ -237,8 +227,8 @@
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
     crossorigin="anonymous"></script>
 
-  <script src="js/globalUI.js?v=2.0.4"></script>
-  <script src="js/renderAbout.js?v=2.0.4"></script>
+  <script src="js/globalUI.js?v=2.0.4.2"></script>
+  <script src="js/renderAbout.js?v=2.0.4.2"></script>
 </body>
 
 </html>

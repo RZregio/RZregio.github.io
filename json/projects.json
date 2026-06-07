@@ -5,7 +5,7 @@
     "description": "A 2D Cat-Themed desktop game featuring custom gameplay mechanics, input handling, and object-oriented architecture.",
     "mediaType": "image",
     "mediaSource": [
-      "main-res/kuroneko-1.jpg"
+      "main-res/projects/kuroneko.png"
     ],
     "liveLink": "",
     "techStack": [
@@ -110,10 +110,9 @@
     "description": "2D mobile Android Game on Philippine history and culture. Achieved ISO/IEC 25010 compliance across 8 metrics and a 4.75/5 user satisfaction rating.",
     "mediaType": "image",
     "mediaSource": [
-      "main-res/landas-1.jpg",
-      "main-res/landas-2.jpg"
+      "main-res/projects/landas.png"
     ],
-    "liveLink": "",
+    "liveLink": "https://landas2d.github.io/",
     "techStack": [
       "C#",
       "Unity",
@@ -126,8 +125,7 @@
     "description": "A Community Event Discovery and Management Website integrating modern framework solutions.",
     "mediaType": "image",
     "mediaSource": [
-      "main-res/icommuna-1.jpg",
-      "main-res/icommuna-2.jpg"
+      "main-res/projects/iCommuna.png"
     ],
     "liveLink": "",
     "techStack": [
@@ -142,7 +140,7 @@
     "description": "A local job-portal connecting opportunities in Santo Tomas, Batangas. Led the full-stack development and earned a 1.00 final grade.",
     "mediaType": "image",
     "mediaSource": [
-      "schoolProjects/stbJobs/index.html"
+      "main-res/projects/stbjobs.png"
     ],
     "liveLink": "schoolProjects/stbJobs/index.html",
     "techStack": [
@@ -247,8 +245,7 @@
     "description": "Educational training platform with tutorial progression, quizzes, and analytics tracking.",
     "mediaType": "image",
     "mediaSource": [
-      "main-res/arkteach-1.jpg",
-      "main-res/arkteach-2.jpg"
+      "main-res/projects/arkteach.png"
     ],
     "liveLink": "",
     "techStack": [
@@ -267,8 +264,7 @@
     "description": "Dynamic visualization tool utilizing a 'Family Tree' hierarchy to map manufacturing components.",
     "mediaType": "image",
     "mediaSource": [
-      "main-res/ContactProfile.jpg",
-      "main-res/coding.jpg"
+      "main-res/projects/assembly.png"
     ],
     "liveLink": "",
     "techStack": [
@@ -284,8 +280,7 @@
     "description": "Internal tracking system designed to streamline factory material routing and location.",
     "mediaType": "image",
     "mediaSource": [
-      "main-res/material-1.jpg",
-      "main-res/material-2.jpg"
+     
     ],
     "liveLink": "",
     "techStack": [
@@ -300,8 +295,7 @@
     "description": "Digitized QA protocol incorporating 5S and Hou-Ren-Sou methodologies for machine diagnostics.",
     "mediaType": "image",
     "mediaSource": [
-      "main-res/maintenance-1.jpg",
-      "main-res/maintenance-2.jpg"
+
     ],
     "liveLink": "",
     "techStack": [

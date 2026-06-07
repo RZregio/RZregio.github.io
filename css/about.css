@@ -165,7 +165,6 @@
 }
 
 .career-card:hover {
-    transform: translateX(10px);
     background: rgba(255, 255, 255, 0.06);
     border-color: rgba(212, 140, 28, 0.5);
 }
@@ -294,7 +293,7 @@ select.custom-input:focus {
         flex-wrap: nowrap !important;
         overflow-x: auto;
         gap: 15px;
-        padding-bottom: 5px;
+        padding-bottom: 20px;
         scrollbar-width: none;
         -ms-overflow-style: none;
         border-bottom: none;
@@ -337,6 +336,17 @@ select.custom-input:focus {
 
 .scroll-hint-btn:active {
     background: rgba(212, 140, 28, 0.2);
+}
+
+/* --- Dynamic Career Logos --- */
+.career-logo {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    background-color: rgba(255, 255, 255, 0.95); 
+    border-radius: 8px; 
+    padding: 5px;
+    border: 1px solid var(--accent-yellow);
 }
 
 @media (max-width: 768px) {

@@ -28,6 +28,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
             `).join('');
+
+            // Inject dots if they don't exist
+            if (!document.getElementById('funfacts-dots')) {
+                container.insertAdjacentHTML('afterend', `
+                    <div id="funfacts-dots" class="mobile-scroll-dots d-mobile-flex mt-3">
+                        <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+                    </div>
+                `);
+            }
+            // Add Scroll Listener
+            container.addEventListener('scroll', () => {
+                window.updateScrollDots(container, document.getElementById('funfacts-dots'));
+            });
         } catch (e) {
             console.error('Failed to load fun facts:', e);
         }
@@ -44,11 +57,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const displayData = careerExpanded ? fullCareerData : fullCareerData.slice(0, 1);
 
-        container.innerHTML = displayData.map(item => `
+        container.innerHTML = displayData.map(item => {
+            // Check if a custom logo exists, otherwise fallback to the Bootstrap icon
+            const visualAssetHTML = item.logoUrl
+                ? `<img src="${item.logoUrl}" alt="${item.title} Logo" class="career-logo">`
+                : `<i class="bi ${item.iconClass || 'bi-briefcase-fill'}"></i>`;
+
+            return `
             <div class="career-node ${item.isCurrent ? 'current-node' : ''}">
                 <div class="career-card">
                     <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-3 mb-2">
-                        <div class="edu-icon"><i class="bi ${item.iconClass || 'bi-briefcase-fill'}"></i></div>
+                        <div class="edu-icon d-flex justify-content-center align-items-center">${visualAssetHTML}</div>
                         <div>
                             <h4 class="fredoka mb-1 fs-5">${item.title}</h4>
                             <p class="mb-0 text-accent small fw-bold">${item.subtitle}</p>
@@ -58,7 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     ${item.description ? `<p class="mt-2 mb-0 small opacity-75">${item.description}</p>` : ''}
                 </div>
             </div>
-        `).join('');
+            `;
+        }).join('');
 
         if (btn) {
             btn.style.display = fullCareerData.length > 1 ? 'inline-block' : 'none';
@@ -111,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderRecognitionsCards(dataArray, containerId, page, paginationId, typeString) {
         const container = document.getElementById(containerId);
         const paginationContainer = document.getElementById(paginationId);
-        
+
         if (!container) return;
 
         if (dataArray.length === 0) {
@@ -159,6 +179,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
         }).join('');
+
+        const dotsId = `${typeString}-dots`;
+        let dotsContainer = document.getElementById(dotsId);
+
+        // 1. Inject dots if they don't exist
+        if (!dotsContainer) {
+            container.insertAdjacentHTML('afterend', `
+                <div id="${dotsId}" class="mobile-scroll-dots d-lg-none mt-3">
+                    <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+                </div>
+            `);
+            dotsContainer = document.getElementById(dotsId);
+        }
+
+        // 2. Attach Scroll Listener (Always re-bind to ensure it points to current container)
+        container.onscroll = () => {
+            window.updateScrollDots(container, dotsContainer);
+        };
+
+        // 3. Initialize first state
+        window.updateScrollDots(container, dotsContainer);
 
         if (paginationContainer) {
             if (!isDesktop || totalPages <= 1) {
@@ -249,44 +290,3 @@ document.addEventListener('DOMContentLoaded', () => {
     loadCareerTrail();
     loadRecognitionsData();
 });
-
-
-/* --- Multi-Image Modal Viewer Logic --- */
-window.currentViewerImages = [];
-window.currentViewerIndex = 0;
-
-window.openImageViewer = function(imagesString) {
-    window.currentViewerImages = JSON.parse(decodeURIComponent(imagesString));
-    window.currentViewerIndex = 0;
-    updateViewerImage();
-};
-
-window.navigateViewer = function(direction) {
-    window.currentViewerIndex += direction;
-    
-    // Loop back to start or end
-    if (window.currentViewerIndex < 0) {
-        window.currentViewerIndex = window.currentViewerImages.length - 1;
-    }
-    if (window.currentViewerIndex >= window.currentViewerImages.length) {
-        window.currentViewerIndex = 0;
-    }
-    updateViewerImage();
-};
-
-function updateViewerImage() {
-    const img = document.getElementById('fullscreen-image-target');
-    const prev = document.getElementById('viewer-prev');
-    const next = document.getElementById('viewer-next');
-    
-    if (img) img.src = window.currentViewerImages[window.currentViewerIndex];
-    
-    // Only show arrows if there is more than 1 image in the array
-    if (window.currentViewerImages.length > 1) {
-        if (prev) prev.style.display = 'block';
-        if (next) next.style.display = 'block';
-    } else {
-        if (prev) prev.style.display = 'none';
-        if (next) next.style.display = 'none';
-    }
-}

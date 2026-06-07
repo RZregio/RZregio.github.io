@@ -1,6 +1,112 @@
 /* =========================================
    GLOBAL AESTHETICS & ANIMATIONS
    ========================================= */
+/* --- 1. REPLACE THIS BLOCK --- */
+:root {
+    --accent-yellow: #D48C1C;
+    --blue-1: #0B1120;
+    --blue-2: #131B2E;
+    --blue-3: #1A253D;
+
+    /* Aggressively scaled down max sizes for desktop */
+    --fs-h1: clamp(1.4rem, 3.5vw, 1.8rem) !important;
+    --fs-h2: clamp(1.2rem, 2.5vw, 1.5rem) !important;
+    --fs-h3: clamp(1rem, 1.8vw, 1.2rem) !important;
+    --fs-body: clamp(0.8rem, 1vw, 0.9rem) !important;
+
+    --bg-nav: #060b1a;
+    --fs-nav: clamp(0.85rem, 1vw, 0.95rem) !important;
+}
+
+/* --- Custom Yellow Scrollbar --- */
+::-webkit-scrollbar {
+    width: 14px;
+    height: 14px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--blue-1);
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--accent-yellow);
+    border-radius: 10px;
+    border: 4px solid var(--blue-1);
+    /* Creates a padded look */
+    transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #e6b840;
+    /* Brighter yellow on hover */
+}
+
+/* Firefox Support */
+html {
+    scrollbar-width: auto;
+    scrollbar-color: var(--accent-yellow) var(--blue-1);
+}
+
+/* --- 2. ADD THESE CURSOR RULES --- */
+/* Permanent Default Global Cursor (Yellow Arrow) */
+html,
+body {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23D48C1C" stroke="white" stroke-width="1.5"><polygon points="3,3 21,11 13,13 11,21"/></svg>') 3 3, auto !important;
+}
+
+/* Interactive Hover Cursor (Yellow Hand) */
+a,
+button,
+.interactive-card,
+.timeline-item,
+.nav-link,
+select,
+input,
+textarea {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23D48C1C" stroke="white" stroke-width="1.5"><path d="M9 11.24V7.5C9 6.12 10.12 5 11.5 5S14 6.12 14 7.5v3.74c1.21-.81 2-2.18 2-3.74C16 5.01 13.99 3 11.5 3S7 5.01 7 7.5c0 1.56.79 2.93 2 3.74zm9.84 4.63l-4.54-2.26c-.17-.07-.35-.11-.54-.11H13v-6c0-.83-.67-1.5-1.5-1.5S10 6.67 10 7.5v10.74l-3.43-.72c-.08-.01-.15-.03-.24-.03-.31 0-.59.13-.79.33l-.79.8 4.94 4.94c.27.27.65.44 1.04.44h6.79c.75 0 1.33-.55 1.44-1.28l.75-5.27c.01-.07.02-.14.02-.21 0-.62-.35-1.16-.89-1.37z"/></svg>') 10 2, pointer !important;
+}
+
+/* Spyglass for Image Viewer */
+.zoom-cursor,
+.recog-img-container img,
+#featured-carousel-inner img,
+.proj-detail-media img {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="%23D48C1C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>') 16 16, zoom-in !important;
+}
+
+/* --- 3. ADD THIS TO SHRINK ALL CARDS GLOBALLY --- */
+.card-style {
+    padding: 1.25rem !important;
+}
+
+h3 {
+    font-size: var(--fs-h3) !important;
+}
+
+h1,
+h2,
+h3,
+.fredoka,
+.navbar-brand,
+.btn-custom {
+    font-family: 'Fredoka One', cursive;
+}
+
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--blue-1);
+    color: white;
+    min-height: 100vh;
+    background: linear-gradient(145deg, var(--blue-1) 0%, var(--blue-2) 45%, var(--blue-3) 100%);
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
 /* --- Form Inputs Override & Autofill Fix --- */
 .custom-input {
     background-color: rgba(255, 255, 255, 0.05) !important;
@@ -127,49 +233,6 @@ p,
     cursor: pointer;
 }
 
-:root {
-    --accent-yellow: #D48C1C;
-    --blue-1: #0B1120;
-    --blue-2: #131B2E;
-    --blue-3: #1A253D;
-
-    --fs-h1: clamp(1.6rem, 5vw, 2.5rem);
-    --fs-h2: clamp(1.8rem, 4vw, 2.5rem);
-    --fs-h3: clamp(1.2rem, 3vw, 1.5rem);
-    --fs-body: clamp(0.8rem, 1.1vw, 1rem);
-
-    --bg-nav: #060b1a;
-    --fs-nav: clamp(0.9rem, 1vw, 1rem);
-    --accent-yellow: #D48C1C;
-}
-
-h3 {
-    font-size: var(--fs-h3) !important;
-}
-
-h1,
-h2,
-h3,
-.fredoka,
-.navbar-brand,
-.btn-custom {
-    font-family: 'Fredoka One', cursive;
-}
-
-body {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--blue-1);
-    color: white;
-    min-height: 100vh;
-    background: linear-gradient(145deg, var(--blue-1) 0%, var(--blue-2) 45%, var(--blue-3) 100%);
-    background-attachment: fixed;
-    overflow-x: hidden;
-}
-
 /* --- Navbar --- */
 .navbar {
     background-color: var(--bg-nav) !important;
@@ -262,6 +325,121 @@ body {
         padding-top: 20px;
         padding-bottom: 20px;
     }
+}
+
+/* =========================================
+   IMAGE VIEWER MODAL ENHANCEMENTS
+   ========================================= */
+#imageViewerModal .modal-content {
+    position: relative;
+}
+
+/* --- Fix Close Button Positioning --- */
+#imageViewerModal .modal-content {
+    position: relative;
+    /* This serves as the anchor for the absolute button */
+}
+
+#imageViewerModal .btn-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1060;
+    background-color: var(--accent-yellow) !important;
+    opacity: 1 !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    margin: 0 !important;
+}
+
+/* Ensure hover effect stays smooth */
+#imageViewerModal .btn-close:hover {
+    transform: scale(1.15) rotate(90deg);
+    background-color: rgb(212, 140, 28, 0.7) !important;
+}
+
+/* Prev/Next Buttons Hover Effects */
+#viewer-prev,
+#viewer-next {
+    transition: all 0.3s ease !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#viewer-prev:hover,
+#viewer-next:hover {
+    transform: translateY(-50%) scale(1.1) !important;
+    background-color: rgb(212, 140, 28, 0.7) !important;
+    box-shadow: 0 4px 15px rgba(212, 140, 28, 0.6) !important;
+}
+
+/* Image Fade Transition */
+#fullscreen-image-target {
+    transition: opacity 0.3s ease;
+}
+
+/* Dot Counters */
+.viewer-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(212, 140, 28, 0.6);
+    border: 2px solid transparent;
+    padding: 0;
+    margin: 0 4px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.viewer-dot:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.2);
+}
+
+.viewer-dot.active {
+    background-color: var(--accent-yellow);
+    border-color: #101A30;
+    transform: scale(1.3);
+    box-shadow: 0 0 8px rgba(212, 140, 28, 0.6);
+}
+
+/* --- Image Unavailable Placeholder (Readability Fix) --- */
+.image-unavailable-placeholder {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px dashed rgba(255, 255, 255, 0.15) !important;
+    cursor: default !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Forces the icon and text to be a bright, readable white */
+.image-unavailable-placeholder i,
+.image-unavailable-placeholder span {
+    color: rgba(255, 255, 255, 0.7) !important;
+    opacity: 1 !important;
+    /* Prevents muddiness */
+}
+
+/* --- Brighten Form Placeholder Text --- */
+.custom-input::placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
+    /* Brightens the text */
+    opacity: 1 !important;
+    /* Forces Firefox to respect the color */
+}
+
+/* Fallbacks for older browsers just in case */
+.custom-input::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.custom-input:-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
 }
 
 /* =========================================
@@ -394,5 +572,108 @@ body {
 
     .card-style .bi.fs-1 {
         font-size: 2rem !important;
+    }
+}
+
+/* ============================================================
+   NAVIGATION HOVERS & MOBILE CLIPPING FIXES
+   ============================================================ */
+
+/* --- Slider & Carousel Nav Hover Effects --- */
+.carousel-control-prev,
+.carousel-control-next,
+#tech-btn-prev,
+#tech-btn-next,
+#test-btn-prev,
+#test-btn-next {
+    transition: all 0.3s ease !important;
+    opacity: 0.7 !important;
+    /* Base opacity */
+}
+
+/* Glow and scale on hover, but ignore disabled buttons */
+.carousel-control-prev:hover,
+.carousel-control-next:hover,
+#tech-btn-prev:hover:not(:disabled),
+#tech-btn-next:hover:not(:disabled),
+#test-btn-prev:hover:not(:disabled),
+#test-btn-next:hover:not(:disabled) {
+    opacity: 1 !important;
+    transform: scale(1.15) !important;
+    filter: drop-shadow(0 0 10px rgba(212, 140, 28, 0.8));
+}
+
+/* --- Fix Mobile Button Clipping --- */
+@media (max-width: 768px) {
+
+    /* Prevents the buttons from jumping up and getting cut off on touch devices */
+    .interactive-card:hover,
+    .btn-custom:hover {
+        transform: none !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+        /* Keep the flat shadow */
+    }
+}
+
+/* ============================================================
+   MOBILE SCROLL DOTS & CAROUSEL INDICATORS
+   ============================================================ */
+
+/* --- Featured Projects Carousel Indicators (Yellow Theme) --- */
+.carousel-indicators {
+    bottom: -40px !important;
+    gap: 8px;
+}
+
+.carousel-indicators button {
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50% !important;
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    border: 2px solid transparent !important;
+    transition: all 0.3s ease !important;
+    margin: 0 !important;
+}
+
+.carousel-indicators button.active {
+    background-color: var(--accent-yellow) !important;
+    transform: scale(1.3);
+    box-shadow: 0 0 8px rgba(212, 140, 28, 0.6);
+    border-color: #101A30 !important;
+}
+
+/* --- Universal Mobile Scroll Dots --- */
+.mobile-scroll-dots {
+    display: none;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.mobile-scroll-dots .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: 0.3s;
+}
+
+/* Make the first dot active to imply "swipe right for more" */
+.mobile-scroll-dots .dot.active {
+    background-color: var(--accent-yellow);
+    transform: scale(1.3);
+    box-shadow: 0 0 8px rgba(212, 140, 28, 0.6);
+}
+
+@media (max-width: 768px) {
+    .mobile-scroll-dots.d-mobile-flex {
+        display: flex !important;
+    }
+
+    /* Hide old text-based scroll hints */
+    .horizontal-scroll-hint,
+    .vertical-scroll-hint {
+        display: none !important;
     }
 }

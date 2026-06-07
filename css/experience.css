@@ -33,37 +33,27 @@
     margin-top: 40px;
 }
 
+/* --- FULLY REPLACED TECH STACK CARD --- */
 .stack-card {
-    background: rgba(27, 43, 75, 0.6);
-    border: 2px solid #5748db;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 15px;
-    padding: 25px;
     transition: all 0.3s ease;
-    text-align: center;
     color: inherit;
+    /* We removed text-align: center so the JS flexbox handles alignment */
 }
 
 .stack-card:hover {
-    transform: rotate(2deg);
-    border-color: #DAA520;
-    background: rgba(27, 43, 75, 0.9);
+    /* Clean, professional hover state without the rotation */
+    border-color: rgba(212, 140, 28, 0.4);
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
-.stack-card i {
-    font-size: 3rem;
-    color: #DAA520;
-    margin-bottom: 15px;
-    display: block;
-}
-
-.stack-card h4 {
-    color: #ffffff;
-    font-weight: 600;
-}
-
-.stack-card p {
-    color: #a49ce6;
-    font-size: 0.85rem;
+/* --- Force Yellow Theme on Tech Stack Icons --- */
+.stack-card i.bi {
+    color: var(--accent-yellow) !important;
 }
 
 /* --- Project Titles --- */
@@ -107,7 +97,7 @@
     transition: 0.4s;
     display: flex;
     flex-direction: column;
-    width: 350px;
+    width: 290px;
     /* Desktop width */
     flex: 0 0 auto;
     /* Prevents shrinking in flexbox */
@@ -119,7 +109,7 @@
 }
 
 .project-thumb {
-    height: 180px;
+    height: 150px;
     width: 100%;
     background-color: #101A30;
     border-bottom: 3px solid #DAA520;
@@ -156,7 +146,7 @@
 }
 
 .project-content {
-    padding: 25px;
+    padding: 15px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -173,7 +163,7 @@
 .btn-view {
     border: 2px solid #DAA520;
     color: #DAA520;
-    padding: 8px 20px;
+    padding: 6px 15px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
@@ -555,4 +545,33 @@ select.custom-input:focus {
     .stack-card {
         padding: 20px;
     }
+}
+
+/* --- Custom Scrollbar for Iframe --- */
+/* Apply to the wrapper div holding the iframe */
+.proj-detail-media {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-yellow) #101A30;
+}
+
+.proj-detail-media::-webkit-scrollbar {
+    width: 8px;
+}
+
+.proj-detail-media::-webkit-scrollbar-thumb {
+    background-color: var(--accent-yellow) !important;
+    border-radius: 4px;
+}
+
+.proj-detail-media::-webkit-scrollbar-track {
+    background-color: #101A30;
+}
+
+/* --- Content Scaling --- */
+/* This shrinks the iframe content to 80% and expands the container to fill the void */
+.scaled-iframe {
+    transform: scale(0.8);
+    transform-origin: top left;
+    width: 125% !important;  /* 1 / 0.8 = 1.25 (125%) to compensate for scale */
+    height: 125% !important;
 }

@@ -5,7 +5,15 @@
     "context": "PUPSTC BSIT",
     "date": "2022–Present",
     "description": "Maintained top-tier academic standing throughout my collegiate journey, reflecting a continuous commitment to excellence.",
-    "imageUrl": "main-res/aboutMe.png",
+    "images": [
+      "main-res/recognitions/bsit1-1.jpg",
+      "main-res/recognitions/bsit1-2.jpg",
+      "main-res/recognitions/bsit2-1.jpg",
+      "main-res/recognitions/bsit2-2.jpg",
+      "main-res/recognitions/bsit3-1.jpg",
+      "main-res/recognitions/bsit3-2.jpg",
+      "main-res/recognitions/bsit4-1.jpg"
+    ],
     "iconClass": "bi-star-fill"
   },
   {
@@ -14,7 +22,10 @@
     "context": "PUPSTC BSIT Batch 2022",
     "date": "2024–2026",
     "description": "Led the batch in academic and extracurricular coordination, ensuring efficient communication and organizational success.",
-    "imageUrl": "main-res/aboutMe.png",
+    "images": [
+      "main-res/recognitions/batchPres.jpg",
+      "main-res/recognitions/batchVP.jpg"
+    ],
     "iconClass": "bi-person-badge-fill"
   },
   {
@@ -23,7 +34,13 @@
     "context": "OLAC Batch 2019",
     "date": "2019",
     "description": "Graduated as the highest-ranking student within the ICT department and ranked 6th overall across all departments.",
-    "imageUrl": "main-res/aboutMe.png",
+    "images": [
+      "main-res/recognitions/olacTop1-1.jpg",
+      "main-res/recognitions/olacTop1-2.jpg",
+      "main-res/recognitions/olacOverall1-1.jpg",
+      "main-res/recognitions/olacOverall1-2.jpg",
+      "main-res/recognitions/top1_ICT-OLAC.png"
+    ],
     "iconClass": "bi-award-fill"
   },
   {
@@ -32,7 +49,7 @@
     "context": "Integrative Programming",
     "date": "2024",
     "description": "Recognized specifically for outstanding performance, logic building, and clean code architecture in integrative systems.",
-    "imageUrl": "main-res/aboutMe.png",
+    "imageUrl": "",
     "iconClass": "bi-trophy-fill"
   },
   {
@@ -41,7 +58,10 @@
     "context": "PUPSTC Computer Society",
     "date": "2024–Present",
     "description": "Managed community outreach and technical event communications for the university's premier IT organization.",
-    "imageUrl": "main-res/aboutMe.png",
+    "images": [
+      "main-res/recognitions/pro3-1.jpg",
+      "main-res/recognitions/pro4-1.jpg"
+    ],
     "iconClass": "bi-megaphone-fill"
   },
   {
@@ -92,7 +112,7 @@
     "description": "Exploration of algorithms and introductory artificial intelligence.",
     "iconClass": "bi-cpu",
     "images": [
-      "main-res/certificates/fromAlgoToAI&ML.jpg"
+      "main-res/certificates/fromAlgotoAI&ML.jpg"
     ]
   },
   {
@@ -103,8 +123,8 @@
     "description": "Version control, repository management, and collaboration.",
     "iconClass": "bi-github",
     "images": [
-      "main-res/certificates/techstart.jpg",
-      "main-res/certificates/techstart2.jpg"
+      "main-res/certificates/techStart.jpg",
+      "main-res/certificates/techStart2.jpg"
     ]
   },
   {
