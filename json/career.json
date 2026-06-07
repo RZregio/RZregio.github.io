@@ -3,7 +3,7 @@
     "title": "Polytechnic University of the Philippines",
     "subtitle": "BS Information Technology (Sto. Tomas Campus)",
     "dateRange": "2022 – Present",
-    "description": "Consistent President's Lister and active student leader. Spearheaded award-winning projects like the ISO/IEC 25010 compliant 'LANDAS' capstone game and the 'stbJobs' portal.",
+    "description": "A Consistent President's Lister balancing academic excellence with active student leadership. I spearheaded award-winning projects including the 'LANDAS' capstone, which was praised for its strict adherence to ISO/IEC 25010 software quality standards.",
     "iconClass": "bi-mortarboard-fill",
     "logoUrl": "main-res/journey/pup.png",
     "isCurrent": true
@@ -12,7 +12,7 @@
     "title": "Arktech Philippines",
     "subtitle": "Full-Stack Developer Intern",
     "dateRange": "February 9, 2026 – May 20, 2026",
-    "description": "Architected and deployed complex internal systems including 'Arkteach', 'Material Navigator', and a dynamic 'Assembly Tree Finder'. Successfully managed environment migrations from localhost to live company production servers.",
+    "description": "Owned the end-to-end architecture for critical internal tools like 'Arkteach' and the 'Assembly Tree Finder.' I navigated the transition from local testing environments to live production servers, gaining deep experience in system stability and performance optimization.",
     "iconClass": "bi-laptop",
     "logoUrl": "main-res/journey/arktech.png",
     "isCurrent": false
@@ -21,7 +21,7 @@
     "title": "Our Lady of Assumption College (OLAC)",
     "subtitle": "ICT - Software Development (Tanauan)",
     "dateRange": "Graduated 2021",
-    "description": "Graduated Top 1 in the ICT Department (Batch 2019) and ranked 6th overall across all departments. Awarded Best in Thesis Writing.",
+    "description": "Graduated as the Top 1 student in the ICT Department (Batch 2019) and ranked 6th overall across all disciplines. This period solidified my technical foundation, culminating in a 'Best in Thesis' award that launched my interest in professional software development.",
     "iconClass": "bi-bank2",
     "logoUrl": "main-res/journey/olac.png",
     "isCurrent": false

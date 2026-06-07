@@ -47,7 +47,6 @@
     /* Clean, professional hover state without the rotation */
     border-color: rgba(212, 140, 28, 0.4);
     background: rgba(255, 255, 255, 0.05);
-    transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 

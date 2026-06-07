@@ -142,12 +142,6 @@
     border: 2px solid white;
 }
 
-.btn-explore:hover {
-    transform: translateY(-8px);
-    filter: brightness(0.7);
-    color: white;
-}
-
 .btn-cv:hover {
     border-color: var(--accent-yellow);
     color: var(--accent-yellow);
@@ -282,7 +276,7 @@
     }
 
     .awardCertButton {
-        max-width: 50px;
+        width: fit-content !important;
     }
 
     .cta-area .btn-custom {
@@ -392,51 +386,4 @@
         padding-top: 0px !important;
         margin-top: 0px;
     }
-}
-
-/* =========================================
-   TRAIL CTA SECTION
-   ========================================= */
-.trail-container {
-    position: relative;
-    padding-top: 20px;
-}
-
-.trail-line {
-    width: 3px;
-    height: 80px;
-    background: repeating-linear-gradient(to bottom, var(--accent-yellow) 0, var(--accent-yellow) 10px, transparent 10px, transparent 20px);
-    margin: 0 auto 25px auto;
-    animation: dashScroll 1.5s linear infinite;
-    opacity: 0.8;
-}
-
-@keyframes dashScroll {
-    from {
-        background-position: 0 0;
-    }
-
-    to {
-        background-position: 0 40px;
-    }
-}
-
-.trail-btn {
-    box-shadow: 0 0 20px rgba(212, 140, 28, 0.4);
-    animation: pulseGlow 2s infinite alternate;
-}
-
-@keyframes pulseGlow {
-    from {
-        box-shadow: 0 0 15px rgba(212, 140, 28, 0.2);
-    }
-
-    to {
-        box-shadow: 0 0 35px rgba(212, 140, 28, 0.6);
-    }
-}
-
-.trail-btn:hover {
-    transform: translateY(-5px) scale(1.05) !important;
-    box-shadow: 0 15px 35px rgba(212, 140, 28, 0.6) !important;
 }

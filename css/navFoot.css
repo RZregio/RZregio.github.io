@@ -471,31 +471,27 @@ p,
 
 .trail-btn {
     box-shadow: 0 0 20px rgba(212, 140, 28, 0.4);
-    animation: pulseGlow 2s infinite alternate;
-}
-
-@keyframes pulseGlow {
-    from {
-        box-shadow: 0 0 15px rgba(212, 140, 28, 0.2);
-    }
-
-    to {
-        box-shadow: 0 0 35px rgba(212, 140, 28, 0.6);
-    }
 }
 
 .trail-btn:hover {
     transform: translateY(-5px) scale(1.05) !important;
     box-shadow: 0 15px 35px rgba(212, 140, 28, 0.6) !important;
     background-color: #e6b840 !important;
-    /* Slightly brighter yellow */
 }
 
+/* --- Buttons --- */
 .btn-explore {
-    background-color: var(--accent-yellow);
-    color: white;
+    background-color: var(--accent-yellow) !important;
     border: none;
+    color: white !important;
+    transition: all 0.3s ease;
 }
+
+.btn-explore:hover {
+    transform: translateY(-5px);
+    filter: brightness(1.1);
+}
+
 
 /* ============================================================
    GLOBAL BUG FIXES & MOBILE RESIZING

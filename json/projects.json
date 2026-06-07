@@ -1,21 +1,6 @@
 [
   {
     "category": "school",
-    "title": "KuroNeko: Journey in Another World",
-    "description": "A 2D Cat-Themed desktop game featuring custom gameplay mechanics, input handling, and object-oriented architecture.",
-    "mediaType": "image",
-    "mediaSource": [
-      "main-res/projects/kuroneko.png"
-    ],
-    "liveLink": "",
-    "techStack": [
-      "Java",
-      "Java Swing",
-      "OOP"
-    ]
-  },
-  {
-    "category": "school",
     "title": "StillLife Parallax V2",
     "description": "Advanced UI project utilizing CSS parallax techniques.",
     "mediaType": "iframe",
@@ -26,82 +11,8 @@
     "techStack": [
       "HTML5",
       "CSS3",
-      "JavaScript"
-    ]
-  },
-  {
-    "category": "school",
-    "title": "PhotoGallery Page V2",
-    "description": "Interactive gallery showcasing visual assets with responsive grid layouts.",
-    "mediaType": "iframe",
-    "mediaSource": [
-      "schoolProjects/photoGallery/index.html"
-    ],
-    "liveLink": "schoolProjects/photoGallery/index.html",
-    "techStack": [
-      "HTML5",
-      "CSS3",
-      "Grid/Flexbox"
-    ]
-  },
-  {
-    "category": "school",
-    "title": "WordYou Sure? V2",
-    "description": "Utility project exploring user interaction through confirmation prompts.",
-    "mediaType": "iframe",
-    "mediaSource": [
-      "schoolProjects/wordYouSure/index.html"
-    ],
-    "liveLink": "schoolProjects/wordYouSure/index.html",
-    "techStack": [
-      "HTML5",
-      "CSS3",
-      "JavaScript"
-    ]
-  },
-  {
-    "category": "school",
-    "title": "Product Page V2",
-    "description": "A refined product information layout focusing on UI/UX and clean presentation.",
-    "mediaType": "iframe",
-    "mediaSource": [
-      "schoolProjects/productInfo/index.html"
-    ],
-    "liveLink": "schoolProjects/productInfo/index.html",
-    "techStack": [
-      "HTML5",
-      "CSS3",
-      "UI/UX"
-    ]
-  },
-  {
-    "category": "school",
-    "title": "ArcaneLog Page",
-    "description": "A specialized interface for log tracking and data visualization.",
-    "mediaType": "iframe",
-    "mediaSource": [
-      "schoolProjects/arcaneLog/index.html"
-    ],
-    "liveLink": "schoolProjects/arcaneLog/index.html",
-    "techStack": [
-      "HTML5",
-      "CSS3",
-      "JavaScript"
-    ]
-  },
-  {
-    "category": "school",
-    "title": "PlaceHub Page V2",
-    "description": "A web-based platform designed for location discovery and community interaction.",
-    "mediaType": "iframe",
-    "mediaSource": [
-      "schoolProjects/placeHub/index.html"
-    ],
-    "liveLink": "schoolProjects/placeHub/index.html",
-    "techStack": [
-      "HTML5",
-      "CSS3",
-      "JavaScript"
+      "JavaScript",
+      "Bootstrap"
     ]
   },
   {
@@ -121,6 +32,120 @@
   },
   {
     "category": "school",
+    "title": "KuroNeko: Journey in Another World",
+    "description": "A 2D Cat-Themed desktop game featuring custom gameplay mechanics, input handling, and object-oriented architecture.",
+    "mediaType": "image",
+    "mediaSource": [
+      "main-res/projects/kuroneko.png"
+    ],
+    "liveLink": "",
+    "techStack": [
+      "Java",
+      "Java Swing",
+      "OOP"
+    ]
+  },
+  {
+    "category": "school",
+    "title": "AIB - Border App",
+    "description": "Study on interface boundaries and visual hierarchy.",
+    "mediaType": "iframe",
+    "mediaSource": [
+      "schoolProjects/A03/index.html"
+    ],
+    "liveLink": "schoolProjects/A03/index.html",
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Bootstrap"
+    ]
+  },
+  {
+    "category": "school",
+    "title": "PhotoGallery Page V2",
+    "description": "Interactive gallery showcasing visual assets with responsive grid layouts.",
+    "mediaType": "iframe",
+    "mediaSource": [
+      "schoolProjects/photoGallery/index.html"
+    ],
+    "liveLink": "schoolProjects/photoGallery/index.html",
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Bootstrap"
+    ]
+  },
+  {
+    "category": "school",
+    "title": "WordYou Sure? V2",
+    "description": "Utility project exploring user interaction through confirmation prompts.",
+    "mediaType": "iframe",
+    "mediaSource": [
+      "schoolProjects/wordYouSure/index.html"
+    ],
+    "liveLink": "schoolProjects/wordYouSure/index.html",
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Bootstrap",
+      "API Integration"
+    ]
+  },
+  {
+    "category": "school",
+    "title": "Product Page V2",
+    "description": "A refined product information layout focusing on UI/UX and clean presentation.",
+    "mediaType": "iframe",
+    "mediaSource": [
+      "schoolProjects/productInfo/index.html"
+    ],
+    "liveLink": "schoolProjects/productInfo/index.html",
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Bootstrap"
+    ]
+  },
+   {
+    "category": "school",
+    "title": "CatEnFur V2",
+    "description": "Refined feline care system with improved UI/UX and system configuration.",
+    "mediaType": "iframe",
+    "mediaSource": [
+      "schoolProjects/A04/index.html"
+    ],
+    "liveLink": "schoolProjects/A04/index.html",
+    "techStack": [
+      "PHP",
+      "MySQL",
+      "Bootstrap",
+      "HTML5",
+      "CSS3",
+      "JavaScript"
+    ]
+  },
+  {
+    "category": "school",
+    "title": "Meowtivator",
+    "description": "Emerging technology tool designed for motivation and interactive engagement.",
+    "mediaType": "iframe",
+    "mediaSource": [
+      "schoolProjects/A07/index.html"
+    ],
+    "liveLink": "schoolProjects/A07/index.html",
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Bootstrap"
+    ]
+  },
+  {
+    "category": "school",
     "title": "IcommunaPh",
     "description": "A Community Event Discovery and Management Website integrating modern framework solutions.",
     "mediaType": "image",
@@ -129,23 +154,60 @@
     ],
     "liveLink": "",
     "techStack": [
+      "HTML5",
+      "CSS3",
       "PHP",
       "MySQL",
-      "Web Development"
+      "JavaScript",
+      "Bootstrap"
     ]
   },
   {
     "category": "school",
     "title": "stbJobs",
-    "description": "A local job-portal connecting opportunities in Santo Tomas, Batangas. Led the full-stack development and earned a 1.00 final grade.",
+    "description": "A local job-portal connecting opportunities in Santo Tomas, Batangas. Led the full-stack development and team coordination, resulting in a platform recognized for its community impact and user-friendly design.",
     "mediaType": "image",
     "mediaSource": [
       "main-res/projects/stbjobs.png"
     ],
     "liveLink": "schoolProjects/stbJobs/index.html",
     "techStack": [
+      "HTML5",
+      "CSS3",
       "PHP",
       "MySQL",
+      "JavaScript",
+      "Bootstrap"
+    ]
+  },
+  {
+    "category": "school",
+    "title": "ArcaneLog Page",
+    "description": "A specialized interface for log tracking and data visualization.",
+    "mediaType": "iframe",
+    "mediaSource": [
+      "schoolProjects/arcaneLog/index.html"
+    ],
+    "liveLink": "schoolProjects/arcaneLog/index.html",
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Bootstrap"
+    ]
+  },
+  {
+    "category": "school",
+    "title": "PlaceHub Page V2",
+    "description": "A web-based platform designed for location discovery and community interaction.",
+    "mediaType": "iframe",
+    "mediaSource": [
+      "schoolProjects/placeHub/index.html"
+    ],
+    "liveLink": "schoolProjects/placeHub/index.html",
+    "techStack": [
+      "HTML5",
+      "CSS3",
       "JavaScript",
       "Bootstrap"
     ]
@@ -161,12 +223,14 @@
     "liveLink": "schoolProjects/A01/index.html",
     "techStack": [
       "HTML5",
-      "CSS3"
+      "CSS3",
+      "JavaScript",
+      "Bootstrap"
     ]
   },
   {
     "category": "school",
-    "title": "A02 - AniMania",
+    "title": "AniMania",
     "description": "Backend logic exploration using PHP and dynamic data retrieval.",
     "mediaType": "iframe",
     "mediaSource": [
@@ -176,26 +240,15 @@
     "techStack": [
       "PHP",
       "MySQL",
-      "HTML5"
-    ]
-  },
-  {
-    "category": "school",
-    "title": "A03 - Border App",
-    "description": "Study on interface boundaries and visual hierarchy.",
-    "mediaType": "iframe",
-    "mediaSource": [
-      "schoolProjects/A03/index.html"
-    ],
-    "liveLink": "schoolProjects/A03/index.html",
-    "techStack": [
       "HTML5",
-      "CSS3"
+      "CSS3",
+      "JavaScript",
+      "Bootstrap"
     ]
   },
   {
     "category": "personal",
-    "title": "A04 - CatEnFur Beta",
+    "title": "CatEnFur Beta",
     "description": "Initial beta version of the feline care management system.",
     "mediaType": "iframe",
     "mediaSource": [
@@ -205,35 +258,7 @@
     "techStack": [
       "PHP",
       "MySQL",
-      "Bootstrap"
-    ]
-  },
-  {
-    "category": "school",
-    "title": "A04 - CatEnFur V2",
-    "description": "Refined feline care system with improved UI/UX and system configuration.",
-    "mediaType": "iframe",
-    "mediaSource": [
-      "schoolProjects/A04/index.html"
-    ],
-    "liveLink": "schoolProjects/A04/index.html",
-    "techStack": [
-      "PHP",
-      "MySQL",
-      "JavaScript",
-      "Bootstrap"
-    ]
-  },
-  {
-    "category": "school",
-    "title": "A05 - Meowtivator",
-    "description": "Emerging technology tool designed for motivation and interactive engagement.",
-    "mediaType": "iframe",
-    "mediaSource": [
-      "schoolProjects/A07/index.html"
-    ],
-    "liveLink": "schoolProjects/A07/index.html",
-    "techStack": [
+      "Bootstrap",
       "HTML5",
       "CSS3",
       "JavaScript"
@@ -249,12 +274,15 @@
     ],
     "liveLink": "",
     "techStack": [
+      "HTML5",
+      "CSS3",
       "PHP",
       "MySQL",
       "JavaScript",
       "Bootstrap",
-      "AJAX",
       "ChatGPT API",
+      "FPDF",
+      "ChartJS",
       "AI Video Generation"
     ]
   },
@@ -268,10 +296,12 @@
     ],
     "liveLink": "",
     "techStack": [
+      "HTML5",
+      "CSS3",
       "PHP",
       "JavaScript",
       "MySQL",
-      "AJAX"
+      "Bootstrap"
     ]
   },
   {
@@ -279,12 +309,13 @@
     "title": "Material Navigator",
     "description": "Internal tracking system designed to streamline factory material routing and location.",
     "mediaType": "image",
-    "mediaSource": [
-     
-    ],
+    "mediaSource": [],
     "liveLink": "",
     "techStack": [
+      "HTML5",
+      "CSS3",
       "PHP",
+      "JavaScript",
       "MySQL",
       "Bootstrap"
     ]
@@ -294,14 +325,15 @@
     "title": "Maintenance Checksheet System",
     "description": "Digitized QA protocol incorporating 5S and Hou-Ren-Sou methodologies for machine diagnostics.",
     "mediaType": "image",
-    "mediaSource": [
-
-    ],
+    "mediaSource": [],
     "liveLink": "",
     "techStack": [
+      "HTML5",
+      "CSS3",
       "PHP",
+      "JavaScript",
       "MySQL",
-      "JavaScript"
+      "Bootstrap"
     ]
   }
 ]

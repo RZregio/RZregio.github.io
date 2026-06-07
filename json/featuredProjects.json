@@ -41,7 +41,7 @@
       "JavaScript",
       "Bootstrap"
     ],
-    "projectContext": "A full-stack local job-portal connecting opportunities in Santo Tomas, Batangas. Recognized for strong leadership and earned a perfect 1.00 final grade.",
+    "projectContext": "A full-stack local job-portal connecting opportunities in Santo Tomas, Batangas. Recognized for strong leadership and the team's dedication to community impact.",
     "previewImageUrl": "main-res/projects/stbjobs.png",
     "projectLinkUrl": ""
   },
@@ -53,7 +53,8 @@
       "CSS3",
       "PHP",
       "MySQL",
-      "JavaScript"
+      "JavaScript",
+      "Bootstrap"
     ],
     "projectContext": "A Community Event Discovery and Management Website integrating modern framework solutions and scalable database architecture.",
     "previewImageUrl": "main-res/projects/iCommuna.png",

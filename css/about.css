@@ -6,7 +6,7 @@
 /* --- Header Visual Placeholder --- */
 .visual-placeholder {
     background: linear-gradient(rgba(11, 17, 32, 0.2), rgba(11, 17, 32, 0.8)),
-        url('../main-res/aboutMe.png') !important;
+        url('../main-res/aboutMe.jpg') !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;

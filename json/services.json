@@ -3,22 +3,22 @@
     "serviceTitle": "Web Development",
     "serviceDescription": "Building responsive, dynamic, and user-centric websites using modern frontend frameworks and backend logic.",
     "iconClass": "bi-laptop",
-    "notableExperience": "Architected complex systems like 'Arkteach' during my internship, and developed full-stack academic platforms such as the STBJobs portal, which earned a perfect 1.00 final grade.",
-    "experienceText": "2 Years Experience"
+    "notableExperience": "Architected complex systems like 'Arkteach' during my internship, and developed full-stack academic platforms such as the STBJobs portal",
+    "experienceText": "4 Years Experience"
   },
   {
     "serviceTitle": "Quality Assurance & Testing",
     "serviceDescription": "Ensuring software reliability through rigorous evaluation, bug tracking, and performance monitoring.",
     "iconClass": "bi-patch-check",
-    "notableExperience": "Integrated industrial 5S standards into Arktech's systems, and rigorously evaluated the LANDAS capstone project to achieve ISO/IEC 25010 compliance and a 4.75/5 user satisfaction rating.",
-    "experienceText": "2 Years Experience"
+    "notableExperience": "Integrated industrial coding standards into Arktech's systems, and rigorously evaluated the LANDAS capstone project to achieve ISO/IEC 25010 compliance and a 4.75/5 user satisfaction rating.",
+    "experienceText": "4 Years Experience"
   },
   {
     "serviceTitle": "Project Management",
     "serviceDescription": "Structuring project lifecycles, managing timelines, storyboarding, and leading team coordination.",
     "iconClass": "bi-kanban",
     "notableExperience": "Directed the LANDAS project lifecycle, yielding a 9.8% increase in user learning metrics. Managed server migrations and pitched technical solutions to executive leadership at Arktech.",
-    "experienceText": "2 Years Experience"
+    "experienceText": "8 Years Experience"
   },
   {
     "serviceTitle": "Data Administration",

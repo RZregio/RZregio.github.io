@@ -178,5 +178,50 @@
     "linkUrl": "https://www.netacad.com/",
     "experienceText": "1 Year Experience",
     "iconClass": "bi-router-fill"
+  },
+  {
+    "category": "tools",
+    "title": "Microsoft Office Suite",
+    "description": "Proficiency in Word, Excel, PowerPoint, and Outlook for professional documentation and data productivity.",
+    "stars": 5,
+    "linkUrl": "https://www.microsoft.com/microsoft-365",
+    "experienceText": "8 Years Experience",
+    "iconClass": "bi-microsoft"
+  },
+  {
+    "category": "tools",
+    "title": "VSDC Video Editor",
+    "description": "Non-linear video editing used for creating high-quality project demos and visual documentation.",
+    "stars": 4,
+    "linkUrl": "https://www.videosoftdev.com/",
+    "experienceText": "3 Years Experience",
+    "iconClass": "bi-film"
+  },
+  {
+    "category": "tools",
+    "title": "Salesforce",
+    "description": "CRM platform management, process automation, and data handling for streamlined business workflows.",
+    "stars": 3,
+    "linkUrl": "https://www.salesforce.com/",
+    "experienceText": "1 Year Experience",
+    "iconClass": "bi-cloud-fill"
+  },
+  {
+    "category": "tools",
+    "title": "WordPress",
+    "description": "Content management system used for deploying, maintaining, and customizing websites.",
+    "stars": 3,
+    "linkUrl": "https://wordpress.org/",
+    "experienceText": "1 Year Experience",
+    "iconClass": "bi-wordpress"
+  },
+  {
+    "category": "tools",
+    "title": "Jupyter Notebook",
+    "description": "Interactive computing environment for rapid data analysis and Python prototyping.",
+    "stars": 3,
+    "linkUrl": "https://jupyter.org/",
+    "experienceText": "1 Year Experience",
+    "iconClass": "bi-journal-code"
   }
 ]

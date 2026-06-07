@@ -48,6 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch('json/techStack.json');
             const techData = await response.json();
 
+            // --- SORTING LOGIC ---
+            // Sort by stars descending (b.stars - a.stars)
+            techData.sort((a, b) => b.stars - a.stars);
+
             Object.values(containers).forEach(c => { if (c) c.innerHTML = ''; });
 
             techData.forEach(tech => {
@@ -56,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Check if you added an 'experienceText' field in your JSON, gracefully hide if not
                 const expText = tech.experienceText ? `<p class="small text-warning opacity-75 mb-2"><i class="bi bi-clock-history me-1"></i>${tech.experienceText}</p>` : '';
-
 
                 targetContainer.innerHTML += `
                     <div style="flex: 0 0 calc(33.333% - 14px); min-width: 240px;">
@@ -146,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 listHTML += `
                     <button class="btn btn-custom w-100 mb-lg-3 text-start d-flex justify-content-between align-items-center proj-list-btn interactive-card" 
                             data-idx="${idx}" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.6); transition: 0.3s; border-radius: 12px; padding: 15px;">
-                        <span class="text-nowrap me-2 fw-normal">${proj.title}</span>
+                        <span class="text-nowrap me-2 fw-small">${proj.title}</span>
                         <i class="bi bi-chevron-right opacity-50 indicator-icon d-none d-lg-block"></i>
                     </button>
                 `;
