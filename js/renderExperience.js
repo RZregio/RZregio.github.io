@@ -13,15 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    const generateStars = (rating) => {
-        let starsHTML = '<div class="d-flex mt-auto" style="gap: 4px;">';
-        for (let i = 1; i <= 5; i++) {
-            starsHTML += `<i class="bi ${i <= rating ? 'bi-star-fill text-warning' : 'bi-star text-secondary'}" style="font-size: 0.9rem;"></i>`;
-        }
-        starsHTML += '</div>';
-        return starsHTML;
-    };
-
     function updateTechNavButtons() {
         const activeTab = document.querySelector('.tab-pane.active .tech-slider');
         const prevBtn = document.getElementById('tech-btn-prev');
@@ -48,31 +39,26 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch('json/techStack.json');
             const techData = await response.json();
 
-            // --- SORTING LOGIC ---
-            // Sort by stars descending (b.stars - a.stars)
-            techData.sort((a, b) => b.stars - a.stars);
-
             Object.values(containers).forEach(c => { if (c) c.innerHTML = ''; });
 
             techData.forEach(tech => {
                 const targetContainer = containers[tech.category];
                 if (!targetContainer) return;
 
-                // Check if you added an 'experienceText' field in your JSON, gracefully hide if not
                 const expText = tech.experienceText ? `<p class="small text-warning opacity-75 mb-2"><i class="bi bi-clock-history me-1"></i>${tech.experienceText}</p>` : '';
 
+                // REMOVED Star generation from layout
                 targetContainer.innerHTML += `
-                    <div style="flex: 0 0 calc(33.333% - 14px); min-width: 240px;">
-                        <div class="stack-card d-flex flex-column h-100 text-start" style="padding: 1.25rem;">
+                    <div class="tech-item-wrapper" style="flex: 0 0 calc(33.333% - 14px); min-width: 240px;">
+                        <div class="stack-card interactive-card d-flex flex-column h-100 text-start" style="padding: 1.25rem;">
                             <div class="d-flex justify-content-between align-items-start mb-3">
                                 <i class="bi ${tech.iconClass} text-accent" style="font-size: 2.2rem;"></i>
-                                ${generateStars(tech.stars)}
                             </div>
                             <h5 class="fredoka text-white mb-1">${tech.title}</h5>
                             ${expText}
                             <p class="tiny-text opacity-75 mb-4 flex-grow-1">${tech.description}</p>
                             
-                            <a href="${tech.linkUrl}" target="_blank" class="btn btn-sm btn-outline-warning rounded-pill mt-auto interactive-card w-100" style="border-width: 1px;">
+                            <a href="${tech.linkUrl}" target="_blank" class="btn btn-sm btn-outline-warning rounded-pill mt-auto w-100" style="border-width: 1px;">
                                 <i class="bi bi-box-arrow-up-right me-2"></i>View Official
                             </a>
                         </div>
@@ -81,36 +67,57 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             document.querySelectorAll('.tech-slider').forEach(slider => {
-                // 1. Existing Nav Button Listener
                 slider.addEventListener('scroll', updateTechNavButtons);
 
-                // 2. Count the number of tech cards injected into this slider
                 const techCount = slider.children.length;
 
-                // 3. Only inject dots if there are more than 2 items
-                if (techCount > 2) {
+                // Create Dots based on actual item count
+                if (techCount > 0) {
                     if (!slider.nextElementSibling || !slider.nextElementSibling.classList.contains('mobile-scroll-dots')) {
+                        const dotsHTML = Array(techCount).fill('').map((_, i) => `<div class="dot ${i === 0 ? 'active' : ''}"></div>`).join('');
                         slider.insertAdjacentHTML('afterend', `
                             <div class="mobile-scroll-dots d-mobile-flex mt-3 mb-4">
-                                <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+                                ${dotsHTML}
                             </div>
                         `);
                     }
 
-                    // 4. Attach Scroll Listener to Sync Dots
                     const dotsContainer = slider.nextElementSibling;
                     slider.addEventListener('scroll', () => {
-                        window.updateScrollDots(slider, dotsContainer);
+                        if (window.updateScrollDots) window.updateScrollDots(slider, dotsContainer, techCount);
                     });
 
-                    // 5. Initialize state on load
-                    window.updateScrollDots(slider, dotsContainer);
+                    if (window.updateScrollDots) window.updateScrollDots(slider, dotsContainer, techCount);
+
+                    // Add click-to-center logic for Mobile POV
+                    const items = slider.querySelectorAll('.tech-item-wrapper');
+                    items.forEach((item) => {
+                        item.addEventListener('click', () => {
+                            if (window.innerWidth <= 991) {
+                                const scrollPos = item.offsetLeft - (slider.offsetWidth / 2) + (item.offsetWidth / 2);
+                                slider.scrollTo({ left: scrollPos, behavior: 'smooth' });
+                            }
+                        });
+                    });
                 }
             });
 
             const tabElms = document.querySelectorAll('button[data-bs-toggle="tab"], button[data-bs-toggle="pill"]');
+
+            // The container holding the tabs (which becomes a horizontal scroll row on mobile)
+            const techTabContainer = document.querySelector('.nav-pills.flex-column');
+
             tabElms.forEach(tab => {
-                tab.addEventListener('shown.bs.tab', () => { setTimeout(updateTechNavButtons, 150); });
+                tab.addEventListener('shown.bs.tab', (e) => {
+                    setTimeout(updateTechNavButtons, 150);
+
+                    // --- NEW: Mobile Centering for Tech Stack Tabs ---
+                    if (window.innerWidth <= 991 && techTabContainer) {
+                        const targetTab = e.target;
+                        const scrollPos = targetTab.offsetLeft - (techTabContainer.offsetWidth / 2) + (targetTab.offsetWidth / 2);
+                        techTabContainer.scrollTo({ left: scrollPos, behavior: 'smooth' });
+                    }
+                });
             });
 
             setTimeout(updateTechNavButtons, 200);
@@ -118,95 +125,129 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (e) { console.error("Error loading tech stack:", e); }
     }
 
-    /* ----- Project Filtering & Split-Pane Layout ----- */
+    /* ----- Unified Project Filtering & Split-Pane Layout ----- */
     function renderFilteredProjects() {
         const query = document.getElementById('project-search').value.toLowerCase();
         const techFilter = document.getElementById('tech-stack-filter').value;
-        const categories = ['school', 'personal', 'company', 'other'];
+        const catFilter = document.getElementById('project-category-filter').value;
 
-        const filteredData = globalProjectsData.filter(proj => {
+        // 1. Filter Data
+        let filteredData = globalProjectsData.filter(proj => {
             const matchesSearch = proj.title.toLowerCase().includes(query) ||
                 (proj.techStack && proj.techStack.some(t => t.toLowerCase().includes(query)));
-            const matchesFilter = techFilter === 'all' ||
+
+            const matchesTech = techFilter === 'all' ||
                 (proj.techStack && proj.techStack.some(t => t.includes(techFilter)));
-            return matchesSearch && matchesFilter;
-        });
 
-        categories.forEach(cat => {
-            const pane = document.getElementById(`pane-${cat}`);
-            if (!pane) return;
-
-            const catData = filteredData.filter(p => p.category === cat);
-
-            if (catData.length === 0) {
-                pane.innerHTML = '<p class="text-white w-100 mt-5 text-center">No projects found matching your criteria.</p>';
-                return;
+            let matchesCat = true;
+            if (catFilter === 'important') {
+                matchesCat = proj.value === 'important';
+            } else if (catFilter !== 'all') {
+                matchesCat = proj.category === catFilter;
             }
 
-            // 1. Build the List of Projects
-            let listHTML = '';
-            catData.forEach((proj, idx) => {
-                listHTML += `
-                    <button class="btn btn-custom w-100 mb-lg-3 text-start d-flex justify-content-between align-items-center proj-list-btn interactive-card" 
-                            data-idx="${idx}" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.6); transition: 0.3s; border-radius: 12px; padding: 15px;">
-                        <span class="text-nowrap me-2 fw-small">${proj.title}</span>
-                        <i class="bi bi-chevron-right opacity-50 indicator-icon d-none d-lg-block"></i>
-                    </button>
-                `;
-            });
+            return matchesSearch && matchesTech && matchesCat;
+        });
 
-            // 2. Generate Scroll Hints (Now using sleek dots for mobile)
-            const scrollHintVertical = catData.length > 5 ? `<div class="text-center mt-1 mb-3 small text-warning opacity-75 vertical-scroll-hint"><i class="bi bi-chevron-down mb-1 d-block"></i>Scroll for more</div>` : '';
+        // 2. Sort Data (Important projects at the top)
+        filteredData.sort((a, b) => {
+            const aIsImportant = a.value === 'important' ? 1 : 0;
+            const bIsImportant = b.value === 'important' ? 1 : 0;
+            return bIsImportant - aIsImportant; // Descending
+        });
 
-            // 3. Inject Layout
-            pane.innerHTML = `
-                <div class="row g-4 align-items-stretch">
-                    <div class="col-lg-4">
-                        <div class="project-list-scroll p-2" id="list-${cat}">
-                            ${listHTML}
-                        </div>
-                        ${scrollHintVertical}
+        const pane = document.getElementById('project-content');
+
+        if (filteredData.length === 0) {
+            pane.innerHTML = '<p class="text-white w-100 mt-5 text-center">No projects found matching your criteria.</p>';
+            return;
+        }
+
+        // 3. Build the Unified List of Projects
+        let listHTML = '';
+        filteredData.forEach((proj, idx) => {
+            listHTML += `
+                <button class="btn btn-custom w-100 mb-lg-3 text-start d-flex justify-content-between align-items-center proj-list-btn interactive-card" 
+                        data-idx="${idx}" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.6); transition: 0.3s; border-radius: 12px; padding: 15px;">
+                    <span class="text-nowrap me-2 fw-small d-flex align-items-center">${proj.title}</span>
+                    <i class="bi bi-chevron-right opacity-50 indicator-icon d-none d-lg-block"></i>
+                </button>
+            `;
+        });
+
+        const scrollHintVertical = filteredData.length > 5 ? `<div class="text-center mt-1 mb-3 small text-warning opacity-75 vertical-scroll-hint"><i class="bi bi-chevron-down mb-1 d-block"></i>Scroll for more</div>` : '';
+
+        // 4. Inject Unified Layout
+        pane.innerHTML = `
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-4">
+                    <div class="project-list-scroll p-2" id="unified-list">
+                        ${listHTML}
                     </div>
-                    <div class="col-lg-8">
-                        <div class="card-style p-3 p-lg-4 h-100" id="detail-${cat}">
-                            </div>
+                    <div id="project-mobile-dots" class="mobile-scroll-dots d-mobile-flex mt-2 mb-3"></div>
+                    ${scrollHintVertical}
+                </div>
+                <div class="col-lg-8">
+                    <div class="card-style p-3 p-lg-4 h-100" id="unified-detail">
                     </div>
                 </div>
-            `;
+            </div>
+        `;
 
-            // 4. Attach Listeners to List Buttons
-            const listContainer = document.getElementById(`list-${cat}`);
-            const buttons = listContainer.querySelectorAll('.proj-list-btn');
+        // 5. Attach Listeners and Mobile Center Logic
+        const listContainer = document.getElementById('unified-list');
+        const buttons = listContainer.querySelectorAll('.proj-list-btn');
+        const mobileDotsContainer = document.getElementById('project-mobile-dots');
 
-            const activateButton = (target, index) => {
-                buttons.forEach(b => {
-                    b.style.borderColor = "rgba(255,255,255,0.1)";
-                    b.style.background = "rgba(255,255,255,0.05)";
-                    b.style.color = "rgba(255,255,255,0.6)";
-                    const icon = b.querySelector('.indicator-icon');
-                    if (icon) { icon.classList.replace('bi-check-circle-fill', 'bi-chevron-right'); icon.classList.replace('text-white', 'opacity-50'); }
-                });
-                target.style.borderColor = "var(--accent-yellow)";
-                target.style.background = "rgba(212, 140, 28, 0.1)";
-                target.style.color = "white";
-                const activeIcon = target.querySelector('.indicator-icon');
-                if (activeIcon) { activeIcon.classList.replace('bi-chevron-right', 'bi-check-circle-fill'); activeIcon.classList.replace('opacity-50', 'text-white'); }
+        // Create Project Dots
+        if (filteredData.length > 0) {
+            mobileDotsContainer.innerHTML = filteredData.map((_, i) => `<div class="dot ${i === 0 ? 'active' : ''}"></div>`).join('');
+        }
 
-                renderProjectDetail(catData[index], `detail-${cat}`);
-            };
-
-            buttons.forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    activateButton(e.currentTarget, e.currentTarget.getAttribute('data-idx'));
-                });
+        const activateButton = (target, index) => {
+            buttons.forEach(b => {
+                b.style.borderColor = "rgba(255,255,255,0.1)";
+                b.style.background = "rgba(255,255,255,0.05)";
+                b.style.color = "rgba(255,255,255,0.6)";
+                const icon = b.querySelector('.indicator-icon');
+                if (icon) { icon.classList.replace('bi-check-circle-fill', 'bi-chevron-right'); icon.classList.replace('text-white', 'opacity-50'); }
             });
+            target.style.borderColor = "var(--accent-yellow)";
+            target.style.background = "rgba(212, 140, 28, 0.1)";
+            target.style.color = "white";
+            const activeIcon = target.querySelector('.indicator-icon');
+            if (activeIcon) { activeIcon.classList.replace('bi-chevron-right', 'bi-check-circle-fill'); activeIcon.classList.replace('opacity-50', 'text-white'); }
 
-            // Auto-load first project
-            if (buttons.length > 0) activateButton(buttons[0], 0);
+            renderProjectDetail(filteredData[index], 'unified-detail');
+
+            // Sync dots on click manually
+            const dots = mobileDotsContainer.querySelectorAll('.dot');
+            dots.forEach((dot, idx) => dot.classList.toggle('active', idx === parseInt(index)));
+        };
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const idx = e.currentTarget.getAttribute('data-idx');
+                activateButton(e.currentTarget, idx);
+
+                // Mobile Center Logic for Projects
+                if (window.innerWidth <= 991) {
+                    const scrollPos = e.currentTarget.offsetLeft - (listContainer.offsetWidth / 2) + (e.currentTarget.offsetWidth / 2);
+                    listContainer.scrollTo({ left: scrollPos, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Auto-load first project
+        if (buttons.length > 0) activateButton(buttons[0], 0);
+
+        // Track Scrolling for Dots
+        listContainer.addEventListener('scroll', () => {
+            if (window.updateScrollDots) window.updateScrollDots(listContainer, mobileDotsContainer, filteredData.length);
         });
     }
 
-    /* ----- New Split-Pane Detail View Renderer ----- */
+    /* ----- Split-Pane Detail View Renderer ----- */
     function renderProjectDetail(proj, containerId) {
         const container = document.getElementById(containerId);
         if (!container) return;
@@ -240,7 +281,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         ${imgCountHTML}
                     </div>`;
             } else {
-                // Returns the static placeholder instead of the clickable modal trigger
                 mediaHTML = `
                     <div class="w-100 position-relative proj-detail-media image-unavailable-placeholder d-flex flex-column justify-content-center align-items-center" style="background: #101A30; overflow: hidden; border: 2px dashed rgba(255,255,255,0.1); min-height: 250px;">
                         <i class="bi bi-image mb-2" style="font-size: 2.5rem; opacity: 0.5;"></i>
@@ -255,7 +295,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const btnLaunch = proj.liveLink ? `<a href="${proj.liveLink}" target="_blank" class="btn btn-custom btn-explore mt-auto w-100"><i class="bi bi-box-arrow-up-right me-2"></i> Launch Live Preview</a>` : '';
 
-        // Inject 2-column layout inside the details pane
         container.innerHTML = `
             <div class="row g-4 align-items-stretch h-100">
                 <div class="col-lg-6">
@@ -286,9 +325,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const searchInput = document.getElementById('project-search');
             const techFilter = document.getElementById('tech-stack-filter');
+            const catFilter = document.getElementById('project-category-filter'); // Bind new category filter
 
             if (searchInput) searchInput.addEventListener('input', renderFilteredProjects);
             if (techFilter) techFilter.addEventListener('change', renderFilteredProjects);
+            if (catFilter) catFilter.addEventListener('change', renderFilteredProjects);
 
         } catch (e) { console.error("Error loading projects:", e); }
     }

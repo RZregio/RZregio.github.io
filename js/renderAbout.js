@@ -1,16 +1,8 @@
 /* -----
 About Page Dynamic Renderer
-Handles Fun Facts, Career Map (Expandable), and Advanced Recognitions (Responsive Pagination/Sort/Search)
+Handles Fun Facts, Career Map, and Unified Advanced Recognitions Slider
 ----- */
 document.addEventListener('DOMContentLoaded', () => {
-
-    /* --- Global Scroll Helper for Mobile --- */
-    window.scrollRow = function (containerId) {
-        const container = document.getElementById(containerId);
-        if (container) {
-            container.scrollBy({ left: 280, behavior: 'smooth' });
-        }
-    };
 
     /* --- 1. Load Fun Facts --- */
     async function loadFunFacts() {
@@ -20,8 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const res = await fetch('json/funFacts.json');
             const data = await res.json();
             container.innerHTML = data.map(fact => `
-                <div class="col">
-                    <div class="card-style p-3 h-100 text-center">
+                <div class="col interactive-card">
+                    <div class="card-style p-3 h-100 text-center pointer">
                         <div class="fact-icon mb-2"><i class="bi ${fact.iconClass}"></i></div>
                         <p class="fredoka mb-1">${fact.factTitle}</p>
                         <p class="tiny-text opacity-75">${fact.factDescription}</p>
@@ -29,17 +21,42 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `).join('');
 
-            // Inject dots if they don't exist
+            // Inject dots & Handle Click Logic
             if (!document.getElementById('funfacts-dots')) {
+                const dotsHTML = data.map((_, i) => `<div class="dot ${i === 0 ? 'active' : ''}" style="cursor: pointer;"></div>`).join('');
                 container.insertAdjacentHTML('afterend', `
-                    <div id="funfacts-dots" class="mobile-scroll-dots d-mobile-flex mt-3">
-                        <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+                    <div id="funfacts-dots" class="mobile-scroll-dots d-mobile-flex mt-3 flex-wrap">
+                        ${dotsHTML}
                     </div>
                 `);
             }
-            // Add Scroll Listener
+
+            const dotsContainer = document.getElementById('funfacts-dots');
+            const dots = dotsContainer.querySelectorAll('.dot');
+            const cards = container.querySelectorAll('.col');
+
+            // Center on Dot Click
+            dots.forEach((dot, idx) => {
+                dot.addEventListener('click', () => {
+                    const target = cards[idx];
+                    if (target) {
+                        const scrollPos = target.offsetLeft - (container.offsetWidth / 2) + (target.offsetWidth / 2);
+                        container.scrollTo({ left: scrollPos, behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // Center on Card Click
+            cards.forEach((card) => {
+                card.addEventListener('click', () => {
+                    const scrollPos = card.offsetLeft - (container.offsetWidth / 2) + (card.offsetWidth / 2);
+                    container.scrollTo({ left: scrollPos, behavior: 'smooth' });
+                });
+            });
+
+            // Update Dots on Scroll
             container.addEventListener('scroll', () => {
-                window.updateScrollDots(container, document.getElementById('funfacts-dots'));
+                if (window.updateScrollDots) window.updateScrollDots(container, dotsContainer, data.length);
             });
         } catch (e) {
             console.error('Failed to load fun facts:', e);
@@ -58,7 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const displayData = careerExpanded ? fullCareerData : fullCareerData.slice(0, 1);
 
         container.innerHTML = displayData.map(item => {
-            // Check if a custom logo exists, otherwise fallback to the Bootstrap icon
             const visualAssetHTML = item.logoUrl
                 ? `<img src="${item.logoUrl}" alt="${item.title} Logo" class="career-logo">`
                 : `<i class="bi ${item.iconClass || 'bi-briefcase-fill'}"></i>`;
@@ -99,26 +115,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     renderCareer();
                 });
             }
-        } catch (e) {
-            console.error('Failed to load career trail:', e);
-        }
+        } catch (e) { console.error('Failed to load career trail:', e); }
     }
 
-    /* --- 3. Advanced Recognitions Engine (Responsive Pagination) --- */
-    let allCerts = [];
-    let allAwards = [];
 
-    const ITEMS_PER_PAGE = 6;
-    let currentCertsPage = 1;
-    let currentAwardsPage = 1;
-
-    window.changePage = function (type, newPage) {
-        if (type === 'certs') currentCertsPage = newPage;
-        if (type === 'awards') currentAwardsPage = newPage;
-        filterAndSortData();
-        // Scrolls back to the top of the section when clicking a page number
-        document.getElementById('full-recognitions-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    };
+    /* --- 3. Unified Recognitions & Awards Slider --- */
+    let globalRecognitionsData = [];
 
     function parseDateForSort(dateString) {
         if (!dateString) return 0;
@@ -128,160 +130,147 @@ document.addEventListener('DOMContentLoaded', () => {
         return yearMatch ? new Date(yearMatch[0], 0, 1).getTime() : 0;
     }
 
-    function renderRecognitionsCards(dataArray, containerId, page, paginationId, typeString) {
-        const container = document.getElementById(containerId);
-        const paginationContainer = document.getElementById(paginationId);
+    function renderFilteredRecognitions() {
+        const query = document.getElementById('recog-search').value.toLowerCase();
+        const catFilter = document.getElementById('recog-category').value;
+        const sortMode = document.getElementById('recog-sort').value;
 
-        if (!container) return;
+        // Filter Data
+        let filtered = globalRecognitionsData.filter(item => {
+            const title = item.title || item.awardTitle || '';
+            const context = item.context || item.awardContext || '';
 
-        if (dataArray.length === 0) {
-            container.innerHTML = `<div class="col-12 text-center text-white py-5 w-100">No results found matching your criteria.</div>`;
-            if (paginationContainer) paginationContainer.innerHTML = '';
+            const matchesSearch = title.toLowerCase().includes(query) ||
+                context.toLowerCase().includes(query) ||
+                (item.description && item.description.toLowerCase().includes(query));
+
+            // Map implicit categories if they aren't explicitly defined in the JSON
+            const itemCategory = item.category || (item.awardTitle ? 'award' : 'certificate');
+            const matchesCat = catFilter === 'all' || itemCategory === catFilter;
+
+            return matchesSearch && matchesCat;
+        });
+
+        // Sort Data
+        filtered.sort((a, b) => {
+            const titleA = a.title || a.awardTitle || '';
+            const titleB = b.title || b.awardTitle || '';
+            const dateA = a.date || a.awardContext || '';
+            const dateB = b.date || b.awardContext || '';
+
+            if (sortMode === 'top') {
+                const aVal = a.value === 'important' ? 1 : 0;
+                const bVal = b.value === 'important' ? 1 : 0;
+                if (aVal !== bVal) return bVal - aVal; // Push "important" to top
+                return parseDateForSort(dateB) - parseDateForSort(dateA); // Fallback to newest
+            }
+            if (sortMode === 'newest') return parseDateForSort(dateB) - parseDateForSort(dateA);
+            if (sortMode === 'oldest') return parseDateForSort(dateA) - parseDateForSort(dateB);
+            if (sortMode === 'name-asc') return titleA.localeCompare(titleB);
+            if (sortMode === 'name-desc') return titleB.localeCompare(titleA);
+            return 0;
+        });
+
+        const container = document.getElementById('unified-recognitions-container');
+        const dotsContainer = document.getElementById('recognitions-mobile-dots');
+
+        if (filtered.length === 0) {
+            container.innerHTML = `<div class="text-center text-white py-5 w-100">No results found matching your criteria.</div>`;
+            dotsContainer.innerHTML = '';
             return;
         }
 
-        const isDesktop = window.innerWidth > 991;
-        let displayData = dataArray;
-        let totalPages = 1;
+        // Render Slider Content
+        container.innerHTML = filtered.map((item, idx) => {
+            // Normalize property names dynamically based on which JSON file it came from
+            const title = item.title || item.awardTitle || '';
+            const context = item.context || item.awardContext || '';
+            const dateStr = item.date ? ` &bull; ${item.date}` : ''; // Handle if date is merged into context
 
-        if (isDesktop) {
-            totalPages = Math.ceil(dataArray.length / ITEMS_PER_PAGE);
-            if (page > totalPages) page = totalPages;
-            if (page < 1) page = 1;
-
-            const startIndex = (page - 1) * ITEMS_PER_PAGE;
-            displayData = dataArray.slice(startIndex, startIndex + ITEMS_PER_PAGE);
-        }
-
-        container.innerHTML = displayData.map(item => {
             const images = item.images || (item.imageUrl ? [item.imageUrl] : []);
             const primaryImg = images.length > 0 ? images[0] : '';
             const imgCountHTML = images.length > 1 ? `<span class="img-count-badge">+${images.length - 1} Images</span>` : '';
-
-            // This is the crucial update that passes the array to the modal
             const arrayData = encodeURIComponent(JSON.stringify(images));
 
             const imageContainerHTML = primaryImg
                 ? `<div class="recog-img-container">
-                       <img src="${primaryImg}" alt="${item.awardTitle}" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="openImageViewer('${arrayData}')">
+                       <img src="${primaryImg}" alt="${title}" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="if(window.openImageViewer) window.openImageViewer('${arrayData}')">
                        ${imgCountHTML}
                    </div>`
                 : `<div class="recog-img-container recog-no-img"><i class="bi ${item.iconClass || 'bi-award-fill'}"></i></div>`;
 
+            // Note: catBadge (category pill) has been completely removed from the h4 tag below
             return `
-                <div class="col">
-                    <div class="card-style p-3 recog-card">
+                <div class="recog-wrapper interactive-card">
+                    <div class="card-style p-3 recog-card h-100">
                         ${imageContainerHTML}
-                        <h4 class="fredoka fs-5 mb-1">${item.awardTitle}</h4>
-                        <p class="text-accent small fw-bold mb-2">${item.awardContext}</p>
+                        <h4 class="fredoka fs-5 mb-2 d-flex align-items-center flex-wrap">${title}</h4>
+                        <p class="text-accent small fw-bold mb-2">${context}${dateStr}</p>
                         ${item.description ? `<p class="opacity-75 tiny-text mb-0 mt-auto">${item.description}</p>` : ''}
                     </div>
                 </div>
             `;
         }).join('');
 
-        const dotsId = `${typeString}-dots`;
-        let dotsContainer = document.getElementById(dotsId);
+        // Render Dots
+        dotsContainer.innerHTML = filtered.map((_, i) => `<div class="dot ${i === 0 ? 'active' : ''}" style="cursor: pointer;"></div>`).join('');
 
-        // 1. Inject dots if they don't exist
-        if (!dotsContainer) {
-            container.insertAdjacentHTML('afterend', `
-                <div id="${dotsId}" class="mobile-scroll-dots d-lg-none mt-3">
-                    <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
-                </div>
-            `);
-            dotsContainer = document.getElementById(dotsId);
-        }
+        const dots = dotsContainer.querySelectorAll('.dot');
+        const wrappers = container.querySelectorAll('.recog-wrapper');
 
-        // 2. Attach Scroll Listener (Always re-bind to ensure it points to current container)
-        container.onscroll = () => {
-            window.updateScrollDots(container, dotsContainer);
-        };
-
-        // 3. Initialize first state
-        window.updateScrollDots(container, dotsContainer);
-
-        if (paginationContainer) {
-            if (!isDesktop || totalPages <= 1) {
-                paginationContainer.innerHTML = '';
-            } else {
-                let pagHTML = '';
-                pagHTML += `<li class="page-item ${page === 1 ? 'disabled' : ''}">
-                                <button class="page-link" onclick="changePage('${typeString}', ${page - 1})"><i class="bi bi-chevron-left"></i></button>
-                            </li>`;
-                for (let i = 1; i <= totalPages; i++) {
-                    pagHTML += `<li class="page-item ${page === i ? 'active' : ''}">
-                                    <button class="page-link" onclick="changePage('${typeString}', ${i})">${i}</button>
-                                </li>`;
-                }
-                pagHTML += `<li class="page-item ${page === totalPages ? 'disabled' : ''}">
-                                <button class="page-link" onclick="changePage('${typeString}', ${page + 1})"><i class="bi bi-chevron-right"></i></button>
-                            </li>`;
-
-                paginationContainer.innerHTML = pagHTML;
+        // Click Logic (Center Card & Sync Dots)
+        const centerItem = (idx) => {
+            const target = wrappers[idx];
+            if (target) {
+                const scrollPos = target.offsetLeft - (container.offsetWidth / 2) + (target.offsetWidth / 2);
+                container.scrollTo({ left: scrollPos, behavior: 'smooth' });
             }
-        }
-    }
-
-    function filterAndSortData() {
-        const searchInput = document.getElementById('recog-search');
-        const sortSelect = document.getElementById('recog-sort');
-        const query = searchInput ? searchInput.value.toLowerCase() : '';
-        const sortMode = sortSelect ? sortSelect.value : 'newest';
-
-        const processList = (list) => {
-            let processed = list.filter(item =>
-                (item.awardTitle && item.awardTitle.toLowerCase().includes(query)) ||
-                (item.awardContext && item.awardContext.toLowerCase().includes(query)) ||
-                (item.description && item.description.toLowerCase().includes(query))
-            );
-
-            processed.sort((a, b) => {
-                if (sortMode === 'newest') return parseDateForSort(b.awardContext) - parseDateForSort(a.awardContext);
-                if (sortMode === 'oldest') return parseDateForSort(a.awardContext) - parseDateForSort(b.awardContext);
-                if (sortMode === 'name-asc') return (a.awardTitle || '').localeCompare(b.awardTitle || '');
-                if (sortMode === 'name-desc') return (b.awardTitle || '').localeCompare(a.awardTitle || '');
-                return 0;
-            });
-            return processed;
         };
 
-        renderRecognitionsCards(processList(allCerts), 'full-certs-container', currentCertsPage, 'certs-pagination', 'certs');
-        renderRecognitionsCards(processList(allAwards), 'full-awards-container', currentAwardsPage, 'awards-pagination', 'awards');
-    }
+        dots.forEach((dot, idx) => {
+            dot.addEventListener('click', () => centerItem(idx));
+        });
 
-    function handleFiltersChanged() {
-        currentCertsPage = 1;
-        currentAwardsPage = 1;
-        filterAndSortData();
+        wrappers.forEach((wrap, idx) => {
+            wrap.addEventListener('click', () => centerItem(idx));
+        });
+
+        // Scroll Tracking for Dots
+        container.onscroll = () => {
+            if (window.updateScrollDots) window.updateScrollDots(container, dotsContainer, filtered.length);
+        };
+        if (window.updateScrollDots) window.updateScrollDots(container, dotsContainer, filtered.length);
     }
 
     async function loadRecognitionsData() {
         try {
+            // Fetch BOTH JSON files concurrently instead of looking for a single recognitions.json
             const [certsRes, awardsRes] = await Promise.all([
                 fetch('json/certificationsWorkshops.json'),
                 fetch('json/affiliationsAwards.json')
             ]);
 
-            allCerts = await certsRes.json();
-            allAwards = await awardsRes.json();
+            const certsData = await certsRes.json();
+            const awardsData = await awardsRes.json();
 
-            filterAndSortData();
+            // Safely tag them with categories for the dropdown filter, then merge them into one array
+            const taggedCerts = certsData.map(item => ({ ...item, category: 'certificate' }));
+            const taggedAwards = awardsData.map(item => ({ ...item, category: 'award' }));
+
+            globalRecognitionsData = [...taggedCerts, ...taggedAwards];
+
+            renderFilteredRecognitions();
 
             const searchInput = document.getElementById('recog-search');
+            const catFilter = document.getElementById('recog-category');
             const sortSelect = document.getElementById('recog-sort');
 
-            if (searchInput) searchInput.addEventListener('input', handleFiltersChanged);
-            if (sortSelect) sortSelect.addEventListener('change', handleFiltersChanged);
-
-            let resizeTimer;
-            window.addEventListener('resize', () => {
-                clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(filterAndSortData, 150);
-            });
+            if (searchInput) searchInput.addEventListener('input', renderFilteredRecognitions);
+            if (catFilter) catFilter.addEventListener('change', renderFilteredRecognitions);
+            if (sortSelect) sortSelect.addEventListener('change', renderFilteredRecognitions);
 
         } catch (e) {
-            console.error('Failed to load recognitions data:', e);
+            console.error('Failed to load recognitions and awards data:', e);
         }
     }
 

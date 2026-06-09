@@ -282,6 +282,32 @@ select.custom-input:focus {
     color: #ffffff !important;
 }
 
+/* --- Recognitions Unified Slider --- */
+.recognitions-slider {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 20px;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 10px;
+}
+
+.recognitions-slider::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.recognitions-slider .recog-wrapper {
+    flex: 0 0 320px; /* Fixed card width for slider */
+    max-width: 85vw; /* Prevents overflow on very small phones */
+}
+
+/* Make Fun Facts wrapper strictly flex */
+.fun-facts-scrollable .col {
+    cursor: pointer;
+}
+
 /* --- Mobile Horizontal Grid Overrides --- */
 @media (max-width: 991px) {
 

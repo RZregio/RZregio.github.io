@@ -21,6 +21,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // Target all elements with the animation class
     const animatedElements = document.querySelectorAll('.animate-on-scroll');
     animatedElements.forEach(el => animationObserver.observe(el));
+
+    // --- Image Modal Toggle Controls ---
+    const imgTarget = document.getElementById('fullscreen-image-target');
+    if (imgTarget) {
+        imgTarget.addEventListener('click', () => {
+            controlsVisible = !controlsVisible;
+            updateViewerControls();
+        });
+        imgTarget.style.cursor = 'pointer';
+    }
+
+    // Reset controls visibility whenever the modal is reopened
+    const viewerModalEl = document.getElementById('imageViewerModal');
+    if (viewerModalEl) {
+        viewerModalEl.addEventListener('show.bs.modal', () => {
+            controlsVisible = true;
+        });
+    }
 });
 
 // 2. Hide Loading Spinner on Window Load (Ensures all images/iframes are ready)
@@ -38,6 +56,7 @@ window.addEventListener('load', () => {
    ========================================= */
 let currentGalleryImages = [];
 let currentImageIndex = 0;
+let controlsVisible = true;
 
 // Sleek Base64 SVG Fallback for broken/missing images
 const FALLBACK_IMAGE = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='100%25' height='100%25' fill='%23131B2E'/%3E%3Cpath d='M150 100l30-30 40 40 30-20 40 40V200H150z' fill='none' stroke='%23D48C1C' stroke-width='2' stroke-linejoin='round'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='18' fill='%23ffffff80'%3ENot Available%3C/text%3E%3C/svg%3E";
@@ -154,45 +173,49 @@ window.navigateViewer = function (direction) {
 function updateViewerControls() {
     const prevBtn = document.getElementById('viewer-prev');
     const nextBtn = document.getElementById('viewer-next');
+    const dotsContainer = document.getElementById('viewer-dots');
+    const closeBtn = document.querySelector('#imageViewerModal .btn-close');
 
     if (!prevBtn || !nextBtn) return;
 
     if (currentGalleryImages.length <= 1) {
         prevBtn.style.display = 'none';
         nextBtn.style.display = 'none';
-        return;
+        if (dotsContainer) dotsContainer.style.display = 'none';
+    } else {
+        prevBtn.style.display = controlsVisible ? 'flex' : 'none';
+        nextBtn.style.display = controlsVisible ? 'flex' : 'none';
+        if (dotsContainer) dotsContainer.style.display = controlsVisible ? 'flex' : 'none';
     }
 
-    prevBtn.style.display = 'flex';
-    nextBtn.style.display = 'flex';
+    // FIX: Override the CSS !important rule using setProperty
+    if (closeBtn) {
+        if (controlsVisible) {
+            closeBtn.style.setProperty('opacity', '1', 'important');
+            closeBtn.style.pointerEvents = 'auto';
+        } else {
+            closeBtn.style.setProperty('opacity', '0', 'important');
+            closeBtn.style.pointerEvents = 'none';
+        }
+    }
 }
 
-// Helper to update 3-dot indicators based on scroll position
-window.updateScrollDots = function (container, dotsContainer) {
-    if (!container || !dotsContainer) return;
+// Helper to update dynamic indicators based on scroll position percentage
+window.updateScrollDots = function (container, dotsContainer, itemsCount) {
+    if (!container || !dotsContainer || itemsCount <= 1) return;
 
     const dots = dotsContainer.querySelectorAll('.dot');
     const scrollLeft = container.scrollLeft;
     const maxScroll = container.scrollWidth - container.clientWidth;
 
-    let activeIndex = 0;
+    if (maxScroll <= 0) return;
 
-    // Threshold: if content isn't scrollable, everything is at the start
-    if (maxScroll <= 10) {
-        activeIndex = 0;
-    }
-    // At Start
-    else if (scrollLeft <= 10) {
-        activeIndex = 0;
-    }
-    // At End
-    else if (scrollLeft >= maxScroll - 10) {
-        activeIndex = 2;
-    }
-    // Somewhere in the middle
-    else {
-        activeIndex = 1;
-    }
+    // Calculate current index percentage 
+    let activeIndex = Math.round((scrollLeft / maxScroll) * (itemsCount - 1));
+
+    // Fallback clamps
+    if (activeIndex < 0) activeIndex = 0;
+    if (activeIndex >= itemsCount) activeIndex = itemsCount - 1;
 
     dots.forEach((dot, idx) => dot.classList.toggle('active', idx === activeIndex));
 };

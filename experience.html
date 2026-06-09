@@ -12,8 +12,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-  <link rel="stylesheet" href="css/navFoot.css?v=2.0.4.3.1">
-  <link rel="stylesheet" href="css/experience.css?v=2.0.4.3.1">
+  <link rel="stylesheet" href="css/navFoot.css?v=2.0">
+  <link rel="stylesheet" href="css/experience.css?v=2.0">
 </head>
 
 <body>
@@ -97,22 +97,32 @@
         </div>
     </section>
 
-    <section class="container py-5 mb-5 animate-on-scroll delay-1"
+    <section class="container py-5 mb-5 animate-on-scroll delay-1 dark-container"
       style="background: rgba(0,0,0,0.2); border-radius: 20px;">
       <div class="text-left mb-4 p-3">
         <h2 class="name-title border-0 text-center mx-auto d-inline-block">My <span>Projects</span></h2>
         <p class="opacity-75 tiny-text">Browse through my academic, personal, and professional repositories.</p>
       </div>
 
-      <!-- Advanced Search and Filter Section -->
-      <div class="d-flex flex-column flex-sm-row gap-3 mb-4 w-100 justify-content-center px-3">
-        <div class="input-group" style="max-width: 400px;">
-          <span class="input-group-text bg-dark border-secondary text-accent"><i class="bi bi-search"></i></span>
+      <div class="d-flex flex-row gap-2 mb-4 w-100 justify-content-center px-3 align-items-center flex-wrap">
+        <div class="input-group" style="flex: 1 1 300px; max-width: 400px; min-width: 250px;">
+          <span class="input-group-text bg-dark border-secondary text-accent px-2"><i class="bi bi-search"></i></span>
           <input type="text" id="project-search" class="form-control custom-input bg-dark text-white border-secondary"
-            placeholder="Search project or tech...">
+            placeholder="Search project...">
         </div>
+
+        <select id="project-category-filter" class="form-select custom-input bg-dark text-white border-secondary"
+          style="flex: 1 1 140px; max-width: 180px;">
+          <option value="all">All Categories</option>
+          <option value="important">Top Projects</option>
+          <option value="school">School</option>
+          <option value="personal">Personal</option>
+          <option value="company">Company</option>
+          <option value="other">Other</option>
+        </select>
+
         <select id="tech-stack-filter" class="form-select custom-input bg-dark text-white border-secondary"
-          style="max-width: 200px;">
+          style="flex: 1 1 140px; max-width: 180px;">
           <option value="all">All Tech Stacks</option>
           <option value="PHP">PHP</option>
           <option value="JavaScript">JavaScript</option>
@@ -123,22 +133,7 @@
         </select>
       </div>
 
-      <!-- Project Category Tabs -->
-      <ul class="nav custom-nav-tabs justify-content-center mb-3" role="tablist">
-        <li class="nav-item" role="presentation"><button class="nav-link active fredoka" data-bs-toggle="tab"
-            data-bs-target="#pane-school" type="button" role="tab">School Projects</button></li>
-        <li class="nav-item" role="presentation"><button class="nav-link fredoka" data-bs-toggle="tab"
-            data-bs-target="#pane-personal" type="button" role="tab">Personal</button></li>
-        <li class="nav-item" role="presentation"><button class="nav-link fredoka" data-bs-toggle="tab"
-            data-bs-target="#pane-company" type="button" role="tab">Company</button></li>
-        <li class="nav-item" role="presentation"><button class="nav-link fredoka" data-bs-toggle="tab"
-            data-bs-target="#pane-other" type="button" role="tab">Other</button></li>
-      </ul>
-      <div class="tab-content px-lg-4 pb-4" id="project-content">
-        <div class="tab-pane fade show active" id="pane-school" role="tabpanel"></div>
-        <div class="tab-pane fade" id="pane-personal" role="tabpanel"></div>
-        <div class="tab-pane fade" id="pane-company" role="tabpanel"></div>
-        <div class="tab-pane fade" id="pane-other" role="tabpanel"></div>
+      <div class="px-3 px-lg-4 pb-4" id="project-content">
       </div>
     </section>
 
@@ -206,9 +201,9 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/slider.js?v=2.0.4.3.1"></script>
-  <script src="js/globalUI.js?v=2.0.4.3.1"></script>
-  <script src="js/renderExperience.js?v=2.0.4.3.1"></script>
+  <script src="js/slider.js?v=2.0"></script>
+  <script src="js/globalUI.js?v=2.0"></script>
+  <script src="js/renderExperience.js?v=2.0"></script>
 </body>
 
 </html>

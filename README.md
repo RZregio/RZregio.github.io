@@ -81,7 +81,6 @@ Problem-solving • Communication • Project Management • Leadership • Team
   <li>Built the system using <b>HTML, CSS, JavaScript, PHP, MySQL, and Bootstrap</b></li>
   <li>Handled full-stack development including database design, backend logic, and UI pages</li>
   <li>Led system documentation, development flow, and team coordination</li>
-  <li>Earned a <b>1.00 final grade</b>, with panel validation of core functionalities</li>
 </ul>
 
 <hr>

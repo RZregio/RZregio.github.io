@@ -11,7 +11,7 @@
 
 .profile-img {
     width: 100%;
-    border-radius: 50px;
+    border-radius: 20px;
     border: 4px solid rgba(255, 255, 255, 0.05);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
 }
@@ -86,6 +86,14 @@
     margin-bottom: 35px;
     width: 100%;
     overflow-wrap: break-word;
+}
+
+/* --- 100dvh Section Responsiveness --- */
+.dvh-100-section {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 /* Container for the role to allow 3D rotation */
@@ -373,6 +381,7 @@
         flex: 0 0 auto !important;
         width: auto !important;
         white-space: nowrap;
+        border-radius: 20px;
         margin-bottom: 0 !important;
     }
 
@@ -385,5 +394,30 @@
     #service-details-pane {
         padding-top: 0px !important;
         margin-top: 0px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Hard constrain the image size for mobile */
+    .profile-img-container {
+        width: 200px;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .profile-img {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    /* Socials align centrally next to the image */
+    .social-box {
+        justify-content: center;
+    }
+
+    .social-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 1.1rem;
     }
 }

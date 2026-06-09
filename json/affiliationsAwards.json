@@ -4,6 +4,7 @@
     "awardContext": "PUP Sto. Tomas Campus (June 5, 2026)",
     "description": "Achieved a podium finish by rapidly wireframing, designing, and coding an agile software prototype under strict competitive time constraints.",
     "iconClass": "bi-lightning-charge-fill",
+    "value": "important",
     "images": [
       "main-res/recognitions/byz.jpg",
       "main-res/recognitions/byz2.jpg",
@@ -17,6 +18,7 @@
     "awardContext": "Arktech Philippines (Feb – May 2026)",
     "description": "Recognized for exceptional full-stack contributions during internship, securing a Top 3 rank during the initial training phase and climbing to Top 2 overall across the complete runtime.",
     "iconClass": "bi-star-fill",
+    "value": "important",
     "images": [
       "main-res/recognitions/arktech.png",
       "main-res/recognitions/arktech2.jpg",
@@ -28,6 +30,7 @@
     "awardContext": "PUPSTC BSIT 4th Year (January 2026)",
     "description": "Awarded for outstanding technical excellence, rigorous documentation, and architectural evaluation for the ISO/IEC 25010 compliant capstone game project.",
     "iconClass": "bi-trophy-fill",
+    "value": "important",
     "images": [
       "main-res/recognitions/capstone1.jpg",
       "main-res/recognitions/capstone2.jpg"
@@ -74,6 +77,7 @@
     "awardContext": "PUPSTC Computer Society (2024–2026)",
     "description": "Managed community outreach, social media presence, and technical event communications for the premier IT organization.",
     "iconClass": "bi-megaphone-fill",
+    "value": "important",
     "images": [
       "main-res/recognitions/pro3-1.jpg",
       "main-res/recognitions/pro4-1.jpg"

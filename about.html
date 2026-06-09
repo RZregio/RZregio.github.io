@@ -12,8 +12,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-  <link rel="stylesheet" href="css/navFoot.css?v=2.0.4.3.1">
-  <link rel="stylesheet" href="css/about.css?v=2.0.4.3.1">
+  <link rel="stylesheet" href="css/navFoot.css?v=2.0">
+  <link rel="stylesheet" href="css/about.css?v=2.0">
 </head>
 
 
@@ -55,7 +55,6 @@
     <div class="row align-items-center mb-5 gy-4 position-relative">
       <div class="col-lg-5">
         <div class="visual-placeholder card-style d-flex align-items-end p-3">
-          <h3 class="fredoka fs-5 text-white text-shadow">Building with Purpose.</h3>
         </div>
       </div>
 
@@ -94,18 +93,26 @@
 
     <!-- 4. Advanced Recognitions & Growth Section -->
     <section class="container py-5 mt-4 animate-on-scroll" id="full-recognitions-section">
-      <div class="d-flex flex-column flex-lg-row justify-content-between align-items-left mb-4 gap-3">
+      <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-end mb-4 gap-3">
         <h2 class="fredoka section-title mb-0">Recognitions & <span>Growth</span></h2>
 
-        <!-- Search and Sort Controls -->
-        <div class="d-flex flex-column flex-sm-row gap-2 w-100" style="max-width: 500px;">
-          <div class="input-group">
-            <span class="input-group-text bg-dark border-secondary text-white"><i class="bi bi-search"></i></span>
+        <div class="d-flex flex-row gap-2 w-100 justify-content-lg-end flex-wrap" style="max-width: 700px;">
+          <div class="input-group" style="flex: 1 1 200px; min-width: 200px;">
+            <span class="input-group-text bg-dark border-secondary text-white px-2"><i class="bi bi-search"></i></span>
             <input type="text" id="recog-search" class="form-control custom-input bg-dark text-white border-secondary"
-              placeholder="Search name or date...">
+              placeholder="Search name...">
           </div>
+
+          <select id="recog-category" class="form-select custom-input bg-dark text-white border-secondary"
+            style="flex: 1 1 140px; max-width: 180px;">
+            <option value="all">All Items</option>
+            <option value="certificate">Certificates & Workshops</option>
+            <option value="award">Affiliations & Awards</option>
+          </select>
+
           <select id="recog-sort" class="form-select custom-input bg-dark text-white border-secondary"
-            style="min-width: 160px;">
+            style="flex: 1 1 140px; max-width: 180px;">
+            <option value="top">Top Featured</option>
             <option value="newest">Newest First</option>
             <option value="oldest">Oldest First</option>
             <option value="name-asc">Name (A-Z)</option>
@@ -114,35 +121,10 @@
         </div>
       </div>
 
-      <!-- Categories Tab Row (Uses the same mobile scroll CSS from index) -->
-      <ul class="nav custom-nav-tabs mobile-scroll-tabs justify-content-left mb-4" role="tablist">
-        <li class="nav-item" role="presentation">
-          <button class="nav-link active fredoka" id="all-certs-tab" data-bs-toggle="tab"
-            data-bs-target="#all-certs-pane" type="button" role="tab">Certificates & Workshops</button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button class="nav-link fredoka" id="all-awards-tab" data-bs-toggle="tab" data-bs-target="#all-awards-pane"
-            type="button" role="tab">Affiliations & Awards</button>
-        </li>
-      </ul>
-
-      <!-- Tab Content Grids -->
-      <div class="tab-content position-relative">
-        <div class="tab-pane fade show active" id="all-certs-pane" role="tabpanel">
-          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="full-certs-container"></div>
-
-          <nav aria-label="Certificates pagination" class="mt-5 d-none d-lg-block">
-            <ul class="pagination custom-pagination justify-content-center" id="certs-pagination"></ul>
-          </nav>
+      <div class="position-relative">
+        <div class="recognitions-slider py-3 px-2" id="unified-recognitions-container">
         </div>
-
-        <div class="tab-pane fade" id="all-awards-pane" role="tabpanel">
-          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="full-awards-container"></div>
-
-          <nav aria-label="Awards pagination" class="mt-5 d-none d-lg-block">
-            <ul class="pagination custom-pagination justify-content-center" id="awards-pagination"></ul>
-          </nav>
-        </div>
+        <div id="recognitions-mobile-dots" class="mobile-scroll-dots d-mobile-flex mt-3 mb-4 flex-wrap"></div>
       </div>
     </section>
 
@@ -227,8 +209,8 @@
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
     crossorigin="anonymous"></script>
 
-  <script src="js/globalUI.js?v=2.0.4.3.1"></script>
-  <script src="js/renderAbout.js?v=2.0.4.3.1"></script>
+  <script src="js/globalUI.js?v=2.0"></script>
+  <script src="js/renderAbout.js?v=2.0"></script>
 </body>
 
 </html>

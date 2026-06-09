@@ -1,9 +1,26 @@
 [
   {
     "category": "school",
+    "title": "Landas (Capstone)",
+    "description": "2D mobile Android Game on Philippine history and culture. Achieved ISO/IEC 25010 compliance across 8 metrics and a 4.75/5 user satisfaction rating.",
+    "mediaType": "image",
+    "value": "important",
+    "mediaSource": [
+      "main-res/projects/landas.png"
+    ],
+    "liveLink": "https://landas2d.github.io/",
+    "techStack": [
+      "C#",
+      "Unity",
+      "Game Design"
+    ]
+  },
+  {
+    "category": "school",
     "title": "StillLife Parallax V2",
     "description": "Advanced UI project utilizing CSS parallax techniques.",
     "mediaType": "iframe",
+    "value": "important",
     "mediaSource": [
       "schoolProjects/stillLifeParallax/index.html"
     ],
@@ -13,21 +30,6 @@
       "CSS3",
       "JavaScript",
       "Bootstrap"
-    ]
-  },
-  {
-    "category": "school",
-    "title": "Landas (Capstone)",
-    "description": "2D mobile Android Game on Philippine history and culture. Achieved ISO/IEC 25010 compliance across 8 metrics and a 4.75/5 user satisfaction rating.",
-    "mediaType": "image",
-    "mediaSource": [
-      "main-res/projects/landas.png"
-    ],
-    "liveLink": "https://landas2d.github.io/",
-    "techStack": [
-      "C#",
-      "Unity",
-      "Game Design"
     ]
   },
   {
@@ -110,7 +112,7 @@
       "Bootstrap"
     ]
   },
-   {
+  {
     "category": "school",
     "title": "CatEnFur V2",
     "description": "Refined feline care system with improved UI/UX and system configuration.",
@@ -269,6 +271,7 @@
     "title": "Arkteach",
     "description": "Educational training platform with tutorial progression, quizzes, and analytics tracking.",
     "mediaType": "image",
+    "value": "important",
     "mediaSource": [
       "main-res/projects/arkteach.png"
     ],

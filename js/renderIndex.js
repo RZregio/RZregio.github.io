@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const fetchResponse = await fetch('json/services.json');
             const servicesDataList = await fetchResponse.json();
+            const totalServiceCount = servicesDataList.length;
 
             // Render Timeline UI
             timelineContainer.innerHTML = servicesDataList.map((service, index) => `
@@ -40,60 +41,52 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Set Default
-            if (servicesDataList.length > 0) updateServiceDetails(0);
+            if (totalServiceCount > 0) updateServiceDetails(0);
 
-            // FIX: Use Event Delegation + Sync Dots
-            timelineContainer.onclick = (e) => {
-                const clickedItem = e.target.closest('.timeline-item');
-                if (!clickedItem) return;
-
-                // 1. Clear active states from timeline items
-                timelineContainer.querySelectorAll('.timeline-item').forEach(n => n.classList.remove('active'));
-
-                // 2. Set new active state
-                clickedItem.classList.add('active');
-
-                // 3. Update the details pane
-                const index = clickedItem.getAttribute('data-index');
-                updateServiceDetails(index);
-
-                // 4. SYNC DOTS: Determine which dot to activate (Start, Middle, or End)
-                const mobileDots = document.getElementById('service-mobile-dots');
-                if (mobileDots) {
-                    const dots = mobileDots.querySelectorAll('.dot');
-                    const totalServices = servicesDataList.length;
-                    const currentIndex = parseInt(index);
-
-                    let dotToActivate = 0; // Default to first
-
-                    if (currentIndex === 0) {
-                        dotToActivate = 0; // Start
-                    } else if (currentIndex === totalServices - 1) {
-                        dotToActivate = 2; // End
-                    } else {
-                        dotToActivate = 1; // Middle
-                    }
-
-                    dots.forEach((dot, idx) => {
-                        dot.classList.toggle('active', idx === dotToActivate);
-                    });
-                }
-            };
-
-            // Inject mobile dots
+            // Inject mobile dots scaled precisely to the data length
             if (!document.getElementById('service-mobile-dots')) {
+                const $serviceDotsHTML = servicesDataList.map((_, idx) => `<div class="dot ${idx === 0 ? 'active' : ''}"></div>`).join('');
+
                 timelineContainer.insertAdjacentHTML('afterend', `
                     <div id="service-mobile-dots" class="mobile-scroll-dots d-mobile-flex mt-3">
-                        <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+                        ${$serviceDotsHTML}
                     </div>
                 `);
             }
 
-            // --- ADD THIS SCROLL LISTENER HERE ---
-            const mobileDots = document.getElementById('service-mobile-dots');
+            // Click Event Delegation
+            timelineContainer.onclick = (e) => {
+                const clickedItem = e.target.closest('.timeline-item');
+                if (!clickedItem) return;
+
+                timelineContainer.querySelectorAll('.timeline-item').forEach(n => n.classList.remove('active'));
+                clickedItem.classList.add('active');
+
+                const index = parseInt(clickedItem.getAttribute('data-index'));
+                updateServiceDetails(index);
+
+                // --- NEW LOGIC: Center clicked item on mobile ---
+                if (window.innerWidth <= 991) {
+                    const containerRect = timelineContainer.getBoundingClientRect();
+                    const itemRect = clickedItem.getBoundingClientRect();
+                    const offset = itemRect.left - containerRect.left - (containerRect.width / 2) + (itemRect.width / 2);
+                    timelineContainer.scrollBy({ left: offset, behavior: 'smooth' });
+                }
+
+                // Sync clicked item to dots
+                const mobileDots = document.getElementById('service-mobile-dots');
+                if (mobileDots) {
+                    const dots = mobileDots.querySelectorAll('.dot');
+                    dots.forEach((dot, idx) => dot.classList.toggle('active', idx === index));
+                }
+            };
+
+            // ADD SCROLL LISTENER 
+            const mobileDotsContainer = document.getElementById('service-mobile-dots');
             timelineContainer.addEventListener('scroll', () => {
-                window.updateScrollDots(timelineContainer, mobileDots);
+                window.updateScrollDots(timelineContainer, mobileDotsContainer, totalServiceCount);
             });
+
         } catch (error) {
             console.error('Failed to load services:', error);
         }
@@ -223,6 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const certDetailsCard = document.getElementById('cert-details-card');
         const awardDetailsCard = document.getElementById('award-details-card');
 
+        // ... highlightActiveButton function remains the same ...
         const highlightActiveButton = (container, activeIndex) => {
             container.querySelectorAll('button').forEach((btn, idx) => {
                 const icon = btn.querySelector('.indicator-icon');
@@ -263,6 +257,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 </button>
                 `).join('');
 
+                // Inject mobile dots scaled precisely to the data length
+                if (!document.getElementById('cert-mobile-dots')) {
+                    const $certDotsHTML = certsList.map((_, idx) => `<div class="dot ${idx === 0 ? 'active' : ''}"></div>`).join('');
+                    certButtonsContainer.insertAdjacentHTML('afterend', `
+                        <div id="cert-mobile-dots" class="mobile-scroll-dots d-mobile-flex mt-3 mb-4">
+                            ${$certDotsHTML}
+                        </div>
+                    `);
+                }
+
+                // ... updateCertDisplay function remains the same ...
                 const updateCertDisplay = (index) => {
                     const certData = certsList[index];
                     if (!certData) return;
@@ -305,13 +310,38 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 certButtonsContainer.querySelectorAll('button').forEach(btn => {
-                    btn.addEventListener('mouseenter', (e) => updateCertDisplay(e.currentTarget.getAttribute('data-cert-index')));
-                    btn.addEventListener('mouseleave', () => updateCertDisplay(activeCertIndex));
+                    btn.addEventListener('mouseenter', (e) => {
+                        if (window.innerWidth > 991) updateCertDisplay(e.currentTarget.getAttribute('data-cert-index'));
+                    });
+                    btn.addEventListener('mouseleave', () => {
+                        if (window.innerWidth > 991) updateCertDisplay(activeCertIndex);
+                    });
                     btn.addEventListener('click', (e) => {
                         activeCertIndex = e.currentTarget.getAttribute('data-cert-index');
                         updateCertDisplay(activeCertIndex);
                         highlightActiveButton(certButtonsContainer, activeCertIndex);
+
+                        // --- NEW LOGIC: Center clicked item on mobile ---
+                        if (window.innerWidth <= 991) {
+                            const containerRect = certButtonsContainer.getBoundingClientRect();
+                            const itemRect = e.currentTarget.getBoundingClientRect();
+                            const offset = itemRect.left - containerRect.left - (containerRect.width / 2) + (itemRect.width / 2);
+                            certButtonsContainer.scrollBy({ left: offset, behavior: 'smooth' });
+                        }
+
+                        // Sync clicked item to dots
+                        const mobileDots = document.getElementById('cert-mobile-dots');
+                        if (mobileDots) {
+                            const dots = mobileDots.querySelectorAll('.dot');
+                            dots.forEach((dot, idx) => dot.classList.toggle('active', idx === parseInt(activeCertIndex)));
+                        }
                     });
+                });
+
+                // ADD SCROLL LISTENER 
+                const mobileDotsContainer = document.getElementById('cert-mobile-dots');
+                certButtonsContainer.addEventListener('scroll', () => {
+                    window.updateScrollDots(certButtonsContainer, mobileDotsContainer, certsList.length);
                 });
             }
 
@@ -327,6 +357,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 </button>
                 `).join('');
 
+                // Inject mobile dots scaled precisely to the data length
+                if (!document.getElementById('award-mobile-dots')) {
+                    const $awardDotsHTML = awardsList.map((_, idx) => `<div class="dot ${idx === 0 ? 'active' : ''}"></div>`).join('');
+                    awardButtonsContainer.insertAdjacentHTML('afterend', `
+                        <div id="award-mobile-dots" class="mobile-scroll-dots d-mobile-flex mt-3 mb-4">
+                            ${$awardDotsHTML}
+                        </div>
+                    `);
+                }
+
+
+                // ... updateAwardDisplay function remains the same ...
                 const updateAwardDisplay = (index) => {
                     const awardData = awardsList[index];
                     if (!awardData) return;
@@ -369,13 +411,38 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 awardButtonsContainer.querySelectorAll('button').forEach(btn => {
-                    btn.addEventListener('mouseenter', (e) => updateAwardDisplay(e.currentTarget.getAttribute('data-award-index')));
-                    btn.addEventListener('mouseleave', () => updateAwardDisplay(activeAwardIndex));
+                    btn.addEventListener('mouseenter', (e) => {
+                        if (window.innerWidth > 991) updateAwardDisplay(e.currentTarget.getAttribute('data-award-index'));
+                    });
+                    btn.addEventListener('mouseleave', () => {
+                        if (window.innerWidth > 991) updateAwardDisplay(activeAwardIndex);
+                    });
                     btn.addEventListener('click', (e) => {
                         activeAwardIndex = e.currentTarget.getAttribute('data-award-index');
                         updateAwardDisplay(activeAwardIndex);
                         highlightActiveButton(awardButtonsContainer, activeAwardIndex);
+
+                        // --- NEW LOGIC: Center clicked item on mobile ---
+                        if (window.innerWidth <= 991) {
+                            const containerRect = awardButtonsContainer.getBoundingClientRect();
+                            const itemRect = e.currentTarget.getBoundingClientRect();
+                            const offset = itemRect.left - containerRect.left - (containerRect.width / 2) + (itemRect.width / 2);
+                            awardButtonsContainer.scrollBy({ left: offset, behavior: 'smooth' });
+                        }
+
+                        // Sync clicked item to dots
+                        const mobileDots = document.getElementById('award-mobile-dots');
+                        if (mobileDots) {
+                            const dots = mobileDots.querySelectorAll('.dot');
+                            dots.forEach((dot, idx) => dot.classList.toggle('active', idx === parseInt(activeAwardIndex)));
+                        }
                     });
+                });
+
+                // ADD SCROLL LISTENER 
+                const mobileDotsContainer = document.getElementById('award-mobile-dots');
+                awardButtonsContainer.addEventListener('scroll', () => {
+                    window.updateScrollDots(awardButtonsContainer, mobileDotsContainer, awardsList.length);
                 });
             }
         } catch (networkError) { console.error('Failed to load recognitions data:', networkError); }
