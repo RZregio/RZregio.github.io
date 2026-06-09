@@ -1,6 +1,31 @@
 [
   {
     "category": "award",
+    "title": "Best in Capstone (LANDAS)",
+    "context": "PUPSTC BSIT 4th Year",
+    "date": "January 2026",
+    "description": "Awarded for outstanding technical excellence, rigorous documentation, and architectural evaluation for the ISO/IEC 25010 compliant capstone game project.",
+    "iconClass": "bi-trophy-fill",
+    "images": [
+      "main-res/recognitions/capstone1.jpg",
+      "main-res/recognitions/capstone2.jpg"
+    ]
+  },
+  {
+    "category": "award",
+    "title": "Top Performing OJT Trainee",
+    "context": "Arktech Philippines",
+    "date": "Feb – May 2026",
+    "description": "Recognized for exceptional full-stack contributions during internship, securing a Top 3 rank during the initial training phase and climbing to Top 2 overall across the complete runtime.",
+    "iconClass": "bi-star-fill",
+    "images": [
+      "main-res/recognitions/arktech.png",
+      "main-res/recognitions/arktech2.jpg",
+      "main-res/recognitions/arktech3.png"
+    ]
+  },
+  {
+    "category": "award",
     "title": "Consistent President's Lister",
     "context": "PUPSTC BSIT",
     "date": "2022–Present",
@@ -27,30 +52,6 @@
       "main-res/recognitions/batchVP.jpg"
     ],
     "iconClass": "bi-person-badge-fill"
-  },
-  {
-    "category": "award",
-    "title": "Top 1 - ICT Department",
-    "context": "OLAC Batch 2019",
-    "date": "2019",
-    "description": "Graduated as the highest-ranking student within the ICT department and ranked 6th overall across all departments.",
-    "images": [
-      "main-res/recognitions/olacTop1-1.jpg",
-      "main-res/recognitions/olacTop1-2.jpg",
-      "main-res/recognitions/olacOverall1-1.jpg",
-      "main-res/recognitions/olacOverall1-2.jpg",
-      "main-res/recognitions/top1_ICT-OLAC.png"
-    ],
-    "iconClass": "bi-award-fill"
-  },
-  {
-    "category": "award",
-    "title": "Academic Excellence Award",
-    "context": "Integrative Programming",
-    "date": "2024",
-    "description": "Recognized specifically for outstanding performance, logic building, and clean code architecture in integrative systems.",
-    "imageUrl": "",
-    "iconClass": "bi-trophy-fill"
   },
   {
     "category": "award",

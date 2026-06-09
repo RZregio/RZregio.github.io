@@ -1,16 +1,17 @@
 [
   {
-    "awardTitle": "GenAI Certification",
-    "awardContext": "Microsoft Learn (Nov 2025)",
-    "description": "Comprehensive training covering the deployment, management, and responsible use of generative AI tools and solutions.",
-    "iconClass": "bi-cpu-fill",
-    "images": [
-      "main-res/certificates/genAI1.jpg",
-      "main-res/certificates/genAI2.jpg",
-      "main-res/certificates/genAI3.jpg",
-      "main-res/certificates/genAI4.jpg",
-      "main-res/certificates/genAI5.jpg"
-    ]
+    "awardTitle": "From Algorithms to Intelligence",
+    "awardContext": "COMSOC (Dec 2025)",
+    "description": "Journey into AI and Machine Learning concepts and practical implementations.",
+    "iconClass": "bi-lightbulb-fill",
+    "imageUrl": "main-res/certificates/fromAlgotoAI&ML.jpg"
+  },
+  {
+    "awardTitle": "Agile Design & Handoff",
+    "awardContext": "DICT (Dec 2025)",
+    "description": "Training focused on high-fidelity wireframing, UI/UX prototyping, and efficient design-to-development handoffs.",
+    "iconClass": "bi-vector-pen",
+    "imageUrl": "main-res/certificates/agileHandoff.jpg"
   },
   {
     "awardTitle": "HTML & CSS Essentials",
@@ -37,35 +38,33 @@
     ]
   },
   {
-    "awardTitle": "Cyber Threat Management",
-    "awardContext": "DICT-ITU DTC Initiative (Nov 2025)",
-    "description": "In-depth workshop on identifying, analyzing, and mitigating modern cybersecurity threats.",
-    "iconClass": "bi-shield-lock-fill",
+    "awardTitle": "CISO Blueprint: Cyber Leadership",
+    "awardContext": "PECB (Nov 2025)",
+    "description": "Mastering skills and executive strategies for proactive cybersecurity leadership.",
+    "iconClass": "bi-lock-fill",
+    "imageUrl": "main-res/certificates/ciso.jpg"
+  },
+  {
+    "awardTitle": "TechStart: Git & GitHub",
+    "awardContext": "STARTDOST (Nov 2025)",
+    "description": "Introduction to version control, branch management, and collaborative repository workflows.",
+    "iconClass": "bi-github",
     "images": [
-      "main-res/certificates/cyberThreat1.jpg",
-      "main-res/certificates/cyberThreat2.jpg"
+      "main-res/certificates/techStart.jpg",
+      "main-res/certificates/techStart2.jpg"
     ]
   },
   {
-    "awardTitle": "Data Science with Python",
-    "awardContext": "DICT-ITU DTC Initiative (Oct 2025)",
-    "description": "Practical application of Python for data manipulation, analytics, and rapid prototyping workflows.",
-    "iconClass": "bi-bar-chart-fill",
+    "awardTitle": "GenAI Certification",
+    "awardContext": "Microsoft Learn (Nov 2025)",
+    "description": "Comprehensive training covering the deployment, management, and responsible use of generative AI tools and solutions.",
+    "iconClass": "bi-cpu-fill",
     "images": [
-      "main-res/certificates/dsPython1.jpg",
-      "main-res/certificates/dsPython2.jpg"
-    ]
-  },
-  {
-    "awardTitle": "Networking & OS Basics",
-    "awardContext": "DICT-ITU DTC Initiative (Oct 2025)",
-    "description": "Fundamentals of operating system configuration, network protocols, and infrastructure deployment.",
-    "iconClass": "bi-hdd-network-fill",
-    "images": [
-      "main-res/certificates/networking1.jpg",
-      "main-res/certificates/networking2.jpg",
-      "main-res/certificates/OSBasics1.jpg",
-      "main-res/certificates/OSBasics2.jpg"
+      "main-res/certificates/genAI1.jpg",
+      "main-res/certificates/genAI2.jpg",
+      "main-res/certificates/genAI3.jpg",
+      "main-res/certificates/genAI4.jpg",
+      "main-res/certificates/genAI5.jpg"
     ]
   },
   {
@@ -97,34 +96,35 @@
     "imageUrl": "main-res/certificates/proNetworking.jpg"
   },
   {
-    "awardTitle": "Agile Design & Handoff",
-    "awardContext": "DICT (Dec 2025)",
-    "description": "Training focused on high-fidelity wireframing, UI/UX prototyping, and efficient design-to-development handoffs.",
-    "iconClass": "bi-vector-pen",
-    "imageUrl": "main-res/certificates/agileHandoff.jpg"
-  },
-  {
-    "awardTitle": "From Algorithms to Intelligence",
-    "awardContext": "COMSOC (Dec 2025)",
-    "description": "Journey into AI and Machine Learning concepts and practical implementations.",
-    "iconClass": "bi-lightbulb-fill",
-    "imageUrl": "main-res/certificates/fromAlgotoAI&ML.jpg"
-  },
-  {
-    "awardTitle": "CISO Blueprint: Cyber Leadership",
-    "awardContext": "PECB (Nov 2025)",
-    "description": "Mastering skills and executive strategies for proactive cybersecurity leadership.",
-    "iconClass": "bi-lock-fill",
-    "imageUrl": "main-res/certificates/ciso.jpg"
-  },
-  {
-    "awardTitle": "TechStart: Git & GitHub",
-    "awardContext": "STARTDOST (Nov 2025)",
-    "description": "Introduction to version control, branch management, and collaborative repository workflows.",
-    "iconClass": "bi-github",
+    "awardTitle": "Cyber Threat Management",
+    "awardContext": "DICT-ITU DTC Initiative (Nov 2025)",
+    "description": "In-depth workshop on identifying, analyzing, and mitigating modern cybersecurity threats.",
+    "iconClass": "bi-shield-lock-fill",
     "images": [
-      "main-res/certificates/techStart.jpg",
-      "main-res/certificates/techStart2.jpg"
+      "main-res/certificates/cyberThreat1.jpg",
+      "main-res/certificates/cyberThreat2.jpg"
+    ]
+  },
+  {
+    "awardTitle": "Data Science with Python",
+    "awardContext": "DICT-ITU DTC Initiative (Oct 2025)",
+    "description": "Practical application of Python for data manipulation, analytics, and rapid prototyping workflows.",
+    "iconClass": "bi-bar-chart-fill",
+    "images": [
+      "main-res/certificates/dsPython1.jpg",
+      "main-res/certificates/dsPython2.jpg"
+    ]
+  },
+  {
+    "awardTitle": "Networking & OS Basics",
+    "awardContext": "DICT-ITU DTC Initiative (Oct 2025)",
+    "description": "Fundamentals of operating system configuration, network protocols, and infrastructure deployment.",
+    "iconClass": "bi-hdd-network-fill",
+    "images": [
+      "main-res/certificates/networking1.jpg",
+      "main-res/certificates/networking2.jpg",
+      "main-res/certificates/OSBasics1.jpg",
+      "main-res/certificates/OSBasics2.jpg"
     ]
   },
   {

@@ -1,7 +1,41 @@
 [
   {
+    "awardTitle": "Top 3 – Techno MiniHackathon",
+    "awardContext": "PUP Sto. Tomas Campus (June 5, 2026)",
+    "description": "Achieved a podium finish by rapidly wireframing, designing, and coding an agile software prototype under strict competitive time constraints.",
+    "iconClass": "bi-lightning-charge-fill",
+    "images": [
+      "main-res/recognitions/byz.jpg",
+      "main-res/recognitions/byz2.jpg",
+      "main-res/recognitions/byz3.jpg",
+      "main-res/recognitions/byz4.jpg",
+      "main-res/recognitions/byz5.jpg"
+    ]
+  },
+  {
+    "awardTitle": "Top Performing OJT Trainee",
+    "awardContext": "Arktech Philippines (Feb – May 2026)",
+    "description": "Recognized for exceptional full-stack contributions during internship, securing a Top 3 rank during the initial training phase and climbing to Top 2 overall across the complete runtime.",
+    "iconClass": "bi-star-fill",
+    "images": [
+      "main-res/recognitions/arktech.png",
+      "main-res/recognitions/arktech2.jpg",
+      "main-res/recognitions/arktech3.png"
+    ]
+  },
+  {
+    "awardTitle": "Best in Capstone (LANDAS)",
+    "awardContext": "PUPSTC BSIT 4th Year (January 2026)",
+    "description": "Awarded for outstanding technical excellence, rigorous documentation, and architectural evaluation for the ISO/IEC 25010 compliant capstone game project.",
+    "iconClass": "bi-trophy-fill",
+    "images": [
+      "main-res/recognitions/capstone1.jpg",
+      "main-res/recognitions/capstone2.jpg"
+    ]
+  },
+  {
     "awardTitle": "Consistent President's Lister",
-    "awardContext": "PUPSTC BSIT (2022–Present)",
+    "awardContext": "PUPSTC BSIT (2022–2026)",
     "description": "Maintained top-tier academic standing throughout my collegiate journey, reflecting a continuous commitment to excellence.",
     "iconClass": "bi-star-fill",
     "images": [
@@ -37,7 +71,7 @@
   },
   {
     "awardTitle": "Public Relations Officer",
-    "awardContext": "PUPSTC Computer Society (2024–Present)",
+    "awardContext": "PUPSTC Computer Society (2024–2026)",
     "description": "Managed community outreach, social media presence, and technical event communications for the premier IT organization.",
     "iconClass": "bi-megaphone-fill",
     "images": [
