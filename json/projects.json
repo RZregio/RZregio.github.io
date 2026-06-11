@@ -46,12 +46,33 @@
   },
   {
     "category": "company",
-    "title": "Material Navigator",
-    "description": "Internal tracking system designed to streamline factory material routing and location.",
+    "title": "Maintenance Checksheet System",
+    "description": "Digitized QA protocol incorporating 5S and Hou-Ren-Sou methodologies for machine diagnostics.",
     "mediaType": "image",
     "value": "important",
     "mediaSource": [
-      "main-res/projects/materialNavigator.png"
+      "main-res/projects/mmcs.png",
+      "main-res/projects/mmcs2.png",
+      "main-res/projects/mmcs3.png"
+    ],
+    "liveLink": "",
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "PHP",
+      "JavaScript",
+      "MySQL",
+      "Bootstrap"
+    ]
+  },
+  {
+    "category": "company",
+    "title": "Assembly Tree Finder",
+    "description": "Dynamic visualization tool utilizing a 'Family Tree' hierarchy to map manufacturing components.",
+    "mediaType": "image",
+    "value": "important",
+    "mediaSource": [
+      "main-res/projects/assembly.png"
     ],
     "liveLink": "",
     "techStack": [
@@ -192,31 +213,12 @@
   },
   {
     "category": "company",
-    "title": "Assembly Tree Finder",
-    "description": "Dynamic visualization tool utilizing a 'Family Tree' hierarchy to map manufacturing components.",
+    "title": "Material Navigator",
+    "description": "Internal tracking system designed to streamline factory material routing and location.",
     "mediaType": "image",
+    "value": "important",
     "mediaSource": [
-      "main-res/projects/assembly.png"
-    ],
-    "liveLink": "",
-    "techStack": [
-      "HTML5",
-      "CSS3",
-      "PHP",
-      "JavaScript",
-      "MySQL",
-      "Bootstrap"
-    ]
-  },
-  {
-    "category": "company",
-    "title": "Maintenance Checksheet System",
-    "description": "Digitized QA protocol incorporating 5S and Hou-Ren-Sou methodologies for machine diagnostics.",
-    "mediaType": "image",
-    "mediaSource": [
-      "main-res/projects/mmcs.png",
-      "main-res/projects/mmcs2.png",
-      "main-res/projects/mmcs3.png"
+      "main-res/projects/materialNavigator.png"
     ],
     "liveLink": "",
     "techStack": [
@@ -263,29 +265,13 @@
   },
   {
     "category": "school",
-    "title": "Product Page V2",
-    "description": "A refined product information layout focusing on UI/UX and clean presentation.",
-    "mediaType": "iframe",
-    "mediaSource": [
-      "schoolProjects/productInfo/index.html"
-    ],
-    "liveLink": "schoolProjects/productInfo/index.html",
-    "techStack": [
-      "HTML5",
-      "CSS3",
-      "JavaScript",
-      "Bootstrap"
-    ]
-  },
-  {
-    "category": "school",
     "title": "CatEnFur V2",
     "description": "Refined feline care system with improved UI/UX and system configuration.",
     "mediaType": "iframe",
     "mediaSource": [
       "schoolProjects/A04/index.html"
     ],
-    "liveLink": "schoolProjects/A04/index.html",
+    "liveLink": "schoolProjects/catEnFur/index.html",
     "techStack": [
       "PHP",
       "MySQL",
@@ -293,22 +279,6 @@
       "HTML5",
       "CSS3",
       "JavaScript"
-    ]
-  },
-  {
-    "category": "school",
-    "title": "ArcaneLog Page",
-    "description": "A specialized interface for log tracking and data visualization.",
-    "mediaType": "iframe",
-    "mediaSource": [
-      "schoolProjects/arcaneLog/index.html"
-    ],
-    "liveLink": "schoolProjects/arcaneLog/index.html",
-    "techStack": [
-      "HTML5",
-      "CSS3",
-      "JavaScript",
-      "Bootstrap"
     ]
   },
   {
@@ -330,24 +300,6 @@
     ]
   },
   {
-    "category": "personal",
-    "title": "CatEnFur Beta",
-    "description": "Initial beta version of the feline care management system.",
-    "mediaType": "iframe",
-    "mediaSource": [
-      "schoolProjects/A04_BETA/index.html"
-    ],
-    "liveLink": "schoolProjects/A04_BETA/index.html",
-    "techStack": [
-      "PHP",
-      "MySQL",
-      "Bootstrap",
-      "HTML5",
-      "CSS3",
-      "JavaScript"
-    ]
-  },
-  {
     "category": "school",
     "title": "PlaceHub Page V2",
     "description": "A web-based platform designed for location discovery and community interaction.",
@@ -364,14 +316,46 @@
     ]
   },
   {
+    "category": "school",
+    "title": "ArcaneLog Page",
+    "description": "A specialized interface for log tracking and data visualization.",
+    "mediaType": "iframe",
+    "mediaSource": [
+      "schoolProjects/arcaneLog/index.html"
+    ],
+    "liveLink": "schoolProjects/arcaneLog/index.html",
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Bootstrap"
+    ]
+  },
+  {
+    "category": "school",
+    "title": "Product Page V2",
+    "description": "A refined product information layout focusing on UI/UX and clean presentation.",
+    "mediaType": "iframe",
+    "mediaSource": [
+      "schoolProjects/productInfo/index.html"
+    ],
+    "liveLink": "schoolProjects/productInfo/index.html",
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Bootstrap"
+    ]
+  },
+  {
     "category": "other",
     "title": "Welcome to schoolProjects",
     "description": "Foundation project for schoolProjects emerging tech.",
     "mediaType": "iframe",
     "mediaSource": [
-      "schoolProjects/A01/index.html"
+      "schoolProjects/welcomePage/index.html"
     ],
-    "liveLink": "schoolProjects/A01/index.html",
+    "liveLink": "schoolProjects/welcomePage/index.html",
     "techStack": [
       "HTML5",
       "CSS3",

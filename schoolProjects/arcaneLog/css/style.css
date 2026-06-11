@@ -1,321 +1,165 @@
+/* =========================================
+   GLOBAL VARIABLES & THEME
+   ========================================= */
+:root {
+    --bg-dark-1: #0B1120;
+    --bg-dark-2: #0D132A;
+    --bg-card: rgba(255, 255, 255, 0.03);
+    --bg-card-hover: rgba(255, 255, 255, 0.06);
+
+    --accent-blue: #A1AFD6;
+    /* Arcane Blue */
+    --accent-blue-hover: #c4cff0;
+    --netflix-red: #E50914;
+    /* Official Netflix Red */
+    --netflix-red-hover: #b80710;
+}
+
 html,
 body {
-    margin: 0;
-    height: 100%;
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    background: linear-gradient(#252525 0%, #0D132A 80%);
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--bg-dark-1) 0%, var(--bg-dark-2) 100%);
+    color: #ffffff;
     overflow-x: hidden;
-}
-
-
-
-/*remove link default state*/
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-a:focus,
-a:active {
-    outline: none;
-}
-
-
-
-/*Navigation Bar*/
-#upper-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #111111;
-    flex-wrap: wrap;
-}
-
-#upper-section h1 {
-    margin: 0;
-    font-size: 24px;
-    font-weight: bold;
-    font-family: Poppins;
-    color: aliceblue;
-    padding-bottom: 10px;
-}
-
-
-
-/*end line*/
-.footer {
-    border-top: 3px #4c4a4a solid;
-    width: 100%;
-    text-align: center;
-    color: white;
-    font-family: Georgia;
-    background-color: #111111;
-    font-family: Poppins;
-    padding: 15px 0;
-    height: auto;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
-
-/*Link Page*/
-#more-site {
+    scroll-behavior: smooth;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-.visit {
-    margin-top: 50px;
-    margin-bottom: 20px;
-    color: #ffffff
+.fredoka {
+    font-family: 'Fredoka One', cursive;
 }
 
-.visit h5 {
-    font-family: Poppins;
-    font-weight: bolder;
-}
-
-.visit-page {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    margin-bottom: 20px;
-}
-
-.visit-page .card {
-    box-shadow: 0 4px 10px #3b3b3b;
-    background-color: #111111;
-    transition: all 0.3s ease;
-    margin-bottom: 20px;
-}
-
-.visit-page .card:hover {
-    transform: scale(1.10);
-    z-index: 10px;
-}
-
-.visit-page .card-title {
-    color: aliceblue;
-    text-align: center;
-    font-family: Poppins;
-    font-weight: bolder;
-}
-
-.visit-page .card-text {
-    height: 150px;
-    font-family: Roboto;
-    font-weight: bold;
-    color: #d7d7d7;
+.text-justify {
     text-align: justify;
-    hyphens: auto;
-    opacity: 90%;
+    text-justify: inter-word;
 }
 
-.visit-page img {
-    height: 200px;
+/* Colors Utilities */
+.accent-blue {
+    color: var(--accent-blue) !important;
 }
 
-.visit-page a:hover {
-    transform: translateY(-3px);
-    box-shadow: 2px 2px 2px #DAA520;
+.bg-arcane-blue {
+    background-color: var(--accent-blue) !important;
+    color: #0B1120 !important;
 }
 
+/* =========================================
+   NAVIGATION
+   ========================================= */
+.custom-navbar {
+    background-color: rgba(11, 17, 32, 0.9) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(161, 175, 214, 0.2);
+    /* Arcane Blue border */
+}
 
-
-/*Welcome to Arcane*/
+/* =========================================
+   HERO SECTION
+   ========================================= */
 #welcome-header {
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px auto;
     background-image: url(../res/arcane.png);
+    /* Keeps your original background */
     background-position: center center;
     background-size: cover;
-    flex-wrap: wrap;
-    flex-grow: 1;
-    padding-top: 110px;
-    padding-bottom: 110px;
-    border-bottom: #4c4a4a solid 4px;
-
+    background-attachment: fixed;
+    /* Cool parallax-like effect */
 }
 
-.welcome-arcane {
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, rgba(11, 17, 32, 0.95) 0%, rgba(13, 19, 42, 0.7) 100%);
+    z-index: 0;
+}
+
+.hero-video-wrapper {
+    border: 2px solid rgba(161, 175, 214, 0.3);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8) !important;
+}
+
+.welcome-text-card {
+    background: rgba(11, 17, 32, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+.btn-netflix {
+    background-color: var(--netflix-red);
+    color: white !important;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-netflix:hover {
+    background-color: var(--netflix-red-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(229, 9, 20, 0.4);
+}
+
+.btn-outline-arcane {
+    color: var(--accent-blue);
+    border: 2px solid var(--accent-blue);
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-arcane:hover {
+    background-color: var(--accent-blue);
+    color: #0B1120;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(161, 175, 214, 0.3);
+}
+
+/* =========================================
+   VIDEO CARDS
+   ========================================= */
+.title-underline {
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent-blue);
+    border-radius: 2px;
+}
+
+.modern-video-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    transition: all 0.4s ease;
+}
+
+.modern-video-card:hover {
+    background: var(--bg-card-hover);
+    border-color: rgba(161, 175, 214, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* =========================================
+   ANIMATIONS & UTILITIES
+   ========================================= */
+.fade-in-up {
     opacity: 0;
-    transform: translateY(40px);
-    animation: fadeIn 0.3s ease-in forwards;
+    transform: translateY(30px);
+    animation: fadeInUp 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
-.welcome-arcane iframe,
-.video-body iframe {
-    border-radius: 20px;
-}
-
-.welcome-text {
-    opacity: 0;
-    transform: translateY(40px);
-    animation: fadeIn 0.3s ease-in forwards;
-    font-family: Poppins;
-    font-weight: bolder;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-}
-
-.go-to-netflix {
-    text-decoration: underline;
-    transition: 0.3s all ease;
-}
-
-.go-to-netflix:hover {
-    color: #c01f33;
-    text-decoration: none;
-}
-
-.welcome-title {
-    font-size: clamp(16px, 5vw, 40px);
-    color: #ffffff;
-    text-align: center;
-    background: #111111;
-    border-radius: 20px;
-    padding: 20px;
-}
-
-.welcome-desc {
-    color: #e0e0e0b6;
-    text-align: justify;
-    font-size: 16px;
-    background: #111111;
-    border-radius: 20px;
-    padding: 40px;
-    margin-top: 20px;
-    transition: all ease 0.3s;
-}
-
-.welcome-desc a {
-    transition: all ease 0.3s;
-    text-decoration: underline;
-}
-
-.welcome-desc a:hover {
-    color: #A1AFD6;
-    text-decoration: none;
-}
-
-.welcome-desc:hover {
-    transform: translateY(-2px);
-    background: #000000;
-}
-
-
-
-/*Video Page*/
-.video-page {
-    margin-top: 120px;
-    text-align: center;
-    font-family: Poppins;
-    font-weight: bolder;
-}
-
-.lenovo-videos {
-    background: #111111;
-    padding: 40px;
-    border-radius: 20px;
-}
-
-.video-container {
-    padding-top: 20px;
-}
-
-.video-text {
-    opacity: 0;
-    transform: translateY(40px);
-    animation: fadeIn 0.3s ease-in forwards;
-    flex-direction: column;
-    align-items: center;
-    padding: 0px 0px;
-    border-bottom: #A1AFD6 solid 2px;
-}
-
-.video-title {
-    font-size: 20px;
-    color: #ffffff;
-    font-family: Poppins;
-    text-align: center;
-    padding-top: 10px;
-}
-
-.video-desc {
-    color: #e0e0e0;
-    opacity: 80%;
-    text-align: justify;
-    font-size: 16px;
-    padding: 10px;
-    margin-top: 10px;
-}
-
-
-
-/*Animations*/
-@keyframes fadeIn {
+@keyframes fadeInUp {
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-
-
-/*Flexibility for different devices*/
-@media (max-width: 900px) {
-    .title h1 {
-        font-size: 20px;
-    }
-
-    .navigation button {
-        padding: 6px 8px;
-        font-size: 12px;
-    }
-
-    #content {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #welcome-header {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .product-profile {
-        max-width: 80%;
-        margin-right: 0;
-    }
-
-    .slice-summary {
-        display: flex;
-        flex-direction: column;
-    }
-}
-
-@media (max-width: 400px) {
-    .welcome-desc {
-        font-size: 11px;
-    }
-
-    .video-page h2 {
-        font-size: 16px;
-    }
-
-    .video-title {
-        font-size: 14px;
-    }
-
-    .video-desc {
-        font-size: 10px;
-    }
+.custom-footer {
+    background-color: #05080f;
+    border-top: 1px solid rgba(161, 175, 214, 0.1);
 }

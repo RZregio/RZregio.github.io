@@ -40,6 +40,26 @@
     "projectLinkUrl": "https://landas2d.github.io/"
   },
   {
+    "projectTitle": "Maintenance Checksheet System",
+    "projectCategory": "Company System",
+    "projectContext": "Digitized QA protocol incorporating 5S and Hou-Ren-Sou methodologies for machine diagnostics.",
+    "previewImageUrl": "main-res/projects/mmcs.png",
+    "mediaSource": [
+      "main-res/projects/mmcs.png",
+      "main-res/projects/mmcs2.png",
+      "main-res/projects/mmcs3.png"
+    ],
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "PHP",
+      "JavaScript",
+      "MySQL",
+      "Bootstrap"
+    ],
+    "projectLinkUrl": ""
+  },
+  {
     "projectTitle": "Assembly Tree Finder",
     "projectCategory": "Company System",
     "techStack": [
@@ -65,7 +85,7 @@
     "projectContext": "A 2D Cat-Themed desktop game featuring custom gameplay mechanics, input handling, and rigorous object-oriented architecture.",
     "previewImageUrl": "main-res/projects/kuroneko.png",
     "projectLinkUrl": "",
-        "mediaSource": [
+    "mediaSource": [
       "main-res/projects/kuroneko.png",
       "main-res/projects/kuroneko2.png",
       "main-res/projects/kuroneko3.png",
