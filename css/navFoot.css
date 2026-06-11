@@ -51,6 +51,18 @@ html {
 html,
 body {
     cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23D48C1C" stroke="white" stroke-width="1.5"><polygon points="3,3 21,11 13,13 11,21"/></svg>') 3 3, auto !important;
+    
+    /* --- Prevent Text Selection --- */
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+/* Re-enable text selection inside forms so users can edit their typing */
+input, textarea {
+    -webkit-user-select: auto !important;
+    -ms-user-select: auto !important;
+    user-select: auto !important;
 }
 
 /* Interactive Hover Cursor (Yellow Hand) */

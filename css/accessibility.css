@@ -287,6 +287,42 @@ html[data-theme] .meowtivator-popup {
     border-color: var(--accent-yellow) !important;
 }
 
+/* --- High Contrast Enforcement for Buttons --- */
+/* Forces text inside solid accent buttons to be dark for readability */
+html[data-theme] .btn-explore,
+html[data-theme] .island-btn-main {
+    color: #101A30 !important;
+    font-weight: bold;
+}
+
+/* Ensure secondary/outline buttons still look good */
+html[data-theme] .btn-outline-warning {
+    color: var(--accent-yellow) !important;
+}
+html[data-theme] .btn-outline-warning:hover {
+    color: #101A30 !important;
+}
+
+/* --- Copy Button Styling --- */
+.copy-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0 5px;
+}
+
+.copy-btn:hover {
+    color: var(--accent-yellow);
+    transform: scale(1.1);
+}
+
+/* Copied state */
+.copy-btn.copied {
+    color: #198754 !important; /* Bootstrap success green */
+}
+
 /* --- Fix Meowtivator Placement --- */
 .meowtivator-popup {
     bottom: 20px !important;

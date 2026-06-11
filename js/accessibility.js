@@ -141,7 +141,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 7. Google Translate 1-Click Toggle Hack
+    // 7. Rock-Solid Google Translate Toggle (English <-> Filipino)
+
+    // Inject Script dynamically
     const gtScript = document.createElement('script');
     gtScript.type = 'text/javascript';
     gtScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
@@ -155,46 +157,38 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 'google_translate_element');
     };
 
-    let isTranslated = false;
-    let isTranslating = false; // Prevent multiple clicks
+    // Helper function to check if the translation cookie exists
+    function hasTranslationCookie() {
+        return document.cookie.indexOf('googtrans=') !== -1;
+    }
+
+    // Helper function to delete the translation cookies
+    function clearTranslationCookies() {
+        document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=' + window.location.hostname + '; path=/;';
+    }
 
     btnTranslate.addEventListener('click', () => {
-        if (isTranslating) return; // Ignore if already processing
+        if (!hasTranslationCookie()) {
+            // State: English. Action: Translate to Tagalog
+            const select = document.querySelector('.goog-te-combo');
 
-        const select = document.querySelector('.goog-te-combo');
-        if (!select) {
-            console.log("Translator not fully loaded yet.");
-            return;
-        }
+            if (!select) {
+                console.log("Translator not fully loaded yet.");
+                return;
+            }
 
-        isTranslating = true;
+            select.value = 'tl';
+            select.dispatchEvent(new Event('change'));
 
-        // Change icon to spinner
-        const icon = btnTranslate.querySelector('i');
-        icon.className = 'bi bi-arrow-repeat'; // Use a refresh/sync icon
-        btnTranslate.classList.add('btn-loading'); // Apply spin animation via CSS
-
-        // Determine target language
-        const targetLang = !isTranslated ? 'tl' : 'en';
-
-        // Apply translation
-        select.value = targetLang;
-        select.dispatchEvent(new Event('change'));
-
-        // Since Google Translate doesn't offer a clean callback when translation is "done",
-        // we use a timeout to revert the UI state smoothly.
-        setTimeout(() => {
-            isTranslated = !isTranslated;
-            isTranslating = false;
-
-            // Revert icon and remove spin class
-            btnTranslate.classList.remove('btn-loading');
-            icon.className = 'bi bi-translate';
-
-            // Optional: Close island menu after successful translation
+            // Close the island menu
             if (islandContainer.classList.contains('active')) {
                 toggleBtn.click();
             }
-        }, 1200); // 1.2 seconds provides a solid visual cue
+        } else {
+            // State: Translated. Action: Restore to English by clearing cookie & reloading
+            clearTranslationCookies();
+            window.location.reload();
+        }
     });
 });
