@@ -162,6 +162,25 @@
     ]
   },
   {
+    "category": "personal",
+    "title": "CatEnFur V2",
+    "description": "Refined feline care system with improved UI/UX and system configuration.",
+    "mediaType": "iframe",
+    "value": "important",
+    "mediaSource": [
+      "https://catenfur.free.nf/"
+    ],
+    "liveLink": "https://catenfur.free.nf/",
+    "techStack": [
+      "PHP",
+      "MySQL",
+      "Bootstrap",
+      "HTML5",
+      "CSS3",
+      "JavaScript"
+    ]
+  },
+  {
     "category": "school",
     "title": "AIB - Border App",
     "description": "Study on interface boundaries and visual hierarchy.",
@@ -179,15 +198,14 @@
     ]
   },
   {
-    "category": "school",
-    "title": "StillLife Parallax V2",
-    "description": "Advanced UI project utilizing CSS parallax techniques.",
+    "category": "personal",
+    "title": "Meowtivator",
+    "description": "Emerging technology tool designed for motivation and interactive engagement.",
     "mediaType": "iframe",
-    "value": "important",
     "mediaSource": [
-      "schoolProjects/stillLifeParallax/index.html"
+      "personalProjects/meowtivator/index.html"
     ],
-    "liveLink": "schoolProjects/stillLifeParallax/index.html",
+    "liveLink": "personalProjects/meowtivator/index.html",
     "techStack": [
       "HTML5",
       "CSS3",
@@ -196,14 +214,14 @@
     ]
   },
   {
-    "category": "personal",
-    "title": "Meowtivator",
-    "description": "Emerging technology tool designed for motivation and interactive engagement.",
+    "category": "school",
+    "title": "StillLife Parallax V2",
+    "description": "Advanced UI project utilizing CSS parallax techniques.",
     "mediaType": "iframe",
     "mediaSource": [
-      "schoolProjects/meowtivator/index.html"
+      "schoolProjects/stillLifeParallax/index.html"
     ],
-    "liveLink": "schoolProjects/meowtivator/index.html",
+    "liveLink": "schoolProjects/stillLifeParallax/index.html",
     "techStack": [
       "HTML5",
       "CSS3",
@@ -265,31 +283,13 @@
   },
   {
     "category": "school",
-    "title": "CatEnFur V2",
-    "description": "Refined feline care system with improved UI/UX and system configuration.",
-    "mediaType": "iframe",
-    "mediaSource": [
-      "schoolProjects/A04/index.html"
-    ],
-    "liveLink": "schoolProjects/catEnFur/index.html",
-    "techStack": [
-      "PHP",
-      "MySQL",
-      "Bootstrap",
-      "HTML5",
-      "CSS3",
-      "JavaScript"
-    ]
-  },
-  {
-    "category": "school",
     "title": "AniMania",
     "description": "Backend logic exploration using PHP and dynamic data retrieval.",
     "mediaType": "iframe",
     "mediaSource": [
-      "schoolProjects/A02/index-preview.html"
+      "personalProjects/aniMania/index-preview.html"
     ],
-    "liveLink": "schoolProjects/A02/index-preview.html",
+    "liveLink": "personalProjects/aniMania/index-preview.html",
     "techStack": [
       "PHP",
       "MySQL",
@@ -353,9 +353,9 @@
     "description": "Foundation project for schoolProjects emerging tech.",
     "mediaType": "iframe",
     "mediaSource": [
-      "schoolProjects/welcomePage/index.html"
+      "otherProjects/welcomePage/index.html"
     ],
-    "liveLink": "schoolProjects/welcomePage/index.html",
+    "liveLink": "otherProjects/welcomePage/index.html",
     "techStack": [
       "HTML5",
       "CSS3",

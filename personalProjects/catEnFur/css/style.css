@@ -1,0 +1,310 @@
+/* =========================================
+   CAT-THEME VARIABLES (Warm Mocha & Caramel)
+   ========================================= */
+:root {
+    --bg-dark-brown: #2C1E16;
+    --card-brown: #3D2B1F;
+    --card-hover: #4A3526;
+    --accent-caramel: #E88D39;
+    --accent-hover: #ff9e44;
+    --text-main: #F4EBE1;
+    --text-muted-cat: #cbbab0;
+    --receipt-bg: #35251A;
+}
+
+/* =========================================
+   LAYOUT LOCK (100dvh on Desktop)
+   ========================================= */
+body.cat-theme {
+    background-color: var(--bg-dark-brown);
+    color: var(--text-main);
+    font-family: 'Poppins', sans-serif;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-row {
+    flex: 1;
+}
+
+/* Desktop Only: Lock height and force internal scroll */
+@media (min-width: 992px) {
+    body.cat-theme {
+        height: 100dvh;
+        overflow: hidden;
+    }
+
+    .main-wrapper {
+        overflow: hidden;
+    }
+
+    .content-row {
+        overflow: hidden;
+    }
+}
+
+/* Mobile Only: Adjust heights and Offcanvas styling */
+@media (max-width: 991px) {
+    .topcontainer {
+        padding: 0.5rem !important;
+    }
+
+    /* Formats the mobile receipt so it fits the screen nicely */
+    .offcanvas-end.receipt-card {
+        max-width: 85vw !important;
+        border-top-left-radius: 1.5rem !important;
+        border-bottom-left-radius: 1.5rem !important;
+        border-top-right-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+    }
+}
+
+/* =========================================
+   TYPOGRAPHY
+   ========================================= */
+h1,
+h2,
+h3,
+h4,
+h5,
+.fredoka {
+    font-family: 'Fredoka', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: var(--accent-caramel);
+}
+
+.text-muted-cat {
+    color: var(--text-muted-cat) !important;
+}
+
+.text-white {
+    color: var(--text-main) !important;
+}
+
+/* =========================================
+   NAVBAR & AUTH INPUTS
+   ========================================= */
+.custom-navbar {
+    background-color: var(--card-brown);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+}
+
+.auth-input {
+    background-color: var(--receipt-bg) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: var(--text-main) !important;
+}
+
+.auth-input:focus {
+    border-color: var(--accent-caramel) !important;
+    box-shadow: 0 0 10px rgba(232, 141, 57, 0.2) !important;
+}
+
+.auth-input::placeholder {
+    color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* =========================================
+   CONTAINERS & CARDS
+   ========================================= */
+.card {
+    background-color: var(--card-brown);
+    border-radius: 1.5rem;
+    color: var(--text-main);
+}
+
+.receipt-card {
+    background-color: var(--card-brown) !important;
+}
+
+.total-box {
+    background-color: var(--receipt-bg);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.text-accent {
+    color: var(--accent-caramel) !important;
+}
+
+/* =========================================
+   CUSTOM BUTTONS
+   ========================================= */
+.btn-accent {
+    background-color: var(--accent-caramel);
+    color: #1A110C;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-accent:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+    color: #1A110C;
+}
+
+.btn-outline-accent {
+    color: var(--accent-caramel);
+    border: 1px solid var(--accent-caramel);
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-accent:hover {
+    background-color: var(--accent-caramel);
+    color: #1A110C;
+}
+
+/* Floating Mobile Cart Button */
+.floating-cart-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1040;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Category Filter Buttons */
+.category-btn {
+    background-color: var(--receipt-bg);
+    border: 2px solid transparent;
+    border-radius: 1rem;
+    padding: 0.5rem 1.25rem;
+    min-width: max-content;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.category-btn:hover {
+    background-color: var(--card-hover);
+    border-color: var(--accent-caramel);
+    transform: translateY(-2px);
+}
+
+/* Product Cards */
+.product-card {
+    background-color: var(--receipt-bg);
+    border-radius: 1.25rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2) !important;
+    border-color: rgba(232, 141, 57, 0.3);
+}
+
+.product-img-wrapper {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+}
+
+.product-img-wrapper img {
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* =========================================
+   MODALS & OFFCANVAS
+   ========================================= */
+.custom-modal {
+    background-color: var(--card-brown);
+    border-radius: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.offcanvas {
+    background-color: var(--card-brown) !important;
+    color: var(--text-main) !important;
+}
+
+/* Receipt Action Buttons */
+.btn-qty {
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-main);
+}
+
+.btn-qty:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.btn-remove {
+    color: #ff6b6b;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-remove:hover {
+    color: #ff4757;
+    transform: scale(1.1);
+}
+
+/* =========================================
+   UTILITIES
+   ========================================= */
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.drop-shadow {
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+}
+
+.receipt-item {
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+    padding: 0.75rem 0;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

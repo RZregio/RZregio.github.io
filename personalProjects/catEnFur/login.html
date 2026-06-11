@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login | CatEnFur</title>
+    <link rel="icon" href="res/RZbrand.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="cat-theme d-flex align-items-center justify-content-center" style="height: 100vh;">
+
+    <div class="card p-4 p-md-5 shadow-lg border-0" style="max-width: 400px; width: 100%;">
+        <div class="text-center mb-4">
+            <img src="res/home.png" alt="CatEnFur Logo" height="50" class="mb-2">
+            <h2 class="fredoka text-accent fw-bold m-0">CatEnFur</h2>
+            <p class="text-muted-cat small">Log in to manage your purr-chases</p>
+        </div>
+
+        <form id="authForm" onsubmit="handleAuth(event)">
+            <div class="mb-3">
+                <label class="form-label small text-muted-cat">Full Name (For Sign Up)</label>
+                <input type="text" class="form-control auth-input" id="authName" placeholder="e.g. John Doe">
+            </div>
+            <div class="mb-3">
+                <label class="form-label small text-muted-cat">Email Address</label>
+                <input type="email" class="form-control auth-input" id="authEmail" required
+                    placeholder="catlover@mail.com">
+            </div>
+            <div class="mb-4">
+                <label class="form-label small text-muted-cat">Password</label>
+                <input type="password" class="form-control auth-input" id="authPassword" required
+                    placeholder="••••••••">
+            </div>
+            <button type="submit" class="btn btn-accent w-100 rounded-pill py-2 fw-bold">Sign In / Register</button>
+
+            <div class="text-center mt-3">
+                <a href="index.html" class="small text-muted-cat text-decoration-none"><i class="bi bi-arrow-left"></i>
+                    Back to Shop</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Simulated Authentication
+        function handleAuth(e) {
+            e.preventDefault();
+            const name = document.getElementById('authName').value || "Valued Customer";
+            const email = document.getElementById('authEmail').value;
+
+            const user = {
+                name: name,
+                email: email,
+                address: "Santo Tomas, Batangas", // Default mockup address
+                birthdate: "1990-01-01",
+                history: []
+            };
+
+            localStorage.setItem("catUser", JSON.stringify(user));
+            window.location.href = "index.html"; // Redirect back to shop
+        }
+    </script>
+</body>
+
+</html>

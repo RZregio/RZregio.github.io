@@ -149,6 +149,29 @@
     ]
   },
   {
+    "projectTitle": "CatEnFur V2",
+    "projectCategory": "Web Development",
+    "projectContext": "Refined feline care system with improved UI/UX and system configuration.",
+    "previewImageUrl": "main-res/projects/catEnFur.png",
+    "mediaSource": [
+      "main-res/projects/catEnFur.png",
+      "main-res/projects/catEnFur2.png",
+      "main-res/projects/catEnFur3.png",
+      "main-res/projects/catEnFur4.png",
+      "main-res/projects/catEnFur5.png",
+      "main-res/projects/catEnFur6.png"
+    ],
+    "projectLinkUrl": "https://catenfur.free.nf/",
+    "techStack": [
+      "PHP",
+      "MySQL",
+      "Bootstrap",
+      "HTML5",
+      "CSS3",
+      "JavaScript"
+    ]
+  },
+  {
     "projectTitle": "AIB Landing Page",
     "projectCategory": "UI/UX Design",
     "techStack": [
@@ -160,18 +183,5 @@
     "projectContext": "A landing page applying bento-style design principles, showcasing a clean and organized layout for Alice in Borderland, a fictional thriller series.",
     "previewImageUrl": "main-res/projects/aIB.png",
     "projectLinkUrl": "schoolProjects/aibBorder/index.html"
-  },
-  {
-    "projectTitle": "StillLife Parallax V2",
-    "projectCategory": "UI/UX Design",
-    "techStack": [
-      "HTML5",
-      "CSS3",
-      "JavaScript",
-      "Bootstrap"
-    ],
-    "projectContext": "Advanced UI project utilizing layered CSS parallax techniques to create a dynamic and immersive visual experience.",
-    "previewImageUrl": "main-res/projects/alpsAndSeeker.png",
-    "projectLinkUrl": "schoolProjects/stillLifeParallax/index.html"
   }
 ]
