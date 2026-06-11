@@ -1,0 +1,297 @@
+/* ============================================================
+   ACCESSIBILITY ISLAND & THEMES
+   ============================================================ */
+/* --- Translate Spinner Animation --- */
+.btn-loading i {
+    display: inline-block;
+    animation: spin-fast 1s linear infinite;
+}
+
+@keyframes spin-fast {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* --- FAB (Island) Container --- */
+.access-island-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 15px;
+}
+
+/* --- Main Island Button --- */
+.island-btn-main {
+    width: 65px;
+    height: 65px;
+    border-radius: 35px;
+    background: var(--accent-yellow);
+    color: #101A30;
+    border: none;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.island-btn-main:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(212, 140, 28, 0.5);
+}
+
+/* --- Child Menu Buttons --- */
+.island-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px) scale(0.8);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-origin: bottom;
+}
+
+.access-island-container.active .island-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+}
+
+.island-child-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background: var(--blue-2);
+    color: var(--accent-yellow);
+    border: 2px solid var(--accent-yellow);
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.island-child-btn:hover {
+    background: var(--accent-yellow);
+    color: #101A30;
+    transform: translateX(-5px);
+}
+
+/* --- Meowtivator Chat Popup (Messenger Style) --- */
+.meowtivator-popup {
+    position: fixed;
+    bottom: 20px !important;
+    right: 20px !important;
+    width: 350px;
+    height: 500px;
+    max-width: calc(100vw - 40px);
+    max-height: calc(100vh - 40px);
+    background: var(--blue-2);
+    border: 2px solid var(--accent-yellow) !important;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    z-index: 10000 !important;
+
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px) scale(0.9);
+    transform-origin: bottom right;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.meowtivator-popup.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+}
+
+.meowtivator-header {
+    background: var(--accent-yellow);
+    color: #101A30;
+    padding: 12px 20px;
+    /* Adjusted padding for better look */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Fredoka One', cursive;
+    flex-shrink: 0;
+    /* CRITICAL: Prevent the header from being squeezed by the iframe */
+}
+
+/* --- Meowtivator Close Button Fix --- */
+.meowtivator-close {
+    background: transparent;
+    border: none;
+    color: #101A30;
+    font-size: 1.2rem;
+    cursor: pointer;
+
+    /* Strict sizing and centering for the X icon */
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    /* Make it a circle on hover */
+    margin: 0;
+    padding: 0;
+    transition: all 0.2s ease;
+}
+
+.meowtivator-close:hover {
+    background: rgba(0, 0, 0, 0.15);
+    /* Subtle dark circle behind the X */
+    transform: scale(1.1);
+    /* Slight pop */
+}
+
+.meowtivator-iframe {
+    /* CRITICAL: Force the iframe to exactly fill the remaining flex space */
+    flex: 1 1 auto;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0;
+    /* Prevents flexbox from letting it grow past the container */
+    border: none;
+    background: #fff;
+    display: block;
+}
+
+/* --- Google Translate Hiding --- */
+#google_translate_element,
+.skiptranslate iframe,
+.skiptranslate {
+    display: none !important;
+}
+
+body {
+    top: 0px !important;
+}
+
+/* ============================================================
+   DARK THEMES (Strict Variables Overrides)
+   ============================================================ */
+
+/* Theme 1: True Dark (Pitch Black) */
+html[data-theme="dark"] body {
+    --blue-1: #000000;
+    --blue-2: #0a0a0a;
+    --blue-3: #111111;
+    --bg-nav: #000000;
+    /* Yellow remains default */
+}
+
+/* Theme 2: Deep Purple */
+html[data-theme="purple"] body {
+    --blue-1: #150E24;
+    --blue-2: #1D1533;
+    --blue-3: #2A1F45;
+    --bg-nav: #100a1c;
+    --accent-yellow: #E0B0FF;
+    /* Soft Lilac */
+}
+
+/* Theme 3: Midnight Green */
+html[data-theme="green"] body {
+    --blue-1: #051414;
+    --blue-2: #0A2222;
+    --blue-3: #113333;
+    --bg-nav: #030d0d;
+    --accent-yellow: #4ade80;
+    /* Success Green */
+}
+
+/* --- Fix Specific Components to use the active Accent Color --- */
+
+/* Social Buttons */
+html[data-theme] .social-btn {
+    color: var(--accent-yellow) !important;
+}
+
+html[data-theme] .social-btn:hover {
+    filter: brightness(1.2);
+    color: var(--accent-yellow) !important;
+}
+
+/* Text Accents (Years of Experience, Testimonial Titles, etc.) */
+html[data-theme] .text-accent,
+html[data-theme] .text-warning,
+html[data-theme] .accent-text {
+    color: var(--accent-yellow) !important;
+}
+
+/* Outline Buttons (View Official, Live Preview) */
+html[data-theme] .btn-outline-warning {
+    color: var(--accent-yellow) !important;
+    border-color: var(--accent-yellow) !important;
+}
+
+html[data-theme] .btn-outline-warning:hover {
+    background-color: var(--accent-yellow) !important;
+    color: #101A30 !important;
+}
+
+/* Image Backgrounds (Projects & Recognitions) */
+html[data-theme] .recog-img-container,
+html[data-theme] .project-thumb,
+html[data-theme] .proj-detail-media,
+html[data-theme] .modal-media-container {
+    background: var(--blue-2) !important;
+    /* Forces it to match the active card background */
+}
+
+/* Hover Effects in Trails and Interactive Cards */
+html[data-theme] .trail-btn,
+html[data-theme] .island-btn-main {
+    background-color: var(--accent-yellow) !important;
+}
+
+html[data-theme] .trail-btn:hover,
+html[data-theme] .island-btn-main:hover {
+    box-shadow: 0 10px 30px rgba(var(--accent-yellow-rgb, 212, 140, 28), 0.5) !important;
+    /* Fallback if rgb not defined */
+}
+
+/* Image Viewer Controls */
+html[data-theme] #viewer-prev,
+html[data-theme] #viewer-next,
+html[data-theme] .custom-yellow-close {
+    background-color: var(--accent-yellow) !important;
+    color: #101A30 !important;
+}
+
+/* Meowtivator Styling Fixes */
+html[data-theme] .meowtivator-header {
+    background-color: var(--accent-yellow) !important;
+    color: #101A30 !important;
+}
+
+html[data-theme] .meowtivator-popup {
+    border-color: var(--accent-yellow) !important;
+}
+
+/* --- Fix Meowtivator Placement --- */
+.meowtivator-popup {
+    bottom: 20px !important;
+    /* Pushes it to the bottom */
+    right: 20px !important;
+    z-index: 10000 !important;
+    /* Ensures it sits above everything */
+}

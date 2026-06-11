@@ -12,8 +12,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-  <link rel="stylesheet" href="css/navFoot.css?v=2.1">
-  <link rel="stylesheet" href="css/experience.css?v=2.1">
+  <link rel="stylesheet" href="css/navFoot.css?v=2.2">
+  <link rel="stylesheet" href="css/experience.css?v=2.2">
+  <link rel="stylesheet" href="css/accessibility.css?v=2.2">
 </head>
 
 <body>
@@ -23,7 +24,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container-fluid px-4 px-md-5">
-      <a class="navbar-brand" href="index.html">RZ <span>regio</span></a>
+      <a class="navbar-brand" translate="no" href="index.html">RZ <span>regio</span></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -39,106 +40,111 @@
     </div>
   </nav>
 
-  <main class="pt-5">
-    <section class="container pb-5 animate-on-scroll">
-      <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-3">
-        <h2 class="name-title border-0 mb-0">Tech Stack & <span>Tools</span></h2>
+  <main>
+    <section class="container dvh-100-section py-5 animate-on-scroll">
+      <div class="w-100">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-3">
+          <h2 class="name-title border-0 mb-0">Tech Stack & <span>Tools</span></h2>
 
-        <div class="slider-controls d-flex gap-2 mt-3 mt-md-0">
-          <button id="tech-btn-prev" class="slider-btn d-flex align-items-center justify-content-center"
-            onclick="scrollActiveTechStack(-1)" style="width: 40px; height: 40px;"><i
-              class="bi bi-chevron-left"></i></button>
-          <button id="tech-btn-next" class="slider-btn d-flex align-items-center justify-content-center"
-            onclick="scrollActiveTechStack(1)" style="width: 40px; height: 40px;"><i
-              class="bi bi-chevron-right"></i></button>
+          <div class="slider-controls d-flex gap-2 mt-3 mt-md-0">
+            <button id="tech-btn-prev" class="slider-btn d-flex align-items-center justify-content-center"
+              onclick="scrollActiveTechStack(-1)" style="width: 40px; height: 40px;"><i
+                class="bi bi-chevron-left"></i></button>
+            <button id="tech-btn-next" class="slider-btn d-flex align-items-center justify-content-center"
+              onclick="scrollActiveTechStack(1)" style="width: 40px; height: 40px;"><i
+                class="bi bi-chevron-right"></i></button>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-3">
+            <div class="nav flex-column nav-pills custom-nav-tabs h-100" role="tablist" aria-orientation="vertical">
+              <button class="nav-link active text-start mb-2 py-3" data-bs-toggle="pill" data-bs-target="#tab-frontend"
+                type="button" role="tab">Frontend</button>
+              <button class="nav-link text-start mb-2 py-3" data-bs-toggle="pill" data-bs-target="#tab-backend"
+                type="button" role="tab">Backend</button>
+              <button class="nav-link text-start mb-2 py-3" data-bs-toggle="pill" data-bs-target="#tab-programming"
+                type="button" role="tab">Programming</button>
+              <button class="nav-link text-start py-3" data-bs-toggle="pill" data-bs-target="#tab-tools" type="button"
+                role="tab">Tools Used</button>
+            </div>
+          </div>
+
+          <div class="tech-list col-lg-9 ps-lg-4">
+            <div class="tab-content" id="tech-card">
+              <div class="tab-pane fade show active" id="tab-frontend" role="tabpanel">
+                <div class="tech-slider py-3 px-2" id="tech-frontend"
+                  style="display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none;">
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="tab-backend" role="tabpanel">
+                <div class="tech-slider py-3 px-2" id="tech-backend"
+                  style="display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none;">
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="tab-programming" role="tabpanel">
+                <div class="tech-slider py-3 px-2" id="tech-programming"
+                  style="display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none;">
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="tab-tools" role="tabpanel">
+                <div class="tech-slider py-3 px-2" id="tech-tools"
+                  style="display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none;">
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div class="row g-4">
-        <div class="col-lg-3">
-          <div class="nav flex-column nav-pills custom-nav-tabs h-100" role="tablist" aria-orientation="vertical">
-            <button class="nav-link active text-start mb-2 py-3" data-bs-toggle="pill" data-bs-target="#tab-frontend"
-              type="button" role="tab">Frontend</button>
-            <button class="nav-link text-start mb-2 py-3" data-bs-toggle="pill" data-bs-target="#tab-backend"
-              type="button" role="tab">Backend</button>
-            <button class="nav-link text-start mb-2 py-3" data-bs-toggle="pill" data-bs-target="#tab-programming"
-              type="button" role="tab">Programming</button>
-            <button class="nav-link text-start py-3" data-bs-toggle="pill" data-bs-target="#tab-tools" type="button"
-              role="tab">Tools Used</button>
-          </div>
-        </div>
-
-        <div class="tech-list col-lg-9 ps-lg-4">
-          <div class="tab-content" id="tech-card">
-            <div class="tab-pane fade show active" id="tab-frontend" role="tabpanel">
-              <div class="tech-slider py-3 px-2" id="tech-frontend"
-                style="display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none;">
-              </div>
-            </div>
-
-            <div class="tab-pane fade" id="tab-backend" role="tabpanel">
-              <div class="tech-slider py-3 px-2" id="tech-backend"
-                style="display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none;">
-              </div>
-            </div>
-
-            <div class="tab-pane fade" id="tab-programming" role="tabpanel">
-              <div class="tech-slider py-3 px-2" id="tech-programming"
-                style="display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none;">
-              </div>
-            </div>
-
-            <div class="tab-pane fade" id="tab-tools" role="tabpanel">
-              <div class="tech-slider py-3 px-2" id="tech-tools"
-                style="display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none;">
-              </div>
-            </div>
-          </div>
-        </div>
     </section>
 
-    <section class="container py-5 mb-5 animate-on-scroll delay-1 dark-container"
+    <section class="container dvh-100-section py-5 mb-5 animate-on-scroll delay-1 dark-container"
       style="background: rgba(0,0,0,0.2); border-radius: 20px;">
-      <div class="text-left mb-4 p-3">
-        <h2 class="name-title border-0 text-center mx-auto d-inline-block">My <span>Projects</span></h2>
-        <p class="opacity-75 tiny-text">Browse through my academic, personal, and professional repositories.</p>
-      </div>
-
-      <div class="d-flex flex-row gap-2 mb-4 w-100 justify-content-center px-3 align-items-center flex-wrap">
-        <div class="input-group" style="flex: 1 1 300px; max-width: 400px; min-width: 250px;">
-          <span class="input-group-text bg-dark border-secondary text-accent px-2"><i class="bi bi-search"></i></span>
-          <input type="text" id="project-search" class="form-control custom-input bg-dark text-white border-secondary"
-            placeholder="Search project...">
+      <div class="w-100">
+        <div class="text-left mb-4 p-3">
+          <h2 class="name-title border-0 text-center mx-auto d-inline-block">My <span>Projects</span></h2>
+          <p class="opacity-75 tiny-text">Browse through my academic, personal, and professional repositories.</p>
         </div>
 
-        <select id="project-category-filter" class="form-select custom-input bg-dark text-white border-secondary"
-          style="flex: 1 1 140px; max-width: 180px;">
-          <option value="all">All Categories</option>
-          <option value="important">Top Projects</option>
-          <option value="school">School</option>
-          <option value="personal">Personal</option>
-          <option value="company">Company</option>
-          <option value="other">Other</option>
-        </select>
+        <div class="d-flex flex-row gap-2 mb-4 w-100 justify-content-center px-3 align-items-center flex-wrap">
+          <div class="input-group" style="flex: 1 1 300px; max-width: 400px; min-width: 250px;">
+            <span class="input-group-text bg-dark border-secondary text-accent px-2"><i class="bi bi-search"></i></span>
+            <input type="text" id="project-search" class="form-control custom-input bg-dark text-white border-secondary"
+              placeholder="Search project...">
+          </div>
 
-        <select id="tech-stack-filter" class="form-select custom-input bg-dark text-white border-secondary"
-          style="flex: 1 1 140px; max-width: 180px;">
-          <option value="all">All Tech Stacks</option>
-          <option value="PHP">PHP</option>
-          <option value="JavaScript">JavaScript</option>
-          <option value="HTML5">HTML5 / CSS3</option>
-          <option value="C#">C# / Unity</option>
-          <option value="Java">Java</option>
-          <option value="MySQL">MySQL</option>
-        </select>
-      </div>
+          <select id="project-category-filter" class="form-select custom-input bg-dark text-white border-secondary"
+            style="flex: 1 1 140px; max-width: 180px;">
+            <option value="all">All Categories</option>
+            <option value="important">Top Projects</option>
+            <option value="school">School</option>
+            <option value="personal">Personal</option>
+            <option value="company">Company</option>
+            <option value="other">Other</option>
+          </select>
 
-      <div class="px-3 px-lg-4 pb-4" id="project-content">
+          <select id="tech-stack-filter" class="form-select custom-input bg-dark text-white border-secondary"
+            style="flex: 1 1 140px; max-width: 180px;">
+            <option value="all">All Tech Stacks</option>
+            <option value="PHP">PHP</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="HTML5">HTML5 / CSS3</option>
+            <option value="C#">C# / Unity</option>
+            <option value="Java">Java</option>
+            <option value="MySQL">MySQL</option>
+          </select>
+        </div>
+
+        <div class="px-3 px-lg-4 pb-4" id="project-content">
+        </div>
       </div>
     </section>
 
-    <section class="container text-center py-5 mb-5 animate-on-scroll delay-2">
-      <div class="trail-container">
+    <section class="container dvh-100-section text-center py-5 animate-on-scroll delay-2">
+      <div class="trail-container w-100">
         <div class="trail-line"></div>
         <h2 class="fredoka mb-3" style="font-size: 2.2rem;">Want to know more about me?</h2>
         <p class="opacity-75 mb-5">Follow the trail to learn about my background, hobbies, and certifications.</p>
@@ -186,7 +192,6 @@
           <p class="copyright-text mb-0">&copy; 2026 RZ <span>regio</span>. All Rights Reserved</p>
         </div>
         <div class="my-3 col-md-4 text-center mb-3 mb-md-0 order-3 order-md-2">
-          <a href="#" class="back-to-top">Back on top</a>
         </div>
         <div class="col-md-4 text-center text-md-end order-2 order-md-3">
           <ul class="footer-links list-inline mb-0">
@@ -201,9 +206,10 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/slider.js?v=2.1"></script>
-  <script src="js/globalUI.js?v=2.1"></script>
-  <script src="js/renderExperience.js?v=2.1"></script>
+  <script src="js/slider.js?v=2.2"></script>
+  <script src="js/globalUI.js?v=2.2"></script>
+  <script src="js/renderExperience.js?v=2.2"></script>
+  <script src="js/accessibility.js?v=2.2"></script>
 </body>
 
 </html>
