@@ -41,64 +41,64 @@
 #keyart-0 {
 	background-image: url(../res/parallax0.png);
 	background-size: cover;
-	background-position: center center;
+	background-position: bottom center; /* Changed to bottom to anchor to ground */
 	height: 70vh;
 }
 
 #keyart-1 {
 	background-image: url(../res/parallax1.png);
 	background-size: cover;
-	background-position: center center;
+	background-position: bottom center;
 	height: 70vh;
 }
 
 #keyart-2 {
 	background-image: url(../res/parallax2.png);
 	background-size: cover;
-	background-position: center center;
+	background-position: bottom center;
 	height: 70vh;
 }
 
 #keyart-3 {
 	background-image: url(../res/parallax3.png);
 	background-size: cover;
-	background-position: center center;
+	background-position: bottom center;
 	height: 70vh;
 }
 
 #keyart-4 {
 	background-image: url(../res/parallax4.png);
 	background-size: cover;
-	background-position: center center;
+	background-position: bottom center;
 	height: 70vh;
 }
 
 #keyart-5 {
 	background-image: url(../res/parallax5.png);
 	background-size: cover;
-	background-position: center center;
+	background-position: bottom center;
 	height: 70vh;
 }
 
 #keyart-6 {
 	background-image: url(../res/parallax6.png);
 	background-size: cover;
-	background-position: center center;
+	background-position: bottom center;
 	height: 70vh;
 }
 
 #keyart-7 {
 	background-image: url(../res/parallax7.png);
 	background-size: cover;
-	background-position: center center;
+	background-position: bottom center;
 	height: 70vh;
 }
 
+/* --- THE FIX FOR THE ROCK LAYER --- */
 #keyart-8 {
 	background-image: url(../res/parallax8.png);
 	background-size: cover;
-	background-position: center center;
-	height: calc(100vh - [adjusted top offset]);
+	background-position: bottom center; /* Anchors the rocks to the exact bottom edge */
 }
 
 #keyart-scrim {

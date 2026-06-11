@@ -1,5 +1,34 @@
 [
   {
+    "category": "company",
+    "title": "Arkteach",
+    "description": "Educational training platform with tutorial progression, quizzes, and analytics tracking.",
+    "mediaType": "image",
+    "value": "important",
+    "mediaSource": [
+      "main-res/projects/arkteach.png",
+      "main-res/projects/arkteach2.png",
+      "main-res/projects/arkteach3.png",
+      "main-res/projects/arkteach4.png",
+      "main-res/projects/arkteach5.png",
+      "main-res/projects/arkteach6.png",
+      "main-res/projects/arkteach7.png"
+    ],
+    "liveLink": "",
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "PHP",
+      "MySQL",
+      "JavaScript",
+      "Bootstrap",
+      "ChatGPT API",
+      "FPDF",
+      "ChartJS",
+      "AI Video Generation"
+    ]
+  },
+  {
     "category": "school",
     "title": "Landas (Capstone)",
     "description": "2D mobile Android Game on Philippine history and culture. Achieved ISO/IEC 25010 compliance across 8 metrics and a 4.75/5 user satisfaction rating.",
@@ -17,34 +46,13 @@
   },
   {
     "category": "company",
-    "title": "Arkteach",
-    "description": "Educational training platform with tutorial progression, quizzes, and analytics tracking.",
-    "mediaType": "image",
-    "value": "important",
-    "mediaSource": [
-      "main-res/projects/arkteach.png"
-    ],
-    "liveLink": "",
-    "techStack": [
-      "HTML5",
-      "CSS3",
-      "PHP",
-      "MySQL",
-      "JavaScript",
-      "Bootstrap",
-      "ChatGPT API",
-      "FPDF",
-      "ChartJS",
-      "AI Video Generation"
-    ]
-  },
-  {
-    "category": "company",
     "title": "Material Navigator",
     "description": "Internal tracking system designed to streamline factory material routing and location.",
     "mediaType": "image",
     "value": "important",
-    "mediaSource": [],
+    "mediaSource": [
+      "main-res/projects/materialNavigator.png"
+    ],
     "liveLink": "",
     "techStack": [
       "HTML5",
@@ -62,13 +70,91 @@
     "mediaType": "image",
     "value": "important",
     "mediaSource": [
-      "main-res/projects/kuroneko.png"
+      "main-res/projects/kuroneko.png",
+      "main-res/projects/kuroneko2.png",
+      "main-res/projects/kuroneko3.png",
+      "main-res/projects/kuroneko4.png",
+      "main-res/projects/kuroneko5.png",
+      "main-res/projects/kuroneko6.png",
+      "main-res/projects/kuroneko7.png",
+      "main-res/projects/kuroneko8.png",
+      "main-res/projects/kuroneko9.png"
     ],
     "liveLink": "",
     "techStack": [
       "Java",
       "Java Swing",
       "OOP"
+    ]
+  },
+  {
+    "category": "school",
+    "title": "IcommunaPh",
+    "description": "A Community Event Discovery and Management Website integrating modern framework solutions.",
+    "mediaType": "image",
+    "value": "important",
+    "mediaSource": [
+      "main-res/projects/iCommuna.png",
+      "main-res/projects/iCommuna2.png",
+      "main-res/projects/iCommuna3.png",
+      "main-res/projects/iCommuna4.png",
+      "main-res/projects/iCommuna5.png",
+      "main-res/projects/iCommuna6.png",
+      "main-res/projects/iCommuna7.png",
+      "main-res/projects/iCommuna8.png"
+    ],
+    "liveLink": "",
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "PHP",
+      "MySQL",
+      "JavaScript",
+      "Bootstrap"
+    ]
+  },
+  {
+    "category": "school",
+    "title": "stbJobs",
+    "description": "A local job-portal connecting opportunities in Santo Tomas, Batangas. Led the full-stack development and team coordination, resulting in a platform recognized for its community impact and user-friendly design.",
+    "mediaType": "image",
+    "value": "important",
+    "mediaSource": [
+      "main-res/projects/stbjobs.png",
+      "main-res/projects/stbjobs2.png",
+      "main-res/projects/stbjobs3.png",
+      "main-res/projects/stbjobs4.png",
+      "main-res/projects/stbjobs5.png",
+      "main-res/projects/stbjobs6.png",
+      "main-res/projects/stbjobs7.png",
+      "main-res/projects/stbjobs8.png",
+      "main-res/projects/stbjobs9.png"
+    ],
+    "liveLink": "",
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "PHP",
+      "MySQL",
+      "JavaScript",
+      "Bootstrap"
+    ]
+  },
+  {
+    "category": "school",
+    "title": "AIB - Border App",
+    "description": "Study on interface boundaries and visual hierarchy.",
+    "mediaType": "iframe",
+    "value": "important",
+    "mediaSource": [
+      "schoolProjects/aibBorder/index.html"
+    ],
+    "liveLink": "schoolProjects/aibBorder/index.html",
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Bootstrap"
     ]
   },
   {
@@ -89,19 +175,56 @@
     ]
   },
   {
-    "category": "school",
-    "title": "AIB - Border App",
-    "description": "Study on interface boundaries and visual hierarchy.",
+    "category": "personal",
+    "title": "Meowtivator",
+    "description": "Emerging technology tool designed for motivation and interactive engagement.",
     "mediaType": "iframe",
-    "value": "important",
     "mediaSource": [
-      "schoolProjects/A03/index.html"
+      "schoolProjects/meowtivator/index.html"
     ],
-    "liveLink": "schoolProjects/A03/index.html",
+    "liveLink": "schoolProjects/meowtivator/index.html",
     "techStack": [
       "HTML5",
       "CSS3",
       "JavaScript",
+      "Bootstrap"
+    ]
+  },
+  {
+    "category": "company",
+    "title": "Assembly Tree Finder",
+    "description": "Dynamic visualization tool utilizing a 'Family Tree' hierarchy to map manufacturing components.",
+    "mediaType": "image",
+    "mediaSource": [
+      "main-res/projects/assembly.png"
+    ],
+    "liveLink": "",
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "PHP",
+      "JavaScript",
+      "MySQL",
+      "Bootstrap"
+    ]
+  },
+  {
+    "category": "company",
+    "title": "Maintenance Checksheet System",
+    "description": "Digitized QA protocol incorporating 5S and Hou-Ren-Sou methodologies for machine diagnostics.",
+    "mediaType": "image",
+    "mediaSource": [
+      "main-res/projects/mmcs.png",
+      "main-res/projects/mmcs2.png",
+      "main-res/projects/mmcs3.png"
+    ],
+    "liveLink": "",
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "PHP",
+      "JavaScript",
+      "MySQL",
       "Bootstrap"
     ]
   },
@@ -174,58 +297,6 @@
   },
   {
     "category": "school",
-    "title": "Meowtivator",
-    "description": "Emerging technology tool designed for motivation and interactive engagement.",
-    "mediaType": "iframe",
-    "mediaSource": [
-      "schoolProjects/meowtivator/index.html"
-    ],
-    "liveLink": "schoolProjects/meowtivator/index.html",
-    "techStack": [
-      "HTML5",
-      "CSS3",
-      "JavaScript",
-      "Bootstrap"
-    ]
-  },
-  {
-    "category": "school",
-    "title": "IcommunaPh",
-    "description": "A Community Event Discovery and Management Website integrating modern framework solutions.",
-    "mediaType": "image",
-    "mediaSource": [
-      "main-res/projects/iCommuna.png"
-    ],
-    "liveLink": "",
-    "techStack": [
-      "HTML5",
-      "CSS3",
-      "PHP",
-      "MySQL",
-      "JavaScript",
-      "Bootstrap"
-    ]
-  },
-  {
-    "category": "school",
-    "title": "stbJobs",
-    "description": "A local job-portal connecting opportunities in Santo Tomas, Batangas. Led the full-stack development and team coordination, resulting in a platform recognized for its community impact and user-friendly design.",
-    "mediaType": "image",
-    "mediaSource": [
-      "main-res/projects/stbjobs.png"
-    ],
-    "liveLink": "schoolProjects/stbJobs/index.html",
-    "techStack": [
-      "HTML5",
-      "CSS3",
-      "PHP",
-      "MySQL",
-      "JavaScript",
-      "Bootstrap"
-    ]
-  },
-  {
-    "category": "school",
     "title": "ArcaneLog Page",
     "description": "A specialized interface for log tracking and data visualization.",
     "mediaType": "iframe",
@@ -233,38 +304,6 @@
       "schoolProjects/arcaneLog/index.html"
     ],
     "liveLink": "schoolProjects/arcaneLog/index.html",
-    "techStack": [
-      "HTML5",
-      "CSS3",
-      "JavaScript",
-      "Bootstrap"
-    ]
-  },
-  {
-    "category": "school",
-    "title": "PlaceHub Page V2",
-    "description": "A web-based platform designed for location discovery and community interaction.",
-    "mediaType": "iframe",
-    "mediaSource": [
-      "schoolProjects/placeHub/index.html"
-    ],
-    "liveLink": "schoolProjects/placeHub/index.html",
-    "techStack": [
-      "HTML5",
-      "CSS3",
-      "JavaScript",
-      "Bootstrap"
-    ]
-  },
-  {
-    "category": "other",
-    "title": "Welcome to schoolProjects",
-    "description": "Foundation project for schoolProjects emerging tech.",
-    "mediaType": "iframe",
-    "mediaSource": [
-      "schoolProjects/A01/index.html"
-    ],
-    "liveLink": "schoolProjects/A01/index.html",
     "techStack": [
       "HTML5",
       "CSS3",
@@ -309,36 +348,34 @@
     ]
   },
   {
-    "category": "company",
-    "title": "Assembly Tree Finder",
-    "description": "Dynamic visualization tool utilizing a 'Family Tree' hierarchy to map manufacturing components.",
-    "mediaType": "image",
+    "category": "school",
+    "title": "PlaceHub Page V2",
+    "description": "A web-based platform designed for location discovery and community interaction.",
+    "mediaType": "iframe",
     "mediaSource": [
-      "main-res/projects/assembly.png"
+      "schoolProjects/placeHub/index.html"
     ],
-    "liveLink": "",
+    "liveLink": "schoolProjects/placeHub/index.html",
     "techStack": [
       "HTML5",
       "CSS3",
-      "PHP",
       "JavaScript",
-      "MySQL",
       "Bootstrap"
     ]
   },
   {
-    "category": "company",
-    "title": "Maintenance Checksheet System",
-    "description": "Digitized QA protocol incorporating 5S and Hou-Ren-Sou methodologies for machine diagnostics.",
-    "mediaType": "image",
-    "mediaSource": [],
-    "liveLink": "",
+    "category": "other",
+    "title": "Welcome to schoolProjects",
+    "description": "Foundation project for schoolProjects emerging tech.",
+    "mediaType": "iframe",
+    "mediaSource": [
+      "schoolProjects/A01/index.html"
+    ],
+    "liveLink": "schoolProjects/A01/index.html",
     "techStack": [
       "HTML5",
       "CSS3",
-      "PHP",
       "JavaScript",
-      "MySQL",
       "Bootstrap"
     ]
   }

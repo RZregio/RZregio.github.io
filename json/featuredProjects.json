@@ -1,17 +1,5 @@
 [
   {
-    "projectTitle": "Landas (Capstone)",
-    "projectCategory": "Academic Project",
-    "techStack": [
-      "C#",
-      "Unity",
-      "Game Design"
-    ],
-    "projectContext": "2D mobile Android Game on Philippine history and culture. Achieved ISO/IEC 25010 compliance across 8 metrics and a 4.75/5 user satisfaction rating.",
-    "previewImageUrl": "main-res/projects/landas.png",
-    "projectLinkUrl": "https://landas2d.github.io/"
-  },
-  {
     "projectTitle": "Arkteach Platform",
     "projectCategory": "Company System",
     "techStack": [
@@ -28,37 +16,28 @@
     ],
     "projectContext": "Educational training platform developed for Arktech Philippines featuring tutorial progression, dynamic quizzes, and analytics tracking.",
     "previewImageUrl": "main-res/projects/arkteach.png",
-    "projectLinkUrl": ""
+    "projectLinkUrl": "",
+    "mediaSource": [
+      "main-res/projects/arkteach.png",
+      "main-res/projects/arkteach2.png",
+      "main-res/projects/arkteach3.png",
+      "main-res/projects/arkteach4.png",
+      "main-res/projects/arkteach5.png",
+      "main-res/projects/arkteach6.png",
+      "main-res/projects/arkteach7.png"
+    ]
   },
   {
-    "projectTitle": "stbJobs Portal",
-    "projectCategory": "Web Development",
+    "projectTitle": "Landas (Capstone)",
+    "projectCategory": "Academic Project",
     "techStack": [
-      "HTML5",
-      "CSS3",
-      "PHP",
-      "MySQL",
-      "JavaScript",
-      "Bootstrap"
+      "C#",
+      "Unity",
+      "Game Design"
     ],
-    "projectContext": "A full-stack local job-portal connecting opportunities in Santo Tomas, Batangas. Recognized for strong leadership and the team's dedication to community impact.",
-    "previewImageUrl": "main-res/projects/stbjobs.png",
-    "projectLinkUrl": ""
-  },
-  {
-    "projectTitle": "ICommunaPH",
-    "projectCategory": "Advanced Web App",
-    "techStack": [
-      "HTML5",
-      "CSS3",
-      "PHP",
-      "MySQL",
-      "JavaScript",
-      "Bootstrap"
-    ],
-    "projectContext": "A Community Event Discovery and Management Website integrating modern framework solutions and scalable database architecture.",
-    "previewImageUrl": "main-res/projects/iCommuna.png",
-    "projectLinkUrl": ""
+    "projectContext": "2D mobile Android Game on Philippine history and culture. Achieved ISO/IEC 25010 compliance across 8 metrics and a 4.75/5 user satisfaction rating.",
+    "previewImageUrl": "main-res/projects/landas.png",
+    "projectLinkUrl": "https://landas2d.github.io/"
   },
   {
     "projectTitle": "Assembly Tree Finder",
@@ -85,7 +64,69 @@
     ],
     "projectContext": "A 2D Cat-Themed desktop game featuring custom gameplay mechanics, input handling, and rigorous object-oriented architecture.",
     "previewImageUrl": "main-res/projects/kuroneko.png",
-    "projectLinkUrl": ""
+    "projectLinkUrl": "",
+        "mediaSource": [
+      "main-res/projects/kuroneko.png",
+      "main-res/projects/kuroneko2.png",
+      "main-res/projects/kuroneko3.png",
+      "main-res/projects/kuroneko4.png",
+      "main-res/projects/kuroneko5.png",
+      "main-res/projects/kuroneko6.png",
+      "main-res/projects/kuroneko7.png",
+      "main-res/projects/kuroneko8.png",
+      "main-res/projects/kuroneko9.png"
+    ]
+  },
+  {
+    "projectTitle": "ICommunaPH",
+    "projectCategory": "Advanced Web App",
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "PHP",
+      "MySQL",
+      "JavaScript",
+      "Bootstrap"
+    ],
+    "projectContext": "A Community Event Discovery and Management Website integrating modern framework solutions and scalable database architecture.",
+    "previewImageUrl": "main-res/projects/iCommuna.png",
+    "projectLinkUrl": "",
+    "mediaSource": [
+      "main-res/projects/iCommuna.png",
+      "main-res/projects/iCommuna2.png",
+      "main-res/projects/iCommuna3.png",
+      "main-res/projects/iCommuna4.png",
+      "main-res/projects/iCommuna5.png",
+      "main-res/projects/iCommuna6.png",
+      "main-res/projects/iCommuna7.png",
+      "main-res/projects/iCommuna8.png"
+    ]
+  },
+  {
+    "projectTitle": "stbJobs Portal",
+    "projectCategory": "Web Development",
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "PHP",
+      "MySQL",
+      "JavaScript",
+      "Bootstrap"
+    ],
+    "projectContext": "A full-stack local job-portal connecting opportunities in Santo Tomas, Batangas. Recognized for strong leadership and the team's dedication to community impact.",
+    "previewImageUrl": "main-res/projects/stbjobs.png",
+    "projectLinkUrl": "",
+    "mediaSource": [
+      "main-res/projects/stbjobs.png",
+      "main-res/projects/stbjobs2.png",
+      "main-res/projects/stbjobs3.png",
+      "main-res/projects/stbjobs4.png",
+      "main-res/projects/stbjobs5.png",
+      "main-res/projects/stbjobs6.png",
+      "main-res/projects/stbjobs7.png",
+      "main-res/projects/stbjobs8.png",
+      "main-res/projects/stbjobs9.png"
+    ]
   },
   {
     "projectTitle": "AIB Landing Page",
@@ -98,7 +139,7 @@
     ],
     "projectContext": "A landing page applying bento-style design principles, showcasing a clean and organized layout for Alice in Borderland, a fictional thriller series.",
     "previewImageUrl": "main-res/projects/aIB.png",
-    "projectLinkUrl": "schoolProjects/A03/index.html"
+    "projectLinkUrl": "schoolProjects/aibBorder/index.html"
   },
   {
     "projectTitle": "StillLife Parallax V2",

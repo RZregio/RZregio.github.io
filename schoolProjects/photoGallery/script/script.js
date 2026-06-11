@@ -1,64 +1,17 @@
-//Script to change the theme of the website
-var colorMode = "light";
+// Script to change the theme of the website
+let colorMode = "dark"; // Default is now dark to match portfolio
+
 function changeColorMode() {
-    if (colorMode == "light") {
-        document.getElementById("body").setAttribute("data-bs-theme", "dark");
-        document.getElementById("btnColor").innerHTML = "Light Mode";
-        body.classList.remove("light-mode");
-        body.classList.add("dark-mode");
+    const body = document.getElementById("body");
+    const btnColor = document.getElementById("btnColor");
+
+    if (colorMode === "light") {
+        body.setAttribute("data-bs-theme", "dark");
+        btnColor.innerHTML = '<i class="bi bi-sun-fill me-2"></i>Light Mode';
         colorMode = "dark";
     } else {
-        document.getElementById("body").setAttribute("data-bs-theme", "light");
-        document.getElementById("btnColor").innerHTML = "Dark Mode";
-        body.classList.remove("dark-mode");
-        body.classList.add("light-mode");
+        body.setAttribute("data-bs-theme", "light");
+        btnColor.innerHTML = '<i class="bi bi-moon-fill me-2"></i>Dark Mode';
         colorMode = "light";
     }
 }
-
-//Script to have nave link hover effect
-var navLinks = document.querySelectorAll(".nav-link");
-
-navLinks.forEach(navLink =>{
-    navLink.addEventListener('mouseenter', () =>{
-        navLink.style.textShadow =  'rgb(161, 123, 27, 0.7) 2px 2px 2px';  
-    });
-    
-    navLink.addEventListener('mouseleave', () =>{
-        navLink.style.textShadow = 'none';
-    });
-})
-
-//Script to have slides button hover effect
-var buttonSlides = document.querySelectorAll(".slide");
-
-buttonSlides.forEach(buttonSlide =>{
-    buttonSlide.addEventListener('mouseenter', () =>{
-        buttonSlide.style.background =  '#a17b1b';  
-        buttonSlide.style.transform = 'translateY(-5px)';
-        buttonSlide.style.boxShadow =  'rgb(161, 123, 27, 0.7) 2px 2px 2px';  
-    });
-    
-    buttonSlide.addEventListener('mouseleave', () =>{
-        buttonSlide.style.background = '#DAA520';
-        buttonSlide.style.transform = 'translateY(0px)';
-        buttonSlide.style.boxShadow = 'none';
-    });
-})
-
-//Script to have slides picture hover effect
-var imageSlides = document.querySelectorAll(".slide-image");
-
-imageSlides.forEach(imageSlide =>{
-    imageSlide.addEventListener('mouseenter', () =>{
-        imageSlide.style.boxShadow =  'rgb(161, 123, 27, 0.7) 2px 2px 2px';  
-        imageSlide.style.transform = 'translateY(-20px)';
-    });
-    
-    imageSlide.addEventListener('mouseleave', () =>{
-        imageSlide.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.2), 0 10px 30px rgba(0, 0, 0, 0.15), 0 15px 40px rgba(0, 0, 0, 0.1)';
-        imageSlide.style.transform = 'translateY(0px)';
-    });
-})
-
-
