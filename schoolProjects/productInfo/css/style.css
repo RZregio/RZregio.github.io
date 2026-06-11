@@ -1,424 +1,206 @@
+/* =========================================
+   GLOBAL VARIABLES & THEME
+   ========================================= */
+:root {
+    --bg-dark: #121212;
+    --bg-card: #1e1e1e;
+    --bg-card-hover: #252525;
+
+    --accent-red: #E60012;
+    /* Official Lenovo Red */
+    --accent-red-hover: #cc0010;
+    --accent-gold: #d2c32d;
+    /* RZregio Gold */
+
+    --text-main: #dedede;
+    --text-muted: #959595;
+}
+
 html,
 body {
-    margin: 0;
-    height: 100%;
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    background-color: #252525;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
     overflow-x: hidden;
-}
-
-
-
-/*remove link default state*/
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-a:focus,
-a:active {
-    outline: none;
-}
-
-
-
-/*Navigation Bar*/
-#upper-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #252525;
-    flex-wrap: wrap;
-    border-bottom: 3px #c01f33 solid;
-}
-
-#upper-section h1 {
-    margin: 0;
-    font-size: 24px;
-    font-weight: bold;
-    font-family: 'Georgia';
-    color: aliceblue;
-    padding-bottom: 10px;
-}
-
-.more-lenovo, .featured-lenovo {
-    font-family: Poppins;
-    letter-spacing: -1px;
-    border-radius: 10px;
-    color: #d7d7d7;
-    transition: all ease 0.3s;
-}
-
-.more-lenovo:hover, .featured-lenovo:hover{
-    transform: translateY(-3px);
-    background: linear-gradient(180deg, #4f4f4f 20%, #3b3b3b 50%);
-    color: #d7d7d7;
-}
-
-
-
-/*end line*/
-.footer {
-    border-top: 3px #c01f33 solid;
-    width: 50%;
-    text-align: center;
-    color: white;
-    font-family: Georgia;
-    background-color: #252525;
-    padding: 15px 0;
-    height: auto;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
-
-/*Link Page*/
-#more-site {
+    scroll-behavior: smooth;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-.visit {
-    font-family: Poppins;
-    font-weight: bold;
-    margin-top: 50px;
-    margin-bottom: 20px;
-    color: #ffffff
+.fredoka {
+    font-family: 'Fredoka One', cursive;
 }
 
-.visit-page {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    margin-bottom: 20px;
+/* Colors Utilities */
+.accent-gold {
+    color: var(--accent-gold);
 }
 
-.visit-page .card {
-    box-shadow: 0 4px 10px #3b3b3b;
-    background-color: #4f4f4f;
+.accent-red {
+    color: var(--accent-red);
+}
+
+.bg-lenovo-red {
+    background-color: var(--accent-red) !important;
+}
+
+.text-justify {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* =========================================
+   NAVIGATION
+   ========================================= */
+.custom-navbar {
+    background-color: rgba(18, 18, 18, 0.9) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--accent-red);
+}
+
+.brand-text {
+    color: #ffffff;
+    font-size: 1.5rem;
+}
+
+/* Nav Buttons */
+.btn-nav {
+    background-color: var(--accent-red);
+    color: #fff !important;
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 8px 20px;
     transition: all 0.3s ease;
-    margin-bottom: 20px;
 }
 
-.visit-page .card:hover {
-    transform: scale(1.10);
-    z-index: 10px;    
-}
-
-.visit-page .card-title {
-    color: aliceblue;
-    text-align: center;
-}
-
-.visit-page .card-text {
-    height: 150px;
-    font-family: Roboto;
-    font-weight: bold;
-    color: #d7d7d7;
-    text-align: justify;
-    hyphens: auto;
-    opacity: 90%;
-}
-
-.visit-page img {
-    height: 200px;
-}
-
-.visit-page a:hover {
-    transform: translateY(-3px);
-    box-shadow: 2px 2px 2px #DAA520;
-}
-
-
-
-/*Home Section*/
-#product-page {
-    color: #d7d7d7;
-    font-size: 14px;
-    padding-left: 20px;
-    padding-top: 20px;
-}
-
-#content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 20px;
-    background-color: #252525;
-    flex-wrap: wrap;
-    flex-grow: 1;
-    margin-bottom: 50px;
-    transition: filter 0.3s ease-in-out;
-}
-
-.product-profile {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 0.3s ease-in forwards;
-    max-width: 600px;
-    width: 100%;
-    padding-top: 80px;
-    padding-right: 20px;
-    margin-bottom: 40px;
-}
-
-.product-profile img {
-    display: flex;
-    width: 100%;
-    height: auto;
-}
-
-.product-info {
-    opacity: 0;
-    margin: 0px auto 0px auto;
-    transform: translateY(-20px);
-    animation: fadeIn 0.3s ease-in forwards;
-    text-align: center;
-    max-width: 500px;
-    background-color: #252525;
-    border: 3px #959595 solid;
-    border-radius: 20px;
-    padding: 20px;
-}
-
-.product-info .product-title {
-    opacity: 0;
-    transform: translateY(40px);
-    animation: fadeIn 0.3s ease-in forwards;
-    font-family: Roboto;
-    margin-bottom: 20px;
-}
-
-.product-info .product-details {
-    opacity: 0;
-    transform: translateY(40px);
-    animation: fadeIn 0.3s ease-in forwards;
-    text-align: left;
-    font-family: Open Sans;
-    color: #959595;
-    background-color: #393939;
-    padding: 20px;
-    border-radius: 20px;
-}
-
-#product-summary {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 3px #959595 solid;
-    border-radius: 20px;
-    padding: 20px;
-    margin-bottom: 40px;
-    margin-left: auto;
-    margin-right: auto;
-    flex: wrap;
-}
-
-#product-summary h4 {
-    font-family: Roboto;
-    font-size: 30px;
-    margin-bottom: 20px;
-    color: #dedede;
-    margin-right: 10px;
-}
-
-.slice-summary {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100%;
-    cursor: crosshair;
-}
-
-.slice-summary p {
-    text-align: center;
-    hyphens: auto;
-    font-size: 20px;
-    font-family: Open Sans;
-    color: #959595;
-    background-color: #393939;
-    padding: 20px;
-    border-radius: 20px;
-    margin: 10px;
-    flex: 1;
-    max-width: 400px;
-    height: 100%;
-    transition: all ease 0.3s;
-}
-
-.slice-summary p:hover {
-    transform: scale(1.1);
-    z-index: 10px;
-}
-
-
-
-/*More on Lenovo*/
-#welcome-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px auto;
-    background-color: #252525;
-    flex-wrap: wrap;
-    flex-grow: 1;
-    margin-bottom: 50px;
-}
-
-.welcome-lenovo {
-    opacity: 0;
-    transform: translateY(40px);
-    animation: fadeIn 0.3s ease-in forwards;
-}
-
-.welcome-lenovo iframe, .video-body iframe{
-    border-radius: 20px;
-}
-
-.welcome-text {
-    opacity: 0;
-    transform: translateY(40px);
-    animation: fadeIn 0.3s ease-in forwards;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-}
-
-.welcome-title {
-    font-size: clamp(16px, 5vw, 40px);
-    color: #ffffff;
-    text-align: center;
-}
-
-.welcome-desc {
-    color: #e0e0e0;
-    text-align: justify;
-    font-size:  16px;
-    background: linear-gradient(180deg, #3b3b3b 60%, #4f4f4f 100%);
-    border-radius: 20px;
-    padding: 40px;
-    margin-top: 20px;
-    transition: all ease 0.3s;
-}
-
-.welcome-desc a:hover{
- transform: translateY(3px);
- color: #7c7c7c;
-}
-
-.welcome-desc:hover{
+.btn-nav:hover,
+.btn-nav.active {
+    background-color: var(--accent-red-hover);
     transform: translateY(-2px);
-    background: linear-gradient(180deg, #4f4f4f 60%, #3b3b3b 100%);
+    box-shadow: 0 4px 15px rgba(230, 0, 18, 0.4);
 }
 
-
-
-/*Video Page*/
-.video-page {
-    margin-top: 120px;
-    text-align: center;
+.btn-nav-outline {
+    background-color: transparent;
+    color: var(--text-main) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 8px 20px;
+    transition: all 0.3s ease;
 }
 
-.lenovo-videos {
-    background: linear-gradient(180deg, #3b3b3b 60%, #4f4f4f 100%);
-    padding: 40px;
-    border-radius: 20px;
+.btn-nav-outline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff !important;
 }
 
-.video-container {
-    padding-top: 20px;
+/* =========================================
+   PRODUCT PAGE STYLES
+   ========================================= */
+.product-image-wrapper {
+    position: relative;
 }
 
-.video-text {
+.product-image-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 70%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    z-index: -1;
+    border-radius: 50%;
+}
+
+.drop-shadow-img {
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.5));
+    transition: transform 0.4s ease;
+}
+
+.drop-shadow-img:hover {
+    transform: scale(1.05) translateY(-10px);
+}
+
+.product-info-card {
+    background-color: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Summary Cards */
+.summary-card {
+    background-color: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.summary-card:hover {
+    background-color: var(--bg-card-hover);
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    border-color: rgba(230, 0, 18, 0.3);
+}
+
+/* =========================================
+   VIDEO PAGE STYLES
+   ========================================= */
+.welcome-text-card {
+    background: linear-gradient(145deg, var(--bg-card) 0%, #171717 100%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.btn-lenovo-red {
+    background-color: var(--accent-red);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.btn-lenovo-red:hover {
+    background-color: var(--accent-red-hover);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(230, 0, 18, 0.4);
+}
+
+.title-underline {
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent-red);
+    border-radius: 2px;
+}
+
+.video-card {
+    background-color: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.video-card:hover {
+    background-color: var(--bg-card-hover);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* =========================================
+   ANIMATIONS & UTILITIES
+   ========================================= */
+.fade-in-up {
     opacity: 0;
-    transform: translateY(40px);
-    animation: fadeIn 0.3s ease-in forwards;
-    flex-direction: column;
-    align-items: center;
-    padding: 0px 0px;
-    border-bottom: #c23b4b solid 2px;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
-.video-title {
-    font-size: 20px;
-    color: #ffffff;
-    font-family: Poppins;
-    text-align: center;
-    padding-top: 10px;
-}
-
-.video-desc {
-    color: #e0e0e0;
-    opacity: 80%;
-    text-align: justify;
-    font-size:  16px;
-    padding: 10px;
-    margin-top: 10px;
-}
-
-
-
-/*Animations*/
-@keyframes fadeIn {
+@keyframes fadeInUp {
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-
-
-/*Flexibility for different devices*/
-@media (max-width: 900px) {
-    .title h1 {
-        font-size: 20px;
-    }
-
-    .navigation button {
-        padding: 6px 8px;
-        font-size: 12px;
-    }
-
-    #content {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #welcome-header {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .product-profile {
-        max-width: 80%;
-        margin-right: 0;
-    }
-
-    .slice-summary {
-        display: flex;
-        flex-direction: column;
-    }
-}
-
-@media (max-width: 400px) {
-    .welcome-desc {
-        font-size: 11px;
-    }
-
-    .video-page h2{
-        font-size: 16px;
-    }
-
-    .video-title{
-        font-size: 14px;
-    }
-
-    .video-desc{
-        font-size: 10px;
-    }
+.custom-footer {
+    background-color: #0a0a0a;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
