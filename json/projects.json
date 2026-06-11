@@ -16,6 +16,62 @@
     ]
   },
   {
+    "category": "company",
+    "title": "Arkteach",
+    "description": "Educational training platform with tutorial progression, quizzes, and analytics tracking.",
+    "mediaType": "image",
+    "value": "important",
+    "mediaSource": [
+      "main-res/projects/arkteach.png"
+    ],
+    "liveLink": "",
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "PHP",
+      "MySQL",
+      "JavaScript",
+      "Bootstrap",
+      "ChatGPT API",
+      "FPDF",
+      "ChartJS",
+      "AI Video Generation"
+    ]
+  },
+  {
+    "category": "company",
+    "title": "Material Navigator",
+    "description": "Internal tracking system designed to streamline factory material routing and location.",
+    "mediaType": "image",
+    "value": "important",
+    "mediaSource": [],
+    "liveLink": "",
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "PHP",
+      "JavaScript",
+      "MySQL",
+      "Bootstrap"
+    ]
+  },
+  {
+    "category": "school",
+    "title": "KuroNeko: Journey in Another World",
+    "description": "A 2D Cat-Themed desktop game featuring custom gameplay mechanics, input handling, and object-oriented architecture.",
+    "mediaType": "image",
+    "value": "important",
+    "mediaSource": [
+      "main-res/projects/kuroneko.png"
+    ],
+    "liveLink": "",
+    "techStack": [
+      "Java",
+      "Java Swing",
+      "OOP"
+    ]
+  },
+  {
     "category": "school",
     "title": "StillLife Parallax V2",
     "description": "Advanced UI project utilizing CSS parallax techniques.",
@@ -34,24 +90,10 @@
   },
   {
     "category": "school",
-    "title": "KuroNeko: Journey in Another World",
-    "description": "A 2D Cat-Themed desktop game featuring custom gameplay mechanics, input handling, and object-oriented architecture.",
-    "mediaType": "image",
-    "mediaSource": [
-      "main-res/projects/kuroneko.png"
-    ],
-    "liveLink": "",
-    "techStack": [
-      "Java",
-      "Java Swing",
-      "OOP"
-    ]
-  },
-  {
-    "category": "school",
     "title": "AIB - Border App",
     "description": "Study on interface boundaries and visual hierarchy.",
     "mediaType": "iframe",
+    "value": "important",
     "mediaSource": [
       "schoolProjects/A03/index.html"
     ],
@@ -136,9 +178,9 @@
     "description": "Emerging technology tool designed for motivation and interactive engagement.",
     "mediaType": "iframe",
     "mediaSource": [
-      "schoolProjects/A07/index.html"
+      "schoolProjects/meowtivator/index.html"
     ],
-    "liveLink": "schoolProjects/A07/index.html",
+    "liveLink": "schoolProjects/meowtivator/index.html",
     "techStack": [
       "HTML5",
       "CSS3",
@@ -268,51 +310,12 @@
   },
   {
     "category": "company",
-    "title": "Arkteach",
-    "description": "Educational training platform with tutorial progression, quizzes, and analytics tracking.",
-    "mediaType": "image",
-    "value": "important",
-    "mediaSource": [
-      "main-res/projects/arkteach.png"
-    ],
-    "liveLink": "",
-    "techStack": [
-      "HTML5",
-      "CSS3",
-      "PHP",
-      "MySQL",
-      "JavaScript",
-      "Bootstrap",
-      "ChatGPT API",
-      "FPDF",
-      "ChartJS",
-      "AI Video Generation"
-    ]
-  },
-  {
-    "category": "company",
     "title": "Assembly Tree Finder",
     "description": "Dynamic visualization tool utilizing a 'Family Tree' hierarchy to map manufacturing components.",
     "mediaType": "image",
     "mediaSource": [
       "main-res/projects/assembly.png"
     ],
-    "liveLink": "",
-    "techStack": [
-      "HTML5",
-      "CSS3",
-      "PHP",
-      "JavaScript",
-      "MySQL",
-      "Bootstrap"
-    ]
-  },
-  {
-    "category": "company",
-    "title": "Material Navigator",
-    "description": "Internal tracking system designed to streamline factory material routing and location.",
-    "mediaType": "image",
-    "mediaSource": [],
     "liveLink": "",
     "techStack": [
       "HTML5",

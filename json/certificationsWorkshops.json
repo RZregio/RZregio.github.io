@@ -4,6 +4,7 @@
     "awardContext": "COMSOC (Dec 2025)",
     "description": "Journey into AI and Machine Learning concepts and practical implementations.",
     "iconClass": "bi-lightbulb-fill",
+    "value": "important",
     "imageUrl": "main-res/certificates/fromAlgotoAI&ML.jpg"
   },
   {
@@ -18,6 +19,7 @@
     "awardContext": "Newcastle College / Cisco (Dec 2025)",
     "description": "Foundational and advanced responsive styling techniques, semantic markup, and structural architecture.",
     "iconClass": "bi-filetype-html",
+    "value": "important",
     "images": [
       "main-res/certificates/css1.jpg",
       "main-res/certificates/css2.jpeg",
@@ -30,6 +32,7 @@
     "awardContext": "DICT-ITU DTC Initiative (Dec 2025)",
     "description": "Advanced training in dynamic DOM manipulation, async logic, and interactive user interfaces.",
     "iconClass": "bi-filetype-js",
+    "value": "important",
     "images": [
       "main-res/certificates/js1-1.jpg",
       "main-res/certificates/js1-2.jpg",
@@ -49,6 +52,7 @@
     "awardContext": "STARTDOST (Nov 2025)",
     "description": "Introduction to version control, branch management, and collaborative repository workflows.",
     "iconClass": "bi-github",
+    "value": "important",
     "images": [
       "main-res/certificates/techStart.jpg",
       "main-res/certificates/techStart2.jpg"
@@ -120,6 +124,7 @@
     "awardContext": "DICT-ITU DTC Initiative (Oct 2025)",
     "description": "Fundamentals of operating system configuration, network protocols, and infrastructure deployment.",
     "iconClass": "bi-hdd-network-fill",
+    "value": "important",
     "images": [
       "main-res/certificates/networking1.jpg",
       "main-res/certificates/networking2.jpg",
@@ -143,6 +148,7 @@
     "awardContext": "PUPSTC (Aug 2024)",
     "description": "Leadership training focused on community management, team coordination, and strategic planning.",
     "iconClass": "bi-person-raised-hand",
+    "value": "important",
     "images": [
       "main-res/certificates/bagani1.png",
       "main-res/certificates/bagani2.jpg",

@@ -1,0 +1,174 @@
+/* =========================================
+   MEOWTIVATOR REWRITE (PORTFOLIO THEMED)
+   ========================================= */
+
+:root {
+    --accent-yellow: #D48C1C;
+    --blue-1: #0B1120;
+    --blue-2: #131B2E;
+    --blue-3: #1A253D;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--blue-1);
+    color: white;
+    overflow: hidden;
+    /* Prevent page scrolling, only chat scrolls */
+}
+
+.fredoka {
+    font-family: 'Fredoka One', cursive;
+}
+
+/* --- Layout Container --- */
+.chat-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(145deg, var(--blue-1) 0%, var(--blue-2) 45%, var(--blue-3) 100%);
+}
+
+/* Left Side (Desktop Only) */
+.chat-hero {
+    flex: 1;
+    padding: 2rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero-cat-img {
+    max-width: 250px;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+}
+
+/* Right Side / Full screen (Mobile & Iframe) */
+.chat-interface {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-width: 100%;
+    background-color: var(--blue-2);
+    /* Distinct background for chat area */
+}
+
+/* --- Chat Box (Scrollable Area) --- */
+.chat-box {
+    flex-grow: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-yellow) var(--blue-1);
+}
+
+.chat-box::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-box::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+    background-color: rgba(212, 140, 28, 0.5);
+    border-radius: 10px;
+}
+
+/* --- Messages --- */
+.bg-primary {
+    /* User Message Override */
+    background-color: var(--accent-yellow) !important;
+    color: #101A30 !important;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(212, 140, 28, 0.3);
+}
+
+.bg-light {
+    /* Bot Message Override */
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Input Area --- */
+.chat-input-area {
+    padding: 15px;
+    background-color: var(--blue-1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.chat-input {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+    border-radius: 20px;
+    padding: 10px 15px;
+}
+
+.chat-input:focus {
+    border-color: var(--accent-yellow) !important;
+    box-shadow: 0 0 0 0.25rem rgba(212, 140, 28, 0.25) !important;
+}
+
+.chat-input::placeholder {
+    color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.chat-send-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: var(--accent-yellow);
+    color: #101A30;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.chat-send-btn:hover {
+    transform: scale(1.1);
+    background-color: #e6b840;
+}
+
+.text-secondary {
+    color: var(--accent-yellow) !important;
+}
+
+/* --- Chat Avatar --- */
+.bot-avatar {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    background-color: transparent;
+    flex-shrink: 0;
+    border: none;
+}
+
+/* --- Refined Bubble Shapes --- */
+.bot-msg-bubble {
+    border-bottom-left-radius: 4px !important;
+    line-height: 1.5;
+}
+
+.user-msg-bubble {
+    border-bottom-right-radius: 4px !important;
+    line-height: 1.5;
+}

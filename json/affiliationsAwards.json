@@ -41,6 +41,7 @@
     "awardContext": "PUPSTC BSIT (2022–2026)",
     "description": "Maintained top-tier academic standing throughout my collegiate journey, reflecting a continuous commitment to excellence.",
     "iconClass": "bi-star-fill",
+    "value": "important",
     "images": [
       "main-res/recognitions/bsit1-1.jpg",
       "main-res/recognitions/bsit1-2.jpg",
@@ -77,7 +78,6 @@
     "awardContext": "PUPSTC Computer Society (2024–2026)",
     "description": "Managed community outreach, social media presence, and technical event communications for the premier IT organization.",
     "iconClass": "bi-megaphone-fill",
-    "value": "important",
     "images": [
       "main-res/recognitions/pro3-1.jpg",
       "main-res/recognitions/pro4-1.jpg"
