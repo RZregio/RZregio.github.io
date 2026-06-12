@@ -293,8 +293,15 @@ document.addEventListener('DOMContentLoaded', () => {
             ? proj.techStack.map(tech => `<span class="badge bg-secondary me-1 mb-2">${tech}</span>`).join('')
             : '';
 
-        const btnLaunch = proj.liveLink ? `<a href="${proj.liveLink}" target="_blank" class="btn btn-custom btn-explore mt-auto w-100"><i class="bi bi-box-arrow-up-right me-2"></i> Launch Live Preview</a>` : '';
-
+        let btnLaunch = '<div class="d-flex flex-wrap gap-2 mt-auto w-100">';
+        if (proj.liveLink && proj.liveLink !== "") {
+            btnLaunch += `<a href="${proj.liveLink}" target="_blank" class="btn btn-custom btn-explore flex-grow-1"><i class="bi bi-box-arrow-up-right me-2"></i>Live Demo</a>`;
+        }
+        if (proj.sourceCode && proj.sourceCode !== "") {
+            btnLaunch += `<a href="${proj.sourceCode}" target="_blank" class="btn btn-outline-light flex-grow-1" style="border: 1px solid rgba(255,255,255,0.2);"><i class="bi bi-github me-2"></i>Source Code</a>`;
+        }
+        btnLaunch += '</div>';
+        
         container.innerHTML = `
             <div class="row g-4 align-items-stretch h-100">
                 <div class="col-lg-6">

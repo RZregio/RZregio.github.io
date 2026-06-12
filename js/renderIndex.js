@@ -158,27 +158,21 @@ document.addEventListener('DOMContentLoaded', () => {
                     `<span class="badge bg-secondary me-1 mb-1">${tech}</span>`
                 ).join('');
 
-                // NEW LOGIC: Check for link, otherwise show View Images button
-                let actionButton = '';
-                if (activeProject.projectLinkUrl && activeProject.projectLinkUrl !== "") {
-                    // Scenario A: Link exists -> Show Live Preview
-                    actionButton = `
-                        <a href="${activeProject.projectLinkUrl}" target="_blank" class="btn btn-sm btn-outline-warning rounded-pill px-4 py-2 interactive-card">
-                            <i class="bi bi-box-arrow-up-right me-2"></i>Live Preview
-                        </a>`;
-                } else {
-                    // Scenario B: No link -> Show View Images (Trigger Modal)
-                    // We gather images or fallback to the preview image if no array exists
-                    const images = activeProject.mediaSource || [activeProject.previewImageUrl];
-                    const arrayData = encodeURIComponent(JSON.stringify(images));
+                let actionButton = '<div class="d-flex flex-wrap gap-2 mt-3">';
 
-                    actionButton = `
-                        <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-4 py-2 interactive-card" 
-                                data-bs-toggle="modal" data-bs-target="#imageViewerModal" 
-                                onclick="if(window.openImageViewer) window.openImageViewer('${arrayData}')">
-                            <i class="bi bi-images me-2"></i>View Images
-                        </button>`;
+                if (activeProject.projectLinkUrl && activeProject.projectLinkUrl !== "") {
+                    actionButton += `<a href="${activeProject.projectLinkUrl}" target="_blank" class="btn btn-sm btn-outline-warning rounded-pill px-3 py-2 interactive-card"><i class="bi bi-box-arrow-up-right me-2"></i>Live Preview</a>`;
                 }
+                if (activeProject.sourceCode && activeProject.sourceCode !== "") {
+                    actionButton += `<a href="${activeProject.sourceCode}" target="_blank" class="btn btn-sm btn-outline-light rounded-pill px-3 py-2 interactive-card"><i class="bi bi-github me-2"></i>Source</a>`;
+                }
+
+                const images = activeProject.mediaSource || [activeProject.previewImageUrl];
+                if (images && images.length > 0 && images[0] !== "") {
+                    const arrayData = encodeURIComponent(JSON.stringify(images));
+                    actionButton += `<button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3 py-2 interactive-card" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="if(window.openImageViewer) window.openImageViewer('${arrayData}')"><i class="bi bi-images me-2"></i>View Images (${images.length})</button>`;
+                }
+                actionButton += '</div>';
 
                 projectDetailsContainer.innerHTML = `
                     <span class="text-accent fw-bold text-uppercase small">${activeProject.projectCategory}</span>

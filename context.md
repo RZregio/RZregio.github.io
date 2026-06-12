@@ -9,14 +9,16 @@
 * **Theme:** Deep Dark Mode (Backgrounds: `#060b1a`, `#101A30`, `#162447`).
 * **Accent Color:** Yellow/Gold (`--accent-yellow: #D48C1C`).
 * **Typography:** 'Fredoka One' (Headings/Accents) and 'Poppins' (Body text).
-* **Global CSS Behaviors:** * `overscroll-behavior-y: none` is globally applied to stop mobile white-bounce.
+* **Global CSS Behaviors:** 
+  * `overscroll-behavior-y: none` is globally applied to stop mobile white-bounce.
   * Mobile typography and padding dynamically shrink using CSS `clamp()` and media queries (`@media max-width: 768px/991px`).
   * Custom yellow buttons and custom modal close buttons (`.custom-yellow-close`).
 
 **3. File Structure & Routing**
 * **Pages:** `index.html`, `about.html`, `experience.html`, `contact.html`.
 * **CSS:** `navFoot.css` (Global styles, variables, mobile fixes), plus page-specific CSS (`home.css`, `about.css`, `experience.css`, `contact.css`).
-* **JavaScript:** * `globalUI.js` (Handles loaders, scroll animations, navbar active states).
+* **JavaScript:** 
+  * `globalUI.js` (Handles loaders, scroll animations, navbar active states).
   * `textSwitch.js` (Typing effect on the hero section).
   * `renderIndex.js`, `renderAbout.js`, `renderExperience.js` (Fetch/Render logic).
   * `sendEmail.js`, `sendTestimonial.js` (Web3Forms logic).
@@ -38,7 +40,6 @@ When generating or modifying data, adhere strictly to these object schemas:
 * **`techStack.json`:** `[{ "category": "frontend" | "backend" | "programming" | "tools", "title": "", "description": "", "iconClass": "", "stars": 5, "linkUrl": "" }]`
 * **`career.json`:** `[{ "title": "", "subtitle": "", "dateRange": "", "description": "", "iconClass": "", "isCurrent": true }]`
 * **`testimonials.json`:** `[{ "reviewerName": "", "reviewerRole": "", "testimonialMessage": "" }]`
-* **`funFacts.json`:**
-  `[{ "factTitle": "", "factDescription": "", "iconClass": "" }]`
+* **`funFacts.json`:** `[{ "factTitle": "", "factDescription": "", "iconClass": "" }]`
 
 **End of Context. Please confirm you understand the architecture, design system, and JSON schemas.**

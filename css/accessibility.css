@@ -189,16 +189,17 @@ body {
    DARK THEMES (Strict Variables Overrides)
    ============================================================ */
 
-/* Theme 1: True Dark (Pitch Black) */
+/* Theme 1: True Dark (Pitch Black - Keeps Yellow Accent) */
+html[data-theme="dark"],
 html[data-theme="dark"] body {
     --blue-1: #000000;
     --blue-2: #0a0a0a;
     --blue-3: #111111;
     --bg-nav: #000000;
-    /* Yellow remains default */
 }
 
 /* Theme 2: Deep Purple */
+html[data-theme="purple"],
 html[data-theme="purple"] body {
     --blue-1: #150E24;
     --blue-2: #1D1533;
@@ -209,6 +210,7 @@ html[data-theme="purple"] body {
 }
 
 /* Theme 3: Midnight Green */
+html[data-theme="green"],
 html[data-theme="green"] body {
     --blue-1: #051414;
     --blue-2: #0A2222;
@@ -218,16 +220,206 @@ html[data-theme="green"] body {
     /* Success Green */
 }
 
-/* --- Fix Specific Components to use the active Accent Color --- */
-
-/* Social Buttons */
-html[data-theme] .social-btn {
-    color: var(--accent-yellow) !important;
+/* Theme 4: Ocean Blue */
+html[data-theme="blue"],
+html[data-theme="blue"] body {
+    --blue-1: #0A1118;
+    --blue-2: #101B2B;
+    --blue-3: #182840;
+    --bg-nav: #05090f;
+    --accent-yellow: #4A90E2;
 }
 
-html[data-theme] .social-btn:hover {
+/* Theme 5: Mocha Brown */
+html[data-theme="brown"],
+html[data-theme="brown"] body {
+    --blue-1: #1A130E;
+    --blue-2: #2B1E16;
+    --blue-3: #3D2B1F;
+    --bg-nav: #0f0a07;
+    --accent-yellow: #8B5A2B;
+}
+
+/* Theme 6: Neon Pink */
+html[data-theme="pink"],
+html[data-theme="pink"] body {
+    --blue-1: #1A0B14;
+    --blue-2: #2B1120;
+    --blue-3: #3D182D;
+    --bg-nav: #0f050b;
+    --accent-yellow: #FF69B4;
+}
+
+/* ============================================================
+   DYNAMIC SCROLLBAR (Adapts to Active Theme)
+   ============================================================ */
+::-webkit-scrollbar {
+    width: 14px;
+    height: 14px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--blue-1);
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--accent-yellow);
+    /* Automatically pulls the current theme color */
+    border-radius: 10px;
+    border: 3px solid var(--blue-1);
+    transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
     filter: brightness(1.2);
-    color: var(--accent-yellow) !important;
+}
+
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-yellow) var(--blue-1);
+}
+
+/* ============================================================
+   DYNAMIC CURSORS (Adapts to Active Theme)
+   ============================================================ */
+/* Default text inputs fix */
+input,
+textarea {
+    -webkit-user-select: auto !important;
+    -ms-user-select: auto !important;
+    user-select: auto !important;
+    cursor: text !important;
+}
+
+/* --- BASE & DARK THEME (Yellow: #D48C1C) --- */
+html body,
+html[data-theme="dark"] body {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23D48C1C" stroke="white" stroke-width="1.5"><polygon points="3,3 21,11 13,13 11,21"/></svg>') 3 3, auto !important;
+}
+
+html a,
+html button,
+html .interactive-card,
+html .timeline-item,
+html .nav-link,
+html[data-theme="dark"] a,
+html[data-theme="dark"] button,
+html[data-theme="dark"] .interactive-card,
+html[data-theme="dark"] .timeline-item,
+html[data-theme="dark"] .nav-link {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23D48C1C" stroke="white" stroke-width="1.5"><path d="M9 11.24V7.5C9 6.12 10.12 5 11.5 5S14 6.12 14 7.5v3.74c1.21-.81 2-2.18 2-3.74C16 5.01 13.99 3 11.5 3S7 5.01 7 7.5c0 1.56.79 2.93 2 3.74zm9.84 4.63l-4.54-2.26c-.17-.07-.35-.11-.54-.11H13v-6c0-.83-.67-1.5-1.5-1.5S10 6.67 10 7.5v10.74l-3.43-.72c-.08-.01-.15-.03-.24-.03-.31 0-.59.13-.79.33l-.79.8 4.94 4.94c.27.27.65.44 1.04.44h6.79c.75 0 1.33-.55 1.44-1.28l.75-5.27c.01-.07.02-.14.02-.21 0-.62-.35-1.16-.89-1.37z"/></svg>') 10 2, pointer !important;
+}
+
+html .zoom-cursor,
+html .recog-img-container img,
+html #featured-carousel-inner img,
+html .proj-detail-media img,
+html[data-theme="dark"] .zoom-cursor,
+html[data-theme="dark"] .recog-img-container img,
+html[data-theme="dark"] #featured-carousel-inner img,
+html[data-theme="dark"] .proj-detail-media img {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="%23D48C1C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>') 16 16, zoom-in !important;
+}
+
+/* --- PURPLE THEME (#E0B0FF) --- */
+html[data-theme="purple"] body {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23E0B0FF" stroke="white" stroke-width="1.5"><polygon points="3,3 21,11 13,13 11,21"/></svg>') 3 3, auto !important;
+}
+
+html[data-theme="purple"] a,
+html[data-theme="purple"] button,
+html[data-theme="purple"] .interactive-card,
+html[data-theme="purple"] .timeline-item,
+html[data-theme="purple"] .nav-link {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23E0B0FF" stroke="white" stroke-width="1.5"><path d="M9 11.24V7.5C9 6.12 10.12 5 11.5 5S14 6.12 14 7.5v3.74c1.21-.81 2-2.18 2-3.74C16 5.01 13.99 3 11.5 3S7 5.01 7 7.5c0 1.56.79 2.93 2 3.74zm9.84 4.63l-4.54-2.26c-.17-.07-.35-.11-.54-.11H13v-6c0-.83-.67-1.5-1.5-1.5S10 6.67 10 7.5v10.74l-3.43-.72c-.08-.01-.15-.03-.24-.03-.31 0-.59.13-.79.33l-.79.8 4.94 4.94c.27.27.65.44 1.04.44h6.79c.75 0 1.33-.55 1.44-1.28l.75-5.27c.01-.07.02-.14.02-.21 0-.62-.35-1.16-.89-1.37z"/></svg>') 10 2, pointer !important;
+}
+
+html[data-theme="purple"] .zoom-cursor,
+html[data-theme="purple"] .recog-img-container img,
+html[data-theme="purple"] #featured-carousel-inner img,
+html[data-theme="purple"] .proj-detail-media img {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="%23E0B0FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>') 16 16, zoom-in !important;
+}
+
+/* --- GREEN THEME (#4ade80) --- */
+html[data-theme="green"] body {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%234ade80" stroke="white" stroke-width="1.5"><polygon points="3,3 21,11 13,13 11,21"/></svg>') 3 3, auto !important;
+}
+
+html[data-theme="green"] a,
+html[data-theme="green"] button,
+html[data-theme="green"] .interactive-card,
+html[data-theme="green"] .timeline-item,
+html[data-theme="green"] .nav-link {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%234ade80" stroke="white" stroke-width="1.5"><path d="M9 11.24V7.5C9 6.12 10.12 5 11.5 5S14 6.12 14 7.5v3.74c1.21-.81 2-2.18 2-3.74C16 5.01 13.99 3 11.5 3S7 5.01 7 7.5c0 1.56.79 2.93 2 3.74zm9.84 4.63l-4.54-2.26c-.17-.07-.35-.11-.54-.11H13v-6c0-.83-.67-1.5-1.5-1.5S10 6.67 10 7.5v10.74l-3.43-.72c-.08-.01-.15-.03-.24-.03-.31 0-.59.13-.79.33l-.79.8 4.94 4.94c.27.27.65.44 1.04.44h6.79c.75 0 1.33-.55 1.44-1.28l.75-5.27c.01-.07.02-.14.02-.21 0-.62-.35-1.16-.89-1.37z"/></svg>') 10 2, pointer !important;
+}
+
+html[data-theme="green"] .zoom-cursor,
+html[data-theme="green"] .recog-img-container img,
+html[data-theme="green"] #featured-carousel-inner img,
+html[data-theme="green"] .proj-detail-media img {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="%234ade80" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>') 16 16, zoom-in !important;
+}
+
+/* --- BLUE THEME (#4A90E2) --- */
+html[data-theme="blue"] body {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%234A90E2" stroke="white" stroke-width="1.5"><polygon points="3,3 21,11 13,13 11,21"/></svg>') 3 3, auto !important;
+}
+
+html[data-theme="blue"] a,
+html[data-theme="blue"] button,
+html[data-theme="blue"] .interactive-card,
+html[data-theme="blue"] .timeline-item,
+html[data-theme="blue"] .nav-link {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%234A90E2" stroke="white" stroke-width="1.5"><path d="M9 11.24V7.5C9 6.12 10.12 5 11.5 5S14 6.12 14 7.5v3.74c1.21-.81 2-2.18 2-3.74C16 5.01 13.99 3 11.5 3S7 5.01 7 7.5c0 1.56.79 2.93 2 3.74zm9.84 4.63l-4.54-2.26c-.17-.07-.35-.11-.54-.11H13v-6c0-.83-.67-1.5-1.5-1.5S10 6.67 10 7.5v10.74l-3.43-.72c-.08-.01-.15-.03-.24-.03-.31 0-.59.13-.79.33l-.79.8 4.94 4.94c.27.27.65.44 1.04.44h6.79c.75 0 1.33-.55 1.44-1.28l.75-5.27c.01-.07.02-.14.02-.21 0-.62-.35-1.16-.89-1.37z"/></svg>') 10 2, pointer !important;
+}
+
+html[data-theme="blue"] .zoom-cursor,
+html[data-theme="blue"] .recog-img-container img,
+html[data-theme="blue"] #featured-carousel-inner img,
+html[data-theme="blue"] .proj-detail-media img {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="%234A90E2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>') 16 16, zoom-in !important;
+}
+
+/* --- BROWN THEME (#8B5A2B) --- */
+html[data-theme="brown"] body {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%238B5A2B" stroke="white" stroke-width="1.5"><polygon points="3,3 21,11 13,13 11,21"/></svg>') 3 3, auto !important;
+}
+
+html[data-theme="brown"] a,
+html[data-theme="brown"] button,
+html[data-theme="brown"] .interactive-card,
+html[data-theme="brown"] .timeline-item,
+html[data-theme="brown"] .nav-link {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%238B5A2B" stroke="white" stroke-width="1.5"><path d="M9 11.24V7.5C9 6.12 10.12 5 11.5 5S14 6.12 14 7.5v3.74c1.21-.81 2-2.18 2-3.74C16 5.01 13.99 3 11.5 3S7 5.01 7 7.5c0 1.56.79 2.93 2 3.74zm9.84 4.63l-4.54-2.26c-.17-.07-.35-.11-.54-.11H13v-6c0-.83-.67-1.5-1.5-1.5S10 6.67 10 7.5v10.74l-3.43-.72c-.08-.01-.15-.03-.24-.03-.31 0-.59.13-.79.33l-.79.8 4.94 4.94c.27.27.65.44 1.04.44h6.79c.75 0 1.33-.55 1.44-1.28l.75-5.27c.01-.07.02-.14.02-.21 0-.62-.35-1.16-.89-1.37z"/></svg>') 10 2, pointer !important;
+}
+
+html[data-theme="brown"] .zoom-cursor,
+html[data-theme="brown"] .recog-img-container img,
+html[data-theme="brown"] #featured-carousel-inner img,
+html[data-theme="brown"] .proj-detail-media img {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="%238B5A2B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>') 16 16, zoom-in !important;
+}
+
+/* --- PINK THEME (#FF69B4) --- */
+html[data-theme="pink"] body {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23FF69B4" stroke="white" stroke-width="1.5"><polygon points="3,3 21,11 13,13 11,21"/></svg>') 3 3, auto !important;
+}
+
+html[data-theme="pink"] a,
+html[data-theme="pink"] button,
+html[data-theme="pink"] .interactive-card,
+html[data-theme="pink"] .timeline-item,
+html[data-theme="pink"] .nav-link {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23FF69B4" stroke="white" stroke-width="1.5"><path d="M9 11.24V7.5C9 6.12 10.12 5 11.5 5S14 6.12 14 7.5v3.74c1.21-.81 2-2.18 2-3.74C16 5.01 13.99 3 11.5 3S7 5.01 7 7.5c0 1.56.79 2.93 2 3.74zm9.84 4.63l-4.54-2.26c-.17-.07-.35-.11-.54-.11H13v-6c0-.83-.67-1.5-1.5-1.5S10 6.67 10 7.5v10.74l-3.43-.72c-.08-.01-.15-.03-.24-.03-.31 0-.59.13-.79.33l-.79.8 4.94 4.94c.27.27.65.44 1.04.44h6.79c.75 0 1.33-.55 1.44-1.28l.75-5.27c.01-.07.02-.14.02-.21 0-.62-.35-1.16-.89-1.37z"/></svg>') 10 2, pointer !important;
+}
+
+html[data-theme="pink"] .zoom-cursor,
+html[data-theme="pink"] .recog-img-container img,
+html[data-theme="pink"] #featured-carousel-inner img,
+html[data-theme="pink"] .proj-detail-media img {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="%23FF69B4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>') 16 16, zoom-in !important;
 }
 
 /* Text Accents (Years of Experience, Testimonial Titles, etc.) */
@@ -299,8 +491,65 @@ html[data-theme] .island-btn-main {
 html[data-theme] .btn-outline-warning {
     color: var(--accent-yellow) !important;
 }
+
 html[data-theme] .btn-outline-warning:hover {
     color: #101A30 !important;
+}
+
+/* ============================================================
+   DYNAMIC CONTROLS & HOVER GLOWS (Theme Sync)
+   ============================================================ */
+
+/* 1. Tech Stack & Testimonial Navigation Buttons */
+#tech-btn-prev,
+#tech-btn-next,
+#test-btn-prev,
+#test-btn-next {
+    background-color: var(--accent-yellow) !important;
+    border-color: var(--accent-yellow) !important;
+    color: var(--blue-1) !important;
+    /* Dark icon for contrast */
+    transition: all 0.3s ease !important;
+}
+
+/* Dynamic Glow on Hover for ALL Carousel/Slider Controls */
+.carousel-control-prev:hover,
+.carousel-control-next:hover,
+#tech-btn-prev:hover:not(:disabled),
+#tech-btn-next:hover:not(:disabled),
+#test-btn-prev:hover:not(:disabled),
+#test-btn-next:hover:not(:disabled) {
+    opacity: 1 !important;
+    transform: scale(1.15) !important;
+    /* Replaces the hardcoded rgba yellow with the dynamic variable */
+    filter: drop-shadow(0 0 10px var(--accent-yellow)) !important;
+}
+
+/* 2. Social Buttons (Index Page) */
+.social-btn {
+    color: var(--accent-yellow) !important;
+    transition: all 0.3s ease !important;
+}
+
+.social-btn:hover {
+    background-color: var(--accent-yellow) !important;
+    color: var(--blue-1) !important;
+    /* High contrast icon on hover */
+    box-shadow: 0 5px 15px var(--accent-yellow) !important;
+    transform: translateY(-5px);
+}
+
+/* 3. Trail CTA Button overrides just to be safe */
+.trail-btn {
+    background-color: var(--accent-yellow) !important;
+    box-shadow: 0 0 20px var(--accent-yellow) !important;
+    color: var(--blue-1) !important;
+}
+
+.trail-btn:hover {
+    background-color: var(--accent-yellow) !important;
+    filter: brightness(1.15);
+    box-shadow: 0 15px 35px var(--accent-yellow) !important;
 }
 
 /* --- Copy Button Styling --- */
@@ -320,7 +569,8 @@ html[data-theme] .btn-outline-warning:hover {
 
 /* Copied state */
 .copy-btn.copied {
-    color: #198754 !important; /* Bootstrap success green */
+    color: #198754 !important;
+    /* Bootstrap success green */
 }
 
 /* --- Fix Meowtivator Placement --- */

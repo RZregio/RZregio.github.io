@@ -162,6 +162,7 @@
       "main-res/projects/catEnFur6.png"
     ],
     "projectLinkUrl": "https://catenfur.free.nf/",
+    "sourceCode": "personalProjects/",
     "techStack": [
       "PHP",
       "MySQL",

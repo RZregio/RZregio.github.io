@@ -5,7 +5,7 @@ Injects and handles the floating scrollwheel menu, Theme Logic, Meowtivator Ifra
 document.addEventListener('DOMContentLoaded', () => {
 
     // SVG Cat Icon (Theme responsive because fill="currentColor")
-    const catSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M2.5 12a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v1.5H2.5V12ZM11 12a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v1.5H11V12Zm.5-9.5A1.5 1.5 0 0 0 10 1h-4a1.5 1.5 0 0 0-1.5 1.5v2A1.5 1.5 0 0 0 6 6h4a1.5 1.5 0 0 0 1.5-1.5v-2Zm-1.5 6h-4a2.5 2.5 0 0 1-2.5-2.5v-2A2.5 2.5 0 0 1 6 0h4a2.5 2.5 0 0 1 2.5 2.5v2A2.5 2.5 0 0 1 10 8.5Zm-4 5h4v-1.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v1.5ZM4 6.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v3A3.5 3.5 0 0 1 8.5 13h-1A3.5 3.5 0 0 1 4 9.5v-3Z"/></svg>`;
+    const catSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16"><path d="M3.1 1.638a.5.5 0 0 1 .632-.128L5.5 2.5h5l1.768-.99a.5.5 0 0 1 .732.128l1.9 2.533a.5.5 0 0 1-.1.65l-1.3 1.04A5.987 5.987 0 0 1 14 9c0 3.314-2.686 6-6 6s-6-2.686-6-6c0-1.42.495-2.723 1.3-3.75L2 4.2a.5.5 0 0 1-.1-.65L3.1 1.638zM4.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm7 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM8 11.5a1.5 1.5 0 0 0 1.5-1.5h-3A1.5 1.5 0 0 0 8 11.5z"/></svg>`;
 
     // 1. Inject the Island HTML, Iframe Popup, & Google Translate Target
     const islandHTML = `
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 5. Theme Toggler Logic
-    const themes = ['default', 'dark', 'purple', 'green'];
+    const themes = ['default', 'dark', 'purple', 'green', 'blue', 'brown', 'pink'];
     let currentTheme = localStorage.getItem('rz_theme') || 'default';
 
     const applyTheme = (theme) => {
