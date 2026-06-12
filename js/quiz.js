@@ -138,12 +138,12 @@ function updateNavigationButtons() {
 
     if (currentQuestionIndex === 9) {
         btnNext.style.display = 'none';
-        btnSubmit.style.display = 'block';
-        btnSubmit.disabled = !hasAnswer; // Disable until answered
+        btnSubmit.style.display = 'inline-block'; // Changed to inline-block
+        btnSubmit.disabled = !hasAnswer;
     } else {
-        btnNext.style.display = 'block';
+        btnNext.style.display = 'inline-block';   // Changed to inline-block
         btnSubmit.style.display = 'none';
-        btnNext.disabled = !hasAnswer; // Disable until answered
+        btnNext.disabled = !hasAnswer;
     }
 }
 

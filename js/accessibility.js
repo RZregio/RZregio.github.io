@@ -191,4 +191,22 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.reload();
         }
     });
+
+    // --- Smart Footer Collision Detection ---
+    const footerElement = document.querySelector('footer');
+    if (footerElement && islandContainer) {
+        window.addEventListener('scroll', () => {
+            // Check if the top of the footer has entered the visible screen
+            const footerRect = footerElement.getBoundingClientRect();
+
+            if (footerRect.top <= window.innerHeight) {
+                islandContainer.classList.add('at-footer');
+            } else {
+                islandContainer.classList.remove('at-footer');
+            }
+        });
+
+        // Trigger once on load just in case the page is short
+        window.dispatchEvent(new Event('scroll'));
+    }
 });
