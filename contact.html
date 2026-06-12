@@ -12,9 +12,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-    <link rel="stylesheet" href="css/contact.css?v=2.3.5.1">
-    <link rel="stylesheet" href="css/navFoot.css?v=2.3.5.1">
-    <link rel="stylesheet" href="css/accessibility.css?v=2.3.5.1">
+    <link rel="stylesheet" href="css/contact.css?v=2.4">
+    <link rel="stylesheet" href="css/navFoot.css?v=2.4">
+    <link rel="stylesheet" href="css/accessibility.css?v=2.4">
 </head>
 
 <body>
@@ -73,7 +73,8 @@
                                 <div
                                     class="d-flex align-items-center justify-content-center justify-content-sm-start gap-2 mb-2">
                                     <i class="bi bi-facebook accent-text"></i>
-                                    <span class="text-light copy-target user-select-all">facebook.com/roland.regio.77</span>
+                                    <span
+                                        class="text-light copy-target user-select-all">facebook.com/roland.regio.77</span>
                                     <button class="copy-btn" title="Copy Name" onclick="copyToClipboard(this)"><i
                                             class="bi bi-clipboard"></i></button>
                                 </div>
@@ -230,7 +231,7 @@
                 <p class="opacity-75 mb-5">Follow the trail to take the ultimate RZ Regio quiz and earn a certificate!
                 </p>
 
-                <button data-bs-toggle="modal" data-bs-target="#quizModal"
+                <button data-bs-toggle="modal" data-bs-target="#quizIntroModal"
                     class="btn btn-custom btn-explore rounded-pill px-5 py-3 fs-5 interactive-card trail-btn"
                     style="background-color: #DAA520; font-family: 'Fredoka One', cursive; border: none; box-shadow: 0 0 20px rgba(212, 140, 28, 0.4);">
                     <i class="bi bi-patch-question-fill me-2"></i> Test Your Knowledge
@@ -280,30 +281,6 @@
         </div>
     </div>
 
-    <div class="modal fade" id="quizModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content text-white" style="background: #162447; border: 1px solid var(--accent-yellow);">
-                <div class="modal-header border-bottom-0 pb-0">
-                    <h5 class="modal-title fredoka text-warning">
-                        <i class="bi bi-patch-question-fill me-2"></i>Knowledge Test
-                    </h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center py-5">
-                    <i class="bi bi-tools text-secondary mb-4" style="font-size: 5rem; opacity: 0.5;"></i>
-                    <h3 class="fredoka mb-3 text-white">Under Construction!</h3>
-                    <p class="opacity-75 px-3">The interactive quiz to test your knowledge about me is currently being
-                        built. Stay tuned for the release to earn your Certificate of Appreciation!</p>
-                </div>
-                <div class="modal-footer border-top-0 justify-content-center pb-4">
-                    <button type="button" class="btn btn-custom btn-explore px-5" data-bs-dismiss="modal">I'll be
-                        back!</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="modal fade" id="invalidEmailModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content card-style bg-dark text-white border-danger">
@@ -319,6 +296,144 @@
                 </div>
                 <div class="modal-footer border-top-0">
                     <button type="button" class="btn btn-custom btn-explore" data-bs-dismiss="modal">Try Again</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="quizIntroModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-white"
+                style="background: var(--blue-2); border: 2px solid var(--accent-yellow);">
+                <div class="modal-header border-bottom-0 pb-0">
+                    <h5 class="modal-title fredoka text-warning">
+                        <i class="bi bi-patch-question-fill me-2"></i>Knowledge Test
+                    </h5>
+                    <button type="button" class="btn-close custom-yellow-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center py-4">
+                    <h3 class="fredoka mb-3">Think you know me?</h3>
+                    <p class="opacity-75 px-3 mb-4">You will be given 10 random questions about my background, skills,
+                        and projects. Score at least 7/10 to earn a personalized Certificate of Appreciation!</p>
+
+                    <div class="text-start px-md-4 mb-4">
+                        <label class="form-label small fredoka text-warning">Enter your Full Name for the
+                            Certificate:</label>
+                        <input type="text" id="quizPlayerName" class="form-control custom-input py-2"
+                            placeholder="e.g., Juan Dela Cruz" required>
+                        <div id="quizNameError" class="text-danger small mt-1" style="display: none;">Please enter your
+                            name to start!</div>
+                    </div>
+                </div>
+                <div class="modal-footer border-top-0 justify-content-center pb-4">
+                    <button type="button" class="btn btn-outline-light rounded-pill px-4 me-2"
+                        data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-custom btn-explore rounded-pill px-5"
+                        onclick="startQuiz()">Start Quiz</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="quizMainModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content text-white"
+                style="background: var(--blue-2); border: 2px solid var(--accent-yellow);">
+                <div class="modal-header border-bottom-0 pb-0 align-items-center">
+                    <span class="badge bg-dark border border-warning text-warning fs-6" id="quizProgressBadge">Question
+                        1/10</span>
+                    <button type="button" class="btn-close custom-yellow-close" onclick="confirmQuitQuiz()"></button>
+                </div>
+                <div class="modal-body py-4 px-md-5">
+                    <h4 class="fredoka mb-4" id="quizQuestionText" style="line-height: 1.5;">Loading question...</h4>
+                    <div id="quizOptionsContainer" class="d-flex flex-column gap-3">
+                    </div>
+                </div>
+                <div class="modal-footer border-top-0 d-flex justify-content-between px-md-5 pb-4">
+                    <button type="button" class="btn btn-outline-light rounded-pill px-4" id="btnPrevQuestion"
+                        onclick="navigateQuiz(-1)" disabled><i class="bi bi-arrow-left me-2"></i>Prev</button>
+                    <button type="button" class="btn btn-custom btn-explore rounded-pill px-4" id="btnNextQuestion"
+                        onclick="navigateQuiz(1)">Next<i class="bi bi-arrow-right ms-2"></i></button>
+                    <button type="button" class="btn btn-success rounded-pill px-5 fw-bold" id="btnSubmitQuiz"
+                        onclick="submitQuiz()" style="display: none;">Submit Quiz</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="quizResultModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-white text-center"
+                style="background: var(--blue-2); border: 2px solid var(--accent-yellow);">
+                <div class="modal-body py-5 px-4">
+                    <div id="quizResultIcon"></div>
+                    <h2 class="fredoka mb-2" id="quizResultTitle">Result</h2>
+                    <p class="fs-5 mb-4">You scored <span class="fw-bold text-warning fs-3 mx-1"
+                            id="quizFinalScore">0</span> out of 10.</p>
+
+                    <p id="quizResultMessage" class="opacity-75 mb-4"></p>
+
+                    <div id="certificateContainer" style="display: none;">
+                        <button class="btn btn-success rounded-pill px-4 py-2 mb-3 fw-bold shadow"
+                            onclick="downloadCertificate()">
+                            <i class="bi bi-download me-2"></i> Download Certificate
+                        </button>
+                    </div>
+
+                    <div class="mt-2 d-flex justify-content-center flex-wrap gap-2">
+                        <button type="button" class="btn btn-outline-warning rounded-pill px-4"
+                            onclick="reviewAnswers()">Review Answers</button>
+                        <button type="button" class="btn btn-outline-light rounded-pill px-4"
+                            onclick="resetQuiz()">Retake Quiz</button>
+                        <button type="button" class="btn btn-custom btn-explore rounded-pill px-4"
+                            data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="quizQuitModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-hidden="true" style="z-index: 1070;">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content text-white text-center p-3"
+                style="background: var(--blue-3); border: 1px solid var(--accent-yellow);">
+                <div class="modal-body">
+                    <i class="bi bi-exclamation-triangle-fill text-warning mb-3 d-block" style="font-size: 3rem;"></i>
+                    <h5 class="fw-bold fredoka">Are you sure?</h5>
+                    <p class="small opacity-75 mb-4">If you quit now, all your current progress will be lost.</p>
+                    <div class="d-flex justify-content-center gap-2">
+                        <button type="button" class="btn btn-outline-light rounded-pill px-4"
+                            data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-danger rounded-pill px-4" onclick="executeQuit()">Yes,
+                            Quit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="quizReviewModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+            <div class="modal-content text-white"
+                style="background: var(--blue-2); border: 2px solid var(--accent-yellow);">
+                <div class="modal-header border-bottom-0 pb-0">
+                    <h5 class="modal-title fredoka text-warning">Answer Review</h5>
+                    <button type="button" class="btn-close custom-yellow-close" data-bs-dismiss="modal"
+                        onclick="quizModals.result.show()"></button>
+                </div>
+                <div class="modal-body py-4 px-md-5">
+                    <div id="quizReviewContainer">
+                    </div>
+                </div>
+                <div class="modal-footer border-top-0 justify-content-center pb-4">
+                    <button type="button" class="btn btn-custom btn-explore rounded-pill px-5" data-bs-dismiss="modal"
+                        onclick="quizModals.result.show()">Back to Results</button>
                 </div>
             </div>
         </div>
@@ -353,10 +468,11 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/sendEmail.js?v=2.3.5.1"></script>
-    <script src="js/globalUI.js?v=2.3.5.1"></script>
-    <script src="js/accessibility.js?v=2.3.5.1"></script>
-    <script src="js/renderContact.js?v=2.3.5.1"></script>
+    <script src="js/sendEmail.js?v=2.4"></script>
+    <script src="js/globalUI.js?v=2.4"></script>
+    <script src="js/accessibility.js?v=2.4"></script>
+    <script src="js/renderContact.js?v=2.4"></script>
+    <script src="js/quiz.js?v=2.4"></script>
 </body>
 
 </html>
