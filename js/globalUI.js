@@ -22,23 +22,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const animatedElements = document.querySelectorAll('.animate-on-scroll');
     animatedElements.forEach(el => animationObserver.observe(el));
 
-    // --- Image Modal Toggle Controls ---
-    const imgTarget = document.getElementById('fullscreen-image-target');
-    if (imgTarget) {
-        imgTarget.addEventListener('click', () => {
+    // --- Image Modal Toggle Controls (Dynamic Event Delegation) ---
+    document.addEventListener('click', (e) => {
+        if (e.target && e.target.id === 'fullscreen-image-target') {
             controlsVisible = !controlsVisible;
             updateViewerControls();
-        });
-        imgTarget.style.cursor = 'pointer';
-    }
+        }
+    });
 
     // Reset controls visibility whenever the modal is reopened
-    const viewerModalEl = document.getElementById('imageViewerModal');
-    if (viewerModalEl) {
-        viewerModalEl.addEventListener('show.bs.modal', () => {
+    document.addEventListener('show.bs.modal', (e) => {
+        if (e.target && e.target.id === 'imageViewerModal') {
             controlsVisible = true;
-        });
-    }
+
+            // Ensure the cursor is set to pointer once it's loaded into the DOM
+            const imgTarget = document.getElementById('fullscreen-image-target');
+            if (imgTarget) imgTarget.style.cursor = 'pointer';
+        }
+    });
 });
 
 // 2. Hide Loading Spinner (With Safety Fallback)
@@ -49,7 +50,7 @@ function hideGlobalLoader() {
         setTimeout(() => {
             globalLoader.style.visibility = 'hidden';
             globalLoader.style.display = 'none';
-        }, 600); 
+        }, 600);
     }
 }
 
