@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <span>Meowtivator Chat</span>
                 <button class="meowtivator-close" id="close-meow"><i class="bi bi-x-lg"></i></button>
             </div>
-            <iframe src="personalProjects/meowtivator/index.html" class="meowtivator-iframe"></iframe>
+            <iframe src="personalProjects/meowtivator/index.html" class="meowtivator-iframe" loading="lazy"></iframe>
         </div>
 
         <div id="google_translate_element"></div>

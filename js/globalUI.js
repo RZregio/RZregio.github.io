@@ -41,14 +41,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// 2. Hide Loading Spinner on Window Load (Ensures all images/iframes are ready)
-window.addEventListener('load', () => {
+// 2. Hide Loading Spinner (With Safety Fallback)
+function hideGlobalLoader() {
     const globalLoader = document.getElementById('global-loader');
-    if (globalLoader) {
+    if (globalLoader && globalLoader.style.visibility !== 'hidden') {
         globalLoader.style.opacity = '0';
-        globalLoader.style.visibility = 'hidden';
+        setTimeout(() => {
+            globalLoader.style.visibility = 'hidden';
+            globalLoader.style.display = 'none';
+        }, 600); 
     }
-});
+}
+
+// Attempt to hide when all assets are fully loaded
+window.addEventListener('load', hideGlobalLoader);
+
+// SAFETY FALLBACK: Force hide the loader after 2 seconds no matter what.
+setTimeout(hideGlobalLoader, 2000);
 
 
 /* =========================================

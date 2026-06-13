@@ -277,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 mediaHTML = `
                     <div class="w-100 position-relative proj-detail-media" style="background: #101A30; overflow: hidden; cursor: zoom-in; border: 2px solid rgba(255,255,255,0.05);" 
                          data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="if(window.openImageViewer) window.openImageViewer('${arrayData}')">
-                        <img src="${primaryImg}" class="w-100 h-100" style="object-fit: contain;">
+                        <img src="${primaryImg}" class="w-100 h-100" style="object-fit: contain;" loading="lazy">
                         ${imgCountHTML}
                     </div>`;
             } else {

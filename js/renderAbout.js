@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         container.innerHTML = displayData.map(item => {
             const visualAssetHTML = item.logoUrl
-                ? `<img src="${item.logoUrl}" alt="${item.title} Logo" class="career-logo">`
+                ? `<img src="${item.logoUrl}" alt="${item.title} Logo" class="career-logo" loading="lazy">`
                 : `<i class="bi ${item.iconClass || 'bi-briefcase-fill'}"></i>`;
 
             return `
@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const imageContainerHTML = primaryImg
                 ? `<div class="recog-img-container">
-                       <img src="${primaryImg}" alt="${title}" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="if(window.openImageViewer) window.openImageViewer('${arrayData}')">
+                       <img src="${primaryImg}" alt="${title}" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="if(window.openImageViewer) window.openImageViewer('${arrayData}')" loading="lazy">
                        ${imgCountHTML}
                    </div>`
                 : `<div class="recog-img-container recog-no-img"><i class="bi ${item.iconClass || 'bi-award-fill'}"></i></div>`;

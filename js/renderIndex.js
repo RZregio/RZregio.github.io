@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (hasPreview) {
                     const imageString = encodeURIComponent(JSON.stringify([projectItem.previewImageUrl]));
                     innerContent = `
-                        <img src="${projectItem.previewImageUrl}" class="d-block w-100 rounded bg-dark" style="object-fit: contain; height: 350px; cursor: zoom-in;" alt="${projectItem.projectTitle}" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="if(window.openImageViewer) window.openImageViewer('${imageString}')">
+                        <img src="${projectItem.previewImageUrl}" class="d-block w-100 rounded bg-dark" style="object-fit: contain; height: 350px; cursor: zoom-in;" alt="${projectItem.projectTitle}" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="if(window.openImageViewer) window.openImageViewer('${imageString}')" loading="lazy">
                     `;
                 } else {
                     innerContent = `
@@ -293,7 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         imageHTML = `
                         <div class="position-relative d-inline-block w-100 mb-4 text-center">
-                            <img src="${primaryImg}" class="img-fluid rounded interactive-card w-100" style="max-height: 220px; object-fit: contain; background: rgba(0,0,0,0.2); padding: 10px; cursor: zoom-in;" alt="${certData.title}" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="if(window.openImageViewer) window.openImageViewer('${arrayData}')">
+                            <img src="${primaryImg}" class="img-fluid rounded interactive-card w-100" style="max-height: 220px; object-fit: contain; background: rgba(0,0,0,0.2); padding: 10px; cursor: zoom-in;" alt="${certData.title}" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="if(window.openImageViewer) window.openImageViewer('${arrayData}')" loading="lazy">
                             ${imgCountHTML}
                         </div>`;
                     } else {
@@ -394,7 +394,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         imageHTML = `
                         <div class="position-relative d-inline-block w-100 mb-4 text-center">
-                            <img src="${primaryImg}" class="img-fluid rounded interactive-card w-100" style="max-height: 220px; object-fit: contain; background: rgba(0,0,0,0.2); padding: 10px; cursor: zoom-in;" alt="${awardData.title}" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="if(window.openImageViewer) window.openImageViewer('${arrayData}')">
+                            <img src="${primaryImg}" class="img-fluid rounded interactive-card w-100" style="max-height: 220px; object-fit: contain; background: rgba(0,0,0,0.2); padding: 10px; cursor: zoom-in;" alt="${awardData.title}" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="if(window.openImageViewer) window.openImageViewer('${arrayData}')" loading="lazy">
                             ${imgCountHTML}
                         </div>`;
                     } else {
