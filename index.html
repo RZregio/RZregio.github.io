@@ -11,9 +11,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-  <link rel="stylesheet" href="css/navFoot.css?v=2.4.1">
-  <link rel="stylesheet" href="css/home.css?v=2.4.1">
-  <link rel="stylesheet" href="css/accessibility.css?v=2.4.1">
+  <link rel="stylesheet" href="css/navFoot.css?v=2.5">
+  <link rel="stylesheet" href="css/home.css?v=2.5">
+  <link rel="stylesheet" href="css/accessibility.css?v=2.5">
 </head>
 
 <body>
@@ -29,23 +29,23 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link active" href="index.html"><i class="bi bi-house-door"></i> Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="experience.html"><i class="bi bi-briefcase"></i> Experience</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html"><i class="bi bi-person"></i> About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html"><i class="bi bi-envelope"></i> Contact</a>
+          <li class="nav-item"><a class="nav-link active" href="index.html"><i class="bi bi-house-door"></i> Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="experience.html"><i class="bi bi-briefcase"></i>
+              Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html"><i class="bi bi-person"></i> About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html"><i class="bi bi-envelope"></i> Contact</a></li>
+          <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+            <button class="btn btn-custom btn-explore rounded-circle d-flex align-items-center justify-content-center"
+              data-bs-toggle="modal" data-bs-target="#tipModal" style="width: 42px; height: 42px; padding: 0;"
+              title="Support My Work">
+              <i class="bi bi-cup-hot-fill fs-5"></i>
+            </button>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-
+  
   <main>
     <section class="container header-section dvh-100-section py-5 pt-5 mt-2">
       <div class="row align-items-center animate-on-scroll">
@@ -358,35 +358,6 @@
       </div>
     </div>
 
-    <div class="modal fade" id="imageViewerModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-xl">
-        <div class="modal-content bg-transparent border-0">
-          <div class="modal-header border-0 pb-0 justify-content-end position-absolute w-100" style="z-index: 10;">
-            <button type="button" class="btn-close custom-yellow-close me-3 mt-3" data-bs-dismiss="modal"
-              aria-label="Close"></button>
-          </div>
-          <div class="modal-body text-center p-0 position-relative">
-
-            <button id="viewer-prev" class="btn position-absolute top-50 start-0 translate-middle-y ms-2 rounded-circle"
-              onclick="navigateViewer(-1)"
-              style="width: 45px; height: 45px; z-index: 5; display: none; background-color: var(--accent-yellow); color: #101A30; box-shadow: 0 4px 10px rgba(0,0,0,0.5); border: none; padding: 0;">
-              <i class="bi bi-chevron-left fs-4"></i>
-            </button>
-
-            <img id="fullscreen-image-target" src="" class="img-fluid rounded shadow-lg" alt="Fullscreen View"
-              style="max-height: 85vh; object-fit: contain;">
-
-            <button id="viewer-next" class="btn position-absolute top-50 end-0 translate-middle-y me-2 rounded-circle"
-              onclick="navigateViewer(1)"
-              style="width: 45px; height: 45px; z-index: 5; display: none; background-color: var(--accent-yellow); color: #101A30; box-shadow: 0 4px 10px rgba(0,0,0,0.5); border: none; padding: 0;">
-              <i class="bi bi-chevron-right fs-4"></i>
-            </button>
-
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="modal fade" id="invalidEmailModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content card-style bg-dark text-white border-danger">
@@ -409,34 +380,14 @@
     </div>
   </main>
 
-  <footer class="footer footer-section">
-    <div class="container-fluid px-4 px-md-5">
-      <div class="row align-items-center py-4">
-        <div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
-          <p class="copyright-text mb-0">&copy; 2026 RZ <span>regio</span>. All Rights Reserved</p>
-        </div>
-        <div class="my-3 col-md-4 text-center mb-3 mb-md-0 order-3 order-md-2">
-        </div>
-        <div class="col-md-4 text-center text-md-end order-2 order-md-3">
-          <ul class="footer-links list-inline mb-0">
-            <li class="list-inline-item"><a href="index.html" class="footer-link active">Home</a></li>
-            <li class="list-inline-item">|</li>
-            <li class="list-inline-item"><a href="experience.html" class="footer-link">Experience</a></li>
-            <li class="list-inline-item">|</li>
-            <li class="list-inline-item"><a href="about.html" class="footer-link">About</a></li>
-            <li class="list-inline-item">|</li>
-            <li class="list-inline-item"><a href="contact.html" class="footer-link">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <div id="footer-placeholder"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/renderIndex.js?v=2.4.1"></script>
-  <script src="js/sendTestimonial.js?v=2.4.1"></script>
-  <script src="js/globalUI.js?v=2.4.1"></script>
-  <script src="js/accessibility.js?v=2.4.1"></script>
+  <script src="js/renderIndex.js?v=2.5"></script>
+  <script src="js/sendTestimonial.js?v=2.5"></script>
+  <script src="js/globalUI.js?v=2.5"></script>
+  <script src="js/accessibility.js?v=2.5"></script>
+  <script src="js/componentLoader.js?v=2.5"></script>
 </body>
 
 </html>

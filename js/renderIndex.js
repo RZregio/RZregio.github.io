@@ -174,15 +174,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 actionButton += '</div>';
 
-                projectDetailsContainer.innerHTML = `
-                    <span class="text-accent fw-bold text-uppercase small">${activeProject.projectCategory}</span>
-                    <h3 class="fredoka mt-1 mb-3">${activeProject.projectTitle}</h3>
-                    <p class="opacity-75 mb-4">${activeProject.projectContext}</p>
-                    <div class="mb-4">
-                        <h6 class="fredoka small">Tech Stack:</h6>
-                        ${techStackBadges}
+                // NEW: Date Formatter Helper
+                const formatDate = (dateStr) => dateStr ? new Date(dateStr).toLocaleDateString('en-US', { year: 'numeric', month: 'short' }) : 'N/A';
+
+                // NEW: Generate Date HTML safely
+                const dateHtml = (activeProject.createdDate || activeProject.updatedDate) ? `
+                    <div class="opacity-50 mb-3 d-flex align-items-center gap-3" style="font-size: 0.8rem;">
+                        <span><i class="bi bi-calendar3 me-1"></i> Created: ${formatDate(activeProject.createdDate)}</span>
+                        <span><i class="bi bi-clock-history me-1"></i> Updated: ${formatDate(activeProject.updatedDate)}</span>
                     </div>
-                    <div>
+                ` : '';
+
+                // Inject into the layout
+                projectDetailsContainer.innerHTML = `
+                    <div class="text-start d-flex flex-column h-100 justify-content-center w-100">
+                        <span class="text-accent fw-bold text-uppercase small mb-1 d-block">${activeProject.projectCategory} Project</span>
+                        <h3 class="fredoka mb-1">${activeProject.projectTitle}</h3>
+                        
+                        ${dateHtml} <p class="opacity-75 flex-grow-1" style="font-size: 0.95rem;">${activeProject.projectContext}</p>
+                        <div class="mt-2 mb-4">
+                            <h6 class="fredoka small">Tech Stack:</h6>
+                            <div class="d-flex flex-wrap gap-1 justify-content-start">
+                                ${techStackBadges}
+                            </div>
+                        </div>
                         ${actionButton}
                     </div>
                 `;

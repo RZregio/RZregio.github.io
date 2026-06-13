@@ -2,6 +2,8 @@
   {
     "projectTitle": "Arkteach Platform",
     "projectCategory": "Company System",
+    "createdDate": "2026-04-6",
+    "updatedDate": "2026-05-20",
     "techStack": [
       "HTML5",
       "CSS3",
@@ -14,7 +16,7 @@
       "ChartJS",
       "AI Video Generation"
     ],
-    "projectContext": "Educational training platform developed for Arktech Philippines featuring tutorial progression, dynamic quizzes, and analytics tracking.",
+    "projectContext": "An interactive e-learning platform featuring dynamic tutorial progression, AI-driven content generation, and comprehensive analytics tracking. Engineered to streamline employee onboarding and training.",
     "previewImageUrl": "main-res/projects/arkteach.png",
     "projectLinkUrl": "",
     "mediaSource": [
@@ -30,19 +32,23 @@
   {
     "projectTitle": "Landas (Capstone)",
     "projectCategory": "Academic Project",
+    "createdDate": "2025-04-15",
+    "updatedDate": "2026-01-10",
     "techStack": [
       "C#",
       "Unity",
       "Game Design"
     ],
-    "projectContext": "2D mobile Android Game on Philippine history and culture. Achieved ISO/IEC 25010 compliance across 8 metrics and a 4.75/5 user satisfaction rating.",
+    "projectContext": "An engaging 2D Android game designed to promote Philippine history and culture. Successfully achieved ISO/IEC 25010 compliance across 8 quality metrics, earning a 4.75/5 user satisfaction rating.",
     "previewImageUrl": "main-res/projects/landas.png",
     "projectLinkUrl": "https://landas2d.github.io/"
   },
   {
     "projectTitle": "Maintenance Checksheet System",
     "projectCategory": "Company System",
-    "projectContext": "Digitized QA protocol incorporating 5S and Hou-Ren-Sou methodologies for machine diagnostics.",
+    "createdDate": "2026-05-01",
+    "updatedDate": "2026-05-19",
+    "projectContext": "A digitized Quality Assurance protocol for machine diagnostics. Seamlessly integrates 5S and Hou-Ren-Sou methodologies to optimize factory floor maintenance workflows.",
     "previewImageUrl": "main-res/projects/mmcs.png",
     "mediaSource": [
       "main-res/projects/mmcs.png",
@@ -62,6 +68,8 @@
   {
     "projectTitle": "Assembly Tree Finder",
     "projectCategory": "Company System",
+    "createdDate": "2026-02-18",
+    "updatedDate": "2026-03-27",
     "techStack": [
       "HTML5",
       "CSS3",
@@ -70,19 +78,21 @@
       "MySQL",
       "Bootstrap"
     ],
-    "projectContext": "Dynamic visualization tool utilizing a 'Family Tree' hierarchy to map manufacturing components for industrial optimization.",
+    "projectContext": "A dynamic visualization tool mapping complex manufacturing components through a hierarchical 'Family Tree' UI. Developed to assist production employees in rapid part identification.",
     "previewImageUrl": "main-res/projects/assembly.png",
     "projectLinkUrl": ""
   },
   {
-    "projectTitle": "KuroNeko: Journey",
+    "projectTitle": "KuroNeko: Journey In Another World",
     "projectCategory": "Software Development",
+    "createdDate": "2024-06-25",
+    "updatedDate": "2024-07-10",
     "techStack": [
       "Java",
       "Java Swing",
       "OOP"
     ],
-    "projectContext": "A 2D Cat-Themed desktop game featuring custom gameplay mechanics, input handling, and rigorous object-oriented architecture.",
+    "projectContext": "A custom 2D desktop platformer showcasing robust Object-Oriented Programming principles. Features bespoke gameplay mechanics, physics handling, and state management built entirely in Java Swing.",
     "previewImageUrl": "main-res/projects/kuroneko.png",
     "projectLinkUrl": "",
     "mediaSource": [
@@ -100,6 +110,8 @@
   {
     "projectTitle": "ICommunaPH",
     "projectCategory": "Advanced Web App",
+    "createdDate": "2025-06-12",
+    "updatedDate": "2025-06-25",
     "techStack": [
       "HTML5",
       "CSS3",
@@ -108,7 +120,7 @@
       "JavaScript",
       "Bootstrap"
     ],
-    "projectContext": "A Community Event Discovery and Management Website integrating modern framework solutions and scalable database architecture.",
+    "projectContext": "A comprehensive community event discovery and management portal. Integrates secure backend routing with a responsive front-end dashboard for seamless user engagement.",
     "previewImageUrl": "main-res/projects/iCommuna.png",
     "projectLinkUrl": "",
     "mediaSource": [
@@ -125,6 +137,8 @@
   {
     "projectTitle": "stbJobs Portal",
     "projectCategory": "Web Development",
+    "createdDate": "2024-12-28",
+    "updatedDate": "2025-01-25",
     "techStack": [
       "HTML5",
       "CSS3",
@@ -133,7 +147,7 @@
       "JavaScript",
       "Bootstrap"
     ],
-    "projectContext": "A full-stack local job-portal connecting opportunities in Santo Tomas, Batangas. Recognized for strong leadership and the team's dedication to community impact.",
+    "projectContext": "A localized job portal engineered to connect talent with opportunities in Santo Tomas, Batangas. Led full-stack architecture and team coordination to deliver a highly accessible, community-focused platform.",
     "previewImageUrl": "main-res/projects/stbjobs.png",
     "projectLinkUrl": "",
     "mediaSource": [
@@ -151,7 +165,9 @@
   {
     "projectTitle": "CatEnFur V2",
     "projectCategory": "Web Development",
-    "projectContext": "Refined feline care system with improved UI/UX and system configuration.",
+    "createdDate": "2026-06-11",
+    "updatedDate": "2026-06-12",
+    "projectContext": "A dedicated e-commerce and care portal for feline enthusiasts. Combines a sleek, responsive UI with secure data handling for browsing products and learning about cat care.",
     "previewImageUrl": "main-res/projects/catEnFur.png",
     "mediaSource": [
       "main-res/projects/catEnFur.png",
@@ -175,13 +191,15 @@
   {
     "projectTitle": "AIB Landing Page",
     "projectCategory": "UI/UX Design",
+    "createdDate": "2025-04-23",
+    "updatedDate": "2025-04-25",
     "techStack": [
       "HTML5",
       "CSS3",
       "JavaScript",
       "Bootstrap"
     ],
-    "projectContext": "A landing page applying bento-style design principles, showcasing a clean and organized layout for Alice in Borderland, a fictional thriller series.",
+    "projectContext": "An immersive web experience exploring interface boundaries and visual hierarchy. Utilizes modern 'Bento Box' styling to introduce users to the lore of Alice in Borderland.",
     "previewImageUrl": "main-res/projects/aIB.png",
     "projectLinkUrl": "schoolProjects/aibBorder/index.html"
   }

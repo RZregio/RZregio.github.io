@@ -162,6 +162,7 @@ function confirmQuitQuiz() {
 }
 
 function executeQuit() {
+    quizModals.intro.hide();
     quizModals.quit.hide();
     quizModals.main.hide();
     resetQuiz();
@@ -267,9 +268,6 @@ function reviewAnswers() {
 function resetQuiz() {
     quizModals.result.hide();
     document.getElementById('quizPlayerName').value = '';
-    setTimeout(() => {
-        quizModals.intro.show();
-    }, 400);
 }
 
 // --- Canvas Certificate Generation ---

@@ -1,0 +1,102 @@
+<div class="modal fade" id="imageViewerModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content bg-transparent border-0">
+            <div class="modal-header border-0 pb-0 justify-content-end position-absolute w-100" style="z-index: 10;">
+                <button type="button" class="btn-close custom-yellow-close me-3 mt-3" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center p-0 position-relative">
+
+                <button id="viewer-prev"
+                    class="btn position-absolute top-50 start-0 translate-middle-y ms-2 rounded-circle"
+                    onclick="navigateViewer(-1)"
+                    style="width: 45px; height: 45px; z-index: 5; display: none; background-color: var(--accent-yellow); color: #101A30; box-shadow: 0 4px 10px rgba(0,0,0,0.5); border: none; padding: 0;">
+                    <i class="bi bi-chevron-left fs-4"></i>
+                </button>
+
+                <img id="fullscreen-image-target" src="" class="img-fluid rounded shadow-lg" alt="Fullscreen View"
+                    style="max-height: 85vh; object-fit: contain;">
+
+                <button id="viewer-next"
+                    class="btn position-absolute top-50 end-0 translate-middle-y me-2 rounded-circle"
+                    onclick="navigateViewer(1)"
+                    style="width: 45px; height: 45px; z-index: 5; display: none; background-color: var(--accent-yellow); color: #101A30; box-shadow: 0 4px 10px rgba(0,0,0,0.5); border: none; padding: 0;">
+                    <i class="bi bi-chevron-right fs-4"></i>
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="tipModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-white"
+            style="background: var(--blue-2); border: 2px solid var(--accent-yellow); border-radius: 15px;">
+            <div class="modal-header border-bottom-0 pb-0">
+                <h5 class="modal-title fredoka text-warning d-flex align-items-center gap-2">
+                    <i class="bi bi-cup-hot-fill"></i> Support My Work
+                </h5>
+                <button type="button" class="btn-close custom-yellow-close" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center py-4 px-4">
+                <p class="opacity-75 mb-4 small">If you found my portfolio inspiring or my projects helpful, consider
+                    leaving a tip! Your support keeps the servers running and the coffee brewing.</p>
+
+                <div class="row g-3 align-items-stretch">
+                    <div class="col-sm-6">
+                        <div class="p-3 rounded h-100 d-flex flex-column"
+                            style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+                            <h6 class="fredoka text-primary mb-3"><i class="bi bi-phone"></i> GCash</h6>
+
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#imageViewerModal"
+                                onclick="if(window.openImageViewer) window.openImageViewer(encodeURIComponent(JSON.stringify(['main-res/gcash.jpg'])))"
+                                title="Click to enlarge">
+                                <img src="main-res/gcash.jpg" alt="GCash QR Code"
+                                    class="img-fluid rounded mx-auto mb-3 interactive-card"
+                                    style="max-height: 120px; border: 2px dashed rgba(255,255,255,0.2);"
+                                    onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'120\' height=\'120\' viewBox=\'0 0 120 120\'%3E%3Crect width=\'100%25\' height=\'100%25\' fill=\'%23131B2E\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23ffffff80\' font-size=\'12\'%3EQR Code%3C/text%3E%3C/svg%3E'">
+                            </a>
+
+                            <div
+                                class="d-flex align-items-center justify-content-center gap-2 bg-dark rounded px-2 py-2 border border-secondary mt-auto">
+                                <span class="small font-monospace user-select-all">09668740452</span>
+                                <button class="copy-btn p-0 border-0 bg-transparent text-secondary" title="Copy Number"
+                                    onclick="copyTipDetails(this, '09668740452')">
+                                    <i class="bi bi-clipboard fs-6 interactive-card"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="p-3 rounded h-100 d-flex flex-column justify-content-center"
+                            style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+                            <h6 class="fredoka text-info mb-3"><i class="bi bi-paypal"></i> PayPal</h6>
+
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#imageViewerModal"
+                                onclick="if(window.openImageViewer) window.openImageViewer(encodeURIComponent(JSON.stringify(['main-res/paypal.jpg'])))"
+                                title="Click to enlarge">
+                                <img src="main-res/paypal.jpg" alt="PayPal QR Code"
+                                    class="img-fluid rounded mx-auto mb-3 interactive-card"
+                                    style="max-height: 120px; border: 2px dashed rgba(255,255,255,0.2);"
+                                    onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'120\' height=\'120\' viewBox=\'0 0 120 120\'%3E%3Crect width=\'100%25\' height=\'100%25\' fill=\'%23131B2E\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23ffffff80\' font-size=\'12\'%3EQR Code%3C/text%3E%3C/svg%3E'">
+                            </a>
+
+                            <div
+                                class="d-flex align-items-center justify-content-center gap-2 bg-dark rounded px-2 py-2 border border-secondary mt-auto">
+                                <span class="small font-monospace user-select-all"
+                                    style="word-break: break-all; font-size: 0.65rem;">regioroland011@gmail.com</span>
+                                <button class="copy-btn p-0 border-0 bg-transparent text-secondary flex-shrink-0 ms-1"
+                                    title="Copy Email" onclick="copyTipDetails(this, 'regioroland011@gmail.com')">
+                                    <i class="bi bi-clipboard fs-6 interactive-card"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

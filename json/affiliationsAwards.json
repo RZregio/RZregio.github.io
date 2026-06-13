@@ -55,14 +55,14 @@
   {
     "awardTitle": "Vice President",
     "awardContext": "PUPSTC BSIT Batch 2022 (2025–2026)",
-    "description": "Assisted in batch management, event planning, and student representation for the IT department.",
+    "description": "Assisted in batch management, event planning, and student representation for Our Batch",
     "iconClass": "bi-person-badge-fill",
     "imageUrl": "main-res/recognitions/batchVP.jpg"
   },
   {
     "awardTitle": "President",
     "awardContext": "PUPSTC BSIT Batch 2022 (2024–2025)",
-    "description": "Led the batch in academic and extracurricular coordination, ensuring efficient communication and organizational success.",
+    "description": "Led the batch in academic and extracurricular coordination, ensuring efficient communication and class success.",
     "iconClass": "bi-person-badge-fill",
     "imageUrl": "main-res/recognitions/batchPres.jpg"
   },
@@ -76,7 +76,7 @@
   {
     "awardTitle": "Public Relations Officer",
     "awardContext": "PUPSTC Computer Society (2024–2026)",
-    "description": "Managed community outreach, social media presence, and technical event communications for the premier IT organization.",
+    "description": "Managed community outreach, social media presence, and technical event communications for the IT organization.",
     "iconClass": "bi-megaphone-fill",
     "images": [
       "main-res/recognitions/pro3-1.jpg",

@@ -301,7 +301,18 @@ document.addEventListener('DOMContentLoaded', () => {
             btnLaunch += `<a href="${proj.sourceCode}" target="_blank" class="btn btn-outline-light flex-grow-1" style="border: 1px solid rgba(255,255,255,0.2);"><i class="bi bi-github me-2"></i>Source Code</a>`;
         }
         btnLaunch += '</div>';
-        
+
+        // NEW: Date Formatter Helper
+        const formatDate = (dateStr) => dateStr ? new Date(dateStr).toLocaleDateString('en-US', { year: 'numeric', month: 'short' }) : 'N/A';
+
+        // NEW: Generate Date HTML safely
+        const dateHtml = (proj.createdDate || proj.updatedDate) ? `
+            <div class="opacity-50 mb-3 d-flex align-items-center gap-3" style="font-size: 0.8rem;">
+                <span><i class="bi bi-calendar3 me-1"></i> Created: ${formatDate(proj.createdDate)}</span>
+                <span><i class="bi bi-clock-history me-1"></i> Updated: ${formatDate(proj.updatedDate)}</span>
+            </div>
+        ` : '';
+
         container.innerHTML = `
             <div class="row g-4 align-items-stretch h-100">
                 <div class="col-lg-6">
@@ -309,8 +320,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="col-lg-6 d-flex flex-column text-start">
                     <span class="text-accent fw-bold text-uppercase small mb-1 d-block">${proj.category} Project</span>
-                    <h3 class="fredoka mb-3">${proj.title}</h3>
-                    <p class="opacity-75 flex-grow-1" style="font-size: 0.95rem;">${proj.description}</p>
+                    <h3 class="fredoka mb-1">${proj.title}</h3>
+                    
+                    ${dateHtml} <p class="opacity-75 flex-grow-1" style="font-size: 0.95rem;">${proj.description}</p>
                     <div class="mt-2 mb-4">
                         <h6 class="fredoka small">Tech Stack:</h6>
                         ${techStackBadges}

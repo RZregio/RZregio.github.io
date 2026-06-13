@@ -219,3 +219,20 @@ window.updateScrollDots = function (container, dotsContainer, itemsCount) {
 
     dots.forEach((dot, idx) => dot.classList.toggle('active', idx === activeIndex));
 };
+
+// --- Helper to copy Tip Details to Clipboard ---
+window.copyTipDetails = function (btnElement, textToCopy) {
+    navigator.clipboard.writeText(textToCopy).then(() => {
+        // Change icon to a checkmark temporarily
+        const icon = btnElement.querySelector('i');
+        const originalClass = icon.className;
+
+        icon.className = 'bi bi-check-lg text-success fs-5';
+
+        setTimeout(() => {
+            icon.className = originalClass;
+        }, 2000);
+    }).catch(err => {
+        console.error('Failed to copy text: ', err);
+    });
+};

@@ -1,17 +1,17 @@
 [
   {
     "factTitle": "Cat Enthusiast",
-    "factDescription": "Living with five feline companions who are firmly in charge. Managing their 'chaotic' energy is the perfect training ground for handling complex, real-world software scenarios.",
+    "factDescription": "Living with four feline companions who are firmly in charge. Managing their 'chaotic' energy is the perfect training ground for handling complex, real-world software scenarios.",
     "iconClass": "bi-box"
   },
   {
     "factTitle": "Music Explorer",
-    "factDescription": "I’m a dedicated playlist curator. Whether it’s deep-focus lo-fi for debugging sessions or high-energy tracks for deployment days, my YouTube Music library provides the soundtrack for every stage of development.",
+    "factDescription": "I’m a dedicated playlist curator. Whether it’s deep-focus lo-fi for debugging sessions or high-energy tracks for deployment days, my YouTube Music library provides the soundtrack for every stage of my development.",
     "iconClass": "bi-music-note-beamed"
   },
   {
     "factTitle": "Speedcuber",
-    "factDescription": "I view coding like a Rubik's Cube—it’s all about analyzing patterns, optimizing algorithms, and turning chaos into order. My personal best for a 3x3 cube is 19 seconds.",
+    "factDescription": "I view coding like a Rubik's Cube, it’s all about analyzing patterns, optimizing algorithms, and turning chaos into order. With a personal best for a 3x3 cube of 19 seconds.",
     "iconClass": "bi-box"
   },
   {

@@ -2,9 +2,11 @@
   {
     "category": "company",
     "title": "Arkteach",
-    "description": "Educational training platform with tutorial progression, quizzes, and analytics tracking.",
+    "description": "An interactive e-learning platform featuring dynamic tutorial progression, AI-driven content generation, and comprehensive analytics tracking. Engineered to streamline employee onboarding and training.",
     "mediaType": "image",
     "value": "important",
+    "createdDate": "2026-04-6",
+    "updatedDate": "2026-05-20",
     "mediaSource": [
       "main-res/projects/arkteach.png",
       "main-res/projects/arkteach2.png",
@@ -31,9 +33,11 @@
   {
     "category": "school",
     "title": "Landas (Capstone)",
-    "description": "2D mobile Android Game on Philippine history and culture. Achieved ISO/IEC 25010 compliance across 8 metrics and a 4.75/5 user satisfaction rating.",
+    "description": "An engaging 2D Android game designed to promote Philippine history and culture. Successfully achieved ISO/IEC 25010 compliance across 8 quality metrics, earning a 4.75/5 user satisfaction rating.",
     "mediaType": "image",
     "value": "important",
+    "createdDate": "2025-04-15",
+    "updatedDate": "2026-01-10",
     "mediaSource": [
       "main-res/projects/landas.png"
     ],
@@ -47,9 +51,11 @@
   {
     "category": "company",
     "title": "Maintenance Checksheet System",
-    "description": "Digitized QA protocol incorporating 5S and Hou-Ren-Sou methodologies for machine diagnostics.",
+    "description": "A digitized Quality Assurance protocol for machine diagnostics. Seamlessly integrates 5S and Hou-Ren-Sou methodologies to optimize factory floor maintenance workflows.",
     "mediaType": "image",
     "value": "important",
+    "createdDate": "2026-05-01",
+    "updatedDate": "2026-05-19",
     "mediaSource": [
       "main-res/projects/mmcs.png",
       "main-res/projects/mmcs2.png",
@@ -68,9 +74,11 @@
   {
     "category": "company",
     "title": "Assembly Tree Finder",
-    "description": "Dynamic visualization tool utilizing a 'Family Tree' hierarchy to map manufacturing components.",
+    "description": "A dynamic visualization tool mapping complex manufacturing components through a hierarchical 'Family Tree' UI. Developed to assist production employees in rapid part identification.",
     "mediaType": "image",
     "value": "important",
+    "createdDate": "2026-02-18",
+    "updatedDate": "2026-03-27",
     "mediaSource": [
       "main-res/projects/assembly.png"
     ],
@@ -87,9 +95,11 @@
   {
     "category": "school",
     "title": "KuroNeko: Journey in Another World",
-    "description": "A 2D Cat-Themed desktop game featuring custom gameplay mechanics, input handling, and object-oriented architecture.",
+    "description": "A custom 2D desktop platformer showcasing robust Object-Oriented Programming principles. Features bespoke gameplay mechanics, physics handling, and state management built entirely in Java Swing.",
     "mediaType": "image",
     "value": "important",
+    "createdDate": "2024-06-25",
+    "updatedDate": "2024-07-10",
     "mediaSource": [
       "main-res/projects/kuroneko.png",
       "main-res/projects/kuroneko2.png",
@@ -111,9 +121,11 @@
   {
     "category": "school",
     "title": "IcommunaPh",
-    "description": "A Community Event Discovery and Management Website integrating modern framework solutions.",
+    "description": "A comprehensive community event discovery and management portal. Integrates secure backend routing with a responsive front-end dashboard for seamless user engagement.",
     "mediaType": "image",
     "value": "important",
+    "createdDate": "2025-06-12",
+    "updatedDate": "2025-06-25",
     "mediaSource": [
       "main-res/projects/iCommuna.png",
       "main-res/projects/iCommuna2.png",
@@ -137,9 +149,11 @@
   {
     "category": "school",
     "title": "stbJobs",
-    "description": "A local job-portal connecting opportunities in Santo Tomas, Batangas. Led the full-stack development and team coordination, resulting in a platform recognized for its community impact and user-friendly design.",
+    "description": "A localized job portal engineered to connect talent with opportunities in Santo Tomas, Batangas. Led full-stack architecture and team coordination to deliver a highly accessible, community-focused platform.",
     "mediaType": "image",
     "value": "important",
+    "createdDate": "2024-12-28",
+    "updatedDate": "2025-01-25",
     "mediaSource": [
       "main-res/projects/stbjobs.png",
       "main-res/projects/stbjobs2.png",
@@ -164,11 +178,19 @@
   {
     "category": "personal",
     "title": "CatEnFur V2",
-    "description": "Refined feline care system with improved UI/UX and system configuration.",
-    "mediaType": "iframe",
+    "description": "A dedicated e-commerce and care portal for feline enthusiasts. Combines a sleek, responsive UI with secure data handling for browsing products and learning about cat care.",
+    "mediaType": "image",
+    "sourceCode": "https://github.com/RZregio/RZregio.github.io/tree/main/personalProjects/catEnFur",
     "value": "important",
+    "createdDate": "2026-06-11",
+    "updatedDate": "2026-06-12",
     "mediaSource": [
-      "https://catenfur.free.nf/"
+      "main-res/projects/catEnFur.png",
+      "main-res/projects/catEnFur2.png",
+      "main-res/projects/catEnFur3.png",
+      "main-res/projects/catEnFur4.png",
+      "main-res/projects/catEnFur5.png",
+      "main-res/projects/catEnFur6.png"
     ],
     "liveLink": "https://catenfur.free.nf/",
     "techStack": [
@@ -183,9 +205,12 @@
   {
     "category": "school",
     "title": "AIB - Border App",
-    "description": "Study on interface boundaries and visual hierarchy.",
+    "description": "An immersive web experience exploring interface boundaries and visual hierarchy. Utilizes modern 'Bento Box' styling to introduce users to the lore of Borderland.",
     "mediaType": "iframe",
     "value": "important",
+    "sourceCode": "https://github.com/RZregio/RZregio.github.io/tree/main/schoolProjects/aibBorder",
+    "createdDate": "2025-04-23",
+    "updatedDate": "2025-04-25",
     "mediaSource": [
       "schoolProjects/aibBorder/index.html"
     ],
@@ -200,8 +225,11 @@
   {
     "category": "personal",
     "title": "Meowtivator",
-    "description": "Emerging technology tool designed for motivation and interactive engagement.",
+    "description": "A custom-built, embeddable interactive chat widget. Designed to provide instant user engagement and motivational feedback directly within my portfolio architecture.",
     "mediaType": "iframe",
+    "sourceCode": "https://github.com/RZregio/RZregio.github.io/tree/main/personalProjects/meowtivator",
+    "createdDate": "2025-06-03",
+    "updatedDate": "2026-06-12",
     "mediaSource": [
       "personalProjects/meowtivator/index.html"
     ],
@@ -216,8 +244,11 @@
   {
     "category": "school",
     "title": "StillLife Parallax V2",
-    "description": "Advanced UI project utilizing CSS parallax techniques.",
+    "description": "An artistic web study focused on advanced CSS parallax scrolling. Demonstrates the ability to create depth and visual storytelling through layered DOM manipulation.",
     "mediaType": "iframe",
+    "sourceCode": "https://github.com/RZregio/RZregio.github.io/tree/main/schoolProjects/stillLifeParallax",
+    "createdDate": "2024-11-12",
+    "updatedDate": "2024-11-13",
     "mediaSource": [
       "schoolProjects/stillLifeParallax/index.html"
     ],
@@ -232,9 +263,11 @@
   {
     "category": "company",
     "title": "Material Navigator",
-    "description": "Internal tracking system designed to streamline factory material routing and location.",
+    "description": "An internal logistics and tracking dashboard. Engineered to drastically reduce retrieval times by streamlining factory material routing for warehouse personnel.",
     "mediaType": "image",
     "value": "important",
+    "createdDate": "2026-02-18",
+    "updatedDate": "2026-03-27",
     "mediaSource": [
       "main-res/projects/materialNavigator.png"
     ],
@@ -251,8 +284,11 @@
   {
     "category": "school",
     "title": "PhotoGallery Page V2",
-    "description": "Interactive gallery showcasing visual assets with responsive grid layouts.",
+    "description": "An interactive, responsive media gallery featuring dynamic grid layouts. Built to showcase visual assets with optimized loading and sleek hover states.",
     "mediaType": "iframe",
+    "sourceCode": "https://github.com/RZregio/RZregio.github.io/tree/main/schoolProjects/photoGallery",
+    "createdDate": "2024-10-07",
+    "updatedDate": "2026-06-10",
     "mediaSource": [
       "schoolProjects/photoGallery/index.html"
     ],
@@ -267,8 +303,11 @@
   {
     "category": "school",
     "title": "WordYou Sure? V2",
-    "description": "Utility project exploring user interaction through confirmation prompts.",
+    "description": "A vocabulary application powered by external REST APIs. Fetches and parses live dictionary data to provide instant definitions and contextual examples.",
     "mediaType": "iframe",
+    "sourceCode": "https://github.com/RZregio/RZregio.github.io/tree/main/schoolProjects/wordYouSure",
+    "createdDate": "2024-10-18",
+    "updatedDate": "2026-06-10",
     "mediaSource": [
       "schoolProjects/wordYouSure/index.html"
     ],
@@ -283,27 +322,12 @@
   },
   {
     "category": "school",
-    "title": "AniMania",
-    "description": "Backend logic exploration using PHP and dynamic data retrieval.",
-    "mediaType": "iframe",
-    "mediaSource": [
-      "personalProjects/aniMania/index-preview.html"
-    ],
-    "liveLink": "personalProjects/aniMania/index-preview.html",
-    "techStack": [
-      "PHP",
-      "MySQL",
-      "HTML5",
-      "CSS3",
-      "JavaScript",
-      "Bootstrap"
-    ]
-  },
-  {
-    "category": "school",
     "title": "PlaceHub Page V2",
-    "description": "A web-based platform designed for location discovery and community interaction.",
+    "description": "A digital tourism platform designed to highlight the municipal landmarks of Santo Tomas, Batangas. Focuses on intuitive navigation and content-rich presentation.",
     "mediaType": "iframe",
+    "sourceCode": "https://github.com/RZregio/RZregio.github.io/tree/main/schoolProjects/placeHub",
+    "createdDate": "2024-09-28",
+    "updatedDate": "2026-06-11",
     "mediaSource": [
       "schoolProjects/placeHub/index.html"
     ],
@@ -318,8 +342,11 @@
   {
     "category": "school",
     "title": "ArcaneLog Page",
-    "description": "A specialized interface for log tracking and data visualization.",
+    "description": "A thematic landing page dedicated to the Netflix series 'Arcane'. Built to experiment with complex visual styling, custom typography, and media integration.",
     "mediaType": "iframe",
+    "sourceCode": "https://github.com/RZregio/RZregio.github.io/tree/main/schoolProjects/arcaneLog",
+    "createdDate": "2024-11-04",
+    "updatedDate": "2026-06-11",
     "mediaSource": [
       "schoolProjects/arcaneLog/index.html"
     ],
@@ -334,8 +361,11 @@
   {
     "category": "school",
     "title": "Product Page V2",
-    "description": "A refined product information layout focusing on UI/UX and clean presentation.",
+    "description": "A refined product landing page focusing on conversion-driven UI/UX. Features a clean component hierarchy and responsive layout logic.",
     "mediaType": "iframe",
+    "sourceCode": "https://github.com/RZregio/RZregio.github.io/tree/main/schoolProjects/productInfo",
+    "createdDate": "2024-09-21",
+    "updatedDate": "2026-06-10",
     "mediaSource": [
       "schoolProjects/productInfo/index.html"
     ],
@@ -349,9 +379,31 @@
   },
   {
     "category": "other",
-    "title": "Welcome to schoolProjects",
-    "description": "Foundation project for schoolProjects emerging tech.",
+    "title": "404 Not Found",
+    "description": "A custom error handling page designed to maintain visual consistency with the portfolio while guiding lost users back to main content.",
     "mediaType": "iframe",
+    "sourceCode": "https://github.com/RZregio/RZregio.github.io/blob/main/404.html",
+    "createdDate": "2024-11-11",
+    "updatedDate": "2026-06-11",
+    "mediaSource": [
+      "404.html"
+    ],
+    "liveLink": "404.html",
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Bootstrap"
+    ]
+  },
+  {
+    "category": "other",
+    "title": "Welcome to schoolProjects",
+    "description": "A dedicated loading and routing gateway for accessing archived academic coursework within the portfolio architecture.",
+    "mediaType": "iframe",
+    "sourceCode": "https://github.com/RZregio/RZregio.github.io/tree/main/otherProjects/welcomePage",
+    "createdDate": "2025-01-01",
+    "updatedDate": "2025-01-01",
     "mediaSource": [
       "otherProjects/welcomePage/index.html"
     ],
