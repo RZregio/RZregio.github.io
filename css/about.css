@@ -89,13 +89,11 @@
 
 .fun-facts-scrollable::-webkit-scrollbar {
     display: none;
-    /* Chrome/Safari */
 }
 
 /* Ensure injected columns don't shrink */
 .fun-facts-scrollable .col {
     flex: 0 0 280px;
-    /* Fixed width for cards */
     max-width: 280px;
 }
 
@@ -145,7 +143,6 @@
 
 .career-node.current-node::after {
     content: '\F62A';
-    /* Bootstrap bi-x icon hex */
     font-family: 'bootstrap-icons';
     position: absolute;
     left: -31px;
@@ -233,7 +230,6 @@ select.custom-input {
 
 select.custom-input option {
     background-color: var(--blue-1);
-    /* Dark background for the dropdown list */
     color: white;
     padding: 10px;
 }
@@ -258,7 +254,6 @@ select.custom-input:focus {
     background-color: var(--accent-yellow);
     border-color: var(--accent-yellow);
     color: #101A30;
-    /* Dark text for contrast on yellow */
 }
 
 .custom-pagination .page-link:hover:not(.active) {
@@ -296,12 +291,12 @@ select.custom-input:focus {
 }
 
 .recognitions-slider::-webkit-scrollbar {
-    display: none; /* Chrome/Safari */
+    display: none; 
 }
 
 .recognitions-slider .recog-wrapper {
-    flex: 0 0 320px; /* Fixed card width for slider */
-    max-width: 85vw; /* Prevents overflow on very small phones */
+    flex: 0 0 320px; 
+    max-width: 85vw;
 }
 
 /* Make Fun Facts wrapper strictly flex */
@@ -311,8 +306,6 @@ select.custom-input:focus {
 
 /* --- Mobile Horizontal Grid Overrides --- */
 @media (max-width: 991px) {
-
-    /* Target the grid containers inside the dual-tabs */
     #full-certs-container,
     #full-awards-container {
         display: flex !important;
@@ -346,7 +339,6 @@ select.custom-input:focus {
     #full-certs-container>.col,
     #full-awards-container>.col {
         flex: 0 0 85% !important;
-        /* Show 1 card + a peek of the next */
         max-width: 320px;
     }
 }
@@ -377,7 +369,6 @@ select.custom-input:focus {
 }
 
 @media (max-width: 768px) {
-
     /* Stop the body grid from squeezing content */
     body {
         display: block !important;
@@ -397,7 +388,6 @@ select.custom-input:focus {
     /* Make slider cards responsive so they don't overflow the screen */
     .slider-card {
         min-width: 85vw;
-        /* Card takes up 85% of screen width */
     }
 
     .quote-text {

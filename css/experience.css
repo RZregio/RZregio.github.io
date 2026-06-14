@@ -27,7 +27,6 @@
 /* --- Tech Stack Grid --- */
 .tech-stack-grid {
     display: grid;
-    /* auto-fit handles the wrapping naturally */
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 25px;
     margin-top: 40px;
@@ -40,11 +39,9 @@
     border-radius: 15px;
     transition: all 0.3s ease;
     color: inherit;
-    /* We removed text-align: center so the JS flexbox handles alignment */
 }
 
 .stack-card:hover {
-    /* Clean, professional hover state without the rotation */
     border-color: rgba(212, 140, 28, 0.4);
     background: rgba(255, 255, 255, 0.05);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
@@ -69,11 +66,9 @@
     overflow-x: auto;
     scroll-behavior: smooth;
     padding: 20px 0;
-    /* Hide scrollbar for Chrome/Safari/Firefox */
     scrollbar-width: none;
     -ms-overflow-style: none;
     -webkit-overflow-scrolling: touch;
-    /* Smooth swipe on iOS */
 }
 
 .slider-container::-webkit-scrollbar {
@@ -84,7 +79,6 @@
     display: flex;
     gap: 30px;
     width: max-content;
-    /* Critical: Allows track to grow past screen width */
 }
 
 /* --- Project Cards --- */
@@ -97,9 +91,7 @@
     display: flex;
     flex-direction: column;
     width: 290px;
-    /* Desktop width */
     flex: 0 0 auto;
-    /* Prevents shrinking in flexbox */
 }
 
 .project-card:hover {
@@ -249,10 +241,8 @@
 
 /* --- Heavy Rendering Optimization --- */
 .live-embed iframe {
-    /* Skips rendering the iframe layout until it is on the screen */
     content-visibility: auto;
     contain-intrinsic-size: 350px;
-    /* Gives the browser a placeholder size */
 }
 
 /* --- Scroll Hint Button --- */
@@ -396,7 +386,6 @@ select.custom-input:focus {
         overflow-x: auto;
         padding-bottom: 15px;
         border-left: none !important;
-        /* Removes vertical line if timeline was used */
         scrollbar-width: none;
         -ms-overflow-style: none;
     }
@@ -471,7 +460,6 @@ select.custom-input:focus {
     /* Adjust Card Width for Mobile */
     .project-card {
         width: 85vw;
-        /* Fills most of the screen, leaves room to show next card */
         min-width: 280px;
     }
 
@@ -571,6 +559,6 @@ select.custom-input:focus {
 .scaled-iframe {
     transform: scale(0.8);
     transform-origin: top left;
-    width: 125% !important;  /* 1 / 0.8 = 1.25 (125%) to compensate for scale */
+    width: 125% !important; 
     height: 125% !important;
 }

@@ -215,7 +215,6 @@ p,
 /* --- Footer Styling --- */
 .footer-section {
     background-color: var(--bg-nav);
-    /* Uses your solid dark blue */
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: white;
     font-family: 'Poppins', sans-serif;
@@ -278,7 +277,6 @@ p,
 /* --- Fix Close Button Positioning --- */
 #imageViewerModal .modal-content {
     position: relative;
-    /* This serves as the anchor for the absolute button */
 }
 
 #imageViewerModal .btn-close {
@@ -363,15 +361,12 @@ p,
 .image-unavailable-placeholder span {
     color: rgba(255, 255, 255, 0.7) !important;
     opacity: 1 !important;
-    /* Prevents muddiness */
 }
 
 /* --- Brighten Form Placeholder Text --- */
 .custom-input::placeholder {
     color: rgba(255, 255, 255, 0.6) !important;
-    /* Brightens the text */
     opacity: 1 !important;
-    /* Forces Firefox to respect the color */
 }
 
 /* Fallbacks for older browsers just in case */
@@ -442,9 +437,7 @@ p,
 html,
 body {
     background-color: #060b1a !important;
-    /* Forces background to remain dark */
     overscroll-behavior-y: none;
-    /* Stops the white bounce effect on mobile */
 }
 
 /* --- Yellow Modal Close Button --- */
@@ -474,7 +467,6 @@ body {
 
     .card-style {
         padding: 15px !important;
-        /* Shrinks bulky card padding */
     }
 
     .timeline-item {
@@ -525,7 +517,6 @@ body {
 #test-btn-next {
     transition: all 0.3s ease !important;
     opacity: 0.7 !important;
-    /* Base opacity */
 }
 
 /* Glow and scale on hover, but ignore disabled buttons */
@@ -548,7 +539,6 @@ body {
     .btn-custom:hover {
         transform: none !important;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
-        /* Keep the flat shadow */
     }
 }
 

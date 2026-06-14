@@ -108,7 +108,7 @@
   {
     "category": "certificate",
     "title": "From Algorithms to Intelligence",
-    "context": "Institution Name",
+    "context": "PUPSTC Computer Society",
     "date": "2024",
     "description": "Exploration of algorithms and introductory artificial intelligence.",
     "iconClass": "bi-cpu",
@@ -119,7 +119,7 @@
   {
     "category": "certificate",
     "title": "TechStart: Git & GitHub",
-    "context": "Institution Name",
+    "context": "STARTDOST",
     "date": "2024",
     "description": "Version control, repository management, and collaboration.",
     "iconClass": "bi-github",

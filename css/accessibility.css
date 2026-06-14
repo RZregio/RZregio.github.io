@@ -25,7 +25,6 @@
     gap: 15px;
     pointer-events: none;
     transition: transform 0.4s ease;
-    /* ADDED for smooth footer lift */
 }
 
 /* --- Main Island Button --- */
@@ -142,13 +141,11 @@
     background: var(--accent-yellow);
     color: #101A30;
     padding: 12px 20px;
-    /* Adjusted padding for better look */
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-family: 'Fredoka One', cursive;
     flex-shrink: 0;
-    /* CRITICAL: Prevent the header from being squeezed by the iframe */
 }
 
 /* --- Meowtivator Close Button Fix --- */
@@ -166,7 +163,6 @@
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    /* Make it a circle on hover */
     margin: 0;
     padding: 0;
     transition: all 0.2s ease;
@@ -174,9 +170,7 @@
 
 .meowtivator-close:hover {
     background: rgba(0, 0, 0, 0.15);
-    /* Subtle dark circle behind the X */
     transform: scale(1.1);
-    /* Slight pop */
 }
 
 .meowtivator-iframe {
@@ -185,7 +179,6 @@
     width: 100% !important;
     height: 100% !important;
     min-height: 0;
-    /* Prevents flexbox from letting it grow past the container */
     border: none;
     background: #fff;
     display: block;
@@ -282,7 +275,6 @@ html[data-theme="pink"] body {
 
 ::-webkit-scrollbar-thumb {
     background-color: var(--accent-yellow);
-    /* Automatically pulls the current theme color */
     border-radius: 10px;
     border: 3px solid var(--blue-1);
     transition: background-color 0.3s ease;
@@ -463,7 +455,6 @@ html[data-theme] .project-thumb,
 html[data-theme] .proj-detail-media,
 html[data-theme] .modal-media-container {
     background: var(--blue-2) !important;
-    /* Forces it to match the active card background */
 }
 
 /* Hover Effects in Trails and Interactive Cards */
@@ -475,7 +466,6 @@ html[data-theme] .island-btn-main {
 html[data-theme] .trail-btn:hover,
 html[data-theme] .island-btn-main:hover {
     box-shadow: 0 10px 30px rgba(var(--accent-yellow-rgb, 212, 140, 28), 0.5) !important;
-    /* Fallback if rgb not defined */
 }
 
 /* Image Viewer Controls */
@@ -525,7 +515,6 @@ html[data-theme] .btn-outline-warning:hover {
     background-color: var(--accent-yellow) !important;
     border-color: var(--accent-yellow) !important;
     color: var(--blue-1) !important;
-    /* Dark icon for contrast */
     transition: all 0.3s ease !important;
 }
 
@@ -538,7 +527,6 @@ html[data-theme] .btn-outline-warning:hover {
 #test-btn-next:hover:not(:disabled) {
     opacity: 1 !important;
     transform: scale(1.15) !important;
-    /* Replaces the hardcoded rgba yellow with the dynamic variable */
     filter: drop-shadow(0 0 10px var(--accent-yellow)) !important;
 }
 
@@ -551,7 +539,6 @@ html[data-theme] .btn-outline-warning:hover {
 .social-btn:hover {
     background-color: var(--accent-yellow) !important;
     color: var(--blue-1) !important;
-    /* High contrast icon on hover */
     box-shadow: 0 5px 15px var(--accent-yellow) !important;
     transform: translateY(-5px);
 }
@@ -587,14 +574,11 @@ html[data-theme] .btn-outline-warning:hover {
 /* Copied state */
 .copy-btn.copied {
     color: #198754 !important;
-    /* Bootstrap success green */
 }
 
 /* --- Fix Meowtivator Placement --- */
 .meowtivator-popup {
     bottom: 20px !important;
-    /* Pushes it to the bottom */
     right: 20px !important;
     z-index: 10000 !important;
-    /* Ensures it sits above everything */
 }

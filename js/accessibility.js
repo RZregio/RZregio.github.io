@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. Back to Top Logic (Custom Smooth Animation Fix)
     btnTop.addEventListener('click', () => {
         const startPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-        const duration = 600; // Animation duration in milliseconds
+        const duration = 600; 
         let startTime = null;
 
         const easeOutCubic = (t) => { return (--t) * t * t + 1; };
@@ -119,10 +119,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // 6. Meowtivator Popup Logic
     btnMeow.addEventListener('click', (e) => {
         e.preventDefault();
-        meowPopup.classList.add('active'); // Add active class to show popup
+        meowPopup.classList.add('active'); 
 
         if (islandContainer.classList.contains('active')) {
-            toggleBtn.click(); // Close island menu
+            toggleBtn.click(); 
         }
     });
 
@@ -134,7 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('click', (e) => {
         // If clicking outside the island, close island
         if (!islandContainer.contains(e.target) && islandContainer.classList.contains('active')) {
-            // Exclude closing the island if they are just interacting with the meow popup
             if (!meowPopup.contains(e.target)) {
                 toggleBtn.click();
             }
@@ -142,7 +141,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 7. Rock-Solid Google Translate Toggle (English <-> Filipino)
-
     // Inject Script dynamically
     const gtScript = document.createElement('script');
     gtScript.type = 'text/javascript';
