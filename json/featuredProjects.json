@@ -94,7 +94,7 @@
     ],
     "projectContext": "A custom 2D desktop platformer showcasing robust Object-Oriented Programming principles. Features bespoke gameplay mechanics, physics handling, and state management built entirely in Java Swing.",
     "previewImageUrl": "main-res/projects/kuroneko.png",
-    "projectLinkUrl": "",
+    "projectLinkUrl": "https://drive.google.com/file/d/1DDa2Wzsy4NHCgrWTH7OgnVK9pueLJVyM/preview",
     "mediaSource": [
       "main-res/projects/kuroneko.png",
       "main-res/projects/kuroneko2.png",
@@ -178,7 +178,7 @@
       "main-res/projects/catEnFur6.png"
     ],
     "projectLinkUrl": "https://catenfur.free.nf/",
-    "sourceCode": "personalProjects/",
+    "sourceCode": "https://github.com/RZregio/RZregio.github.io/tree/main/personalProjects/catEnFur",
     "techStack": [
       "PHP",
       "MySQL",
@@ -201,6 +201,7 @@
     ],
     "projectContext": "An immersive web experience exploring interface boundaries and visual hierarchy. Utilizes modern 'Bento Box' styling to introduce users to the lore of Alice in Borderland.",
     "previewImageUrl": "main-res/projects/aIB.png",
-    "projectLinkUrl": "schoolProjects/aibBorder/index.html"
+    "projectLinkUrl": "schoolProjects/aibBorder/index.html",
+    "sourceCode": "https://github.com/RZregio/RZregio.github.io/tree/main/schoolProjects/aibBorder"
   }
 ]
