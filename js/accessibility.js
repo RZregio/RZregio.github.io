@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 5. Theme Toggler Logic
-    const themes = ['default', 'dark', 'purple', 'green', 'blue', 'brown', 'pink'];
+    const themes = ['default', 'blue', 'green', 'pink', 'brown', 'purple'];
     let currentTheme = localStorage.getItem('rz_theme') || 'default';
 
     const applyTheme = (theme) => {
