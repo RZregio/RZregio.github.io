@@ -246,7 +246,7 @@ function processMessage(rawMsg) {
 
         // b. Direct Ask for Quotes (e.g. "give me a quote", "qoute about love", "inspire me")
         // Catches typos like 'qoute' to prevent accidental portfolio triggers
-        if (contains(msg, ["quote", "qoute", "quotes", "qoutes", "motivate", "motivation", "inspire"])) {
+        if (contains(msg, ["quote", "qoute", "quotes", "qoutes", "motivate", ,"motivated", "motivation", "inspire"])) {
             currentMode = "motivation";
             const categories = Object.keys(quotesDB);
             let foundCategory = categories.find(cat => contains(msg, [cat]));
