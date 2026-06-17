@@ -119,6 +119,25 @@
     ]
   },
   {
+    "category": "personal",
+    "title": "Meowtivator",
+    "description": "A custom-built, embeddable interactive chat widget. Designed to provide instant user engagement and motivational feedback directly within my portfolio architecture.",
+    "mediaType": "iframe",
+    "sourceCode": "https://github.com/RZregio/RZregio.github.io/tree/main/personalProjects/meowtivator",
+    "createdDate": "2025-06-03",
+    "updatedDate": "2026-06-18",
+    "mediaSource": [
+      "personalProjects/meowtivator/index.html"
+    ],
+    "liveLink": "personalProjects/meowtivator/index.html",
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Bootstrap"
+    ]
+  },
+  {
     "category": "school",
     "title": "IcommunaPh",
     "description": "A comprehensive community event discovery and management portal. Integrates secure backend routing with a responsive front-end dashboard for seamless user engagement.",
@@ -215,25 +234,6 @@
       "schoolProjects/aibBorder/index.html"
     ],
     "liveLink": "schoolProjects/aibBorder/index.html",
-    "techStack": [
-      "HTML5",
-      "CSS3",
-      "JavaScript",
-      "Bootstrap"
-    ]
-  },
-  {
-    "category": "personal",
-    "title": "Meowtivator",
-    "description": "A custom-built, embeddable interactive chat widget. Designed to provide instant user engagement and motivational feedback directly within my portfolio architecture.",
-    "mediaType": "iframe",
-    "sourceCode": "https://github.com/RZregio/RZregio.github.io/tree/main/personalProjects/meowtivator",
-    "createdDate": "2025-06-03",
-    "updatedDate": "2026-06-18",
-    "mediaSource": [
-      "personalProjects/meowtivator/index.html"
-    ],
-    "liveLink": "personalProjects/meowtivator/index.html",
     "techStack": [
       "HTML5",
       "CSS3",

@@ -232,24 +232,39 @@ function processMessage(rawMsg) {
         return sendBotMessage("I'm all ears. *settles down comfortably* Let it all out, hooman. I'm right here without any judgment.", ["I'm feeling better", "Portfolio Menu", "Go Back"]);
     }
 
-    // 3. GLOBAL QUOTE SEARCHER (Author or Quote Fragment)
+    // 3. GLOBAL QUOTE DETECTOR & SEARCHER
     if (currentMode !== "venting") {
+        // a. Specific Quote/Author search (from previous update)
         const specificQuote = findSpecificQuote(msg);
         if (specificQuote) {
-            currentMode = "motivation"; // Instantly jump to motivation mode
+            currentMode = "motivation";
             lastQuoteCategory = specificQuote.category;
             const quoteObj = specificQuote.quote;
             const responseHtml = `"${quoteObj.q}" <br><br>— <a href="https://www.google.com/search?q=${encodeURIComponent(quoteObj.a)}" target="_blank" class="text-primary fw-bold text-decoration-none">${quoteObj.a}</a><br><br><i>${quoteObj.b}</i>`;
             return sendBotMessage(responseHtml, ["Give me more", "Change Topic"]);
         }
+
+        // b. Direct Ask for Quotes (e.g. "give me a quote", "qoute about love", "inspire me")
+        // Catches typos like 'qoute' to prevent accidental portfolio triggers
+        if (contains(msg, ["quote", "qoute", "quotes", "qoutes", "motivate", "motivation", "inspire"])) {
+            currentMode = "motivation";
+            const categories = Object.keys(quotesDB);
+            let foundCategory = categories.find(cat => contains(msg, [cat]));
+
+            // If they asked for a quote AND specified a category in the same sentence
+            if (foundCategory) {
+                lastQuoteCategory = foundCategory;
+                const quoteObj = randomFrom(quotesDB[foundCategory]);
+                const responseHtml = `"${quoteObj.q}" <br><br>— <a href="https://www.google.com/search?q=${encodeURIComponent(quoteObj.a)}" target="_blank" class="text-primary fw-bold text-decoration-none">${quoteObj.a}</a><br><br><i>${quoteObj.b}</i>`;
+                return sendBotMessage("Here is a quote for you:<br><br>" + responseHtml, ["Give me more", "Change Topic"]);
+            }
+            // If they just asked for a generic quote
+            return sendBotMessage("Motivation mode activated! 🐾 What kind of quotes do you want to hear? (Available: Love, Success, Study, Life, Comfort, Peace, Joy, Courage)", ["Love", "Success", "Study", "Life", "Go Back"]);
+        }
     }
 
     // 4. Initial State Routing
     if (currentMode === "initial") {
-        if (contains(msg, ["motivate", "motivated", "motivation", "quote", "inspire"])) {
-            currentMode = "motivation";
-            return sendBotMessage("Motivation mode activated! 🐾 What kind of quotes do you want to hear? (Available: Love, Success, Study, Life, Comfort, Peace, Joy, Courage)", ["Love", "Success", "Study", "Life", "Go Back"]);
-        }
         if (contains(msg, ["know", "person", "behind", "creator", "portfolio", "about", "resume", "skills"])) {
             currentMode = "portfolio";
             return sendBotMessage("Awesome! I am your portfolio concierge. What would you like to know about my hooman, Roland?", ["About Him", "Tech Stack", "Projects", "Resume", "Contact", "Go Back"]);
@@ -280,16 +295,18 @@ function processMessage(rawMsg) {
             return sendBotMessage(responseHtml, ["Give me more", "Change Topic"]);
         }
 
-        if (contains(msg, ["change", "different", "switch", "topic"])) {
-            return sendBotMessage("Sure thing! Pick a new category:", categories);
-        }
-
+        // --- THE FIX: We check if they typed a specific category FIRST ---
         let foundCategory = categories.find(cat => contains(msg, [cat]));
         if (foundCategory) {
             lastQuoteCategory = foundCategory;
             const quoteObj = randomFrom(quotesDB[foundCategory]);
             const responseHtml = `"${quoteObj.q}" <br><br>— <a href="https://www.google.com/search?q=${encodeURIComponent(quoteObj.a)}" target="_blank" class="text-primary fw-bold text-decoration-none">${quoteObj.a}</a><br><br><i>${quoteObj.b}</i>`;
             return sendBotMessage(responseHtml, ["Give me more", "Change Topic"]);
+        }
+
+        // --- THEN we check for generic change requests ---
+        if (contains(msg, ["change", "different", "switch", "topic"])) {
+            return sendBotMessage("Sure thing! Pick a new category:", categories);
         }
 
         let moodData = getMoodData(msg);
