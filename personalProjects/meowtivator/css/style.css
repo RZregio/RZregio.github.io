@@ -172,3 +172,24 @@ html {
     border-bottom-right-radius: 4px !important;
     line-height: 1.5;
 }
+
+/* Meowtivator Custom Option Pills - Outline Style */
+.chat-chip {
+    background-color: transparent;
+    color: #D48C1C;
+    border: 2px solid #D48C1C;
+    box-shadow: 0 4px 10px rgba(212, 140, 28, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.chat-chip:hover {
+    background-color: #D48C1C;
+    color: #131B2E;
+    box-shadow: 0 4px 15px rgba(212, 140, 28, 0.4);
+    transform: translateY(-2px);
+}
+
+.chat-chip:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(212, 140, 28, 0.4);
+}

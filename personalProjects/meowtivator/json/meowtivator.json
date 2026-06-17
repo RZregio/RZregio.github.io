@@ -1,0 +1,173 @@
+{
+  "moodResponses": {
+    "happy": [
+      "That’s purr-fect! Keep smiling, you're doing amazing! 🐾", 
+      "Happiness looks so good on you. Keep shining!", 
+      "*happy meow* That’s wonderful! Let your joy be contagious.", 
+      "You're glowing! I'm swishing my tail just hearing about it.", 
+      "Great energy! Stay pawsitive and keep spreading that joy.",
+      "I love seeing you this happy! It makes me want to chase a laser pointer.",
+      "Hold onto this feeling! Days like today are the best kind of treats."
+    ],
+    "okay": [
+      "It’s okay to feel just okay. Take it one paw at a time.", 
+      "You're doing your best, and that's more than enough for today. *purrs*", 
+      "Even on average days, you're still doing great. Be gentle with yourself.", 
+      "*tilts head* Just showing up today is a win. I'm proud of you.",
+      "Neutral is a good place to rest. Take a breather, hooman.",
+      "Not every day has to be a grand adventure. A quiet day is a good day."
+    ],
+    "sad": [
+      "*softly purrs and rubs against your hand* I'm really sorry you're feeling this way. You're not alone.", 
+      "It's okay to feel down. Let yourself feel it, take a deep breath, and we can rise again.", 
+      "You are strong enough to get through this storm. Take a cat nap if you need to.", 
+      "This sadness doesn’t define you. Brighter days are coming, I promise.", 
+      "Every emotion is valid. Let it out. I'm right here listening to you.",
+      "Sometimes a good cry clears the heavy clouds. I'll sit right here with you.",
+      "Sending you gentle head-boops. Tomorrow is a brand new day."
+    ],
+    "angry": [
+      "Take a deep breath. It's okay to show your claws sometimes. 😼", 
+      "*hisses at whatever made you mad* Your feelings are totally valid! Let it out.", 
+      "Channel that fiery energy into something that lifts you up.", 
+      "You’re allowed to feel upset. Just don’t let it consume your peace of mind.", 
+      "Let it out in healthy ways. Want to vent more about it? I'm all ears.",
+      "Retract those claws, take five deep breaths, and let the frustration go.",
+      "Anger is exhausting. Don't let it drain your battery today!"
+    ],
+    "demotivated": [
+      "Even the most energetic cats need 16 hours of sleep. Rest if you must, but don't give up!", 
+      "Progress isn't always a sprint. Sometimes it's a slow stretch. Keep going.", 
+      "You've climbed so many high shelves already! Don’t let doubt win today.", 
+      "Small steps are still steps forward. Take a pause, then let's try again.", 
+      "*nudges you* I believe in you! You have what it takes to finish this.",
+      "Burnout is real. Grab a snack, step away for a minute, and come back stronger.",
+      "You don't have to be perfect today, you just have to try."
+    ],
+    "help": [
+      "I'm here for you. Take a deep breath — we can untangle this yarn together.", 
+      "You’ve already taken the first step by asking. That takes courage! *purrs*", 
+      "Let’s break it down into smaller, bite-sized pieces. You can handle this.", 
+      "It’s okay to ask for help. Even independent cats need a hand sometimes.", 
+      "Every problem has a path forward. We'll find it, don't worry.",
+      "Two heads are better than one! Let's figure out the next step."
+    ],
+    "thankyou": [
+      "You're very welcome! *happy purr*", 
+      "No problem at all. I'm always here for you!", 
+      "Anytime! Remember, I'm just a meow away.", 
+      "You've got this! Glad I could help.", 
+      "*rubs against your leg* Glad I could be of service!",
+      "It's what I do best! 🐾"
+    ],
+    "greeting": [
+      "Meow there! How are you feeling today?", 
+      "Hello! *purrs* I’m so glad you stopped by.", 
+      "Hey! What’s going on in your world today?", 
+      "Hi hooman! Need some motivation or just a listening ear?", 
+      "Hello hello! Ready to chat?",
+      "*stretches and yawns* Hi! It's great to see you."
+    ],
+    "apology": [
+      "I'm really sorry if I wasn't clear. Let me try again.", 
+      "My apologies! Sometimes my paws type the wrong thing.", 
+      "Oops! That’s on me. Let’s reset.", 
+      "I might’ve missed the mark there — thank you for your patience.", 
+      "*lowers ears* Sorry about that! Let me explain it better."
+    ],
+    "laughter": [
+      "Haha, that made my whiskers twitch!", 
+      "You’ve got a great sense of humor! 😂", 
+      "Glad you found that funny! Laughter is the best medicine.", 
+      "Oh, that's a good one!", 
+      "*laughs in meow* You're hilarious!"
+    ],
+    "love": [
+      "Love is powerful! Let it inspire you, not consume you.", 
+      "If your heart feels full, hold onto that warm feeling. *purrs*", 
+      "Falling in love is brave. Just don’t forget your own worth in the process.", 
+      "Love freely, but never lose yourself. You are the prize!", 
+      "Masarap ang umibig, pero mas masarap kung totoo at payapa. 🐾", 
+      "Love isn't always easy, but it should always make you feel valued."
+    ],
+    "humorous": [
+      "Did you just say that? You’re giving total main character energy today. 💅", 
+      "If life gives you lemons, bat them off the table like a true cat.", 
+      "That’s a mood! 10/10 would recommend a nap and a snack right now.", 
+      "We're just two brain cells and a cup of coffee away from world domination.",
+      "I'd help you, but it's time for my 14th nap of the day."
+    ],
+    "slangy": [
+      "Laban lang, hooman! Ikaw pa ba? *meow*", 
+      "Wag kang susuko — malakas ka diyan!", 
+      "Push lang nang push, andito lang ako para i-cheer ka!", 
+      "Pagod pero go pa rin! Ganyan tayo eh.", 
+      "Legit ka, kaya mo 'to. Trust the pawsitive vibes!",
+      "Deserve mo magpahinga, pero bawal sumuko!"
+    ]
+  },
+  "quotesDB": {
+    "love": [
+      { "q": "Love is not about possession, it's about appreciation.", "a": "Osho", "b": "Remember, true love gives freedom and peace, hooman. 🐾" },
+      { "q": "We are most alive when we're in love.", "a": "John Updike", "b": "Let that warm feeling inspire your day!" },
+      { "q": "The best thing to hold onto in life is each other.", "a": "Audrey Hepburn", "b": "Cherish the people who make you purr with happiness." },
+      { "q": "Love is composed of a single soul inhabiting two bodies.", "a": "Aristotle", "b": "A classic hooman thought! Love connects us deeply." },
+      { "q": "Where there is love there is life.", "a": "Mahatma Gandhi", "b": "Your heart is full of life today. Keep purring!" }
+    ],
+    "joy": [
+      { "q": "Joy is not in things; it is in us.", "a": "Richard Wagner", "b": "You carry that light inside you everywhere you go!" },
+      { "q": "The most wasted of all days is one without laughter.", "a": "E.E. Cummings", "b": "Keep laughing! It makes my whiskers twitch with joy." },
+      { "q": "Find ecstasy in life; the mere sense of living is joy enough.", "a": "Emily Dickinson", "b": "Every day is a treat when you look at it the right way! 🐟" },
+      { "q": "The present moment is filled with joy and happiness. If you are attentive, you will see it.", "a": "Thich Nhat Hanh", "b": "Look around you. There's a sunbeam just waiting to be napped in." },
+      { "q": "Joy is prayer; joy is strength: joy is love; joy is a net of love by which you can catch souls.", "a": "Mother Teresa", "b": "Your joy is a magnet for good things!" }
+    ],
+    "comfort": [
+      { "q": "Tears come from the heart and not from the brain.", "a": "Leonardo da Vinci", "b": "It's okay to cry. Let it out and wash the sadness away." },
+      { "q": "The word 'happy' would lose its meaning if it were not balanced by sadness.", "a": "Carl Jung", "b": "Dark clouds will pass, and the sun will shine on your fur again." },
+      { "q": "You survive every worst day of your life.", "a": "Unknown", "b": "You have a 100% track record of making it through. I'm proud of you." },
+      { "q": "What happens when people open their hearts? They get better.", "a": "Haruki Murakami", "b": "Opening up is hard, but it's the first step to healing." },
+      { "q": "The wound is the place where the Light enters you.", "a": "Rumi", "b": "Your scars just mean you were stronger than whatever tried to hurt you." }
+    ],
+    "peace": [
+      { "q": "For every minute you remain angry, you give up sixty seconds of peace of mind.", "a": "Ralph Waldo Emerson", "b": "Don't let them steal your peace. Breathe in, breathe out." },
+      { "q": "Anger is an acid that can do more harm to the vessel in which it is stored than to anything on which it is poured.", "a": "Mark Twain", "b": "Release the tension. It's not worth your energy, hooman." },
+      { "q": "Peace begins with a smile.", "a": "Mother Teresa", "b": "Unclench your jaw, drop your shoulders, and let it go. 🐾" },
+      { "q": "Peace comes from within. Do not seek it without.", "a": "Buddha", "b": "Close your eyes, take a deep breath, and find your quiet center." },
+      { "q": "Nobody can bring you peace but yourself.", "a": "Ralph Waldo Emerson", "b": "You have the power to protect your own energy, hooman." }
+    ],
+    "success": [
+      { "q": "Success is not final, failure is not fatal: it is the courage to continue that counts.", "a": "Winston Churchill", "b": "Every step you take matters. Don't give up! 🚀" },
+      { "q": "The secret of getting ahead is getting started.", "a": "Mark Twain", "b": "Take that first step today. I believe in you!" },
+      { "q": "It does not matter how slowly you go as long as you do not stop.", "a": "Confucius", "b": "Slow progress is still progress. Keep those paws moving." },
+      { "q": "I never dreamed about success, I worked for it.", "a": "Estée Lauder", "b": "Dreams are great, but action gets the treats!" },
+      { "q": "Success usually comes to those who are too busy to be looking for it.", "a": "Henry David Thoreau", "b": "Keep focusing on your work, the rewards will follow." }
+    ],
+    "courage": [
+      { "q": "Asking for help isn't giving up, it's refusing to give up.", "a": "Charlie Mackesy", "b": "Reaching out takes bravery. You're doing the right thing." },
+      { "q": "Courage doesn't always roar. Sometimes courage is the quiet voice at the end of the day saying, 'I will try again tomorrow.'", "a": "Mary Anne Radmacher", "b": "We will face tomorrow together. You aren't alone." },
+      { "q": "Alone we can do so little; together we can do so much.", "a": "Helen Keller", "b": "Teamwork makes the dream work! Let's figure this out." },
+      { "q": "It takes courage to grow up and become who you really are.", "a": "E.E. Cummings", "b": "Embrace your true self! No hiding under the sofa." },
+      { "q": "I learned that courage was not the absence of fear, but the triumph over it.", "a": "Nelson Mandela", "b": "It's okay to be scared. Doing it anyway is what makes you brave." }
+    ],
+    "study": [
+      { "q": "Education is the most powerful weapon which you can use to change the world.", "a": "Nelson Mandela", "b": "Your hard work today is building your future. Keep studying!" },
+      { "q": "The beautiful thing about learning is that no one can take it away from you.", "a": "B.B. King", "b": "Fill your brain with knowledge! It's the best treat." },
+      { "q": "Live as if you were to die tomorrow. Learn as if you were to live forever.", "a": "Mahatma Gandhi", "b": "Curiosity didn't kill the cat; it made him smarter!" },
+      { "q": "The capacity to learn is a gift; the ability to learn is a skill; the willingness to learn is a choice.", "a": "Brian Herbert", "b": "You've already made the choice to grow. Keep it up!" }
+    ],
+    "life": [
+      { "q": "Life is what happens when you're busy making other plans.", "a": "John Lennon", "b": "Don't forget to enjoy the present moment. Take a deep breath." },
+      { "q": "In three words I can sum up everything I've learned about life: it goes on.", "a": "Robert Frost", "b": "No matter what happens, tomorrow is a fresh start." },
+      { "q": "To live is the rarest thing in the world. Most people exist, that is all.", "a": "Oscar Wilde", "b": "Make sure you're truly living today, not just going through the motions." },
+      { "q": "Good friends, good books, and a sleepy conscience: this is the ideal life.", "a": "Mark Twain", "b": "Sounds like my ideal afternoon! Enjoy the simple things." }
+    ]
+  },
+  "portfolioDB": {
+    "about": "*Purrs* My hooman, Roland, is an IT student at PUP-STC and a passionate Full-Stack Developer! He recently finished his OJT at Arktech Philippines building enterprise systems. 🎓",
+    "skills": "He's a tech whiz! His main stack includes **HTML5, CSS3, Vanilla JS, PHP, MySQL, and Bootstrap**. He also builds games using **C# and Unity**! *swishes tail* 💻",
+    "projects": "He has built some amazing things! From an award-winning 2D Android game called **LANDAS**, to an AI e-learning platform called **Arkteach**. Check out the <a target='_parent' href='https://rzregio.github.io/experience.html' class='text-primary fw-bold'>Projects section</a>! 🚀",
+    "resume": "You can view and download his updated resume directly from the <a target='_parent' href='http://localhost/RZregio.github.io/index.html' class='text-primary fw-bold'>Home page</a>! 📄",
+    "contact": "You can email him at **regioroland011@gmail.com** or use the form on the <a target='_parent' href='http://localhost/RZregio.github.io/contact.html' class='text-primary fw-bold'>Contact page</a>. He's currently open for project-based roles! *happy meow* 🤝",
+    "achievements": "He recently led his Capstone project to strict ISO/IEC 25010 compliance and won 'Best in Capstone'! 🏆"
+  }
+}

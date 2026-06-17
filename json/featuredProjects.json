@@ -108,6 +108,25 @@
     ]
   },
   {
+    "projectCategory": "Personal Project",
+    "projectTitle": "Meowtivator",
+    "projectContext": "A custom-built, embeddable interactive chat widget. Designed to provide instant user engagement and motivational feedback directly within my portfolio architecture.",
+    "sourceCode": "https://github.com/RZregio/RZregio.github.io/tree/main/personalProjects/meowtivator",
+    "createdDate": "2025-06-03",
+    "updatedDate": "2026-06-18",
+    "previewImageUrl": "main-res/projects/meowtivator.png",
+    "mediaSource": [
+      "main-res/projects/meowtivator.png"
+    ],
+    "projectLinkUrl": "personalProjects/meowtivator/index.html",
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Bootstrap"
+    ]
+  },
+  {
     "projectTitle": "ICommunaPH",
     "projectCategory": "Advanced Web App",
     "createdDate": "2025-06-12",

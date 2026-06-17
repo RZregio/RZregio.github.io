@@ -3,58 +3,36 @@ const userInput = document.getElementById("userInput");
 const sendBtn = document.getElementById("sendBtn");
 
 // --- STATE MANAGEMENT ---
-let currentMode = "initial"; // Modes: 'initial', 'motivation', 'portfolio'
+let currentMode = "initial";
 let lastQuoteCategory = null;
-let lastQuoteAuthor = null;
 
-// --- DATABASE: THE CAT's PERSONALITY (MOODS & SLANG) ---
-const moodResponses = {
-    happy: ["That’s purr-fect! Keep smiling, you're doing amazing! 🐾", "Happiness looks so good on you. Keep shining!", "*happy meow* That’s wonderful! Let your joy be contagious.", "You're glowing! I'm swishing my tail just hearing about it.", "Great energy! Stay pawsitive and keep spreading that joy."],
-    okay: ["It’s okay to feel just okay. Take it one paw at a time.", "You're doing your best, and that's more than enough for today. *purrs*", "Even on average days, you're still doing great. Be gentle with yourself.", "*tilts head* Just showing up today is a win. I'm proud of you."],
-    sad: ["*softly purrs and rubs against your hand* I'm really sorry you're feeling this way. You're not alone.", "It's okay to feel down. Let yourself feel it, take a deep breath, and we can rise again.", "You are strong enough to get through this storm. Take a cat nap if you need to.", "This sadness doesn’t define you. Brighter days are coming, I promise.", "Every emotion is valid. Let it out. I'm right here listening to you."],
-    angry: ["Take a deep breath. It's okay to show your claws sometimes. 😼", "*hisses at whatever made you mad* Your feelings are totally valid! Let it out.", "Channel that fiery energy into something that lifts you up.", "You’re allowed to feel upset. Just don’t let it consume your peace of mind.", "Let it out in healthy ways. Want to vent more about it? I'm all ears."],
-    demotivated: ["Even the most energetic cats need 16 hours of sleep. Rest if you must, but don't give up!", "Progress isn't always a sprint. Sometimes it's a slow stretch. Keep going.", "You've climbed so many high shelves already! Don’t let doubt win today.", "Small steps are still steps forward. Take a pause, then let's try again.", "*nudges you* I believe in you! You have what it takes to finish this."],
-    help: ["I'm here for you. Take a deep breath — we can untangle this yarn together.", "You’ve already taken the first step by asking. That takes courage! *purrs*", "Let’s break it down into smaller, bite-sized pieces. You can handle this.", "It’s okay to ask for help. Even independent cats need a hand sometimes.", "Every problem has a path forward. We'll find it, don't worry."],
-    thankyou: ["You're very welcome! *happy purr*", "No problem at all. I'm always here for you!", "Anytime! Remember, I'm just a meow away.", "You've got this! Glad I could help.", "*rubs against your leg* Glad I could be of service!"],
-    greeting: ["Meow there! How are you feeling today?", "Hello! *purrs* I’m so glad you stopped by.", "Hey! What’s going on in your world today?", "Hi hooman! Need some motivation or just a listening ear?", "Hello hello! Ready to chat?"],
-    apology: ["I'm really sorry if I wasn't clear. Let me try again.", "My apologies! Sometimes my paws type the wrong thing.", "Oops! That’s on me. Let’s reset.", "I might’ve missed the mark there — thank you for your patience.", "*lowers ears* Sorry about that! Let me explain it better."],
-    laughter: ["Haha, that made my whiskers twitch!", "You’ve got a great sense of humor! 😂", "Glad you found that funny! Laughter is the best medicine.", "Oh, that's a good one!", "*laughs in meow* You're hilarious!"],
-    love: ["Love is powerful! Let it inspire you, not consume you.", "If your heart feels full, hold onto that warm feeling. *purrs*", "Falling in love is brave. Just don’t forget your own worth in the process.", "Love freely, but never lose yourself. You are the prize!", "Masarap ang umibig, pero mas masarap kung totoo at payapa. 🐾", "Love isn't always easy, but it should always make you feel valued."],
-    humorous: ["Did you just say that? You’re giving total main character energy today. 💅", "If life gives you lemons, bat them off the table like a true cat.", "That’s a mood! 10/10 would recommend a nap and a snack right now.", "We're just two brain cells and a cup of coffee away from world domination."],
-    slangy: ["Laban lang, hooman! Ikaw pa ba? *meow*", "Wag kang susuko — malakas ka diyan!", "Push lang nang push, andito lang ako para i-cheer ka!", "Pagod pero go pa rin! Ganyan tayo eh.", "Legit ka, kaya mo 'to. Trust the pawsitive vibes!"]
-};
+// --- DYNAMIC DATA CONTAINERS ---
+let moodResponses = {};
+let quotesDB = {};
+let portfolioDB = {};
 
-// --- DATABASE: MOTIVATION QUOTES ---
-const quotesDB = {
-    love: [
-        { q: "Love is not about possession, it's about appreciation.", a: "Osho", b: "Remember, true love gives freedom and peace, hooman. 🐾" },
-        { q: "We are most alive when we're in love.", a: "John Updike", b: "Let that warm feeling inspire your day!" },
-        { q: "The best thing to hold onto in life is each other.", a: "Audrey Hepburn", b: "Cherish the people who make you purr with happiness." }
-    ],
-    success: [
-        { q: "Success is not final, failure is not fatal: it is the courage to continue that counts.", a: "Winston Churchill", b: "Every step you take matters. Don't give up! 🚀" },
-        { q: "The secret of getting ahead is getting started.", a: "Mark Twain", b: "Take that first step today. I believe in you!" },
-        { q: "Don't watch the clock; do what it does. Keep going.", a: "Sam Levenson", b: "Time is on your side if you keep moving forward." }
-    ],
-    study: [
-        { q: "Education is the most powerful weapon which you can use to change the world.", a: "Nelson Mandela", b: "Your hard work today is building your future. Keep studying!" },
-        { q: "The beautiful thing about learning is that no one can take it away from you.", a: "B.B. King", b: "Fill your brain with knowledge! It's the best treat." }
-    ],
-    life: [
-        { q: "Life is what happens when you're busy making other plans.", a: "John Lennon", b: "Don't forget to enjoy the present moment. Take a deep breath." },
-        { q: "In three words I can sum up everything I've learned about life: it goes on.", a: "Robert Frost", b: "No matter what happens, tomorrow is a fresh start." }
-    ]
-};
+// --- FETCH DATA JSON ---
+async function loadMeowData() {
+    try {
+        const response = await fetch('json/meowtivator.json');
+        const data = await response.json();
 
-// --- DATABASE: PORTFOLIO CONCIERGE ---
-const portfolioDB = {
-    about: "*Purrs* My hooman, Roland, is an IT student at PUP-STC and a passionate Full-Stack Developer! He recently finished his OJT at Arktech Philippines building enterprise systems. 🎓",
-    skills: "He's a tech whiz! His main stack includes **HTML5, CSS3, Vanilla JS, PHP, MySQL, and Bootstrap**. He also builds games using **C# and Unity**! *swishes tail* 💻",
-    projects: "He has built some amazing things! From an award-winning 2D Android game called **LANDAS**, to an AI e-learning platform called **Arkteach**. Check out the <a target='_parent' href='index.html#projects' class='text-primary fw-bold'>Projects section</a>! 🚀",
-    resume: "You can view and download his updated resume directly from the <a target='_parent' href='about.html' class='text-primary fw-bold'>About page</a>! 📄",
-    contact: "You can email him at **regioroland011@gmail.com** or use the form on the <a target='_parent' href='contact.html' class='text-primary fw-bold'>Contact page</a>. He's currently open for project-based roles! *happy meow* 🤝",
-    achievements: "He recently led his Capstone project to strict ISO/IEC 25010 compliance and won 'Best in Capstone'! 🏆"
-};
+        moodResponses = data.moodResponses;
+        quotesDB = data.quotesDB;
+        portfolioDB = data.portfolioDB;
+
+        setTimeout(() => {
+            sendBotMessage("Meow there! 🐾 I am Meowtivator. How can I help you today?", [
+                "I want to be motivated",
+                "I want to know the person behind this"
+            ]);
+        }, 500);
+
+    } catch (error) {
+        console.error("Failed to load Meowtivator data:", error);
+        sendBotMessage("Oops! My database is taking a cat nap. Please check your connection.");
+    }
+}
 
 // --- HELPERS ---
 function scrollChatToBottom() {
@@ -69,21 +47,96 @@ const contains = (msg, keywords) => {
     return keywords.some(keyword => new RegExp(`\\b${keyword}\\b`, 'i').test(msg));
 };
 
-// --- MOOD FALLBACK CHECKER ---
-function getMoodResponse(msg) {
-    if (contains(msg, ["hi", "hello", "hey", "yo", "good morning"])) return randomFrom(moodResponses.greeting);
-    if (contains(msg, ["thank you", "thanks", "ty", "salamat"])) return randomFrom(moodResponses.thankyou);
-    if (contains(msg, ["sorry", "pasensya", "apologize", "my bad"])) return randomFrom(moodResponses.apology);
-    if (contains(msg, ["joke", "lol", "haha", "xd", "lutang"])) return randomFrom(moodResponses.humorous);
-    if (contains(msg, ["laban", "besh", "push", "wala gana", "pagod"])) return randomFrom(moodResponses.slangy);
-    if (contains(msg, ["love", "in love", "falling", "crush", "mahal"])) return randomFrom(moodResponses.love);
-    if (contains(msg, ["happy", "glad", "great", "saya", "masaya"])) return randomFrom(moodResponses.happy);
-    if (contains(msg, ["okay", "fine", "alright", "ayos lang"])) return randomFrom(moodResponses.okay);
-    if (contains(msg, ["sad", "down", "cry", "iyak", "malungkot"])) return randomFrom(moodResponses.sad);
-    if (contains(msg, ["angry", "mad", "galit", "inis", "irita"])) return randomFrom(moodResponses.angry);
-    if (contains(msg, ["tired", "lazy", "demotivated", "antok"])) return randomFrom(moodResponses.demotivated);
-    if (contains(msg, ["help", "lost", "problem", "tulong"])) return randomFrom(moodResponses.help);
+// --- SPECIFIC QUOTE SEARCHER (NEW) ---
+function findSpecificQuote(msg) {
+    let matchedQuotes = [];
+    const lowerMsg = msg.toLowerCase().trim();
+
+    if (lowerMsg.length < 4) return null;
+
+    for (const cat in quotesDB) {
+        for (const q of quotesDB[cat]) {
+            const authorLower = q.a.toLowerCase();
+            const quoteTextLower = q.q.toLowerCase();
+
+            // 1. Match by Author Name (Full name or Last name)
+            if (authorLower !== "unknown") {
+                const cleanLastName = authorLower.split(" ").pop().replace(/[^a-z]/gi, '');
+                if (contains(lowerMsg, [authorLower]) || (cleanLastName.length > 3 && contains(lowerMsg, [cleanLastName]))) {
+                    matchedQuotes.push({ quote: q, category: cat });
+                    continue; // Skip the text check if we already matched the author
+                }
+            }
+
+            // 2. Match by Quote Substring (e.g. user typed "harm to the vessel")
+            // Requires at least 10 characters to prevent accidental single-word triggers
+            if (lowerMsg.length >= 10 && quoteTextLower.includes(lowerMsg)) {
+                matchedQuotes.push({ quote: q, category: cat });
+            }
+        }
+    }
+    if (matchedQuotes.length > 0) return randomFrom(matchedQuotes);
     return null;
+}
+
+// --- MOOD & CONTEXT ANALYZER ---
+function getMoodData(msg) {
+    if (contains(msg, ["angry", "mad", "galit", "inis", "irita", "frustrated", "annoyed"])) return { reply: randomFrom(moodResponses.angry), type: "angry" };
+    if (contains(msg, ["sad", "down", "cry", "iyak", "malungkot", "depressed", "lonely"])) return { reply: randomFrom(moodResponses.sad), type: "sad" };
+    if (contains(msg, ["tired", "lazy", "demotivated", "antok", "exhausted", "burnout", "give up"])) return { reply: randomFrom(moodResponses.demotivated), type: "demotivated" };
+    if (contains(msg, ["help", "lost", "problem", "tulong", "stuck", "confused"])) return { reply: randomFrom(moodResponses.help), type: "help" };
+    if (contains(msg, ["love", "in love", "falling", "crush", "mahal", "heart"])) return { reply: randomFrom(moodResponses.love), type: "love" };
+    if (contains(msg, ["happy", "glad", "great", "saya", "masaya", "joy", "good"])) return { reply: randomFrom(moodResponses.happy), type: "happy" };
+    if (contains(msg, ["joke", "lol", "haha", "xd", "lutang", "funny", "lmao"])) return { reply: randomFrom(moodResponses.humorous), type: "happy" };
+    if (contains(msg, ["laban", "besh", "push", "wala gana", "pagod"])) return { reply: randomFrom(moodResponses.slangy), type: "demotivated" };
+
+    if (contains(msg, ["sorry", "pasensya", "apologize", "my bad", "mb"])) return { reply: randomFrom(moodResponses.apology), type: "neutral" };
+    if (contains(msg, ["thank you", "thanks", "ty", "salamat", "tysm"])) return { reply: randomFrom(moodResponses.thankyou), type: "neutral" };
+    if (contains(msg, ["okay", "fine", "alright", "ayos lang", "sure", "ok"])) return { reply: randomFrom(moodResponses.okay), type: "neutral" };
+    if (contains(msg, ["hi", "hello", "hey", "yo", "good morning", "morning", "evening"])) return { reply: randomFrom(moodResponses.greeting), type: "neutral" };
+
+    return null;
+}
+
+// --- DYNAMIC MOOD TRANSITION HELPER ---
+function handleMoodTransition(moodData) {
+    let suggestionText = "";
+    let suggestedOptions = [];
+
+    if (moodData.type === "sad") {
+        currentMode = "motivation";
+        suggestionText = "<br><br>I noticed you're feeling down. Would you like a comforting quote, or do you just need to vent?";
+        suggestedOptions = ["Comfort", "I need to vent", "Go Back"];
+    } else if (moodData.type === "angry") {
+        currentMode = "motivation";
+        suggestionText = "<br><br>I sense some frustration. Would you like a quote to help you find peace, or do you need to vent?";
+        suggestedOptions = ["Peace", "I need to vent", "Go Back"];
+    } else if (moodData.type === "demotivated") {
+        currentMode = "motivation";
+        suggestionText = "<br><br>Feeling stuck? Would you like a quote about success, or just someone to listen?";
+        suggestedOptions = ["Success", "I need to vent", "Go Back"];
+    } else if (moodData.type === "help") {
+        currentMode = "motivation";
+        suggestionText = "<br><br>Need a hand? Would you like a quote about courage, or do you want to talk about it?";
+        suggestedOptions = ["Courage", "I need to vent", "Go Back"];
+    } else if (moodData.type === "happy") {
+        currentMode = "motivation";
+        suggestionText = "<br><br>I love that energy! Would you like a quote that matches your joyous vibes?";
+        suggestedOptions = ["Joy", "Love", "Go Back"];
+    } else if (moodData.type === "love") {
+        currentMode = "motivation";
+        suggestionText = "<br><br>Would you like a quote about love and appreciation?";
+        suggestedOptions = ["Love", "Life", "Go Back"];
+    } else {
+        suggestionText = currentMode === "portfolio"
+            ? "<br><br>What else would you like to know about him?"
+            : "<br><br>So, how can I help you today?";
+        suggestedOptions = currentMode === "portfolio"
+            ? ["About Him", "Tech Stack", "Projects", "Resume", "Contact", "Go Back"]
+            : ["I want to be motivated", "I want to know the person behind this"];
+    }
+
+    return sendBotMessage(moodData.reply + suggestionText, suggestedOptions);
 }
 
 // --- UI GENERATORS ---
@@ -94,7 +147,6 @@ function sendUserMessage(message) {
     userMsg.innerText = message;
     chatBox.appendChild(userMsg);
 
-    // Remove old option buttons
     const oldOptions = document.querySelectorAll('.chat-options-wrapper');
     oldOptions.forEach(opt => opt.remove());
 
@@ -128,7 +180,7 @@ function sendBotMessage(message, options = []) {
 
         options.forEach(opt => {
             const btn = document.createElement("button");
-            btn.className = "btn btn-sm btn-outline-secondary rounded-pill fw-bold";
+            btn.className = "btn btn-sm rounded-pill fw-bold chat-chip";
             btn.style.fontSize = "0.75rem";
             btn.innerText = opt;
             btn.onclick = () => handleUserAction(opt);
@@ -169,52 +221,66 @@ function processMessage(rawMsg) {
     const msg = rawMsg.toLowerCase();
 
     // 1. Global Escape Hatch
-    if (contains(msg, ["menu", "go back", "exit", "restart", "start"])) {
+    if (contains(msg, ["menu", "go back", "exit", "restart", "start", "home"])) {
         currentMode = "initial";
         return sendBotMessage("Returning to the main menu. How can I help you today?", ["I want to be motivated", "I want to know the person behind this"]);
     }
 
-    // 2. Initial State Routing
+    // 2. Global Venting Trigger
+    if (contains(msg, ["vent", "rant", "listen", "talk"])) {
+        currentMode = "venting";
+        return sendBotMessage("I'm all ears. *settles down comfortably* Let it all out, hooman. I'm right here without any judgment.", ["I'm feeling better", "Portfolio Menu", "Go Back"]);
+    }
+
+    // 3. GLOBAL QUOTE SEARCHER (Author or Quote Fragment)
+    if (currentMode !== "venting") {
+        const specificQuote = findSpecificQuote(msg);
+        if (specificQuote) {
+            currentMode = "motivation"; // Instantly jump to motivation mode
+            lastQuoteCategory = specificQuote.category;
+            const quoteObj = specificQuote.quote;
+            const responseHtml = `"${quoteObj.q}" <br><br>— <a href="https://www.google.com/search?q=${encodeURIComponent(quoteObj.a)}" target="_blank" class="text-primary fw-bold text-decoration-none">${quoteObj.a}</a><br><br><i>${quoteObj.b}</i>`;
+            return sendBotMessage(responseHtml, ["Give me more", "Change Topic"]);
+        }
+    }
+
+    // 4. Initial State Routing
     if (currentMode === "initial") {
-        // FIX: Added 'motivated', 'person', 'behind' to ensure buttons and typing work perfectly
         if (contains(msg, ["motivate", "motivated", "motivation", "quote", "inspire"])) {
             currentMode = "motivation";
-            return sendBotMessage("Motivation mode activated! 🐾 What kind of quotes do you want to hear? (Available: Love, Success, Study, Life)", ["Love", "Success", "Study", "Life", "Go Back"]);
+            return sendBotMessage("Motivation mode activated! 🐾 What kind of quotes do you want to hear? (Available: Love, Success, Study, Life, Comfort, Peace, Joy, Courage)", ["Love", "Success", "Study", "Life", "Go Back"]);
         }
         if (contains(msg, ["know", "person", "behind", "creator", "portfolio", "about", "resume", "skills"])) {
             currentMode = "portfolio";
             return sendBotMessage("Awesome! I am your portfolio concierge. What would you like to know about my hooman, Roland?", ["About Him", "Tech Stack", "Projects", "Resume", "Contact", "Go Back"]);
         }
 
-        // Check Cat Mood Personality
-        let moodReply = getMoodResponse(msg);
-        if (moodReply) {
-            return sendBotMessage(moodReply + "<br><br>So, how can I help you today?", ["I want to be motivated", "I want to know the person behind this"]);
-        }
+        let moodData = getMoodData(msg);
+        if (moodData) return handleMoodTransition(moodData);
 
-        return sendBotMessage("I'm not sure I caught that. *tilts head* Please choose one of the options below to get started!", ["I want to be motivated", "I want to know the person behind this"]);
+        return sendBotMessage("I'm not sure I caught that. *tilts head* Do you want to hear a quote, or learn about my hooman?", ["I want to be motivated", "I want to know the person behind this"]);
     }
 
-    // 3. Motivation Mode Logic
+    // 5. Motivation Mode Logic
     if (currentMode === "motivation") {
         const categories = Object.keys(quotesDB);
+
+        if (contains(msg, ["no", "nah", "no need", "don't want", "dont want", "pass", "stop", "nevermind", "none"])) {
+            currentMode = "venting";
+            return sendBotMessage("That's totally fine! We don't have to do quotes. I can just be a listening ear if you want to let things out.", ["I want to vent", "Portfolio Menu", "Go Back"]);
+        }
 
         if (contains(msg, ["category", "categories", "what do you have", "list"])) {
             return sendBotMessage(`I have quotes about: **${categories.join(", ")}**. Which one would you like?`, categories);
         }
 
-        if (contains(msg, ["who", "author", "said that"])) {
-            if (lastQuoteAuthor) return sendBotMessage(`That quote was by **${lastQuoteAuthor}**.`, ["Give me more", "Change Topic"]);
-            return sendBotMessage("I haven't given you a quote yet! Pick a category first.", categories);
-        }
-
-        if (contains(msg, ["more", "another", "again"]) && lastQuoteCategory) {
+        if (contains(msg, ["more", "another", "again", "continue", "next"]) && lastQuoteCategory) {
             const quoteObj = randomFrom(quotesDB[lastQuoteCategory]);
-            lastQuoteAuthor = quoteObj.a;
-            return sendBotMessage(`"${quoteObj.q}" <br><br><i>${quoteObj.b}</i>`, ["Who said that?", "Give me more", "Change Topic"]);
+            const responseHtml = `"${quoteObj.q}" <br><br>— <a href="https://www.google.com/search?q=${encodeURIComponent(quoteObj.a)}" target="_blank" class="text-primary fw-bold text-decoration-none">${quoteObj.a}</a><br><br><i>${quoteObj.b}</i>`;
+            return sendBotMessage(responseHtml, ["Give me more", "Change Topic"]);
         }
 
-        if (contains(msg, ["change", "different"])) {
+        if (contains(msg, ["change", "different", "switch", "topic"])) {
             return sendBotMessage("Sure thing! Pick a new category:", categories);
         }
 
@@ -222,41 +288,55 @@ function processMessage(rawMsg) {
         if (foundCategory) {
             lastQuoteCategory = foundCategory;
             const quoteObj = randomFrom(quotesDB[foundCategory]);
-            lastQuoteAuthor = quoteObj.a;
-            return sendBotMessage(`"${quoteObj.q}" <br><br><i>${quoteObj.b}</i>`, ["Who said that?", "Give me more", "Change Topic"]);
+            const responseHtml = `"${quoteObj.q}" <br><br>— <a href="https://www.google.com/search?q=${encodeURIComponent(quoteObj.a)}" target="_blank" class="text-primary fw-bold text-decoration-none">${quoteObj.a}</a><br><br><i>${quoteObj.b}</i>`;
+            return sendBotMessage(responseHtml, ["Give me more", "Change Topic"]);
         }
 
-        // Check Cat Mood Personality
-        let moodReply = getMoodResponse(msg);
-        if (moodReply) {
-            return sendBotMessage(moodReply + "<br><br>Would you like to hear a quote?", ["Love", "Success", "Study", "Life", "Go Back"]);
-        }
+        let moodData = getMoodData(msg);
+        if (moodData) return handleMoodTransition(moodData);
 
         return sendBotMessage("I don't have a quote for that specific word yet. *twitches ears* But here are the categories I do have:", ["Love", "Success", "Study", "Life", "Go Back"]);
     }
 
-    // 4. Portfolio Mode Logic
+    // 6. Portfolio Mode Logic
     if (currentMode === "portfolio") {
         let reply = "";
 
-        if (contains(msg, ["about", "who"])) reply = portfolioDB.about;
-        else if (contains(msg, ["skill", "stack", "tech", "tools"])) reply = portfolioDB.skills;
-        else if (contains(msg, ["project", "projects", "work", "game"])) reply = portfolioDB.projects;
-        else if (contains(msg, ["resume", "cv"])) reply = portfolioDB.resume;
-        else if (contains(msg, ["contact", "email", "hire"])) reply = portfolioDB.contact;
-        else if (contains(msg, ["achievement", "award", "win"])) reply = portfolioDB.achievements;
+        if (contains(msg, ["resume", "cv", "document", "file"])) reply = portfolioDB.resume;
+        else if (contains(msg, ["contact", "email", "hire", "message", "reach", "touch"])) reply = portfolioDB.contact;
+        else if (contains(msg, ["skill", "stack", "tech", "tools", "language", "framework", "code"])) reply = portfolioDB.skills;
+        else if (contains(msg, ["project", "projects", "work", "game", "app", "system"])) reply = portfolioDB.projects;
+        else if (contains(msg, ["achievement", "award", "win", "prize", "capstone", "cert"])) reply = portfolioDB.achievements;
+        else if (contains(msg, ["about", "who", "background", "story", "creator", "him", "roland"])) reply = portfolioDB.about;
 
         if (reply) {
             return sendBotMessage(reply, ["About Him", "Tech Stack", "Projects", "Resume", "Contact", "Go Back"]);
         }
 
-        // Check Cat Mood Personality
-        let moodReply = getMoodResponse(msg);
-        if (moodReply) {
-            return sendBotMessage(moodReply + "<br><br>What else would you like to know about him?", ["About Him", "Tech Stack", "Projects", "Resume", "Contact", "Go Back"]);
+        let moodData = getMoodData(msg);
+        if (moodData) return handleMoodTransition(moodData);
+
+        return sendBotMessage("I didn't quite catch that. I can tell you about his Skills, Projects, Resume, or Contact info. *purrs* What are you looking for?", ["About Him", "Tech Stack", "Projects", "Resume", "Contact", "Go Back"]);
+    }
+
+    // 7. Venting Mode Logic
+    if (currentMode === "venting") {
+        if (contains(msg, ["feeling better", "done", "thanks", "thank you", "that's it", "thats it"])) {
+            currentMode = "initial";
+            return sendBotMessage("I'm so glad. *happy purr* I'm always here if you need me again! What would you like to do now?", ["I want to be motivated", "I want to know the person behind this"]);
         }
 
-        return sendBotMessage("I can tell you about his Skills, Projects, Resume, or Contact info. *purrs* What are you looking for?", ["About Him", "Tech Stack", "Projects", "Resume", "Contact", "Go Back"]);
+        if (contains(msg, ["portfolio", "menu"])) {
+            currentMode = "portfolio";
+            return sendBotMessage("Switching gears! I am your portfolio concierge. What would you like to know about my hooman, Roland?", ["About Him", "Tech Stack", "Projects", "Resume", "Contact", "Go Back"]);
+        }
+
+        let moodData = getMoodData(msg);
+        if (moodData) {
+            return sendBotMessage(moodData.reply + "<br><br><i>*I'm still here listening if you have more to say.*</i>", ["I'm feeling better", "Go Back"]);
+        }
+
+        return sendBotMessage("*Listens attentively and purrs softly* I hear you. Take your time.", ["I'm feeling better", "Go Back"]);
     }
 }
 
@@ -283,12 +363,4 @@ userInput.addEventListener("keydown", (e) => {
 });
 
 // --- INITIALIZATION ---
-window.addEventListener("DOMContentLoaded", () => {
-    currentMode = "initial";
-    setTimeout(() => {
-        sendBotMessage("Meow there! 🐾 I am Meowtivator. How can I help you today?", [
-            "I want to be motivated",
-            "I want to know the person behind this"
-        ]);
-    }, 500);
-});
+window.addEventListener("DOMContentLoaded", loadMeowData);
