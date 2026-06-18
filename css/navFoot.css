@@ -419,7 +419,7 @@ p,
 .btn-explore {
     background-color: var(--accent-yellow) !important;
     border: none;
-    color: white !important;
+    color: var(--blue-1) !important;;
     transition: all 0.3s ease;
 }
 
@@ -608,5 +608,12 @@ body {
 @media (max-width: 575px) {
     .dark-container {
         border-radius: 0 !important;
+    }
+}
+
+@media (max-width: 300px) {
+    /* Hide the accessibility island completely on ultra-narrow screens */
+    .access-island-container {
+        display: none !important;
     }
 }

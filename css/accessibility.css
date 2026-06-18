@@ -206,8 +206,7 @@ html[data-theme="purple"] body {
     --blue-2: #1D1533;
     --blue-3: #2A1F45;
     --bg-nav: #100a1c;
-    --accent-yellow: #E0B0FF;
-    /* Soft Lilac */
+    --accent-yellow: #D8B4FE; 
 }
 
 /* Theme 2: Midnight Green */
@@ -217,8 +216,7 @@ html[data-theme="green"] body {
     --blue-2: #0A2222;
     --blue-3: #113333;
     --bg-nav: #030d0d;
-    --accent-yellow: #4ade80;
-    /* Success Green */
+    --accent-yellow: #A7F3D0; 
 }
 
 /* Theme 3: Ocean Blue */
@@ -228,7 +226,7 @@ html[data-theme="blue"] body {
     --blue-2: #101B2B;
     --blue-3: #182840;
     --bg-nav: #05090f;
-    --accent-yellow: #4A90E2;
+    --accent-yellow: #60A5FA;
 }
 
 /* Theme 4: Mocha Brown */
@@ -238,7 +236,7 @@ html[data-theme="brown"] body {
     --blue-2: #2B1E16;
     --blue-3: #3D2B1F;
     --bg-nav: #0f0a07;
-    --accent-yellow: #8B5A2B;
+    --accent-yellow: #D99B58; 
 }
 
 /* Theme 5: Neon Pink */
@@ -248,7 +246,7 @@ html[data-theme="pink"] body {
     --blue-2: #2B1120;
     --blue-3: #3D182D;
     --bg-nav: #0f050b;
-    --accent-yellow: #FF69B4;
+    --accent-yellow: #FBCFE8;
 }
 
 /* ============================================================
@@ -470,18 +468,24 @@ html[data-theme] .meowtivator-popup {
 /* --- High Contrast Enforcement for Buttons --- */
 /* Forces text inside solid accent buttons to be dark for readability */
 html[data-theme] .btn-explore,
-html[data-theme] .island-btn-main {
-    color: #101A30 !important;
-    font-weight: bold;
+html[data-theme] .island-btn-main,
+.btn-explore,
+.island-btn-main {
+    color: var(--blue-1) !important;
+    font-weight: normal !important;
 }
 
 /* Ensure secondary/outline buttons still look good */
-html[data-theme] .btn-outline-warning {
+html[data-theme] .btn-outline-warning,
+.btn-outline-warning {
     color: var(--accent-yellow) !important;
+    font-weight: normal !important;
 }
 
-html[data-theme] .btn-outline-warning:hover {
-    color: #101A30 !important;
+html[data-theme] .btn-outline-warning:hover,
+.btn-outline-warning:hover {
+    background-color: var(--accent-yellow) !important;
+    color: var(--blue-1) !important;
 }
 
 /* ============================================================

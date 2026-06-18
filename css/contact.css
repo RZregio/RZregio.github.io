@@ -83,3 +83,43 @@
         margin-top: 0 !important;
     }
 }
+
+/* ====================================================
+   MOBILE OVERFLOW FIXES 
+   ==================================================== */
+
+/* 1. Force long emails and URLs to break instead of overflowing */
+.copy-target {
+    word-break: break-word; 
+    overflow-wrap: anywhere;
+    white-space: normal;
+    max-width: 100%;
+}
+
+/* 2. Allow the icon, text, and copy button to wrap safely on < 300px screens */
+.contact-info .d-flex {
+    flex-wrap: wrap !important;
+    max-width: 100%;
+}
+
+/* 3. Ensure the contact text area doesn't push its boundaries */
+.contact-info {
+    overflow: hidden;
+    width: 100%;
+}
+
+/* 4. Ultra-narrow screen tweaks specific to Contact Page */
+@media (max-width: 359px) {
+    .contact-thumb {
+        width: 120px !important; /* Shrink profile image slightly to save space */
+        height: 120px !important;
+    }
+    
+    .contact-info .d-flex {
+        gap: 0.5rem !important; /* Reduce gaps between the icon, email, and button */
+    }
+
+    .text-light {
+        font-size: clamp(0.5rem, 1vw, 0.9rem) !important;
+    }
+}
