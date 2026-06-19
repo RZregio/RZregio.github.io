@@ -249,15 +249,18 @@
 
 @media (max-width: 991px) {
 
-    /* 1. Prevent global horizontal scrolling safely */
+    /* 1. Prevent global horizontal scrollbar safely on the body */
     body {
         overflow-x: hidden;
+        width: 100%;
     }
 
-    /* 2. Fix the Double Scrollbar AND Horizontal Blowout */
+    /* 2. Prevent Grid Blowout & Double Scrollbars */
     main {
-        /* Forces the grid item to respect the screen width, stopping child elements from blowing out the layout */
         min-width: 0;
+        /* Forces grid to respect screen width */
+        width: 100%;
+        /* Notice we removed overflow-x: hidden from main to stop the 2nd scrollbar! */
     }
 
     .description {
@@ -281,10 +284,12 @@
         border-bottom: 2px solid rgba(255, 255, 255, 0.2);
     }
 
-    /* Force CTA buttons to fit in one row */
+    /* 3. THE REAL CULPRIT: Allow CTA buttons to wrap safely */
+    /* 'nowrap' was forcing the buttons to blow out the side of the screen */
     .cta-area {
         justify-content: center;
-        flex-wrap: nowrap !important;
+        flex-wrap: wrap !important;
+        /* CHANGED FROM nowrap TO wrap */
         gap: 10px !important;
     }
 
