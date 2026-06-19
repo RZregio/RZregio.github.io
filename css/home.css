@@ -249,10 +249,15 @@
 
 @media (max-width: 991px) {
 
-    /* Fix global horizontal scrollbar overflow */
-    body,
-    main {
+    /* 1. Prevent global horizontal scrolling safely */
+    body {
         overflow-x: hidden;
+    }
+
+    /* 2. Fix the Double Scrollbar AND Horizontal Blowout */
+    main {
+        /* Forces the grid item to respect the screen width, stopping child elements from blowing out the layout */
+        min-width: 0;
     }
 
     .description {
@@ -389,6 +394,7 @@
 }
 
 @media (max-width: 768px) {
+
     /* Hard constrain the image size for mobile */
     .profile-img-container {
         width: 200px;
