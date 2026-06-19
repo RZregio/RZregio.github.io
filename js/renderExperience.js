@@ -39,39 +39,42 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch('json/techStack.json');
             const techData = await response.json();
 
+            // Clear containers
             Object.values(containers).forEach(c => { if (c) c.innerHTML = ''; });
 
             techData.forEach(tech => {
                 const targetContainer = containers[tech.category];
                 if (!targetContainer) return;
 
-                const expText = tech.experienceText ? `<p class="small text-warning opacity-75 mb-2"><i class="bi bi-clock-history me-1"></i>${tech.experienceText}</p>` : '';
+                // Format the experience badge to be smaller and tighter
+                const expText = tech.experienceText
+                    ? `<span class="badge bg-dark border border-secondary text-warning mb-2 align-self-start" style="font-size: 0.7rem; padding: 5px 8px;"><i class="bi bi-clock-history me-1"></i>${tech.experienceText}</span>`
+                    : '';
 
-                // REMOVED Star generation from layout
+                // Compact Card Layout: Icon and Title sit side-by-side to save vertical space
                 targetContainer.innerHTML += `
-                    <div class="tech-item-wrapper" style="flex: 0 0 calc(33.333% - 14px); min-width: 240px;">
-                        <div class="stack-card interactive-card d-flex flex-column h-100 text-start" style="padding: 1.25rem;">
-                            <div class="d-flex justify-content-between align-items-start mb-3">
-                                <i class="bi ${tech.iconClass} text-accent" style="font-size: 2.2rem;"></i>
+                    <div class="tech-item-wrapper" style="flex: 0 0 calc(33.333% - 14px); min-width: 260px;">
+                        <div class="stack-card interactive-card d-flex flex-column h-100 text-start p-3">
+                            <div class="d-flex align-items-center gap-3 mb-2">
+                                <i class="${tech.iconClass} text-accent" style="font-size: 2.2rem; line-height: 1;"></i>
+                                <h5 class="fredoka text-white mb-0" style="font-size: 1.1rem; line-height: 1.2;">${tech.title}</h5>
                             </div>
-                            <h5 class="fredoka text-white mb-1">${tech.title}</h5>
                             ${expText}
-                            <p class="tiny-text opacity-75 mb-4 flex-grow-1">${tech.description}</p>
+                            <p class="opacity-75 mb-3 flex-grow-1" style="font-size: 0.85rem; line-height: 1.6;">${tech.description}</p>
                             
-                            <a href="${tech.linkUrl}" target="_blank" class="btn btn-sm btn-outline-warning rounded-pill mt-auto w-100" style="border-width: 1px;">
-                                <i class="bi bi-box-arrow-up-right me-2"></i>View Official
+                            <a href="${tech.linkUrl}" target="_blank" class="btn btn-sm rounded-pill mt-auto w-100 tech-link-btn">
+                                <i class="bi bi-box-arrow-up-right me-2"></i>Official Docs
                             </a>
                         </div>
                     </div>
                 `;
             });
 
+            // Re-apply slider dots and listeners
             document.querySelectorAll('.tech-slider').forEach(slider => {
                 slider.addEventListener('scroll', updateTechNavButtons);
-
                 const techCount = slider.children.length;
 
-                // Create Dots based on actual item count
                 if (techCount > 0) {
                     if (!slider.nextElementSibling || !slider.nextElementSibling.classList.contains('mobile-scroll-dots')) {
                         const dotsHTML = Array(techCount).fill('').map((_, i) => `<div class="dot ${i === 0 ? 'active' : ''}"></div>`).join('');
@@ -89,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     if (window.updateScrollDots) window.updateScrollDots(slider, dotsContainer, techCount);
 
-                    // Add click-to-center logic for Mobile POV
+                    // Mobile Click-to-center logic
                     const items = slider.querySelectorAll('.tech-item-wrapper');
                     items.forEach((item) => {
                         item.addEventListener('click', () => {
@@ -103,15 +106,11 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             const tabElms = document.querySelectorAll('button[data-bs-toggle="tab"], button[data-bs-toggle="pill"]');
-
-            // The container holding the tabs (which becomes a horizontal scroll row on mobile)
             const techTabContainer = document.querySelector('.nav-pills.flex-column');
 
             tabElms.forEach(tab => {
                 tab.addEventListener('shown.bs.tab', (e) => {
                     setTimeout(updateTechNavButtons, 150);
-
-                    // --- NEW: Mobile Centering for Tech Stack Tabs ---
                     if (window.innerWidth <= 991 && techTabContainer) {
                         const targetTab = e.target;
                         const scrollPos = targetTab.offsetLeft - (techTabContainer.offsetWidth / 2) + (targetTab.offsetWidth / 2);
@@ -131,13 +130,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const techFilter = document.getElementById('tech-stack-filter').value;
         const catFilter = document.getElementById('project-category-filter').value;
 
-        // 1. Filter Data
+        // 1. Filter Data (Fixed Java vs JavaScript overlap bug)
         let filteredData = globalProjectsData.filter(proj => {
             const matchesSearch = proj.title.toLowerCase().includes(query) ||
                 (proj.techStack && proj.techStack.some(t => t.toLowerCase().includes(query)));
 
+            // EXACT match ensures "Java" doesn't trigger "JavaScript"
             const matchesTech = techFilter === 'all' ||
-                (proj.techStack && proj.techStack.some(t => t.includes(techFilter)));
+                (proj.techStack && proj.techStack.some(t => t.toLowerCase() === techFilter.toLowerCase()));
 
             let matchesCat = true;
             if (catFilter === 'important') {
@@ -163,64 +163,59 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // 3. Build the Unified List of Projects
+        // 3. Build the Sleek Navigation List
         let listHTML = '';
         filteredData.forEach((proj, idx) => {
             listHTML += `
-                <button class="btn btn-custom w-100 mb-lg-3 text-start d-flex justify-content-between align-items-center proj-list-btn interactive-card" 
-                        data-idx="${idx}" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.6); transition: 0.3s; border-radius: 12px; padding: 15px;">
-                    <span class="text-nowrap me-2 fw-small d-flex align-items-center">${proj.title}</span>
-                    <i class="bi bi-chevron-right opacity-50 indicator-icon d-none d-lg-block"></i>
+                <button class="btn w-100 mb-2 text-start d-flex justify-content-between align-items-center proj-list-btn" 
+                        data-idx="${idx}" style="color: rgba(255,255,255,0.6); transition: 0.3s; border-radius: 8px; padding: 12px 15px;">
+                    <div class="text-truncate me-2 fw-medium" style="font-size: 0.9rem;">${proj.title}</div>
+                    <i class="bi bi-chevron-right opacity-50 indicator-icon d-none d-lg-block" style="font-size: 0.8rem;"></i>
                 </button>
             `;
         });
 
         const scrollHintVertical = filteredData.length > 5 ? `<div class="text-center mt-1 mb-3 small text-warning opacity-75 vertical-scroll-hint"><i class="bi bi-chevron-down mb-1 d-block"></i>Scroll for more</div>` : '';
 
-        // 4. Inject Unified Layout
+        // 4. Inject Unified Layout (Widescreen UI)
         pane.innerHTML = `
-            <div class="row g-4 align-items-stretch">
-                <div class="col-lg-4">
-                    <div class="project-list-scroll p-2" id="unified-list">
+            <div class="row g-0 align-items-stretch unified-layout-card">
+                <div class="col-lg-3 unified-list-col">
+                    <div class="project-list-scroll p-2 py-3" id="unified-list">
                         ${listHTML}
                     </div>
-                    <div id="project-mobile-dots" class="mobile-scroll-dots d-mobile-flex mt-2 mb-3"></div>
+                    <div id="project-mobile-dots" class="mobile-scroll-dots d-mobile-flex mt-0 mb-3"></div>
                     ${scrollHintVertical}
                 </div>
-                <div class="col-lg-8">
-                    <div class="card-style p-3 p-lg-4 h-100" id="unified-detail">
+                <div class="col-lg-9">
+                    <div class="p-3 p-lg-4 h-100" id="unified-detail">
                     </div>
                 </div>
             </div>
         `;
 
-        // 5. Attach Listeners and Mobile Center Logic
+        // 5. Attach Listeners and Theme-Dynamic Active States
         const listContainer = document.getElementById('unified-list');
         const buttons = listContainer.querySelectorAll('.proj-list-btn');
         const mobileDotsContainer = document.getElementById('project-mobile-dots');
 
-        // Create Project Dots
         if (filteredData.length > 0) {
             mobileDotsContainer.innerHTML = filteredData.map((_, i) => `<div class="dot ${i === 0 ? 'active' : ''}"></div>`).join('');
         }
 
         const activateButton = (target, index) => {
             buttons.forEach(b => {
-                b.style.borderColor = "rgba(255,255,255,0.1)";
-                b.style.background = "rgba(255,255,255,0.05)";
-                b.style.color = "rgba(255,255,255,0.6)";
+                b.classList.remove('active-proj-btn');
                 const icon = b.querySelector('.indicator-icon');
-                if (icon) { icon.classList.replace('bi-check-circle-fill', 'bi-chevron-right'); icon.classList.replace('text-white', 'opacity-50'); }
+                if (icon) { icon.classList.replace('bi-check-circle-fill', 'bi-chevron-right'); }
             });
-            target.style.borderColor = "var(--accent-yellow)";
-            target.style.background = "rgba(212, 140, 28, 0.1)";
-            target.style.color = "white";
+
+            target.classList.add('active-proj-btn');
             const activeIcon = target.querySelector('.indicator-icon');
-            if (activeIcon) { activeIcon.classList.replace('bi-chevron-right', 'bi-check-circle-fill'); activeIcon.classList.replace('opacity-50', 'text-white'); }
+            if (activeIcon) { activeIcon.classList.replace('bi-chevron-right', 'bi-check-circle-fill'); }
 
             renderProjectDetail(filteredData[index], 'unified-detail');
 
-            // Sync dots on click manually
             const dots = mobileDotsContainer.querySelectorAll('.dot');
             dots.forEach((dot, idx) => dot.classList.toggle('active', idx === parseInt(index)));
         };
@@ -230,7 +225,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 const idx = e.currentTarget.getAttribute('data-idx');
                 activateButton(e.currentTarget, idx);
 
-                // Mobile Center Logic for Projects
                 if (window.innerWidth <= 991) {
                     const scrollPos = e.currentTarget.offsetLeft - (listContainer.offsetWidth / 2) + (e.currentTarget.offsetWidth / 2);
                     listContainer.scrollTo({ left: scrollPos, behavior: 'smooth' });
@@ -238,16 +232,14 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Auto-load first project
         if (buttons.length > 0) activateButton(buttons[0], 0);
 
-        // Track Scrolling for Dots
         listContainer.addEventListener('scroll', () => {
             if (window.updateScrollDots) window.updateScrollDots(listContainer, mobileDotsContainer, filteredData.length);
         });
     }
 
-    /* ----- Split-Pane Detail View Renderer ----- */
+    /* ----- Split-Pane Detail View Renderer (Widescreen Mode) ----- */
     function renderProjectDetail(proj, containerId) {
         const container = document.getElementById(containerId);
         if (!container) return;
@@ -257,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (proj.mediaType === 'iframe') {
             const iframeSrc = proj.mediaSource[0] ? `src="${proj.mediaSource[0]}"` : '';
             mediaHTML = `
-                <div class="w-100 proj-detail-media position-relative" style="background: #101A30; overflow: hidden; border: 2px solid rgba(255,255,255,0.05); height: 400px;">
+                <div class="w-100 proj-detail-media position-relative" style="background: #0B1120; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); height: 400px; border-radius: 12px;">
                     <iframe ${iframeSrc} 
                             class="scaled-iframe" 
                             loading="lazy" 
@@ -275,14 +267,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 const arrayData = encodeURIComponent(JSON.stringify(images));
 
                 mediaHTML = `
-                    <div class="w-100 position-relative proj-detail-media" style="background: #101A30; overflow: hidden; cursor: zoom-in; border: 2px solid rgba(255,255,255,0.05);" 
+                    <div class="w-100 position-relative proj-detail-media" style="background: #0B1120; overflow: hidden; cursor: zoom-in; border: 1px solid rgba(255,255,255,0.05); height: 400px; border-radius: 12px;" 
                          data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="if(window.openImageViewer) window.openImageViewer('${arrayData}')">
                         <img src="${primaryImg}" class="w-100 h-100" style="object-fit: contain;" loading="lazy">
                         ${imgCountHTML}
                     </div>`;
             } else {
                 mediaHTML = `
-                    <div class="w-100 position-relative proj-detail-media image-unavailable-placeholder d-flex flex-column justify-content-center align-items-center" style="background: #101A30; overflow: hidden; border: 2px dashed rgba(255,255,255,0.1); min-height: 250px;">
+                    <div class="w-100 position-relative proj-detail-media image-unavailable-placeholder d-flex flex-column justify-content-center align-items-center" style="background: #0B1120; overflow: hidden; border: 2px dashed rgba(255,255,255,0.1); height: 400px; border-radius: 12px;">
                         <i class="bi bi-image mb-2" style="font-size: 2.5rem; opacity: 0.5;"></i>
                         <span style="color: rgba(255,255,255,0.5); font-size: 0.9rem;">Not Available</span>
                     </div>`;
@@ -290,10 +282,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const techStackBadges = (proj.techStack && Array.isArray(proj.techStack))
-            ? proj.techStack.map(tech => `<span class="badge bg-secondary me-1 mb-2">${tech}</span>`).join('')
+            ? proj.techStack.map(tech => `<span class="badge bg-secondary me-1 mb-2 px-2 py-2">${tech}</span>`).join('')
             : '';
 
-        let btnLaunch = '<div class="d-flex flex-wrap gap-2 mt-auto w-100">';
+        let btnLaunch = '<div class="d-flex flex-wrap gap-2 w-100">';
         if (proj.liveLink && proj.liveLink !== "") {
             btnLaunch += `<a href="${proj.liveLink}" target="_blank" class="btn btn-custom btn-explore flex-grow-1"><i class="bi bi-box-arrow-up-right me-2"></i>Live Demo</a>`;
         }
@@ -302,32 +294,34 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         btnLaunch += '</div>';
 
-        // NEW: Date Formatter Helper
         const formatDate = (dateStr) => dateStr ? new Date(dateStr).toLocaleDateString('en-US', { year: 'numeric', month: 'short' }) : 'N/A';
-
-        // NEW: Generate Date HTML safely
         const dateHtml = (proj.createdDate || proj.updatedDate) ? `
-            <div class="opacity-50 mb-3 d-flex align-items-center gap-3" style="font-size: 0.8rem;">
+            <div class="opacity-50 mt-1 d-flex align-items-center gap-3" style="font-size: 0.85rem;">
                 <span><i class="bi bi-calendar3 me-1"></i> Created: ${formatDate(proj.createdDate)}</span>
                 <span><i class="bi bi-clock-history me-1"></i> Updated: ${formatDate(proj.updatedDate)}</span>
             </div>
         ` : '';
 
+        // Widescreen Vertical Stack: Media on Top, Content Below
         container.innerHTML = `
-            <div class="row g-4 align-items-stretch h-100">
-                <div class="col-lg-6">
+            <div class="d-flex flex-column h-100">
+                <div class="w-100 mb-4 rounded overflow-hidden" style="flex-shrink: 0;">
                     ${mediaHTML}
                 </div>
-                <div class="col-lg-6 d-flex flex-column text-start">
-                    <span class="text-accent fw-bold text-uppercase small mb-1 d-block">${proj.category} Project</span>
-                    <h3 class="fredoka mb-1">${proj.title}</h3>
-                    
-                    ${dateHtml} <p class="opacity-75 flex-grow-1" style="font-size: 0.95rem; text-align: justify;">${proj.description}</p>
-                    <div class="mt-2 mb-4">
-                        <h6 class="fredoka small">Tech Stack:</h6>
-                        ${techStackBadges}
+                <div class="text-start d-flex flex-column flex-grow-1">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                            <span class="text-accent fw-bold text-uppercase small d-block mb-1" style="letter-spacing: 1px;">${proj.category} Project</span>
+                            <h3 class="fredoka mb-0" style="font-size: 1.8rem;">${proj.title}</h3>
+                            ${dateHtml}
+                        </div>
                     </div>
-                    <div>
+                    <p class="opacity-75 my-3" style="font-size: 0.95rem; text-align: justify; line-height: 1.7;">${proj.description}</p>
+                    <div class="mt-auto pt-2">
+                        <h6 class="fredoka small mb-2 text-accent">Technologies Used:</h6>
+                        <div class="d-flex flex-wrap gap-1 mb-4">
+                            ${techStackBadges}
+                        </div>
                         ${btnLaunch}
                     </div>
                 </div>

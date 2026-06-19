@@ -24,7 +24,6 @@ const questionBank = [
     { type: "fill", q: "Complete the slogan for the City of Santo Tomas: 'A city where heritage meets _________'", a: "progress" },
     { type: "mcq", q: "What happens when you hover over the main interactive cards in the portfolio?", options: ["They fade out", "They rotate 2 degrees and glow", "They turn black and white", "They shrink"], a: 1 },
     { type: "mcq", q: "Which of the following is an actual theme available in the accessibility menu?", options: ["Midnight Green", "Cyberpunk Red", "Solar Flare", "Arctic White"], a: 0 },
-    { type: "mcq", q: "How many active projects are required to trigger the vertical 'scroll for more' hint on the Experience page?", options: ["3", "5", "7", "10"], a: 1 },
     { type: "mcq", q: "Which font family is primarily used for the bold headings in this portfolio?", options: ["Roboto", "Inter", "Fredoka One", "Montserrat"], a: 2 },
     { type: "mcq", q: "What icon is used for the default interactive mouse cursor?", options: ["A magnifying glass", "A yellow hand", "A blue arrow", "A white crosshair"], a: 1 },
     { type: "mcq", q: "What type of layout do the 'Tech Stack' tabs convert to on mobile devices?", options: ["A dropdown menu", "An accordion", "A horizontal swipeable row", "A vertical list"], a: 2 },

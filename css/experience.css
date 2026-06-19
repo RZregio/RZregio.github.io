@@ -32,24 +32,39 @@
     margin-top: 40px;
 }
 
-/* --- FULLY REPLACED TECH STACK CARD --- */
+/* --- Compact & Readable Tech Stack Cards --- */
 .stack-card {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 15px;
+    border-radius: 12px;
     transition: all 0.3s ease;
-    color: inherit;
 }
 
 .stack-card:hover {
-    border-color: rgba(212, 140, 28, 0.4);
-    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--accent-yellow);
+    background: rgba(255, 255, 255, 0.04);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transform: translateY(-4px);
 }
 
-/* --- Force Yellow Theme on Tech Stack Icons --- */
-.stack-card i.bi {
+/* Enforce dynamic theme color on the icon */
+.stack-card i.text-accent {
     color: var(--accent-yellow) !important;
+}
+
+/* --- Dynamic Card Buttons --- */
+.tech-link-btn {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+}
+
+.tech-link-btn:hover {
+    background: var(--accent-yellow) !important;
+    color: var(--blue-1) !important;
+    /* Uses your dark background variable for contrast */
+    border-color: var(--accent-yellow) !important;
+    transform: scale(1.02);
 }
 
 /* --- Project Titles --- */
@@ -200,7 +215,7 @@
 
 /* --- New Project List Layout --- */
 .project-list-scroll {
-    max-height: 380px;
+    max-height: 700px !important;
     overflow-y: auto;
     padding-right: 8px;
     scrollbar-width: none;
@@ -559,6 +574,68 @@ select.custom-input:focus {
 .scaled-iframe {
     transform: scale(0.8);
     transform-origin: top left;
-    width: 125% !important; 
+    width: 125% !important;
     height: 125% !important;
+}
+
+/* ============================================================
+   UNIFIED WIDESCREEN PROJECT LAYOUT
+   ============================================================ */
+
+.unified-layout-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.unified-list-col {
+    background: rgba(0, 0, 0, 0.2);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* --- Project List Buttons --- */
+.proj-list-btn {
+    background: transparent !important;
+    border-left: 3px solid transparent !important;
+    border: none;
+}
+
+.proj-list-btn:hover {
+    background: rgba(255, 255, 255, 0.03) !important;
+    color: white !important;
+}
+
+/* Dynamic Active State */
+.proj-list-btn.active-proj-btn {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-left: 3px solid var(--accent-yellow) !important;
+    color: white !important;
+}
+
+.proj-list-btn.active-proj-btn .indicator-icon {
+    color: var(--accent-yellow) !important;
+    opacity: 1 !important;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 991px) {
+    .unified-list-col {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .proj-list-btn {
+        border-left: none !important;
+        border-bottom: 3px solid transparent !important;
+    }
+
+    .proj-list-btn.active-proj-btn {
+        border-bottom: 3px solid var(--accent-yellow) !important;
+    }
+
+    .proj-detail-media {
+        height: 250px !important;
+    }
 }

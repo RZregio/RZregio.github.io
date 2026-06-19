@@ -120,11 +120,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (hasPreview) {
                     const imageString = encodeURIComponent(JSON.stringify([projectItem.previewImageUrl]));
                     innerContent = `
-                        <img src="${projectItem.previewImageUrl}" class="d-block w-100 rounded bg-dark" style="object-fit: contain; height: 350px; cursor: zoom-in;" alt="${projectItem.projectTitle}" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="if(window.openImageViewer) window.openImageViewer('${imageString}')" loading="lazy">
+                        <img src="${projectItem.previewImageUrl}" 
+                             class="d-block w-100 rounded bg-dark featured-proj-img" 
+                             alt="${projectItem.projectTitle}" 
+                             data-bs-toggle="modal" 
+                             data-bs-target="#imageViewerModal" 
+                             onclick="if(window.openImageViewer) window.openImageViewer('${imageString}')" 
+                             loading="lazy">
                     `;
                 } else {
                     innerContent = `
-                        <div class="image-unavailable-placeholder w-100 d-flex flex-column justify-content-center align-items-center rounded" style="height: 350px; border: 1px dashed rgba(255,255,255,0.15); background: rgba(255,255,255,0.03);">
+                        <div class="image-unavailable-placeholder w-100 d-flex flex-column justify-content-center align-items-center rounded featured-proj-img" style="border: 1px dashed rgba(255,255,255,0.15); background: rgba(255,255,255,0.03);">
                             <i class="bi bi-image mb-2" style="font-size: 2rem; opacity: 0.5;"></i>
                             <span style="color: rgba(255,255,255,0.5); font-size: 0.85rem;">Not Available</span>
                         </div>
