@@ -80,7 +80,7 @@ html {
 }
 
 .chat-box::-webkit-scrollbar-thumb {
-    background-color: rgba(212, 140, 28, 0.5);
+    background-color: var(--accent-yellow);
     border-radius: 10px;
 }
 
@@ -90,7 +90,7 @@ html {
     background-color: var(--accent-yellow) !important;
     color: #101A30 !important;
     font-weight: 600;
-    box-shadow: 0 4px 10px rgba(212, 140, 28, 0.3);
+    box-shadow: 0 4px 10px color-mix(in srgb, var(--accent-yellow) 30%, transparent);
 }
 
 .bg-light {
@@ -121,7 +121,7 @@ html {
 
 .chat-input:focus {
     border-color: var(--accent-yellow) !important;
-    box-shadow: 0 0 0 0.25rem rgba(212, 140, 28, 0.25) !important;
+    box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--accent-yellow) 25%, transparent) !important;
 }
 
 .chat-input::placeholder {
@@ -145,7 +145,8 @@ html {
 
 .chat-send-btn:hover {
     transform: scale(1.1);
-    background-color: #e6b840;
+    filter: brightness(1.15);
+    /* Dynamically lightens the active theme color */
 }
 
 .text-secondary {
@@ -176,20 +177,21 @@ html {
 /* Meowtivator Custom Option Pills - Outline Style */
 .chat-chip {
     background-color: transparent;
-    color: #D48C1C;
-    border: 2px solid #D48C1C;
-    box-shadow: 0 4px 10px rgba(212, 140, 28, 0.1);
+    color: var(--accent-yellow);
+    border: 2px solid var(--accent-yellow);
+    box-shadow: 0 4px 10px color-mix(in srgb, var(--accent-yellow) 10%, transparent);
     transition: all 0.3s ease-in-out;
 }
 
 .chat-chip:hover {
-    background-color: #D48C1C;
-    color: #131B2E;
-    box-shadow: 0 4px 15px rgba(212, 140, 28, 0.4);
+    background-color: var(--accent-yellow);
+    color: var(--blue-1);
+    /* Adapts text to the active background color for contrast */
+    box-shadow: 0 4px 15px color-mix(in srgb, var(--accent-yellow) 40%, transparent);
     transform: translateY(-2px);
 }
 
 .chat-chip:active {
     transform: translateY(0);
-    box-shadow: 0 2px 5px rgba(212, 140, 28, 0.4);
+    box-shadow: 0 2px 5px color-mix(in srgb, var(--accent-yellow) 40%, transparent);
 }

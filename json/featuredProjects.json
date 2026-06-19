@@ -113,7 +113,7 @@
     "projectContext": "Evolving over a 1-year continuous integration cycle, I engineered a highly scalable, embeddable interactive chat widget. I implemented JSON-driven architectures, regex-based keyword detection, and dynamic mood transitions, successfully delivering instant, personalized user engagement directly within my portfolio.",
     "sourceCode": "https://github.com/RZregio/RZregio.github.io/tree/main/personalProjects/meowtivator",
     "createdDate": "2025-06-03",
-    "updatedDate": "2026-06-18",
+    "updatedDate": "2026-06-20",
     "previewImageUrl": "main-res/projects/meowtivator.png",
     "mediaSource": [
       "main-res/projects/meowtivator.png"
@@ -205,6 +205,29 @@
       "HTML5",
       "CSS3",
       "JavaScript"
+    ]
+  },
+   {
+    "projectCategory": "Embedded Development",
+    "projectTitle": "Interactive Easter Eggs",
+    "projectContext": "A collection of hidden, app-like interactive modules embedded within the portfolio. Engineered features include a global draggable YouTube Music player with LocalStorage state persistence, an interactive CFOP Rubik's Cube algorithm cheat sheet, a theme-responsive CSS Grid Bento UI for an anime showcase, and a DOM-manipulated SVG animated cat swarm.",
+    "previewImageUrl": "main-res/projects/easterEgg.png",
+    "sourceCode": "https://github.com/RZregio/RZregio.github.io/tree/main/personalProjects/funFacts",
+    "createdDate": "2026-06-20",
+    "updatedDate": "2026-06-20",
+    "mediaSource": [
+      "main-res/projects/easterEgg.png",
+      "main-res/projects/easterEgg2.png",
+      "main-res/projects/easterEgg3.png",
+      "main-res/projects/easterEgg4.png"
+    ],
+    "projectLinkUrl": "about.html",
+    "techStack": [
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "Bootstrap",
+      "YouTube Iframe API"
     ]
   },
   {

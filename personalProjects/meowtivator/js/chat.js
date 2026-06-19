@@ -381,3 +381,28 @@ userInput.addEventListener("keydown", (e) => {
 
 // --- INITIALIZATION ---
 window.addEventListener("DOMContentLoaded", loadMeowData);
+
+// --- DYNAMIC THEME SYNC ---
+// This continuously checks the parent portfolio to match its theme colors perfectly!
+function syncThemeWithParent() {
+    try {
+        if (window.parent !== window) {
+            const parentStyle = window.getComputedStyle(window.parent.document.documentElement);
+            const accent = parentStyle.getPropertyValue('--accent-yellow').trim();
+            const blue1 = parentStyle.getPropertyValue('--blue-1').trim();
+            const blue2 = parentStyle.getPropertyValue('--blue-2').trim();
+            const blue3 = parentStyle.getPropertyValue('--blue-3').trim();
+
+            if (accent) document.documentElement.style.setProperty('--accent-yellow', accent);
+            if (blue1) document.documentElement.style.setProperty('--blue-1', blue1);
+            if (blue2) document.documentElement.style.setProperty('--blue-2', blue2);
+            if (blue3) document.documentElement.style.setProperty('--blue-3', blue3);
+        }
+    } catch(e) {
+        // Safe fallback: Ignore if viewed directly outside an iframe or blocked by security rules
+    }
+}
+
+// Sync immediately on load, and check every 500ms so it changes instantly when the accessibility menu is used
+syncThemeWithParent();
+setInterval(syncThemeWithParent, 500);
