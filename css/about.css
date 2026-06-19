@@ -407,3 +407,27 @@ select.custom-input:focus {
         padding-right: 20px;
     }
 }
+
+/* ============================================================
+   CUSTOM SCROLL PROGRESS SLIDER (ALL SCREENS)
+   ============================================================ */
+
+.scroll-progress-track {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.scroll-progress-thumb {
+    height: 100%;
+    width: 30%; /* Sets the size of the draggable slider thumb */
+    background-color: var(--accent-yellow) !important; /* Guaranteed theme synchronization */
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    will-change: transform; 
+}

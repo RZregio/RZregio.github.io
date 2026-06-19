@@ -639,3 +639,30 @@ select.custom-input:focus {
         height: 250px !important;
     }
 }
+
+/* ============================================================
+   MOBILE PROJECT SCROLL SLIDER
+   ============================================================ */
+
+.scroll-progress-track {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    width: auto;
+}
+
+.scroll-progress-thumb {
+    height: 100%;
+    width: 30%;
+    /* Sets the size of the draggable slider */
+    background-color: var(--accent-yellow) !important;
+    /* Dynamically inherits your active theme */
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* We don't use 'transition: transform' here so the bar moves perfectly in sync with the user's swipe without lagging */
+    will-change: transform;
+}

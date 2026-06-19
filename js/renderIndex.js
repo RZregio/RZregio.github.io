@@ -153,7 +153,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 carouselWrapper.insertAdjacentHTML('afterbegin', compiledIndicatorsHTML);
 
                 // IMPORTANT: Tell Bootstrap to re-initialize or update the indicators
-                const carouselInstance = new bootstrap.Carousel(carouselWrapper);
+                const carouselInstance = new bootstrap.Carousel(carouselWrapper, {
+                    interval: false // Completely disables auto-play
+                });
             }
 
             // 2. Helper function to update the text details

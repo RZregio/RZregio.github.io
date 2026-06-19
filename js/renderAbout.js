@@ -21,30 +21,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `).join('');
 
-            // Inject dots & Handle Click Logic
-            if (!document.getElementById('funfacts-dots')) {
-                const dotsHTML = data.map((_, i) => `<div class="dot ${i === 0 ? 'active' : ''}" style="cursor: pointer;"></div>`).join('');
+            // Inject Custom Slider Track instead of dots
+            if (!document.getElementById('funfacts-track')) {
                 container.insertAdjacentHTML('afterend', `
-                    <div id="funfacts-dots" class="mobile-scroll-dots d-mobile-flex mt-3 flex-wrap">
-                        ${dotsHTML}
+                    <div id="funfacts-track" class="scroll-progress-track mt-4 mx-auto" style="max-width: 200px; display: none;">
+                        <div id="funfacts-thumb" class="scroll-progress-thumb"></div>
                     </div>
                 `);
             }
 
-            const dotsContainer = document.getElementById('funfacts-dots');
-            const dots = dotsContainer.querySelectorAll('.dot');
             const cards = container.querySelectorAll('.col');
-
-            // Center on Dot Click
-            dots.forEach((dot, idx) => {
-                dot.addEventListener('click', () => {
-                    const target = cards[idx];
-                    if (target) {
-                        const scrollPos = target.offsetLeft - (container.offsetWidth / 2) + (target.offsetWidth / 2);
-                        container.scrollTo({ left: scrollPos, behavior: 'smooth' });
-                    }
-                });
-            });
 
             // Center on Card Click
             cards.forEach((card) => {
@@ -54,10 +40,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
 
-            // Update Dots on Scroll
-            container.addEventListener('scroll', () => {
-                if (window.updateScrollDots) window.updateScrollDots(container, dotsContainer, data.length);
-            });
+            // --- FUN FACTS SLIDER LOGIC ---
+            const updateFunFactsSlider = () => {
+                const track = document.getElementById('funfacts-track');
+                const thumb = document.getElementById('funfacts-thumb');
+                if (!track || !thumb || !container) return;
+
+                const maxScroll = container.scrollWidth - container.clientWidth;
+                if (maxScroll <= 0) {
+                    track.style.display = 'none';
+                    return;
+                } else {
+                    track.style.display = 'block';
+                }
+
+                const scrollPercentage = container.scrollLeft / maxScroll;
+                const maxTranslate = track.clientWidth - thumb.clientWidth;
+                thumb.style.transform = `translateX(${scrollPercentage * maxTranslate}px)`;
+            };
+
+            container.addEventListener('scroll', updateFunFactsSlider);
+            window.addEventListener('resize', updateFunFactsSlider);
+            setTimeout(updateFunFactsSlider, 100);
+
         } catch (e) {
             console.error('Failed to load fun facts:', e);
         }
@@ -212,13 +217,9 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         }).join('');
 
-        // Render Dots
-        dotsContainer.innerHTML = filtered.map((_, i) => `<div class="dot ${i === 0 ? 'active' : ''}" style="cursor: pointer;"></div>`).join('');
-
-        const dots = dotsContainer.querySelectorAll('.dot');
         const wrappers = container.querySelectorAll('.recog-wrapper');
 
-        // Click Logic (Center Card & Sync Dots)
+        // Click Logic (Center Card)
         const centerItem = (idx) => {
             const target = wrappers[idx];
             if (target) {
@@ -227,19 +228,32 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
 
-        dots.forEach((dot, idx) => {
-            dot.addEventListener('click', () => centerItem(idx));
-        });
-
         wrappers.forEach((wrap, idx) => {
             wrap.addEventListener('click', () => centerItem(idx));
         });
 
-        // Scroll Tracking for Dots
-        container.onscroll = () => {
-            if (window.updateScrollDots) window.updateScrollDots(container, dotsContainer, filtered.length);
+        // --- RECOGNITIONS SLIDER LOGIC ---
+        const updateRecogSlider = () => {
+            const track = document.getElementById('recognitions-track');
+            const thumb = document.getElementById('recognitions-thumb');
+            if (!track || !thumb || !container) return;
+
+            const maxScroll = container.scrollWidth - container.clientWidth;
+            if (maxScroll <= 0) {
+                track.style.display = 'none';
+                return;
+            } else {
+                track.style.display = 'block';
+            }
+
+            const scrollPercentage = container.scrollLeft / maxScroll;
+            const maxTranslate = track.clientWidth - thumb.clientWidth;
+            thumb.style.transform = `translateX(${scrollPercentage * maxTranslate}px)`;
         };
-        if (window.updateScrollDots) window.updateScrollDots(container, dotsContainer, filtered.length);
+
+        container.addEventListener('scroll', updateRecogSlider);
+        window.addEventListener('resize', updateRecogSlider);
+        setTimeout(updateRecogSlider, 100);
     }
 
     async function loadRecognitionsData() {

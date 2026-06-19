@@ -177,14 +177,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const scrollHintVertical = filteredData.length > 5 ? `<div class="text-center mt-1 mb-3 small text-warning opacity-75 vertical-scroll-hint"><i class="bi bi-chevron-down mb-1 d-block"></i>Scroll for more</div>` : '';
 
-        // 4. Inject Unified Layout (Widescreen UI)
+        // 4. Inject Unified Layout (Widescreen UI with New Slider)
         pane.innerHTML = `
             <div class="row g-0 align-items-stretch unified-layout-card">
                 <div class="col-lg-3 unified-list-col">
                     <div class="project-list-scroll p-2 py-3" id="unified-list">
                         ${listHTML}
                     </div>
-                    <div id="project-mobile-dots" class="mobile-scroll-dots d-mobile-flex mt-0 mb-3"></div>
+                    <div class="scroll-progress-track d-lg-none mt-0 mb-3 mx-3">
+                        <div class="scroll-progress-thumb" id="project-scroll-thumb"></div>
+                    </div>
                     ${scrollHintVertical}
                 </div>
                 <div class="col-lg-9">
@@ -197,11 +199,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // 5. Attach Listeners and Theme-Dynamic Active States
         const listContainer = document.getElementById('unified-list');
         const buttons = listContainer.querySelectorAll('.proj-list-btn');
-        const mobileDotsContainer = document.getElementById('project-mobile-dots');
-
-        if (filteredData.length > 0) {
-            mobileDotsContainer.innerHTML = filteredData.map((_, i) => `<div class="dot ${i === 0 ? 'active' : ''}"></div>`).join('');
-        }
 
         const activateButton = (target, index) => {
             buttons.forEach(b => {
@@ -209,15 +206,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 const icon = b.querySelector('.indicator-icon');
                 if (icon) { icon.classList.replace('bi-check-circle-fill', 'bi-chevron-right'); }
             });
-
+            
             target.classList.add('active-proj-btn');
             const activeIcon = target.querySelector('.indicator-icon');
             if (activeIcon) { activeIcon.classList.replace('bi-chevron-right', 'bi-check-circle-fill'); }
 
             renderProjectDetail(filteredData[index], 'unified-detail');
-
-            const dots = mobileDotsContainer.querySelectorAll('.dot');
-            dots.forEach((dot, idx) => dot.classList.toggle('active', idx === parseInt(index)));
         };
 
         buttons.forEach(btn => {
@@ -234,9 +228,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (buttons.length > 0) activateButton(buttons[0], 0);
 
-        listContainer.addEventListener('scroll', () => {
-            if (window.updateScrollDots) window.updateScrollDots(listContainer, mobileDotsContainer, filteredData.length);
-        });
+        // --- NEW CUSTOM SLIDER LOGIC ---
+        const updateSlider = () => {
+            const track = document.querySelector('.scroll-progress-track');
+            const thumb = document.getElementById('project-scroll-thumb');
+            if (!track || !thumb || !listContainer) return;
+
+            // Calculate max scrollable area
+            const maxScroll = listContainer.scrollWidth - listContainer.clientWidth;
+            
+            // Hide slider if there are too few projects to scroll
+            if (maxScroll <= 0) {
+                track.style.display = 'none'; 
+                return;
+            } else {
+                track.style.display = 'block';
+            }
+
+            // Calculate exact scroll percentage and move the thumb
+            const scrollPercentage = listContainer.scrollLeft / maxScroll;
+            const maxTranslate = track.clientWidth - thumb.clientWidth;
+            thumb.style.transform = `translateX(${scrollPercentage * maxTranslate}px)`;
+        };
+
+        // Attach the slider update to scroll and resize events
+        listContainer.addEventListener('scroll', updateSlider);
+        window.addEventListener('resize', updateSlider);
+        setTimeout(updateSlider, 100); // Initial calculation after DOM paints
     }
 
     /* ----- Split-Pane Detail View Renderer (Widescreen Mode) ----- */
