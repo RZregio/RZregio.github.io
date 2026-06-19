@@ -322,7 +322,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span class="text-accent fw-bold text-uppercase small mb-1 d-block">${proj.category} Project</span>
                     <h3 class="fredoka mb-1">${proj.title}</h3>
                     
-                    ${dateHtml} <p class="opacity-75 flex-grow-1" style="font-size: 0.95rem;">${proj.description}</p>
+                    ${dateHtml} <p class="opacity-75 flex-grow-1" style="font-size: 0.95rem; text-align: justify;">${proj.description}</p>
                     <div class="mt-2 mb-4">
                         <h6 class="fredoka small">Tech Stack:</h6>
                         ${techStackBadges}

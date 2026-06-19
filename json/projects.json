@@ -2,7 +2,7 @@
   {
     "category": "company",
     "title": "Arkteach",
-    "description": "An interactive e-learning platform featuring dynamic tutorial progression, AI-driven content generation, and comprehensive analytics tracking. Engineered to streamline employee onboarding and training.",
+    "description": "Developed over a 1.5-month timeline during my internship as a Full-Stack Developer and Project Manager, I, with my team, engineered this interactive e-learning platform from the ground up. I successfully integrated AI-driven content generation and comprehensive analytics tracking, resulting in a highly streamlined employee onboarding and training process for the company.",
     "mediaType": "image",
     "value": "important",
     "createdDate": "2026-04-6",
@@ -33,7 +33,7 @@
   {
     "category": "school",
     "title": "Landas (Capstone)",
-    "description": "An engaging 2D Android game designed to promote Philippine history and culture. Successfully achieved ISO/IEC 25010 compliance across 8 quality metrics, earning a 4.75/5 user satisfaction rating.",
+    "description": "Across a 9-month development cycle, I directed the creation of an engaging 2D Android game promoting Philippine history. By implementing rigorous testing protocols, I led the project to successfully achieve strict ISO/IEC 25010 compliance across 8 quality metrics, culminating in a 4.75/5 user satisfaction rating and the 'Best in Capstone' award.",
     "mediaType": "image",
     "value": "important",
     "createdDate": "2025-04-15",
@@ -51,7 +51,7 @@
   {
     "category": "company",
     "title": "Maintenance Checksheet System",
-    "description": "A digitized Quality Assurance protocol for machine diagnostics. Seamlessly integrates 5S and Hou-Ren-Sou methodologies to optimize factory floor maintenance workflows.",
+    "description": "Delivered within an accelerated 3-week sprint, I help in architecting a digitized Quality Assurance protocol for machine diagnostics. I successfully integrated industrial methodologies into the system logic, optimizing factory floor maintenance workflows and standardizing reporting protocols.",
     "mediaType": "image",
     "value": "important",
     "createdDate": "2026-05-01",
@@ -74,7 +74,7 @@
   {
     "category": "company",
     "title": "Assembly Tree Finder",
-    "description": "A dynamic visualization tool mapping complex manufacturing components through a hierarchical 'Family Tree' UI. Developed to assist production employees in rapid part identification.",
+    "description": "Over a 1-month development phase as a Full-Stack Developer and a team of two, we built a dynamic visualization tool mapping complex manufacturing components. We designed an intuitive hierarchical 'Family Tree' UI that drastically reduced retrieval times, empowering production employees to conduct rapid, error-free part identification on the factory floor.",
     "mediaType": "image",
     "value": "important",
     "createdDate": "2026-02-18",
@@ -95,7 +95,7 @@
   {
     "category": "school",
     "title": "KuroNeko: Journey in Another World",
-    "description": "A custom 2D desktop platformer showcasing robust Object-Oriented Programming principles. Features bespoke gameplay mechanics, physics handling, and state management built entirely in Java Swing.",
+    "description": "Built within a rapid 2-week timeline as the project manager, game designer and developer, we developed a custom 2D desktop platformer to demonstrate robust Object-Oriented Programming principles. we successfully engineered bespoke gameplay mechanics, custom physics handling, and complex state management entirely from scratch using Java Swing.",
     "mediaType": "image",
     "value": "important",
     "createdDate": "2024-06-25",
@@ -121,7 +121,7 @@
   {
     "category": "personal",
     "title": "Meowtivator",
-    "description": "A custom-built, embeddable interactive chat widget. Designed to provide instant user engagement and motivational feedback directly within my portfolio architecture.",
+    "description": "Evolving over a 1-year continuous integration cycle, I engineered a highly scalable, embeddable interactive chat widget. I implemented JSON-driven architectures, regex-based keyword detection, and dynamic mood transitions, successfully delivering instant, personalized user engagement directly within my portfolio.",
     "mediaType": "iframe",
     "sourceCode": "https://github.com/RZregio/RZregio.github.io/tree/main/personalProjects/meowtivator",
     "createdDate": "2025-06-03",
@@ -140,7 +140,7 @@
   {
     "category": "school",
     "title": "IcommunaPh",
-    "description": "A comprehensive community event discovery and management portal. Integrates secure backend routing with a responsive front-end dashboard for seamless user engagement.",
+    "description": "Completed during a concentrated 2-week academic sprint, I co-developed a comprehensive community event discovery and management portal. I successfully integrated secure PHP backend routing and MySQL databases with a responsive front-end dashboard, delivering a seamless and secure user engagement experience.",
     "mediaType": "image",
     "value": "important",
     "createdDate": "2025-06-12",
@@ -168,7 +168,7 @@
   {
     "category": "school",
     "title": "stbJobs",
-    "description": "A localized job portal engineered to connect talent with opportunities in Santo Tomas, Batangas. Led full-stack architecture and team coordination to deliver a highly accessible, community-focused platform.",
+    "description": "Over a 1-month development timeline, I led the architecture and team coordination for a localized job portal in Santo Tomas, Batangas. I successfully directed the full-stack integration of secure user authentication and database management, launching a highly accessible, community-focused platform.",
     "mediaType": "image",
     "value": "important",
     "createdDate": "2024-12-28",
@@ -197,7 +197,7 @@
   {
     "category": "personal",
     "title": "CatEnFur V2",
-    "description": "A dedicated e-commerce and care portal for feline enthusiasts. Combines a sleek, responsive UI with secure data handling for browsing products and learning about cat care.",
+    "description": "Executed in a rapid 48-hour development sprint of my existing past project, I built a dedicated e-commerce and care portal for feline enthusiasts. I successfully combined a sleek, responsive UI with secure PHP/MySQL data handling, creating a robust minimum viable product (MVP) for product browsing and care education.",
     "mediaType": "image",
     "sourceCode": "https://github.com/RZregio/RZregio.github.io/tree/main/personalProjects/catEnFur",
     "value": "important",
@@ -224,7 +224,7 @@
   {
     "category": "school",
     "title": "AIB - Border App",
-    "description": "An immersive web experience exploring interface boundaries and visual hierarchy. Utilizes modern 'Bento Box' styling to introduce users to the lore of Borderland.",
+    "description": "Completed in a fast-paced 3-day design challenge, I engineered an immersive web experience exploring interface boundaries and visual hierarchy. I successfully implemented modern CSS grid structures and 'Bento Box' styling to craft a highly engaging, thematic introduction to the lore of Borderland.",
     "mediaType": "iframe",
     "value": "important",
     "sourceCode": "https://github.com/RZregio/RZregio.github.io/tree/main/schoolProjects/aibBorder",
@@ -244,7 +244,7 @@
   {
     "category": "school",
     "title": "StillLife Parallax V2",
-    "description": "An artistic web study focused on advanced CSS parallax scrolling. Demonstrates the ability to create depth and visual storytelling through layered DOM manipulation.",
+    "description": "Executed in a rapid 48-hour academic sprint, I created an artistic web study focused on advanced CSS parallax scrolling. I successfully demonstrated the ability to create depth and visual storytelling through layered DOM manipulation.",
     "mediaType": "iframe",
     "sourceCode": "https://github.com/RZregio/RZregio.github.io/tree/main/schoolProjects/stillLifeParallax",
     "createdDate": "2024-11-12",
@@ -263,7 +263,7 @@
   {
     "category": "company",
     "title": "Material Navigator",
-    "description": "An internal logistics and tracking dashboard. Engineered to drastically reduce retrieval times by streamlining factory material routing for warehouse personnel.",
+    "description": "Over a 1-month development phase during my internship as a Full-Stack Developer and a team of two, we engineered an internal logistics and tracking dashboard. We successfully designed the system to drastically reduce retrieval times by streamlining factory material routing workflows for warehouse personnel.",
     "mediaType": "image",
     "value": "important",
     "createdDate": "2026-02-18",
@@ -284,7 +284,7 @@
   {
     "category": "school",
     "title": "PhotoGallery Page V2",
-    "description": "An interactive, responsive media gallery featuring dynamic grid layouts. Built to showcase visual assets with optimized loading and sleek hover states.",
+    "description": "Evolving over continuous iterations, I built an interactive, responsive media gallery featuring dynamic grid layouts. I successfully optimized the platform to showcase visual assets with fast loading times and sleek hover states.",
     "mediaType": "iframe",
     "sourceCode": "https://github.com/RZregio/RZregio.github.io/tree/main/schoolProjects/photoGallery",
     "createdDate": "2024-10-07",
@@ -303,7 +303,7 @@
   {
     "category": "school",
     "title": "WordYou Sure? V2",
-    "description": "A vocabulary application powered by external REST APIs. Fetches and parses live dictionary data to provide instant definitions and contextual examples.",
+    "description": "Developed and refined over multiple updates, I engineered a vocabulary application powered by external REST APIs. I successfully implemented the backend logic to fetch and parse live dictionary data, providing instant definitions and contextual examples.",
     "mediaType": "iframe",
     "sourceCode": "https://github.com/RZregio/RZregio.github.io/tree/main/schoolProjects/wordYouSure",
     "createdDate": "2024-10-18",
@@ -323,7 +323,7 @@
   {
     "category": "school",
     "title": "PlaceHub Page V2",
-    "description": "A digital tourism platform designed to highlight the municipal landmarks of Santo Tomas, Batangas. Focuses on intuitive navigation and content-rich presentation.",
+    "description": "Continuously refined from its initial build, I developed a digital tourism platform highlighting the municipal landmarks of Santo Tomas, Batangas. I successfully structured the application to prioritize intuitive navigation and content-rich presentation.",
     "mediaType": "iframe",
     "sourceCode": "https://github.com/RZregio/RZregio.github.io/tree/main/schoolProjects/placeHub",
     "createdDate": "2024-09-28",
@@ -342,7 +342,7 @@
   {
     "category": "school",
     "title": "ArcaneLog Page",
-    "description": "A thematic landing page dedicated to the Netflix series 'Arcane'. Built to experiment with complex visual styling, custom typography, and media integration.",
+    "description": "Built and enhanced over several iterations, I designed a thematic landing page dedicated to the Netflix series 'Arcane'. I successfully experimented with complex visual styling, custom typography, and seamless media integration.",
     "mediaType": "iframe",
     "sourceCode": "https://github.com/RZregio/RZregio.github.io/tree/main/schoolProjects/arcaneLog",
     "createdDate": "2024-11-04",
@@ -361,7 +361,7 @@
   {
     "category": "school",
     "title": "Product Page V2",
-    "description": "A refined product landing page focusing on conversion-driven UI/UX. Features a clean component hierarchy and responsive layout logic.",
+    "description": "Continuously optimized over time, I developed a refined product landing page focused on conversion-driven UI/UX. I successfully implemented a clean component hierarchy alongside robust responsive layout logic.",
     "mediaType": "iframe",
     "sourceCode": "https://github.com/RZregio/RZregio.github.io/tree/main/schoolProjects/productInfo",
     "createdDate": "2024-09-21",
@@ -380,7 +380,7 @@
   {
     "category": "other",
     "title": "404 Not Found",
-    "description": "A custom error handling page designed to maintain visual consistency with the portfolio while guiding lost users back to main content.",
+    "description": "Developed as a functional enhancement for my portfolio architecture, I created a custom error handling page. I successfully designed it to maintain visual consistency while intuitively guiding lost users back to the main content.",
     "mediaType": "iframe",
     "sourceCode": "https://github.com/RZregio/RZregio.github.io/blob/main/404.html",
     "createdDate": "2024-11-11",
@@ -399,7 +399,7 @@
   {
     "category": "other",
     "title": "Welcome to schoolProjects",
-    "description": "A dedicated loading and routing gateway for accessing archived academic coursework within the portfolio architecture.",
+    "description": "Executed as a streamlined utility page, I built a dedicated loading and routing gateway. I successfully engineered the architecture to provide a seamless transition for users accessing archived academic coursework within the portfolio.",
     "mediaType": "iframe",
     "sourceCode": "https://github.com/RZregio/RZregio.github.io/tree/main/otherProjects/welcomePage",
     "createdDate": "2025-01-01",

@@ -16,7 +16,7 @@
       "ChartJS",
       "AI Video Generation"
     ],
-    "projectContext": "An interactive e-learning platform featuring dynamic tutorial progression, AI-driven content generation, and comprehensive analytics tracking. Engineered to streamline employee onboarding and training.",
+    "projectContext": "Developed over a 1.5-month timeline during my internship as a Full-Stack Developer and Project Manager, I, with my team, engineered this interactive e-learning platform from the ground up. I successfully integrated AI-driven content generation and comprehensive analytics tracking, resulting in a highly streamlined employee onboarding and training process for the company.",
     "previewImageUrl": "main-res/projects/arkteach.png",
     "projectLinkUrl": "",
     "mediaSource": [
@@ -39,7 +39,7 @@
       "Unity",
       "Game Design"
     ],
-    "projectContext": "An engaging 2D Android game designed to promote Philippine history and culture. Successfully achieved ISO/IEC 25010 compliance across 8 quality metrics, earning a 4.75/5 user satisfaction rating.",
+    "projectContext": "Across a 9-month development cycle, I directed the creation of an engaging 2D Android game promoting Philippine history. By implementing rigorous testing protocols, I led the project to successfully achieve strict ISO/IEC 25010 compliance across 8 quality metrics, culminating in a 4.75/5 user satisfaction rating and the 'Best in Capstone' award.",
     "previewImageUrl": "main-res/projects/landas.png",
     "projectLinkUrl": "https://landas2d.github.io/"
   },
@@ -48,7 +48,7 @@
     "projectCategory": "Company System",
     "createdDate": "2026-05-01",
     "updatedDate": "2026-05-19",
-    "projectContext": "A digitized Quality Assurance protocol for machine diagnostics. Seamlessly integrates 5S and Hou-Ren-Sou methodologies to optimize factory floor maintenance workflows.",
+    "projectContext": "Delivered within an accelerated 3-week sprint, I help in architecting a digitized Quality Assurance protocol for machine diagnostics. I successfully integrated industrial methodologies into the system logic, optimizing factory floor maintenance workflows and standardizing reporting protocols.",
     "previewImageUrl": "main-res/projects/mmcs.png",
     "mediaSource": [
       "main-res/projects/mmcs.png",
@@ -78,7 +78,7 @@
       "MySQL",
       "Bootstrap"
     ],
-    "projectContext": "A dynamic visualization tool mapping complex manufacturing components through a hierarchical 'Family Tree' UI. Developed to assist production employees in rapid part identification.",
+    "projectContext": "Over a 1-month development phase as a Full-Stack Developer and a team of two, we built a dynamic visualization tool mapping complex manufacturing components. We designed an intuitive hierarchical 'Family Tree' UI that drastically reduced retrieval times, empowering production employees to conduct rapid, error-free part identification on the factory floor.",
     "previewImageUrl": "main-res/projects/assembly.png",
     "projectLinkUrl": ""
   },
@@ -92,7 +92,7 @@
       "Java Swing",
       "OOP"
     ],
-    "projectContext": "A custom 2D desktop platformer showcasing robust Object-Oriented Programming principles. Features bespoke gameplay mechanics, physics handling, and state management built entirely in Java Swing.",
+    "projectContext": "Built within a rapid 2-week timeline as the project manager, game designer and developer, we developed a custom 2D desktop platformer to demonstrate robust Object-Oriented Programming principles. we successfully engineered bespoke gameplay mechanics, custom physics handling, and complex state management entirely from scratch using Java Swing.",
     "previewImageUrl": "main-res/projects/kuroneko.png",
     "projectLinkUrl": "https://drive.google.com/file/d/1DDa2Wzsy4NHCgrWTH7OgnVK9pueLJVyM/preview",
     "mediaSource": [
@@ -110,7 +110,7 @@
   {
     "projectCategory": "Personal Project",
     "projectTitle": "Meowtivator",
-    "projectContext": "A custom-built, embeddable interactive chat widget. Designed to provide instant user engagement and motivational feedback directly within my portfolio architecture.",
+    "projectContext": "Evolving over a 1-year continuous integration cycle, I engineered a highly scalable, embeddable interactive chat widget. I implemented JSON-driven architectures, regex-based keyword detection, and dynamic mood transitions, successfully delivering instant, personalized user engagement directly within my portfolio.",
     "sourceCode": "https://github.com/RZregio/RZregio.github.io/tree/main/personalProjects/meowtivator",
     "createdDate": "2025-06-03",
     "updatedDate": "2026-06-18",
@@ -139,7 +139,7 @@
       "JavaScript",
       "Bootstrap"
     ],
-    "projectContext": "A comprehensive community event discovery and management portal. Integrates secure backend routing with a responsive front-end dashboard for seamless user engagement.",
+    "projectContext": "Completed during a concentrated 2-week academic sprint, I co-developed a comprehensive community event discovery and management portal. I successfully integrated secure PHP backend routing and MySQL databases with a responsive front-end dashboard, delivering a seamless and secure user engagement experience.",
     "previewImageUrl": "main-res/projects/iCommuna.png",
     "projectLinkUrl": "",
     "mediaSource": [
@@ -166,7 +166,7 @@
       "JavaScript",
       "Bootstrap"
     ],
-    "projectContext": "A localized job portal engineered to connect talent with opportunities in Santo Tomas, Batangas. Led full-stack architecture and team coordination to deliver a highly accessible, community-focused platform.",
+    "projectContext": "Over a 1-month development timeline, I led the architecture and team coordination for a localized job portal in Santo Tomas, Batangas. I successfully directed the full-stack integration of secure user authentication and database management, launching a highly accessible, community-focused platform.",
     "previewImageUrl": "main-res/projects/stbjobs.png",
     "projectLinkUrl": "",
     "mediaSource": [
@@ -186,7 +186,7 @@
     "projectCategory": "Web Development",
     "createdDate": "2026-06-11",
     "updatedDate": "2026-06-12",
-    "projectContext": "A dedicated e-commerce and care portal for feline enthusiasts. Combines a sleek, responsive UI with secure data handling for browsing products and learning about cat care.",
+    "projectContext": "Executed in a rapid 48-hour development sprint of my existing past project, I built a dedicated e-commerce and care portal for feline enthusiasts. I successfully combined a sleek, responsive UI with secure PHP/MySQL data handling, creating a robust minimum viable product (MVP) for product browsing and care education.",
     "previewImageUrl": "main-res/projects/catEnFur.png",
     "mediaSource": [
       "main-res/projects/catEnFur.png",
@@ -218,7 +218,7 @@
       "JavaScript",
       "Bootstrap"
     ],
-    "projectContext": "An immersive web experience exploring interface boundaries and visual hierarchy. Utilizes modern 'Bento Box' styling to introduce users to the lore of Alice in Borderland.",
+    "projectContext": "Completed in a fast-paced 3-day design challenge, I engineered an immersive web experience exploring interface boundaries and visual hierarchy. I successfully implemented modern CSS grid structures and 'Bento Box' styling to craft a highly engaging, thematic introduction to the lore of Alice in Borderland.",
     "previewImageUrl": "main-res/projects/aIB.png",
     "projectLinkUrl": "schoolProjects/aibBorder/index.html",
     "sourceCode": "https://github.com/RZregio/RZregio.github.io/tree/main/schoolProjects/aibBorder"

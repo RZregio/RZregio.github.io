@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     <p class="opacity-75 mb-4">${service.serviceDescription}</p>
                     <h6 class="fredoka small text-accent">Notable Experience:</h6>
-                    <p class="small opacity-75 mb-0">${service.notableExperience}</p>
+                    <p class="small opacity-75 mb-0" style="text-align: justify;">${service.notableExperience}</p>
                 `;
             }
 
@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <span class="text-accent fw-bold text-uppercase small mb-1 d-block">${activeProject.projectCategory} Project</span>
                         <h3 class="fredoka mb-1">${activeProject.projectTitle}</h3>
                         
-                        ${dateHtml} <p class="opacity-75 flex-grow-1" style="font-size: 0.95rem;">${activeProject.projectContext}</p>
+                        ${dateHtml} <p class="opacity-75 flex-grow-1" style="font-size: 0.95rem; text-align: justify;">${activeProject.projectContext}</p>
                         <div class="mt-2 mb-4">
                             <h6 class="fredoka small">Tech Stack:</h6>
                             <div class="d-flex flex-wrap gap-1 justify-content-start">
