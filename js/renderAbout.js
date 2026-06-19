@@ -11,12 +11,19 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const res = await fetch('json/funFacts.json');
             const data = await res.json();
+
+            // UI REHAUL: Smaller text, flex-column for layout, and dynamic buttons
             container.innerHTML = data.map(fact => `
                 <div class="col interactive-card">
-                    <div class="card-style p-3 h-100 text-center pointer">
+                    <div class="card-style p-3 h-100 d-flex flex-column text-center pointer">
                         <div class="fact-icon mb-2"><i class="bi ${fact.iconClass}"></i></div>
-                        <p class="fredoka mb-1">${fact.factTitle}</p>
-                        <p class="tiny-text opacity-75">${fact.factDescription}</p>
+                        <p class="fredoka mb-1" style="font-size: 1.05rem;">${fact.factTitle}</p>
+                        <p class="opacity-75 flex-grow-1 mt-2" style="font-size: 0.75rem; line-height: 1.6;">${fact.factDescription}</p>
+                        
+                        <button class="btn btn-sm w-100 mt-3 fun-fact-btn" data-title="${fact.factTitle}" 
+                                style="border: 1px solid var(--accent-yellow); color: var(--accent-yellow); border-radius: 20px; transition: 0.3s;">
+                            <i class="bi bi-stars me-1"></i> Discover
+                        </button>
                     </div>
                 </div>
             `).join('');
@@ -31,10 +38,41 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const cards = container.querySelectorAll('.col');
+            const actionBtns = container.querySelectorAll('.fun-fact-btn');
 
-            // Center on Card Click
+            // --- EASTER EGG ROUTER ---
+            actionBtns.forEach(btn => {
+                // Hover effect for the dynamic button
+                btn.addEventListener('mouseenter', (e) => {
+                    e.target.style.background = 'var(--accent-yellow)';
+                    e.target.style.color = '#101A30';
+                });
+                btn.addEventListener('mouseleave', (e) => {
+                    e.target.style.background = 'transparent';
+                    e.target.style.color = 'var(--accent-yellow)';
+                });
+
+                // Click Router
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevents the card from centering when clicking the button
+                    const title = e.target.getAttribute('data-title').toLowerCase();
+                    
+                    if (title.includes('cat')) {
+                        if (window.triggerCatEvent) window.triggerCatEvent();
+                    } else if (title.includes('music')) {
+                        if (window.triggerMusicEvent) window.triggerMusicEvent();
+                   } else if (title.includes('speedcuber') || title.includes('rubik')) {
+                        if (window.triggerCubeEvent) window.triggerCubeEvent();
+                    } else if (title.includes('anime')) {
+                        if (window.triggerAnimeEvent) window.triggerAnimeEvent();
+                    }
+                });
+            });
+
+            // Center on Card Click (Ignoring button clicks)
             cards.forEach((card) => {
-                card.addEventListener('click', () => {
+                card.addEventListener('click', (e) => {
+                    if (e.target.closest('.fun-fact-btn')) return;
                     const scrollPos = card.offsetLeft - (container.offsetWidth / 2) + (card.offsetWidth / 2);
                     container.scrollTo({ left: scrollPos, behavior: 'smooth' });
                 });

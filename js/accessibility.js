@@ -23,6 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 <button class="island-child-btn" id="btn-meow" title="Open Meowtivator">
                     ${catSvg}
                 </button>
+                <button class="island-child-btn" onclick="if(window.triggerMusicEvent) window.triggerMusicEvent();">
+                <i class="bi bi-music-note"></i>
+                </button>
                 <button class="island-child-btn" id="btn-top" title="Back to Top">
                     <i class="bi bi-chevron-up"></i>
                 </button>
@@ -68,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. Back to Top Logic (Custom Smooth Animation Fix)
     btnTop.addEventListener('click', () => {
         const startPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-        const duration = 600; 
+        const duration = 600;
         let startTime = null;
 
         const easeOutCubic = (t) => { return (--t) * t * t + 1; };
@@ -119,10 +122,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // 6. Meowtivator Popup Logic
     btnMeow.addEventListener('click', (e) => {
         e.preventDefault();
-        meowPopup.classList.add('active'); 
+        meowPopup.classList.add('active');
 
         if (islandContainer.classList.contains('active')) {
-            toggleBtn.click(); 
+            toggleBtn.click();
         }
     });
 
