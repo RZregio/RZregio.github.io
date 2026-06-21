@@ -55,7 +55,7 @@ function generateShuffleQueue() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 2. Inject CSS (Compact Size & Padding)
+    // 2. Inject CSS
     const style = document.createElement('style');
     style.innerHTML = `
         #floating-music-player {
@@ -67,10 +67,15 @@ document.addEventListener('DOMContentLoaded', () => {
         @media (max-width: 576px) { #floating-music-player { width: 90vw; right: 5vw; } }
         .ytm-header { background: rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
         
-        /* Compact Audio-Only Poster */
+        /* Compact Audio-Only Poster with Collapse Animation */
         .poster-container {
             position: relative; width: 100%; height: 180px; 
             background: #111; border-radius: 8px; overflow: hidden; margin-bottom: 10px;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        /* When queue is expanded, hide the poster smoothly */
+        .poster-container.collapsed {
+            height: 0px; margin-bottom: 0px; opacity: 0; border: none;
         }
         #ytm-poster {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -86,16 +91,46 @@ document.addEventListener('DOMContentLoaded', () => {
         .ytm-controls button.active { color: var(--accent-yellow); }
         #ytm-btn-play { font-size: 2rem; color: var(--accent-yellow); } 
 
+        /* Bigger Minimized Icon */
         #minimized-music-icon {
-            position: fixed; bottom: 20px; right: 90px; width: 55px; height: 55px;
+            position: fixed; bottom: 20px; right: 90px; 
+            width: 65px; height: 65px; 
             background-color: #030303; border: 2px solid var(--accent-yellow); color: var(--accent-yellow);
             border-radius: 50%; display: none; align-items: center; justify-content: center;
-            font-size: 1.5rem; cursor: grab; z-index: 9999; box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            font-size: 1.8rem; 
+            cursor: grab; z-index: 9999; box-shadow: 0 4px 15px rgba(0,0,0,0.5);
             user-select: none; touch-action: none; 
         }
         #minimized-music-icon:active { cursor: grabbing; }
+
+        /* Expand Button */
+        #ytm-btn-expand {
+            background: none; border: none; width: 100%; color: white; opacity: 0.5;
+            font-size: 1.2rem; cursor: pointer; padding: 2px 0; transition: all 0.3s;
+        }
+        #ytm-btn-expand:hover { opacity: 1; color: var(--accent-yellow); }
         
-        /* Tracklist styling */
+        /* Expandable Tracklist & Scrollbar */
+        #ytm-tracklist {
+            max-height: 140px; /* Default collapsed height */
+            transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            overflow-y: auto; overflow-x: hidden;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 4px 8px;
+            overscroll-behavior: contain; 
+            -webkit-overflow-scrolling: touch; 
+            scrollbar-width: thin; 
+            scrollbar-color: rgba(255,255,255,0.2) transparent; 
+        }
+        #ytm-tracklist.expanded {
+            max-height: 350px; /* Expanded view height */
+        }
+        
+        #ytm-tracklist::-webkit-scrollbar { width: 4px; }
+        #ytm-tracklist::-webkit-scrollbar-track { background: transparent; }
+        #ytm-tracklist::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; transition: background 0.3s ease; }
+        #ytm-tracklist:hover::-webkit-scrollbar-thumb, #ytm-tracklist::-webkit-scrollbar-thumb:hover { background: var(--accent-yellow); }
+
         .ytm-track-item {
             display: flex; align-items: center; padding: 6px 10px; border-radius: 8px;
             cursor: pointer; transition: background 0.2s ease; border-left: 3px solid transparent;
@@ -131,8 +166,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>
             
-            <div class="p-3 pb-2">
-                <div class="poster-container shadow">
+            <div class="p-3 pb-0">
+                <div class="poster-container shadow" id="ytm-poster-container">
                     <img id="ytm-poster" src="res/CatBot.png" alt="Song Poster">
                 </div>
                 <div id="ytm-player-frame"></div>
@@ -150,7 +185,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>
 
-            <div class="p-2" style="max-height: 140px; overflow-y: auto; border-top: 1px solid rgba(255,255,255,0.05);">
+            <!-- Expand Chevron Button -->
+            <button id="ytm-btn-expand" title="Expand Playlist"><i class="bi bi-chevron-compact-down"></i></button>
+
+            <!-- Expandable Tracklist -->
+            <div id="ytm-tracklist">
                 ${trackListHTML}
             </div>
         </div>
@@ -160,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     document.body.insertAdjacentHTML('beforeend', playerHTML);
 
-    // 4. Load the YouTube Iframe API Script dynamically
+    // 4. Load the YouTube Iframe API Script
     const tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
     document.head.appendChild(tag);
@@ -169,6 +208,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const playerEl = document.getElementById('floating-music-player');
     const minIcon = document.getElementById('minimized-music-icon');
     const tracks = document.querySelectorAll('.ytm-track-item');
+    const tracklistEl = document.getElementById('ytm-tracklist');
+    const expandBtn = document.getElementById('ytm-btn-expand');
+    const posterContainer = document.getElementById('ytm-poster-container');
+    let isListExpanded = false;
+
+    // Tracklist Expand Toggle (Hides Poster smoothly)
+    expandBtn.addEventListener('click', () => {
+        isListExpanded = !isListExpanded;
+        tracklistEl.classList.toggle('expanded', isListExpanded);
+        posterContainer.classList.toggle('collapsed', isListExpanded);
+        expandBtn.innerHTML = isListExpanded ? '<i class="bi bi-chevron-compact-up"></i>' : '<i class="bi bi-chevron-compact-down"></i>';
+    });
 
     // UI Click Events for Tracks
     tracks.forEach(track => {
@@ -337,7 +388,11 @@ window.playTrack = function (index, startTime = 0) {
     // Update active highlight
     const tracks = document.querySelectorAll('.ytm-track-item');
     tracks.forEach(t => t.classList.remove('active'));
-    if (tracks[index]) tracks[index].classList.add('active');
+    if (tracks[index]) {
+        tracks[index].classList.add('active');
+        // Auto-scroll the active track into view
+        tracks[index].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
 
     // Save index
     localStorage.setItem('ytm_index', index);
