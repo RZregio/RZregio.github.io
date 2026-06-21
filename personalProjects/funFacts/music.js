@@ -38,12 +38,22 @@ const playlist = [
 let ytPlayer;
 let timeTrackerInterval;
 
-// True Shuffle State
+// Global States
 let isShuffle = false;
 let shuffleQueue = [];
 let shufflePos = 0;
+let isListExpanded = false;
+let isProgressBarDragging = false;
 
-// Fisher-Yates Shuffle Algorithm to prevent repeating songs
+// Time Formatting Helper (converts seconds to M:SS)
+function formatYtmTime(seconds) {
+    if (!seconds || isNaN(seconds)) return "0:00";
+    const m = Math.floor(seconds / 60);
+    const s = Math.floor(seconds % 60);
+    return `${m}:${s < 10 ? '0' : ''}${s}`;
+}
+
+// Fisher-Yates Shuffle Algorithm
 function generateShuffleQueue() {
     let arr = playlist.map((_, i) => i);
     for (let i = arr.length - 1; i > 0; i--) {
@@ -58,6 +68,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. Inject CSS
     const style = document.createElement('style');
     style.innerHTML = `
+        /* Floating Ad Blocker Alert */
+        #ytm-ad-alert {
+            position: fixed; top: 20px; right: 20px;
+            background: #030303; border-left: 4px solid var(--accent-yellow);
+            color: white; padding: 15px 20px; border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            z-index: 10002; display: flex; align-items: center; gap: 15px;
+            transform: translateX(150%); transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            font-family: 'Poppins', sans-serif; font-size: 0.85rem; max-width: 320px;
+        }
+        #ytm-ad-alert.show { transform: translateX(0); }
+        #ytm-ad-alert-close { background: none; border: none; color: white; opacity: 0.5; cursor: pointer; transition: opacity 0.2s; }
+        #ytm-ad-alert-close:hover { opacity: 1; color: var(--accent-yellow); }
+
         #floating-music-player {
             position: fixed; bottom: 20px; right: 20px; width: 300px;
             background-color: #030303; border: 1px solid rgba(255, 255, 255, 0.1);
@@ -73,19 +97,26 @@ document.addEventListener('DOMContentLoaded', () => {
             background: #111; border-radius: 8px; overflow: hidden; margin-bottom: 10px;
             transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
-        /* When queue is expanded, hide the poster smoothly */
-        .poster-container.collapsed {
-            height: 0px; margin-bottom: 0px; opacity: 0; border: none;
-        }
-        #ytm-poster {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover;
-        }
-        
+        .poster-container.collapsed { height: 0px; margin-bottom: 0px; opacity: 0; border: none; }
+        #ytm-poster { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
         #ytm-player-frame { position: absolute; width: 1px; height: 1px; opacity: 0.01; pointer-events: none; z-index: -1; }
 
+        /* Progress Bar (Custom Range Slider) */
+        input[type=range]#ytm-progress-bar {
+            -webkit-appearance: none; width: 100%; background: transparent; margin: 5px 0;
+        }
+        input[type=range]#ytm-progress-bar::-webkit-slider-runnable-track {
+            width: 100%; height: 4px; cursor: pointer; background: rgba(255, 255, 255, 0.2); border-radius: 2px;
+        }
+        input[type=range]#ytm-progress-bar::-webkit-slider-thumb {
+            -webkit-appearance: none; height: 12px; width: 12px; border-radius: 50%;
+            background: var(--accent-yellow); cursor: pointer; margin-top: -4px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+        input[type=range]#ytm-progress-bar:focus { outline: none; }
+
         /* Controls */
-        .ytm-controls { display: flex; justify-content: center; gap: 25px; align-items: center; padding: 0 15px; margin-top: 10px; }
+        .ytm-controls { display: flex; justify-content: center; gap: 25px; align-items: center; padding: 0 15px; margin-top: 5px; }
         .ytm-controls button { background: none; border: none; color: white; font-size: 1.3rem; cursor: pointer; transition: color 0.2s; padding: 5px;}
         .ytm-controls button:hover { color: var(--accent-yellow); }
         .ytm-controls button.active { color: var(--accent-yellow); }
@@ -93,12 +124,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         /* Bigger Minimized Icon */
         #minimized-music-icon {
-            position: fixed; bottom: 20px; right: 90px; 
-            width: 65px; height: 65px; 
+            position: fixed; bottom: 20px; right: 90px; width: 65px; height: 65px; 
             background-color: #030303; border: 2px solid var(--accent-yellow); color: var(--accent-yellow);
             border-radius: 50%; display: none; align-items: center; justify-content: center;
-            font-size: 1.8rem; 
-            cursor: grab; z-index: 9999; box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            font-size: 1.8rem; cursor: grab; z-index: 9999; box-shadow: 0 4px 15px rgba(0,0,0,0.5);
             user-select: none; touch-action: none; 
         }
         #minimized-music-icon:active { cursor: grabbing; }
@@ -110,22 +139,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         #ytm-btn-expand:hover { opacity: 1; color: var(--accent-yellow); }
         
-        /* Expandable Tracklist & Scrollbar */
+        /* Expandable Tracklist */
         #ytm-tracklist {
-            max-height: 140px; /* Default collapsed height */
-            transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            overflow-y: auto; overflow-x: hidden;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            padding: 4px 8px;
-            overscroll-behavior: contain; 
-            -webkit-overflow-scrolling: touch; 
-            scrollbar-width: thin; 
-            scrollbar-color: rgba(255,255,255,0.2) transparent; 
+            max-height: 140px; transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            overflow-y: auto; overflow-x: hidden; border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 4px 8px; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; 
+            scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.2) transparent; 
         }
-        #ytm-tracklist.expanded {
-            max-height: 350px; /* Expanded view height */
-        }
-        
+        #ytm-tracklist.expanded { max-height: 350px; }
         #ytm-tracklist::-webkit-scrollbar { width: 4px; }
         #ytm-tracklist::-webkit-scrollbar-track { background: transparent; }
         #ytm-tracklist::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; transition: background 0.3s ease; }
@@ -168,13 +189,21 @@ document.addEventListener('DOMContentLoaded', () => {
             
             <div class="p-3 pb-0">
                 <div class="poster-container shadow" id="ytm-poster-container">
-                    <img id="ytm-poster" src="res/CatBot.png" alt="Song Poster">
+                    <img id="ytm-poster" src="" alt="Song Poster">
                 </div>
                 <div id="ytm-player-frame"></div>
 
-                <div class="text-center">
+                <div class="text-center mt-1">
                     <div id="ytm-np-title" class="text-white fw-bold text-truncate" style="font-size: 1rem;">Select a track</div>
                     <div id="ytm-np-artist" class="text-secondary text-truncate" style="font-size: 0.8rem;">To start listening</div>
+                </div>
+
+                <div class="ytm-progress-container px-2 mt-3">
+                    <div class="d-flex justify-content-between text-secondary mb-1" style="font-size: 0.75rem; font-family: monospace;">
+                        <span id="ytm-time-current">0:00</span>
+                        <span id="ytm-time-total">0:00</span>
+                    </div>
+                    <input type="range" id="ytm-progress-bar" value="0" min="0" max="100" step="1">
                 </div>
 
                 <div class="ytm-controls">
@@ -185,16 +214,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>
 
-            <!-- Expand Chevron Button -->
-            <button id="ytm-btn-expand" title="Expand Playlist"><i class="bi bi-chevron-compact-down"></i></button>
+            <button id="ytm-btn-expand" title="Expand/Collapse Playlist"><i class="bi bi-chevron-compact-down"></i></button>
 
-            <!-- Expandable Tracklist -->
             <div id="ytm-tracklist">
                 ${trackListHTML}
             </div>
         </div>
         <div id="minimized-music-icon" title="Open Music Player">
             <i class="bi bi-music-note-beamed"></i>
+        </div>
+        <div id="ytm-ad-alert">
+            <i class="bi bi-shield-check fs-3" style="color: var(--accent-yellow);"></i>
+            <div class="flex-grow-1 text-start">
+                <strong class="d-block text-white" style="font-size: 0.95rem;">Pro Tip</strong>
+                <span class="text-secondary" style="font-size: 0.75rem;">Use an Ad Blocker for an uninterrupted, ad-free listening experience.</span>
+            </div>
+            <button id="ytm-ad-alert-close"><i class="bi bi-x-lg"></i></button>
         </div>
     `;
     document.body.insertAdjacentHTML('beforeend', playerHTML);
@@ -204,16 +239,41 @@ document.addEventListener('DOMContentLoaded', () => {
     tag.src = "https://www.youtube.com/iframe_api";
     document.head.appendChild(tag);
 
-    // 5. Logic Variables
+    // 5. Logic Variables & Progress Bar Events
     const playerEl = document.getElementById('floating-music-player');
     const minIcon = document.getElementById('minimized-music-icon');
     const tracks = document.querySelectorAll('.ytm-track-item');
     const tracklistEl = document.getElementById('ytm-tracklist');
     const expandBtn = document.getElementById('ytm-btn-expand');
     const posterContainer = document.getElementById('ytm-poster-container');
-    let isListExpanded = false;
+    const progressBar = document.getElementById('ytm-progress-bar');
 
-    // Tracklist Expand Toggle (Hides Poster smoothly)
+    // UI Initial State: If no song played previously, auto-expand the queue & hide poster
+    isListExpanded = localStorage.getItem('ytm_index') === null;
+    if (isListExpanded) {
+        tracklistEl.classList.add('expanded');
+        posterContainer.classList.add('collapsed');
+        expandBtn.innerHTML = '<i class="bi bi-chevron-compact-up"></i>';
+    }
+
+    // Progress Bar Scrubbing Logic
+    progressBar.addEventListener('mousedown', () => isProgressBarDragging = true);
+    progressBar.addEventListener('touchstart', () => isProgressBarDragging = true, { passive: true });
+    
+    progressBar.addEventListener('input', (e) => {
+        // Update the time text instantly while dragging
+        document.getElementById('ytm-time-current').innerText = formatYtmTime(e.target.value);
+    });
+
+    progressBar.addEventListener('change', (e) => {
+        // Actually seek the video when the user lets go
+        if (ytPlayer && ytPlayer.seekTo) {
+            ytPlayer.seekTo(parseFloat(e.target.value), true);
+        }
+        isProgressBarDragging = false;
+    });
+
+    // Tracklist Expand Toggle
     expandBtn.addEventListener('click', () => {
         isListExpanded = !isListExpanded;
         tracklistEl.classList.toggle('expanded', isListExpanded);
@@ -232,7 +292,22 @@ document.addEventListener('DOMContentLoaded', () => {
     window.triggerMusicEvent = function () {
         playerEl.style.display = 'flex';
         minIcon.style.display = 'none';
+        
+        if (!sessionStorage.getItem('ytm_alert_shown')) {
+            setTimeout(() => {
+                document.getElementById('ytm-ad-alert').classList.add('show');
+                sessionStorage.setItem('ytm_alert_shown', 'true');
+            }, 800); 
+
+            setTimeout(() => {
+                document.getElementById('ytm-ad-alert').classList.remove('show');
+            }, 8800);
+        }
     };
+
+    document.getElementById('ytm-ad-alert-close').addEventListener('click', () => {
+        document.getElementById('ytm-ad-alert').classList.remove('show');
+    });
 
     document.getElementById('ytm-minimize-btn').addEventListener('click', (e) => {
         e.stopPropagation();
@@ -260,7 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('ytm-btn-next').addEventListener('click', () => {
         if (isShuffle) {
             shufflePos++;
-            if (shufflePos >= shuffleQueue.length) generateShuffleQueue(); // Reshuffle when done
+            if (shufflePos >= shuffleQueue.length) generateShuffleQueue();
             window.playTrack(shuffleQueue[shufflePos], 0);
         } else {
             let currIndex = parseInt(localStorage.getItem('ytm_index')) || 0;
@@ -352,14 +427,36 @@ function onPlayerReady(event) {
 
 function onPlayerStateChange(event) {
     const playBtn = document.getElementById('ytm-btn-play');
+    const progressBar = document.getElementById('ytm-progress-bar');
+    const timeCurrent = document.getElementById('ytm-time-current');
+    const timeTotal = document.getElementById('ytm-time-total');
 
     if (event.data === YT.PlayerState.PLAYING) {
         playBtn.innerHTML = '<i class="bi bi-pause-fill"></i>';
         localStorage.setItem('ytm_playing', 'true');
         clearInterval(timeTrackerInterval);
+        
+        // Grab duration once playback officially starts
+        const duration = ytPlayer.getDuration();
+        if (duration) {
+            progressBar.max = duration;
+            timeTotal.innerText = formatYtmTime(duration);
+        }
+
         timeTrackerInterval = setInterval(() => {
-            if (ytPlayer && ytPlayer.getCurrentTime) {
-                localStorage.setItem('ytm_time', ytPlayer.getCurrentTime());
+            if (ytPlayer && ytPlayer.getCurrentTime && !isProgressBarDragging) {
+                const currTime = ytPlayer.getCurrentTime();
+                localStorage.setItem('ytm_time', currTime);
+                
+                progressBar.value = currTime;
+                timeCurrent.innerText = formatYtmTime(currTime);
+
+                // Fallback check in case duration wasn't ready earlier
+                const newDuration = ytPlayer.getDuration();
+                if (newDuration && progressBar.max !== String(newDuration)) {
+                    progressBar.max = newDuration;
+                    timeTotal.innerText = formatYtmTime(newDuration);
+                }
             }
         }, 1000);
     } else {
@@ -369,7 +466,7 @@ function onPlayerStateChange(event) {
         if (event.data === YT.PlayerState.PAUSED) {
             localStorage.setItem('ytm_playing', 'false');
         } else if (event.data === YT.PlayerState.ENDED) {
-            document.getElementById('ytm-btn-next').click(); // Auto triggers the new Next/Shuffle logic
+            document.getElementById('ytm-btn-next').click();
         }
     }
 }
@@ -377,6 +474,19 @@ function onPlayerStateChange(event) {
 // 8. Global Play Function
 window.playTrack = function (index, startTime = 0) {
     const song = playlist[index];
+
+    // Reset Progress UI immediately for snappy feedback
+    document.getElementById('ytm-progress-bar').value = 0;
+    document.getElementById('ytm-time-current').innerText = "0:00";
+    document.getElementById('ytm-time-total').innerText = "0:00";
+
+    // Auto-Collapse the list to reveal the chosen poster!
+    if (isListExpanded) {
+        isListExpanded = false;
+        document.getElementById('ytm-tracklist').classList.remove('expanded');
+        document.getElementById('ytm-poster-container').classList.remove('collapsed');
+        document.getElementById('ytm-btn-expand').innerHTML = '<i class="bi bi-chevron-compact-down"></i>';
+    }
 
     // Update UI text
     document.getElementById('ytm-np-title').innerText = song.title;
@@ -390,7 +500,6 @@ window.playTrack = function (index, startTime = 0) {
     tracks.forEach(t => t.classList.remove('active'));
     if (tracks[index]) {
         tracks[index].classList.add('active');
-        // Auto-scroll the active track into view
         tracks[index].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 
