@@ -488,5 +488,79 @@
       "JavaScript",
       "Bootstrap"
     ]
+  },
+  {
+    "category": "school",
+    "title": "SteveHungry",
+    "description": "Created an interactive 2D desktop game with my Landas teammates where the player controls Minecraft's Steve. We developed the core game loop, entity rendering, and collision detection logic to allow players to collect food for points within a strict time limit while avoiding randomized rotten items.",
+    "mediaType": "image",
+    "value": "important",
+    "sourceCode": "",
+    "createdDate": "2024-10-01",
+    "updatedDate": "2024-10-07",
+    "mediaSource": [
+      "main-res/projects/steveHungry.png",
+      "main-res/projects/steveHungry2.png",
+      "main-res/projects/steveHungry3.png"
+    ],
+    "liveLink": "https://drive.google.com/file/d/1MSEHsDJq5GuokhQBf2QreJNXRUwoz7aA/preview",
+    "techStack": [
+      "Python",
+      "Pygame"
+    ]
+  },
+  {
+    "category": "school",
+    "title": "Beyond the End",
+    "description": "Developed a Java Swing application that renders a comic-style animated sequence. I programmed this visual novel-style prologue to explore the lore of Herobrine in Minecraft, demonstrating robust UI rendering, timed asset loading, and event handling within a Java environment.",
+    "mediaType": "image",
+    "sourceCode": "",
+    "createdDate": "2024-06-08",
+    "updatedDate": "2024-06-16",
+    "mediaSource": [
+      "main-res/projects/beyond.png",
+      "main-res/projects/beyond2.png"
+    ],
+    "liveLink": "https://drive.google.com/file/d/1z4ptFqmwrKYbBsDtW3SmqjI3a-zw2M9B/preview",
+    "techStack": [
+      "Java",
+      "Java Swing"
+    ]
+  },
+  {
+    "category": "school",
+    "title": "Convertables",
+    "description": "Built a comprehensive console application serving as a multi-tool conversion utility. I structured the C++ program to accurately process complex conversions like currency, speed, length, and area using standardized algorithmic formulas and a clean terminal interface.",
+    "mediaType": "image",
+    "sourceCode": "https://github.com/RZregio/MyCJourney/blob/main/Coding%20Activity/ConverTables.cpp",
+    "createdDate": "2024-01-28",
+    "updatedDate": "2024-02-02",
+    "mediaSource": [
+      "main-res/projects/convertables.png"
+    ],
+    "liveLink": "https://www.programiz.com/cpp-programming/online-compiler/",
+    "techStack": [
+      "C++",
+      "CLI"
+    ]
+  },
+  {
+    "category": "school",
+    "title": "CMathings",
+    "description": "Engineered a console-based utility program providing essential mathematical tools. I implemented a modular CLI architecture featuring a calculator, metrics table, and multi-unit conversions, focusing on robust user input validation and logical control flow.",
+    "mediaType": "image",
+    "value": "important",
+    "sourceCode": "https://github.com/RZregio/MyCJourney/blob/main/Coding%20Activity/1-1%20Final%20Project/C%20MaTHings.cpp",
+    "createdDate": "2023-10-29",
+    "updatedDate": "2023-11-05",
+    "mediaSource": [
+      "main-res/projects/cMathings.png"
+    ],
+    "liveLink": "https://www.programiz.com/cpp-programming/online-compiler/",
+    "techStack": [
+      "C",
+      "C++",
+      "CLI"
+    ]
   }
 ]
