@@ -4,163 +4,185 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Welcome to schoolProjects</title>
-  <link rel="icon" href="res/RZbrand.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+  <title>Gateway | School Projects</title>
+  <link rel="icon" href="../../main-res/RZbrand.ico">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap"
+    rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
+  <style>
+    /* Core Theme matching your portfolio */
+    :root {
+      --bg-dark: #0B1120;
+      --accent-yellow: #D48C1C;
+      --accent-red: #da2020;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--bg-dark);
+      background-image:
+        radial-gradient(circle at 15% 50%, rgba(212, 140, 28, 0.08), transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(218, 32, 32, 0.08), transparent 25%);
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+      color: white;
+      animation: ambientPulse 8s ease-in-out infinite alternate;
+    }
+
+    /* Typography */
+    .fredoka {
+      font-family: 'Fredoka', sans-serif;
+    }
+
+    .gateway-title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+      text-shadow: 0 0 20px rgba(212, 140, 28, 0.3);
+    }
+
+    .gateway-subtitle {
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      animation: pulse-opacity 2s infinite;
+    }
+
+    /* Glassmorphism Card Container */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 24px;
+      padding: 3rem 2rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      max-width: 600px;
+      width: 90%;
+      text-align: center;
+    }
+
+    /* Modern Hypnotic Loader */
+    .loader-wrapper {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      margin: 2rem auto 2.5rem auto;
+    }
+
+    .orbit-dot {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      top: calc(50% - 12px);
+      left: calc(50% - 12px);
+      animation: orbit 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
+    .dot-gold {
+      background-color: var(--accent-yellow);
+      box-shadow: 0 0 15px var(--accent-yellow);
+      transform-origin: 40px 12px;
+    }
+
+    .dot-red {
+      background-color: var(--accent-red);
+      box-shadow: 0 0 15px var(--accent-red);
+      transform-origin: -16px 12px;
+      animation-delay: -0.75s;
+      /* perfectly offsets the second dot */
+    }
+
+    /* Sleek Return Button */
+    .btn-return {
+      background-color: transparent;
+      color: var(--accent-yellow);
+      border: 1px solid var(--accent-yellow);
+      border-radius: 50px;
+      padding: 10px 25px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-return:hover {
+      background-color: var(--accent-yellow);
+      color: var(--bg-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(212, 140, 28, 0.3);
+    }
+
+    /* Animations */
+    @keyframes ambientPulse {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      100% {
+        background-position: 100% 50%;
+      }
+    }
+
+    @keyframes orbit {
+      0% {
+        transform: rotate(0deg);
+        z-index: 2;
+      }
+
+      50% {
+        transform: rotate(180deg);
+        z-index: 0;
+      }
+
+      100% {
+        transform: rotate(360deg);
+        z-index: 2;
+      }
+    }
+
+    @keyframes pulse-opacity {
+
+      0%,
+      100% {
+        opacity: 0.4;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+  </style>
 </head>
-
-<style>
-.schoolProjects {
-  background: radial-gradient(circle at center, #222235, #4b4b82, #000000);
-  background-size: 200% 200%;
-  animation: pulse-gradient 5s ease-in-out infinite;
-  height: 100vh;
-}
-
-
-h1, h2 {
-  color: #ffffff;
-  font-family: Fredoka;
-  animation: text-color-pulse 5s ease-in-out infinite;
-}
-
-
-  
-  .loading-container {
-    position: relative;
-    padding-top: 50px;
-  }
-
-  .loading {
-    padding-right: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-
-  .loading-right {
-    background-color: #DAA520;
-    width: 40px;
-    height: 40px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    perspective: 1000px;
-    animation: rotate-right 1.5s linear infinite;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    position: absolute;
-  }
-
-  .loading-left {
-    background-color: #da2020;
-    width: 40px;
-    height: 40px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    perspective: 1000px;
-    animation: rotate-left 1.5s linear infinite;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    position: absolute;
-  }
-
-  @keyframes pulse-gradient {
-  0% {
-    background-position: center;
-    background-size: 100% 100%;
-  }
-  50% {
-    background-position: center;
-    background-size: 200% 200%;
-  }
-  100% {
-    background-position: center;
-    background-size: 100% 100%;
-  }
-}
-
-@keyframes text-color-pulse {
-  0% {
-    color: #ffffff;
-  }
-  50% {
-    color: #ffd700; /* Gold */
-  }
-  100% {
-    color: #ffffff;
-  }
-}
-
-
-
-  @keyframes rotate-right {
-    0% {
-      transform: translate3d(0px, 0px, 0px);
-    }
-
-    25% {
-      transform: translate3d(50px, 0px, 0px);
-    }
-
-    50% {
-      transform: translate3d(50px, 50px, 0px);
-    }
-
-    75% {
-      transform: translate3d(0px, 50px, 0px);
-    }
-
-    100% {
-      transform: translate3d(0px, 0px, 0px);
-    }
-  }
-
-  @keyframes rotate-left {
-    0% {
-      transform: translate3d(0px, 0px, 0px);
-    }
-
-    25% {
-      transform: translate3d(0px, 50px, 0px);
-    }
-
-    50% {
-      transform: translate3d(50px, 50px, 0px);
-    }
-
-    75% {
-      transform: translate3d(50px, 0px, 0px);
-    }
-
-    100% {
-      transform: translate3d(0px, 0px, 0px);
-    }
-  }
-</style>
 
 <body>
 
-  <div class="container-fluid text-center schoolProjects">
-    <h1 style="padding-top: 50vh; font-weight: 700;">WELCOME TO schoolProjects</h1>
-    <h2>Go back<a href="../../index.html" style="padding-left: 5px;">here</a></h2>
-    <div class="loading-container">
-      <div class="loading">
-        <div class="loading-left"></div>
-        <div class="loading-right"></div>
+  <div class="d-flex justify-content-center align-items-center vh-100 w-100">
+
+    <div class="glass-card">
+      <h1 class="fredoka gateway-title">School Projects</h1>
+      <p class="gateway-subtitle mb-4">Establishing connection to academic archives...</p>
+
+      <div class="loader-wrapper">
+        <div class="orbit-dot dot-gold"></div>
+        <div class="orbit-dot dot-red"></div>
       </div>
+
+      <a href="../../index.html" class="btn-return">
+        <i class="bi bi-arrow-left"></i> Return to Portfolio
+      </a>
     </div>
+
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
