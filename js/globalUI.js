@@ -88,9 +88,18 @@ function ensureViewerElements() {
     if (!document.getElementById('viewer-dots')) {
         const dots = document.createElement('div');
         dots.id = 'viewer-dots';
-        // Placed at the bottom center
-        dots.className = 'position-absolute bottom-0 start-50 translate-middle-x mb-4 d-flex justify-content-center flex-wrap gap-2 w-100 px-4';
-        dots.style.zIndex = '20';
+
+        dots.className = 'd-flex justify-content-center align-items-center flex-nowrap gap-2 mx-auto mt-3 px-3 py-2 shadow';
+
+        dots.style.cssText = `
+            z-index: 20;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            max-width: 90%;
+        `;
+
         modalBody.appendChild(dots);
     }
 }
@@ -154,19 +163,75 @@ function renderDots() {
     if (!dotsContainer) return;
 
     dotsContainer.innerHTML = ''; // Clear existing dots
+    const total = currentGalleryImages.length;
 
-    if (currentGalleryImages.length <= 1) return; // Don't show dots for single images
+    if (total <= 1) return; // Don't show dots for single images
 
-    currentGalleryImages.forEach((_, index) => {
+    const maxDots = 10;
+    let startIdx = 0;
+    let endIdx = total - 1;
+
+    // --- Sliding Window Algorithm ---
+    // If there are more than 10 images, create a sliding window of dots!
+    if (total > maxDots) {
+        startIdx = Math.max(0, currentImageIndex - Math.floor(maxDots / 2));
+        endIdx = startIdx + maxDots - 1;
+
+        // Clamp the window if we reach the end of the gallery
+        if (endIdx >= total) {
+            endIdx = total - 1;
+            startIdx = total - maxDots;
+        }
+    }
+
+    // Create the visible dots
+    for (let i = startIdx; i <= endIdx; i++) {
         const dot = document.createElement('button');
-        dot.className = `viewer-dot ${index === currentImageIndex ? 'active' : ''}`;
+
+        // Inline styles to guarantee it looks perfect on mobile without external CSS conflicts
+        dot.style.cssText = `
+            width: 10px; height: 10px; border-radius: 50%; border: none; padding: 0;
+            background-color: ${i === currentImageIndex ? 'var(--accent-yellow)' : 'rgba(255, 255, 255, 0.2)'};
+            transform: ${i === currentImageIndex ? 'scale(1.3)' : 'scale(1)'};
+            box-shadow: ${i === currentImageIndex ? '0 0 8px rgba(212, 140, 28, 0.6)' : 'none'};
+            transition: all 0.3s ease; flex-shrink: 0;
+        `;
+
         dot.onclick = () => {
-            currentImageIndex = index;
+            currentImageIndex = i;
             updateViewerImage();
             updateViewerControls();
         };
         dotsContainer.appendChild(dot);
-    });
+    }
+
+    // --- Creative Overflow Indicator (+X Badge) ---
+    if (total > maxDots) {
+        const remaining = total - maxDots;
+        const badge = document.createElement('div');
+
+        // Sleek styling matching the yellow accent, positioned slightly outside the dots
+        badge.className = 'badge rounded-pill shadow-sm d-flex align-items-center justify-content-center ms-2';
+        badge.style.cssText = `
+            background: rgba(0, 0, 0, 0.8); 
+            border: 1px solid var(--accent-yellow); 
+            color: var(--accent-yellow); 
+            font-size: 0.75rem; 
+            padding: 5px 12px; 
+            flex-shrink: 0;
+            font-family: 'Poppins', sans-serif;
+            backdrop-filter: blur(5px);
+        `;
+
+        // Displays: 📸 15/30 (+20)
+        badge.innerHTML = `
+            <i class="bi bi-images me-2"></i> 
+            ${currentImageIndex + 1}/${total} 
+            <span class="opacity-75 ms-1" style="font-size: 0.65rem;">(+${remaining})</span>
+        `;
+
+        dotsContainer.appendChild(badge);
+    }
 }
 
 window.navigateViewer = function (direction) {

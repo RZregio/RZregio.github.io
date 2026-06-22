@@ -26,7 +26,27 @@
       "main-res/projects/arkteach4.png",
       "main-res/projects/arkteach5.png",
       "main-res/projects/arkteach6.png",
-      "main-res/projects/arkteach7.png"
+      "main-res/projects/arkteach7.png",
+      "main-res/projects/arkteach8.png",
+      "main-res/projects/arkteach9.png",
+      "main-res/projects/arkteach10.png",
+      "main-res/projects/arkteach11.png",
+      "main-res/projects/arkteach12.png",
+      "main-res/projects/arkteach13.png",
+      "main-res/projects/arkteach14.png",
+      "main-res/projects/arkteach15.png",
+      "main-res/projects/arkteach16.png",
+      "main-res/projects/arkteach17.png",
+      "main-res/projects/arkteach18.png",
+      "main-res/projects/arkteach19.png",
+      "main-res/projects/arkteach20.png",
+      "main-res/projects/arkteach21.png",
+      "main-res/projects/arkteach22.png",
+      "main-res/projects/arkteach23.png",
+      "main-res/projects/arkteach24.png",
+      "main-res/projects/arkteach25.png",
+      "main-res/projects/arkteach26.png",
+      "main-res/projects/arkteach27.png"
     ]
   },
   {
@@ -41,6 +61,27 @@
     ],
     "projectContext": "Across a 9-month development cycle, I directed the creation of an engaging 2D Android game promoting Philippine history. By implementing rigorous testing protocols, I led the project to successfully achieve strict ISO/IEC 25010 compliance across 8 quality metrics, culminating in a 4.75/5 user satisfaction rating and the 'Best in Capstone' award.",
     "previewImageUrl": "main-res/projects/landas.png",
+    "mediaSource": [
+      "main-res/projects/landas.png",
+      "main-res/projects/landas2.png",
+      "main-res/projects/landas3.png",
+      "main-res/projects/landas4.jpg",
+      "main-res/projects/landas5.jpg",
+      "main-res/projects/landas6.jpg",
+      "main-res/projects/landas7.jpg",
+      "main-res/projects/landas8.jpg",
+      "main-res/projects/landas9.jpg",
+      "main-res/projects/landas10.png",
+      "main-res/projects/landas11.jpg",
+      "main-res/projects/landas12.jpg",
+      "main-res/projects/landas13.jpg",
+      "main-res/projects/landas14.jpg",
+      "main-res/projects/landas15.jpg",
+      "main-res/projects/landas16.jpg",
+      "main-res/projects/landas17.png",
+      "main-res/projects/landas18.jpg",
+      "main-res/projects/landas19.jpg"
+    ],
     "projectLinkUrl": "https://landas2d.github.io/"
   },
   {
@@ -80,7 +121,14 @@
     ],
     "projectContext": "Over a 1-month development phase as a Full-Stack Developer and a team of two, we built a dynamic visualization tool mapping complex manufacturing components. We designed an intuitive hierarchical 'Family Tree' UI that drastically reduced retrieval times, empowering production employees to conduct rapid, error-free part identification on the factory floor.",
     "previewImageUrl": "main-res/projects/assembly.png",
-    "projectLinkUrl": ""
+    "projectLinkUrl": "",
+    "mediaSource": [
+      "main-res/projects/assembly.png",
+      "main-res/projects/assembly2.png",
+      "main-res/projects/assembly3.png",
+      "main-res/projects/assembly4.png",
+      "main-res/projects/assembly5.png"
+    ]
   },
   {
     "projectTitle": "KuroNeko: Journey In Another World",
@@ -207,7 +255,7 @@
       "JavaScript"
     ]
   },
-   {
+  {
     "projectCategory": "Embedded Development",
     "projectTitle": "Interactive Easter Eggs",
     "projectContext": "A collection of hidden, app-like interactive modules embedded within the portfolio. Engineered features include a global draggable YouTube Music player with LocalStorage state persistence, an interactive CFOP Rubik's Cube algorithm cheat sheet, a theme-responsive CSS Grid Bento UI for an anime showcase, and a DOM-manipulated SVG animated cat swarm.",
