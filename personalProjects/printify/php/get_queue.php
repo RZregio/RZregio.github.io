@@ -1,21 +1,52 @@
 <?php
-// Set headers so your Expo app running on your phone can read localhost securely
+/* -----
+Set strict headers for JSON API access
+Restricting methods to GET improves security
+----- */
 header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET");
 header("Content-Type: application/json; charset=UTF-8");
 
-include 'connect.php';
+require_once 'connect.php';
 
-// Select active print jobs using your database connection
-$sql = "SELECT id, requester_name, file_path, copies, color, status FROM queue WHERE status != 'Done' ORDER BY id ASC";
-$result = $conn->query($sql);
+// Prepare standardized response array
+$serverResponse = [
+    "success" => false,
+    "data" => []
+];
 
-$queue = [];
-if ($result && $result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        $queue[] = $row;
+/* -----
+Fetch active queue, ordering by oldest first.
+We include created_at for potential UI sorting/display.
+----- */
+$queueQuery = "SELECT id, requester_name, file_path, pages, copies, color, status, created_at 
+               FROM queue 
+               WHERE status != 'Done' 
+               ORDER BY id ASC";
+
+if ($result = $conn->query($queueQuery)) {
+    $activeQueueList = [];
+    
+    while ($row = $result->fetch_assoc()) {
+        // Explicitly cast numeric fields to prevent JS strict-type errors in React Native
+        $row['id'] = (int)$row['id'];
+        $row['copies'] = (int)$row['copies'];
+        
+        $activeQueueList[] = $row;
     }
+    
+    $serverResponse["success"] = true;
+    $serverResponse["data"] = $activeQueueList;
+    
+    $result->free();
+} else {
+    // Return a generic error message; never expose raw SQL errors to the client
+    $serverResponse["message"] = "Failed to retrieve the print queue.";
 }
 
-echo json_encode($queue);
 $conn->close();
+
+// Output formatted JSON
+echo json_encode($serverResponse);
+exit();
 ?>

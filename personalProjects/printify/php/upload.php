@@ -1,34 +1,61 @@
 <?php
-// Include your standard database connection layout
+header("Content-Type: application/json; charset=UTF-8");
 include 'connect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $conn->real_escape_string($_POST['requester']);
-    $copies = (int)$_POST['copies'];
-    $color = $conn->real_escape_string($_POST['color']);
+    // Validate inputs
+    $requesterName = trim($_POST['requester']);
+    $printCopies = filter_input(INPUT_POST, 'copies', FILTER_VALIDATE_INT);
+    $colorMode = trim($_POST['color']);
+    $pagesToPrint = trim($_POST['pages']);
+    $paperSize = trim($_POST['paperSize']);
+    $margins = trim($_POST['margins']);
     
-    $target_dir = "uploads/";
-    
-    // Create the uploads folder automatically if it doesn't exist locally yet
-    if (!file_exists($target_dir)) {
-        mkdir($target_dir, 0777, true);
-    }
-    
-    $file_name = time() . "_" . basename($_FILES["document"]["name"]);
-    $target_file = $target_dir . $file_name;
-    
-    if (strtolower(pathinfo($target_file, PATHINFO_EXTENSION)) != "pdf") {
-        die("Error: Only PDF files are allowed.");
+    if (empty($requesterName) || !$printCopies || empty($colorMode) || empty($pagesToPrint)) {
+        echo json_encode(["success" => false, "message" => "Invalid form submission."]);
+        exit();
     }
 
-    if (move_uploaded_file($_FILES["document"]["tmp_name"], $target_file)) {
-        // Using your connection's $conn object
-        $sql = "INSERT INTO queue (requester_name, file_path, copies, color) VALUES ('$name', '$target_file', $copies, '$color')";
-        if ($conn->query($sql) === TRUE) {
-            $last_id = $conn->insert_id;
-            header("Location: index.html?id=" . $last_id);
-            exit();
+    $serverUploadDirectory = "../uploads/";
+    $databaseFilePath = "uploads/"; 
+    
+    if (!file_exists($serverUploadDirectory)) {
+        mkdir($serverUploadDirectory, 0777, true);
+    }
+    
+    $fileExtension = strtolower(pathinfo($_FILES["document"]["name"], PATHINFO_EXTENSION));
+    
+    if ($fileExtension !== "pdf") {
+        echo json_encode(["success" => false, "message" => "Only PDF files are allowed."]);
+        exit();
+    }
+
+    $uniqueFileName = time() . "_" . basename($_FILES["document"]["name"]);
+    $serverTargetFile = $serverUploadDirectory . $uniqueFileName;
+    $databaseTargetFile = $databaseFilePath . $uniqueFileName;
+    
+    if (move_uploaded_file($_FILES["document"]["tmp_name"], $serverTargetFile)) {
+        
+        /* -----
+        Updated Insert Query with paper_size and margins
+        ----- */
+        $insertQuery = "INSERT INTO queue (requester_name, file_path, pages, paper_size, margins, copies, color) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        
+        if ($stmt = $conn->prepare($insertQuery)) {
+            // Bind parameters: sssssis (5 strings, 1 integer, 1 string)
+            $stmt->bind_param("sssssis", $requesterName, $databaseTargetFile, $pagesToPrint, $paperSize, $margins, $printCopies, $colorMode);
+            
+            if ($stmt->execute()) {
+                echo json_encode(["success" => true, "id" => $stmt->insert_id]);
+            } else {
+                echo json_encode(["success" => false, "message" => "Database error."]);
+            }
+            $stmt->close();
+        } else {
+            echo json_encode(["success" => false, "message" => "Statement preparation failed."]);
         }
+    } else {
+        echo json_encode(["success" => false, "message" => "File upload failed."]);
     }
 }
 ?>
