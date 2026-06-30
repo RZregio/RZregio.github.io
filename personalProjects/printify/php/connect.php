@@ -1,8 +1,8 @@
 <?php
-$dbhost = "localhost:3307";
-$dbuser = "root";
-$dbpass = "";
-$db = "printdb"; // Ensure you run the CREATE TABLE query inside this database
+$dbhost = "sql307.infinityfree.com";
+$dbuser = "if0_41619039";
+$dbpass = "JNTQugLEk2GV";
+$db = "if0_41619039_printdb"; // Ensure you run the CREATE TABLE query inside this database
 
 $conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
 

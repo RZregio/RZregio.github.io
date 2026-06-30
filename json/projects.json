@@ -135,6 +135,30 @@
     ]
   },
   {
+    "category": "personal",
+    "title": "Printify Queue System App",
+    "value": "important",
+    "description": "Currently in progress: Engineering a comprehensive document printing queue management system. It features a responsive client-facing web portal for document uploads and dynamic cost calculations, paired with a React Native (Expo) Android admin application for real-time queue monitoring, status updates, and native print execution. The backend architecture leverages Firebase, PHP, and Node.js.",
+    "mediaType": "image",
+    "createdDate": "2026-06-27",
+    "updatedDate": "2026-06-30",
+    "mediaSource": [],
+    "liveLink": "",
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Bootstrap",
+      "Node.js",
+      "PHP",
+      "MySQL",
+      "Firebase",
+      "React Native",
+      "Expo",
+      "Expo-Print"
+    ]
+  },
+  {
     "category": "school",
     "title": "KuroNeko: Journey in Another World",
     "description": "Built within a rapid 2-week timeline as the project manager, game designer and developer, we developed a custom 2D desktop platformer to demonstrate robust Object-Oriented Programming principles. we successfully engineered bespoke gameplay mechanics, custom physics handling, and complex state management entirely from scratch using Java Swing.",
@@ -549,7 +573,6 @@
     "title": "CMathings",
     "description": "Engineered a console-based utility program providing essential mathematical tools. I implemented a modular CLI architecture featuring a calculator, metrics table, and multi-unit conversions, focusing on robust user input validation and logical control flow.",
     "mediaType": "image",
-    "value": "important",
     "sourceCode": "https://github.com/RZregio/MyCJourney/blob/main/Coding%20Activity/1-1%20Final%20Project/C%20MaTHings.cpp",
     "createdDate": "2023-10-29",
     "updatedDate": "2023-11-05",
