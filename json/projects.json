@@ -134,14 +134,14 @@
       "Bootstrap"
     ]
   },
-  {
+{
     "category": "personal",
     "title": "Printify Queue System App",
     "value": "important",
-    "description": "Currently in progress: Engineering a comprehensive document printing queue management system. It features a responsive client-facing web portal for document uploads and dynamic cost calculations, paired with a React Native (Expo) Android admin application for real-time queue monitoring, status updates, and native print execution. The backend architecture leverages Firebase, PHP, and Node.js.",
+    "description": "A full-stack, multi-tenant SaaS printing queue management system. It features a responsive web portal for client document uploads with dynamic cost calculation, integrated with a standalone React Native Android admin application. The system enables real-time queue monitoring, status tracking, and native print execution, powered by a hybrid architecture utilizing Firebase for real-time synchronization and PHP/MySQL for secure file management.",
     "mediaType": "image",
     "createdDate": "2026-06-27",
-    "updatedDate": "2026-06-30",
+    "updatedDate": "2026-07-02",
     "mediaSource": [],
     "liveLink": "",
     "techStack": [
@@ -154,6 +154,7 @@
       "MySQL",
       "Firebase",
       "React Native",
+      "Android Studio",
       "Expo",
       "Expo-Print"
     ]
