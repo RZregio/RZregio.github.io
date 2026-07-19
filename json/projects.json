@@ -134,29 +134,31 @@
       "Bootstrap"
     ]
   },
-{
+  {
     "category": "personal",
-    "title": "Printify Queue System App",
+    "title": "Limbago — Multi-Tenant Print Queue SaaS",
     "value": "important",
-    "description": "A full-stack, multi-tenant SaaS printing queue management system. It features a responsive web portal for client document uploads with dynamic cost calculation, integrated with a standalone React Native Android admin application. The system enables real-time queue monitoring, status tracking, and native print execution, powered by a hybrid architecture utilizing Firebase for real-time synchronization and PHP/MySQL for secure file management.",
+    "description": "A full-stack, multi-tenant SaaS print queue management system built for commercial print shops and their customers. Features a Progressive Web App (PWA) portal for client document uploads with dynamic cost calculation, intelligent 3-tier color density detection via pdf-lib, and real-time queue tracking. The ecosystem includes a React Native (Expo) mobile dashboard for shop owners with live queue monitoring and audio notifications, and an Electron desktop node for silent, zero-dialog automated print execution directly on shop hardware. Fully unified on a Supabase PostgreSQL backend with Row Level Security, native real-time WebSocket sync, and Supabase Storage for secure PDF vaulting.",
     "mediaType": "image",
     "createdDate": "2026-06-27",
-    "updatedDate": "2026-07-02",
+    "updatedDate": "2026-07-20",
     "mediaSource": [],
-    "liveLink": "",
+    "liveLink": "https://limbago.vercel.app",
     "techStack": [
       "HTML5",
       "CSS3",
       "JavaScript",
-      "Bootstrap",
-      "Node.js",
-      "PHP",
-      "MySQL",
-      "Firebase",
+      "Bootstrap 5",
+      "PDF-lib",
+      "Supabase",
+      "PostgreSQL",
+      "Supabase Realtime",
+      "Supabase Storage",
       "React Native",
-      "Android Studio",
       "Expo",
-      "Expo-Print"
+      "Electron",
+      "Node.js",
+      "Vercel"
     ]
   },
   {
