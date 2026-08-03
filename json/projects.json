@@ -136,9 +136,9 @@
   },
   {
     "category": "personal",
-    "title": "Limbago — Multi-Tenant Print Queue SaaS",
+    "title": "Ongoing Project",
     "value": "important",
-    "description": "A full-stack, multi-tenant SaaS print queue management system built for commercial print shops and their customers. Features a Progressive Web App (PWA) portal for client document uploads with dynamic cost calculation, intelligent 3-tier color density detection via pdf-lib, and real-time queue tracking. The ecosystem includes a React Native (Expo) mobile dashboard for shop owners with live queue monitoring and audio notifications, and an Electron desktop node for silent, zero-dialog automated print execution directly on shop hardware. Fully unified on a Supabase PostgreSQL backend with Row Level Security, native real-time WebSocket sync, and Supabase Storage for secure PDF vaulting.",
+    "description": "TBA"
     "mediaType": "image",
     "createdDate": "2026-06-27",
     "updatedDate": "2026-07-20",
