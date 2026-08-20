@@ -136,15 +136,9 @@
   },
   {
     "category": "personal",
-<<<<<<< HEAD
     "title": "Ongoing SaaS Project",
     "value": "important",
     "description": "A full-stack, multi-tenant SaaS system built for commercial use of target busuness.",
-=======
-    "title": "Ongoing Project",
-    "value": "important",
-    "description": "TBA",
->>>>>>> 8c766b74572114492ab8e28b22001b1e6faac0a0
     "mediaType": "image",
     "createdDate": "2026-06-27",
     "updatedDate": "2026-08-20",
