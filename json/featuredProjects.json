@@ -84,6 +84,39 @@
     ],
     "projectLinkUrl": "https://landas2d.github.io/"
   },
+  
+  {
+    "projectCategory": "Personal Startup",
+    "projectTitle": "Ongoing SaaS Project",
+    "projectContext": "A full-stack, multi-tenant SaaS system built for commercial use of target busuness.",
+    "createdDate": "2026-06-27",
+    "updatedDate": "2026-08-20",
+    "mediaSource": [],
+    "projectLinkUrl": "",
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript (ES6=)",
+      "Bootstrap 5",
+      "PWA",
+      "PDF-lib",
+      "PDF.js",
+      "Leaflet.js",
+      "Supabase",
+      "HTML5-QRCode",
+      "PostgreSQL",
+      "PostgreSQL Rls",
+      "Supabase",
+      "Supabase Realtime",
+      "Supabase Storage",
+      "Supabase Auth",
+      "React Native",
+      "Expo",
+      "Electron",
+      "Node.js",
+      "Vercel"
+    ]
+  },
   {
     "projectTitle": "Maintenance Checksheet System",
     "projectCategory": "Company System",
