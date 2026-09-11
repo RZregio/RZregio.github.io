@@ -49,6 +49,42 @@
       "main-res/projects/arkteach27.png"
     ]
   },
+    {
+    "projectTitle": "SegunDoko",
+    "projectCategory": "Personal Project",
+    "createdDate": "2026-09-03",
+    "updatedDate": "2026-09-08",
+    "techStack": [
+      "React",
+      "Vite",
+      "Zero-Knowledge Architecture",
+      "IndexedDB",
+      "Web Crypto API",
+      "Google Drive API",
+      "Bootstrap 5",
+      "JavaScript",
+      "Google OAuth 2.0",
+      "jsPDF",
+      "lucide Icons"
+    ],
+    "projectContext": "Engineered as an offline-first productivity sanctuary, SegunDoko guarantees absolute user privacy through a client-side Zero-Knowledge encryption layer (AES-256) backed by seamless Google Drive sync. It unifies essential daily workflows—including encrypted journals, Kanban boards, dynamic tracking grids, and a Pomodoro station—within a romantic stationery aesthetic.",
+    "previewImageUrl": "main-res/projects/segundoko.png",
+    "projectLinkUrl": "https://segundoko.vercel.app",
+    "sourceCode": "",
+    "mediaSource": [
+      "main-res/projects/segundoko.png",   
+      "main-res/projects/segundoko2.png",
+      "main-res/projects/segundoko3.png",
+      "main-res/projects/segundoko4.png",
+      "main-res/projects/segundoko5.png",
+      "main-res/projects/segundoko6.png",
+      "main-res/projects/segundoko7.png",
+      "main-res/projects/segundoko8.png",
+      "main-res/projects/segundoko9.png",
+      "main-res/projects/segundoko10.png",
+      "main-res/projects/segundoko11.png"
+    ]
+  },
   {
     "projectTitle": "Landas (Capstone)",
     "projectCategory": "Academic Project",
@@ -84,7 +120,6 @@
     ],
     "projectLinkUrl": "https://landas2d.github.io/"
   },
-  
   {
     "projectCategory": "Personal Startup",
     "projectTitle": "Ongoing SaaS Project",

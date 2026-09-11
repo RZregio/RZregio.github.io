@@ -50,6 +50,43 @@
       "AI Video Generation"
     ]
   },
+   {
+    "category": "personal",
+    "title": "SegunDoko",
+    "description": "A personalized, offline-first productivity ecosystem featuring a Zero-Knowledge End-to-End Encryption architecture (AES-256) and secure Google Drive synchronization. Built with React, Vite, and PWA capabilities, it integrates an aesthetic stationery design system with structured journals, Kanban tasks, custom tracking grids, a connection hub, and a persistent focus station.",
+    "mediaType": "image",
+    "value": "important",
+    "createdDate": "2026-09-03",
+    "updatedDate": "2026-09-08",
+    "mediaSource": [
+      "main-res/projects/segundoko.png",
+      "main-res/projects/segundoko2.png",
+      "main-res/projects/segundoko3.png",
+      "main-res/projects/segundoko4.png",
+      "main-res/projects/segundoko5.png",
+      "main-res/projects/segundoko6.png",
+      "main-res/projects/segundoko7.png",
+      "main-res/projects/segundoko8.png",
+      "main-res/projects/segundoko9.png",
+      "main-res/projects/segundoko10.png",
+      "main-res/projects/segundoko11.png"
+    ],
+    "liveLink": "https://segundoko.vercel.app",
+    "sourceCode": "",
+    "techStack": [
+      "React",
+      "Vite",
+      "Zero-Knowledge Architecture",
+      "IndexedDB",
+      "Web Crypto API",
+      "Google Drive API",
+      "Bootstrap 5",
+      "JavaScript",
+      "Google OAuth 2.0",
+      "jsPDF",
+      "lucide Icons"
+    ]
+  },
   {
     "category": "school",
     "title": "Landas (Capstone)",

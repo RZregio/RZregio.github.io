@@ -219,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
                 <div id="ytm-local-track-edit-list" class="d-flex flex-column mb-4" style="max-height: 150px; overflow-y: auto;"></div>
-
+                
                 <h6 class="text-warning mb-2 fs-6">External Playlists</h6>
                 <div class="mb-3 p-2 rounded" style="background: rgba(255,255,255,0.05); border: 1px dashed rgba(255,255,255,0.2);">
                     <input type="text" id="ytm-new-pl-name" placeholder="Display Name" class="form-control form-control-sm custom-input mb-2">
