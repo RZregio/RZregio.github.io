@@ -80,19 +80,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const style = document.createElement('style');
     style.innerHTML = `
         #floating-music-player {
-            position: fixed; bottom: 20px; right: 20px; width: 320px;
+            position: fixed; bottom: 20px; right: 20px; width: 420px; 
             background-color: #030303; border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.8);
-            z-index: 10000; display: none; flex-direction: column; overflow: hidden;
+            z-index: 10000; flex-direction: column; overflow: hidden;
             color: white; font-family: 'Poppins', sans-serif;
+            display: flex;
+            
+            /* FIX: We move it completely off-screen instead of using opacity/visibility. 
+               This maintains the iframe's physical dimensions to bypass YouTube's bot detection. */
+            transform: translateY(150vh); pointer-events: none;
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
+
+        #floating-music-player.show-player {
+            transform: translateY(0); pointer-events: auto;
+        }
+
         @media (max-width: 576px) { #floating-music-player { width: 90vw; right: 5vw; } }
         
         .ytm-header { background: rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
          
         /* Iframe Containers - LOCKED SIZE */
         .ytm-player-frame-container { 
-            width: 100%; height: 200px; min-height: 200px; border-radius: 8px; overflow: hidden; 
+            width: 100%; height: 250px; min-height: 250px; border-radius: 8px; overflow: hidden; 
             background: #000; margin-bottom: 10px; flex-shrink: 0;
         }
         .ytm-player-frame-container iframe { width: 100%; height: 100%; border: none; pointer-events: auto; }
@@ -102,10 +113,10 @@ document.addEventListener('DOMContentLoaded', () => {
         input[type=range]#ytm-progress-bar::-webkit-slider-thumb { -webkit-appearance: none; height: 12px; width: 12px; border-radius: 50%; background: var(--accent-yellow); cursor: pointer; margin-top: -4px; box-shadow: 0 0 5px rgba(0,0,0,0.5); }
         input[type=range]#ytm-progress-bar:focus { outline: none; }
 
-        .ytm-controls { display: flex; justify-content: center; gap: 15px; align-items: center; padding: 0 10px; margin-top: 5px; }
+        .ytm-controls { display: flex; justify-content: center; gap: 18px; align-items: center; padding: 0 10px; margin-top: 5px; } 
         .ytm-controls button { background: none; border: none; color: white; font-size: 1.2rem; cursor: pointer; transition: color 0.2s; padding: 5px;}
         .ytm-controls button:hover, .ytm-controls button.active { color: var(--accent-yellow); }
-        #ytm-btn-play { font-size: 2rem; color: var(--accent-yellow); } 
+        #ytm-btn-play { font-size: 2.2rem; color: var(--accent-yellow); } 
 
         #minimized-music-icon {
             position: fixed; bottom: 20px; right: 90px; width: 65px; height: 65px; 
@@ -200,21 +211,21 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
                 <div class="mb-3 p-2 rounded" style="background: rgba(255,255,255,0.05); border: 1px dashed rgba(255,255,255,0.2);">
-                    <input type="text" id="ytm-new-title" placeholder="Song Title" class="form-control form-control-sm bg-dark text-white border-secondary mb-1">
-                    <input type="text" id="ytm-new-artist" placeholder="Artist" class="form-control form-control-sm bg-dark text-white border-secondary mb-1">
-                    <div class="d-flex gap-1">
-                        <input type="text" id="ytm-new-id" placeholder="YT Link or ID" class="form-control form-control-sm bg-dark text-white border-secondary">
-                        <button id="ytm-btn-add-track" class="btn btn-sm btn-success"><i class="bi bi-plus-lg"></i></button>
+                    <input type="text" id="ytm-new-title" placeholder="Song Title" class="form-control form-control-sm custom-input mb-2">
+                    <input type="text" id="ytm-new-artist" placeholder="Artist" class="form-control form-control-sm custom-input mb-2">
+                    <div class="d-flex gap-2">
+                        <input type="text" id="ytm-new-id" placeholder="YT Link or ID" class="form-control form-control-sm custom-input">
+                        <button id="ytm-btn-add-track" class="btn btn-sm btn-success px-3"><i class="bi bi-plus-lg"></i></button>
                     </div>
                 </div>
                 <div id="ytm-local-track-edit-list" class="d-flex flex-column mb-4" style="max-height: 150px; overflow-y: auto;"></div>
 
                 <h6 class="text-warning mb-2 fs-6">External Playlists</h6>
                 <div class="mb-3 p-2 rounded" style="background: rgba(255,255,255,0.05); border: 1px dashed rgba(255,255,255,0.2);">
-                    <input type="text" id="ytm-new-pl-name" placeholder="Display Name" class="form-control form-control-sm bg-dark text-white border-secondary mb-1">
-                    <div class="d-flex gap-1">
-                        <input type="text" id="ytm-new-pl-url" placeholder="Spotify/YT URL" class="form-control form-control-sm bg-dark text-white border-secondary">
-                        <button id="ytm-btn-add-pl" class="btn btn-sm btn-success"><i class="bi bi-plus-lg"></i></button>
+                    <input type="text" id="ytm-new-pl-name" placeholder="Display Name" class="form-control form-control-sm custom-input mb-2">
+                    <div class="d-flex gap-2">
+                        <input type="text" id="ytm-new-pl-url" placeholder="Spotify/YT URL" class="form-control form-control-sm custom-input">
+                        <button id="ytm-btn-add-pl" class="btn btn-sm btn-success px-3"><i class="bi bi-plus-lg"></i></button>
                     </div>
                 </div>
                 <div id="ytm-imported-pl-list" class="d-flex flex-column" style="max-height: 150px; overflow-y: auto;"></div>
@@ -274,7 +285,6 @@ document.addEventListener('DOMContentLoaded', () => {
     btnSettings.addEventListener('click', () => {
         isManageView = !isManageView;
         if (isManageView) {
-            // Remove d-flex and add d-none to override Bootstrap's !important rule
             mainView.classList.remove('d-flex');
             mainView.classList.add('d-none');
             manageView.style.display = 'block';
@@ -284,7 +294,6 @@ document.addEventListener('DOMContentLoaded', () => {
             renderLocalEditor();
             renderExternalEditor();
         } else {
-            // Restore main view
             mainView.classList.remove('d-none');
             mainView.classList.add('d-flex');
             manageView.style.display = 'none';
@@ -454,25 +463,41 @@ document.addEventListener('DOMContentLoaded', () => {
         reader.readAsText(file);
     });
 
+    // Helper: Safely trigger the initial playback logic
+    function initializePlayback() {
+        if (hasLoadedInitialPlaylist) return;
+        applyActivePlaylist(true);
+        hasLoadedInitialPlaylist = true;
+        const savedIndex = localStorage.getItem('ytm_index');
+        const savedTime = localStorage.getItem('ytm_time');
+        const isPlaying = localStorage.getItem('ytm_playing');
+        if (activeListId === 'local' && savedIndex !== null && isPlaying === 'true') {
+            window.playTrack(parseInt(savedIndex), parseFloat(savedTime) || 0);
+        }
+    }
+
     window.triggerMusicEvent = function () {
-        playerEl.style.display = 'flex';
+        playerEl.classList.add('show-player');
         minIcon.style.display = 'none';
         renderManagerDropdown();
-        if (!hasLoadedInitialPlaylist && ytPlayer && ytPlayer.getPlayerState) {
-            applyActivePlaylist(true);
-            hasLoadedInitialPlaylist = true;
-        }
+        
+        // Wait 350ms for the CSS slide animation to complete so YouTube sees the player is fully visible
+        setTimeout(() => {
+            if (ytPlayer && ytPlayer.getPlayerState) {
+                initializePlayback();
+            }
+        }, 350);
     };
 
     document.getElementById('ytm-minimize-btn').addEventListener('click', (e) => {
         e.stopPropagation();
-        playerEl.style.display = 'none';
+        playerEl.classList.remove('show-player');
         minIcon.style.display = 'flex';
     });
 
     document.getElementById('ytm-close-btn').addEventListener('click', (e) => {
         e.stopPropagation();
-        playerEl.style.display = 'none';
+        playerEl.classList.remove('show-player');
         minIcon.style.display = 'none';
         localStorage.setItem('ytm_playing', 'false');
         if (ytPlayer && ytPlayer.pauseVideo) ytPlayer.pauseVideo();
@@ -613,24 +638,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.onYouTubeIframeAPIReady = function () {
         ytPlayer = new YT.Player('ytm-player-frame', {
+            // EXACT configuration matched to the old working Segundoko API setup
             playerVars: {
                 'autoplay': 1,
                 'rel': 0,
                 'modestbranding': 1,
                 'controls': 1,
-                'disablekb': 1,
-                'playsinline': 1, // Prevents mobile browsers from blocking playback
-                'origin': window.location.hostname ? window.location.origin : '*' // Prevents local environment blocks
+                'disablekb': 1
             },
             events: {
                 'onReady': () => {
-                    applyActivePlaylist(true);
-                    hasLoadedInitialPlaylist = true;
-                    const savedIndex = localStorage.getItem('ytm_index');
-                    const savedTime = localStorage.getItem('ytm_time');
-                    const isPlaying = localStorage.getItem('ytm_playing');
-                    if (activeListId === 'local' && savedIndex !== null && isPlaying === 'true') {
-                        window.playTrack(parseInt(savedIndex), parseFloat(savedTime) || 0);
+                    // Do NOT auto-load a track if the widget is hidden. 
+                    // This bypasses the YouTube "invisible player" block.
+                    if (playerEl.classList.contains('show-player')) {
+                        initializePlayback();
                     }
                 },
                 'onStateChange': (event) => {
