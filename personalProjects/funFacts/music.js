@@ -1,10 +1,9 @@
 /* ============================================================
-   GLOBAL FLOATING MUSIC PLAYER (COMPACT EDITION)
-   Features: Mobile Drag, Play/Pause, True Shuffle
-   ============================================================ */
+   GLOBAL FLOATING MUSIC PLAYER (ADVANCED EDITION)
+   Features: Mobile Drag, True YT Iframe, External Playlists
+============================================================ */
 
-// 1. Define Playlist (Lyrics removed completely)
-const playlist = [
+const defaultPlaylist = [
     { title: "Ikaw Pa Rin Ang Pipiliin Ko", artist: "Cup of Joe", id: "v7M6fGc37cI" },
     { title: "Naiilang", artist: "Le John", id: "WUvD8XAPI4E" },
     { title: "Tahanan", artist: "Adie", id: "51Jn7_lW58o" },
@@ -35,17 +34,20 @@ const playlist = [
     { title: "Ating Dalawa", artist: "Over October", id: "nCQyjbobAjc" }
 ];
 
+let myPlaylist = JSON.parse(localStorage.getItem('rz_my_playlist')) || defaultPlaylist;
+let externalPlaylists = JSON.parse(localStorage.getItem('rz_ext_playlists')) || [];
+let activeListId = localStorage.getItem('rz_active_list') || 'local';
+
 let ytPlayer;
 let timeTrackerInterval;
-
-// Global States
 let isShuffle = false;
+let repeatMode = 0; // 0 = off, 1 = all, 2 = one
 let shuffleQueue = [];
 let shufflePos = 0;
 let isListExpanded = false;
 let isProgressBarDragging = false;
+let hasLoadedInitialPlaylist = false;
 
-// Time Formatting Helper (converts seconds to M:SS)
 function formatYtmTime(seconds) {
     if (!seconds || isNaN(seconds)) return "0:00";
     const m = Math.floor(seconds / 60);
@@ -53,9 +55,8 @@ function formatYtmTime(seconds) {
     return `${m}:${s < 10 ? '0' : ''}${s}`;
 }
 
-// Fisher-Yates Shuffle Algorithm
 function generateShuffleQueue() {
-    let arr = playlist.map((_, i) => i);
+    let arr = myPlaylist.map((_, i) => i);
     for (let i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [arr[i], arr[j]] = [arr[j], arr[i]];
@@ -64,65 +65,48 @@ function generateShuffleQueue() {
     shufflePos = 0;
 }
 
+function parsePlaylistUrl(url) {
+    if (url.includes('spotify.com/playlist/')) {
+        const match = url.match(/playlist\/([a-zA-Z0-9]+)/);
+        return match ? { type: 'spotify', id: match[1] } : null;
+    } else if (url.includes('youtube.com') || url.includes('youtu.be')) {
+        const match = url.match(/[?&]list=([a-zA-Z0-9_-]+)/);
+        return match ? { type: 'youtube', id: match[1] } : null;
+    }
+    return null;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-    // 2. Inject CSS
     const style = document.createElement('style');
     style.innerHTML = `
-        /* Floating Ad Blocker Alert */
-        #ytm-ad-alert {
-            position: fixed; top: 20px; right: 20px;
-            background: #030303; border-left: 4px solid var(--accent-yellow);
-            color: white; padding: 15px 20px; border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            z-index: 10002; display: flex; align-items: center; gap: 15px;
-            transform: translateX(150%); transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            font-family: 'Poppins', sans-serif; font-size: 0.85rem; max-width: 320px;
-        }
-        #ytm-ad-alert.show { transform: translateX(0); }
-        #ytm-ad-alert-close { background: none; border: none; color: white; opacity: 0.5; cursor: pointer; transition: opacity 0.2s; }
-        #ytm-ad-alert-close:hover { opacity: 1; color: var(--accent-yellow); }
-
         #floating-music-player {
-            position: fixed; bottom: 20px; right: 20px; width: 300px;
+            position: fixed; bottom: 20px; right: 20px; width: 320px;
             background-color: #030303; border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.8);
             z-index: 10000; display: none; flex-direction: column; overflow: hidden;
+            color: white; font-family: 'Poppins', sans-serif;
         }
         @media (max-width: 576px) { #floating-music-player { width: 90vw; right: 5vw; } }
-        .ytm-header { background: rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
         
-        /* Compact Audio-Only Poster with Collapse Animation */
-        .poster-container {
-            position: relative; width: 100%; height: 180px; 
-            background: #111; border-radius: 8px; overflow: hidden; margin-bottom: 10px;
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        .ytm-header { background: rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+         
+        /* Iframe Containers - LOCKED SIZE */
+        .ytm-player-frame-container { 
+            width: 100%; height: 200px; min-height: 200px; border-radius: 8px; overflow: hidden; 
+            background: #000; margin-bottom: 10px; flex-shrink: 0;
         }
-        .poster-container.collapsed { height: 0px; margin-bottom: 0px; opacity: 0; border: none; }
-        #ytm-poster { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
-        #ytm-player-frame { position: absolute; width: 1px; height: 1px; opacity: 0.01; pointer-events: none; z-index: -1; }
+        .ytm-player-frame-container iframe { width: 100%; height: 100%; border: none; pointer-events: auto; }
 
-        /* Progress Bar (Custom Range Slider) */
-        input[type=range]#ytm-progress-bar {
-            -webkit-appearance: none; width: 100%; background: transparent; margin: 5px 0;
-        }
-        input[type=range]#ytm-progress-bar::-webkit-slider-runnable-track {
-            width: 100%; height: 4px; cursor: pointer; background: rgba(255, 255, 255, 0.2); border-radius: 2px;
-        }
-        input[type=range]#ytm-progress-bar::-webkit-slider-thumb {
-            -webkit-appearance: none; height: 12px; width: 12px; border-radius: 50%;
-            background: var(--accent-yellow); cursor: pointer; margin-top: -4px;
-            box-shadow: 0 0 5px rgba(0,0,0,0.5);
-        }
+        input[type=range]#ytm-progress-bar { -webkit-appearance: none; width: 100%; background: transparent; margin: 5px 0; }
+        input[type=range]#ytm-progress-bar::-webkit-slider-runnable-track { width: 100%; height: 4px; cursor: pointer; background: rgba(255, 255, 255, 0.2); border-radius: 2px; }
+        input[type=range]#ytm-progress-bar::-webkit-slider-thumb { -webkit-appearance: none; height: 12px; width: 12px; border-radius: 50%; background: var(--accent-yellow); cursor: pointer; margin-top: -4px; box-shadow: 0 0 5px rgba(0,0,0,0.5); }
         input[type=range]#ytm-progress-bar:focus { outline: none; }
 
-        /* Controls */
-        .ytm-controls { display: flex; justify-content: center; gap: 25px; align-items: center; padding: 0 15px; margin-top: 5px; }
-        .ytm-controls button { background: none; border: none; color: white; font-size: 1.3rem; cursor: pointer; transition: color 0.2s; padding: 5px;}
-        .ytm-controls button:hover { color: var(--accent-yellow); }
-        .ytm-controls button.active { color: var(--accent-yellow); }
+        .ytm-controls { display: flex; justify-content: center; gap: 15px; align-items: center; padding: 0 10px; margin-top: 5px; }
+        .ytm-controls button { background: none; border: none; color: white; font-size: 1.2rem; cursor: pointer; transition: color 0.2s; padding: 5px;}
+        .ytm-controls button:hover, .ytm-controls button.active { color: var(--accent-yellow); }
         #ytm-btn-play { font-size: 2rem; color: var(--accent-yellow); } 
 
-        /* Bigger Minimized Icon */
         #minimized-music-icon {
             position: fixed; bottom: 20px; right: 90px; width: 65px; height: 65px; 
             background-color: #030303; border: 2px solid var(--accent-yellow); color: var(--accent-yellow);
@@ -132,182 +116,353 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         #minimized-music-icon:active { cursor: grabbing; }
 
-        /* Expand Button */
-        #ytm-btn-expand {
-            background: none; border: none; width: 100%; color: white; opacity: 0.5;
-            font-size: 1.2rem; cursor: pointer; padding: 2px 0; transition: all 0.3s;
-        }
+        #ytm-btn-expand { background: none; border: none; width: 100%; color: white; opacity: 0.5; font-size: 1.2rem; cursor: pointer; padding: 2px 0; transition: all 0.3s; }
         #ytm-btn-expand:hover { opacity: 1; color: var(--accent-yellow); }
         
-        /* Expandable Tracklist */
-        #ytm-tracklist {
-            max-height: 140px; transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            overflow-y: auto; overflow-x: hidden; border-top: 1px solid rgba(255,255,255,0.05);
-            padding: 4px 8px; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; 
-            scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.2) transparent; 
-        }
-        #ytm-tracklist.expanded { max-height: 350px; }
-        #ytm-tracklist::-webkit-scrollbar { width: 4px; }
-        #ytm-tracklist::-webkit-scrollbar-track { background: transparent; }
-        #ytm-tracklist::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; transition: background 0.3s ease; }
-        #ytm-tracklist:hover::-webkit-scrollbar-thumb, #ytm-tracklist::-webkit-scrollbar-thumb:hover { background: var(--accent-yellow); }
-
-        .ytm-track-item {
-            display: flex; align-items: center; padding: 6px 10px; border-radius: 8px;
-            cursor: pointer; transition: background 0.2s ease; border-left: 3px solid transparent;
-        }
+        #ytm-tracklist-container { max-height: 140px; transition: max-height 0.4s; overflow-y: auto; overflow-x: hidden; border-top: 1px solid rgba(255,255,255,0.05); padding: 4px 8px; scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.2) transparent; }
+        #ytm-tracklist-container.expanded { max-height: 300px; }
+        
+        .ytm-track-item { display: flex; align-items: center; padding: 6px 10px; border-radius: 8px; cursor: pointer; transition: background 0.2s ease; border-left: 3px solid transparent; }
         .ytm-track-item:hover { background: rgba(255, 255, 255, 0.05); }
         .ytm-track-item.active { background: rgba(255, 255, 255, 0.08); border-left: 3px solid var(--accent-yellow); }
         .ytm-track-item.active .ytm-title { color: var(--accent-yellow) !important; }
-        .ytm-thumb { width: 35px; height: 35px; border-radius: 4px; object-fit: cover; margin-right: 10px; }
+        
+        .manager-list-item { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 8px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-size: 0.8rem; }
     `;
     document.head.appendChild(style);
-
-    // 3. Build HTML Tracklist
-    let trackListHTML = playlist.map((song, index) => `
-        <div class="ytm-track-item" data-index="${index}">
-            <img src="https://img.youtube.com/vi/${song.id}/mqdefault.jpg" class="ytm-thumb" alt="Thumbnail">
-            <div class="flex-grow-1 overflow-hidden">
-                <div class="ytm-title text-white text-truncate fw-bold" style="font-size: 0.85rem;">${song.title}</div>
-                <div class="text-secondary text-truncate" style="font-size: 0.7rem;">${song.artist}</div>
-            </div>
-        </div>
-    `).join('');
 
     const playerHTML = `
         <div id="floating-music-player">
             <div class="ytm-header d-flex justify-content-between align-items-center p-2 px-3">
                 <div class="d-flex align-items-center">
                     <i class="bi bi-music-note-list fs-5 me-2" style="color: var(--accent-yellow);"></i>
-                    <span class="text-white fw-bold" style="font-size: 0.85rem;">Music Explorer</span>
+                    <span class="fw-bold" style="font-size: 0.85rem;">Music Explorer</span>
                 </div>
                 <div>
+                    <button id="ytm-btn-settings" class="btn btn-sm text-white opacity-75" title="Manage Library"><i class="bi bi-gear-fill"></i></button>
                     <button id="ytm-minimize-btn" class="btn btn-sm text-white opacity-75"><i class="bi bi-dash-lg"></i></button>
                     <button id="ytm-close-btn" class="btn btn-sm text-white opacity-75"><i class="bi bi-x-lg"></i></button>
                 </div>
             </div>
             
-            <div class="p-3 pb-0">
-                <div class="poster-container shadow" id="ytm-poster-container">
-                    <img id="ytm-poster" src="" alt="Song Poster">
-                </div>
-                <div id="ytm-player-frame"></div>
+            <!-- MAIN PLAYER VIEW -->
+            <div id="ytm-main-view" class="d-flex flex-column">
+                <div class="p-3 pb-0">
+                    <select id="ytm-playlist-select" class="form-select form-select-sm bg-dark text-white border-secondary mb-3"></select>
 
-                <div class="text-center mt-1">
-                    <div id="ytm-np-title" class="text-white fw-bold text-truncate" style="font-size: 1rem;">Select a track</div>
-                    <div id="ytm-np-artist" class="text-secondary text-truncate" style="font-size: 0.8rem;">To start listening</div>
-                </div>
-
-                <div class="ytm-progress-container px-2 mt-3">
-                    <div class="d-flex justify-content-between text-secondary mb-1" style="font-size: 0.75rem; font-family: monospace;">
-                        <span id="ytm-time-current">0:00</span>
-                        <span id="ytm-time-total">0:00</span>
+                    <div id="ytm-media-wrapper" class="w-100 mb-2">
+                        <div id="spotify-container" style="display:none; width:100%;"></div>
+                        <div id="ytm-player-frame-wrapper" class="ytm-player-frame-container shadow-sm">
+                            <div id="ytm-player-frame"></div>
+                        </div>
                     </div>
-                    <input type="range" id="ytm-progress-bar" value="0" min="0" max="100" step="1">
+
+                    <div id="ytm-core-controls">
+                        <div class="text-center mt-1">
+                            <div id="ytm-np-title" class="fw-bold text-truncate" style="font-size: 1rem;">Select a track</div>
+                            <div id="ytm-np-artist" class="text-secondary text-truncate" style="font-size: 0.8rem;">To start listening</div>
+                        </div>
+
+                        <div id="ytm-progress-wrapper" class="px-2 mt-2">
+                            <div class="d-flex justify-content-between text-secondary mb-1" style="font-size: 0.75rem; font-family: monospace;">
+                                <span id="ytm-time-current">0:00</span>
+                                <span id="ytm-time-total">0:00</span>
+                            </div>
+                            <input type="range" id="ytm-progress-bar" value="0" min="0" max="100" step="1">
+                        </div>
+
+                        <div class="ytm-controls">
+                            <button id="ytm-btn-shuffle" title="Shuffle"><i class="bi bi-shuffle"></i></button>
+                            <button id="ytm-btn-prev" title="Previous"><i class="bi bi-skip-backward-fill"></i></button>
+                            <button id="ytm-btn-play" title="Play/Pause"><i class="bi bi-play-fill"></i></button>
+                            <button id="ytm-btn-next" title="Next"><i class="bi bi-skip-forward-fill"></i></button>
+                            <button id="ytm-btn-repeat" title="Repeat"><i class="bi bi-repeat"></i></button>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="ytm-controls">
-                    <button id="ytm-btn-shuffle" title="Shuffle"><i class="bi bi-shuffle"></i></button>
-                    <button id="ytm-btn-prev" title="Previous"><i class="bi bi-skip-backward-fill"></i></button>
-                    <button id="ytm-btn-play" title="Play/Pause"><i class="bi bi-play-fill"></i></button>
-                    <button id="ytm-btn-next" title="Next"><i class="bi bi-skip-forward-fill"></i></button>
+                <button id="ytm-btn-expand" title="Expand/Collapse Playlist"><i class="bi bi-chevron-compact-down"></i></button>
+
+                <div id="ytm-tracklist-container">
+                    <div id="ytm-tracklist" class="d-flex flex-column pb-2"></div>
                 </div>
             </div>
 
-            <button id="ytm-btn-expand" title="Expand/Collapse Playlist"><i class="bi bi-chevron-compact-down"></i></button>
+            <!-- SETTINGS / LIBRARY VIEW -->
+            <div id="ytm-manage-view" class="p-3 overflow-auto" style="display:none; max-height: 400px; scrollbar-width: thin;">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h6 class="text-warning mb-0 fs-6">Local Tracks</h6>
+                    <div class="d-flex gap-1">
+                        <button id="ytm-btn-export" class="btn btn-sm btn-outline-warning p-1 px-2"><i class="bi bi-download"></i></button>
+                        <label class="btn btn-sm btn-outline-info mb-0 p-1 px-2" style="cursor: pointer;">
+                            <i class="bi bi-upload"></i><input type="file" id="ytm-file-import" accept=".json" hidden>
+                        </label>
+                    </div>
+                </div>
+                <div class="mb-3 p-2 rounded" style="background: rgba(255,255,255,0.05); border: 1px dashed rgba(255,255,255,0.2);">
+                    <input type="text" id="ytm-new-title" placeholder="Song Title" class="form-control form-control-sm bg-dark text-white border-secondary mb-1">
+                    <input type="text" id="ytm-new-artist" placeholder="Artist" class="form-control form-control-sm bg-dark text-white border-secondary mb-1">
+                    <div class="d-flex gap-1">
+                        <input type="text" id="ytm-new-id" placeholder="YT Link or ID" class="form-control form-control-sm bg-dark text-white border-secondary">
+                        <button id="ytm-btn-add-track" class="btn btn-sm btn-success"><i class="bi bi-plus-lg"></i></button>
+                    </div>
+                </div>
+                <div id="ytm-local-track-edit-list" class="d-flex flex-column mb-4" style="max-height: 150px; overflow-y: auto;"></div>
 
-            <div id="ytm-tracklist">
-                ${trackListHTML}
+                <h6 class="text-warning mb-2 fs-6">External Playlists</h6>
+                <div class="mb-3 p-2 rounded" style="background: rgba(255,255,255,0.05); border: 1px dashed rgba(255,255,255,0.2);">
+                    <input type="text" id="ytm-new-pl-name" placeholder="Display Name" class="form-control form-control-sm bg-dark text-white border-secondary mb-1">
+                    <div class="d-flex gap-1">
+                        <input type="text" id="ytm-new-pl-url" placeholder="Spotify/YT URL" class="form-control form-control-sm bg-dark text-white border-secondary">
+                        <button id="ytm-btn-add-pl" class="btn btn-sm btn-success"><i class="bi bi-plus-lg"></i></button>
+                    </div>
+                </div>
+                <div id="ytm-imported-pl-list" class="d-flex flex-column" style="max-height: 150px; overflow-y: auto;"></div>
             </div>
         </div>
         <div id="minimized-music-icon" title="Open Music Player">
             <i class="bi bi-music-note-beamed"></i>
         </div>
-        <div id="ytm-ad-alert">
-            <i class="bi bi-shield-check fs-3" style="color: var(--accent-yellow);"></i>
-            <div class="flex-grow-1 text-start">
-                <strong class="d-block text-white" style="font-size: 0.95rem;">Pro Tip</strong>
-                <span class="text-secondary" style="font-size: 0.75rem;">Use an Ad Blocker for an uninterrupted, ad-free listening experience.</span>
-            </div>
-            <button id="ytm-ad-alert-close"><i class="bi bi-x-lg"></i></button>
-        </div>
     `;
     document.body.insertAdjacentHTML('beforeend', playerHTML);
 
-    // 4. Load the YouTube Iframe API Script
     const tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
     document.head.appendChild(tag);
 
-    // 5. Logic Variables & Progress Bar Events
     const playerEl = document.getElementById('floating-music-player');
     const minIcon = document.getElementById('minimized-music-icon');
-    const tracks = document.querySelectorAll('.ytm-track-item');
     const tracklistEl = document.getElementById('ytm-tracklist');
+    const tracklistContainer = document.getElementById('ytm-tracklist-container');
     const expandBtn = document.getElementById('ytm-btn-expand');
-    const posterContainer = document.getElementById('ytm-poster-container');
+    const ytPlayerFrameWrapper = document.getElementById('ytm-player-frame-wrapper');
+    const spotContainer = document.getElementById('spotify-container');
+    const ytCoreControls = document.getElementById('ytm-core-controls');
+    const progressBarWrap = document.getElementById('ytm-progress-wrapper');
     const progressBar = document.getElementById('ytm-progress-bar');
+    const playBtn = document.getElementById('ytm-btn-play');
+    const shuffleBtn = document.getElementById('ytm-btn-shuffle');
+    const repeatBtn = document.getElementById('ytm-btn-repeat');
 
-    // UI Initial State: If no song played previously, auto-expand the queue & hide poster
+    const mainView = document.getElementById('ytm-main-view');
+    const manageView = document.getElementById('ytm-manage-view');
+    const btnSettings = document.getElementById('ytm-btn-settings');
+    let isManageView = false;
+
     isListExpanded = localStorage.getItem('ytm_index') === null;
     if (isListExpanded) {
-        tracklistEl.classList.add('expanded');
-        posterContainer.classList.add('collapsed');
+        tracklistContainer.classList.add('expanded');
         expandBtn.innerHTML = '<i class="bi bi-chevron-compact-up"></i>';
     }
 
-    // Progress Bar Scrubbing Logic
     progressBar.addEventListener('mousedown', () => isProgressBarDragging = true);
     progressBar.addEventListener('touchstart', () => isProgressBarDragging = true, { passive: true });
-    
     progressBar.addEventListener('input', (e) => {
-        // Update the time text instantly while dragging
         document.getElementById('ytm-time-current').innerText = formatYtmTime(e.target.value);
     });
-
     progressBar.addEventListener('change', (e) => {
-        // Actually seek the video when the user lets go
-        if (ytPlayer && ytPlayer.seekTo) {
-            ytPlayer.seekTo(parseFloat(e.target.value), true);
-        }
+        if (ytPlayer && ytPlayer.seekTo) ytPlayer.seekTo(parseFloat(e.target.value), true);
         isProgressBarDragging = false;
     });
 
-    // Tracklist Expand Toggle
     expandBtn.addEventListener('click', () => {
         isListExpanded = !isListExpanded;
-        tracklistEl.classList.toggle('expanded', isListExpanded);
-        posterContainer.classList.toggle('collapsed', isListExpanded);
+        tracklistContainer.classList.toggle('expanded', isListExpanded);
         expandBtn.innerHTML = isListExpanded ? '<i class="bi bi-chevron-compact-up"></i>' : '<i class="bi bi-chevron-compact-down"></i>';
     });
 
-    // UI Click Events for Tracks
-    tracks.forEach(track => {
-        track.addEventListener('click', function () {
-            window.playTrack(parseInt(this.getAttribute('data-index')), 0);
-        });
+    btnSettings.addEventListener('click', () => {
+        isManageView = !isManageView;
+        if (isManageView) {
+            // Remove d-flex and add d-none to override Bootstrap's !important rule
+            mainView.classList.remove('d-flex');
+            mainView.classList.add('d-none');
+            manageView.style.display = 'block';
+
+            btnSettings.innerHTML = '<i class="bi bi-music-note-beamed"></i>';
+            renderManagerDropdown();
+            renderLocalEditor();
+            renderExternalEditor();
+        } else {
+            // Restore main view
+            mainView.classList.remove('d-none');
+            mainView.classList.add('d-flex');
+            manageView.style.display = 'none';
+
+            btnSettings.innerHTML = '<i class="bi bi-gear-fill"></i>';
+        }
     });
 
-    // Toggle States
+    function renderTracklist() {
+        if (activeListId !== 'local' || !tracklistEl) return;
+        tracklistEl.innerHTML = myPlaylist.map((song, index) => `
+            <div class="ytm-track-item" data-index="${index}">
+                <div class="flex-grow-1 overflow-hidden">
+                    <div class="ytm-title text-white text-truncate fw-bold" style="font-size: 0.85rem;">${song.title}</div>
+                    <div class="text-secondary text-truncate" style="font-size: 0.7rem;">${song.artist}</div>
+                </div>
+            </div>
+        `).join('');
+
+        document.querySelectorAll('.ytm-track-item').forEach(track => {
+            track.addEventListener('click', function () {
+                window.playTrack(parseInt(this.getAttribute('data-index')), 0);
+            });
+        });
+    }
+
+    function renderManagerDropdown() {
+        const select = document.getElementById('ytm-playlist-select');
+        if (!select) return;
+        let html = `<option value="local" ${activeListId === 'local' ? 'selected' : ''}>📍 Local Selection</option>`;
+        externalPlaylists.forEach(pl => {
+            html += `<option value="${pl.id}" ${activeListId === pl.id ? 'selected' : ''}>${pl.type === 'spotify' ? '🟢' : '🔴'} ${pl.name}</option>`;
+        });
+        select.innerHTML = html;
+    }
+
+    function renderLocalEditor() {
+        const list = document.getElementById('ytm-local-track-edit-list');
+        if (!list) return;
+        list.innerHTML = myPlaylist.map((song, i) => `
+            <div class="manager-list-item">
+                <span class="text-truncate" style="max-width: 65%;">${song.title}</span>
+                <div class="flex-shrink-0">
+                    <button class="btn btn-link text-danger p-0" onclick="window.ytmDeleteLocal(${i})"><i class="bi bi-trash"></i></button>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function renderExternalEditor() {
+        const list = document.getElementById('ytm-imported-pl-list');
+        if (!list) return;
+        list.innerHTML = externalPlaylists.map((pl, i) => `
+            <div class="manager-list-item">
+                <span class="text-truncate text-warning" style="max-width: 65%;">${pl.name}</span>
+                <div class="flex-shrink-0">
+                    <button class="btn btn-link text-danger p-0" onclick="window.ytmDeleteExternal(${i})"><i class="bi bi-trash"></i></button>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    window.ytmDeleteLocal = (index) => {
+        myPlaylist.splice(index, 1);
+        localStorage.setItem('rz_my_playlist', JSON.stringify(myPlaylist));
+        renderLocalEditor();
+        renderTracklist();
+        if (activeListId === 'local') generateShuffleQueue();
+    };
+
+    window.ytmDeleteExternal = (index) => {
+        const pl = externalPlaylists[index];
+        externalPlaylists.splice(index, 1);
+        localStorage.setItem('rz_ext_playlists', JSON.stringify(externalPlaylists));
+        if (activeListId === pl.id) {
+            activeListId = 'local';
+            localStorage.setItem('rz_active_list', activeListId);
+            applyActivePlaylist();
+        }
+        renderManagerDropdown();
+        renderExternalEditor();
+    };
+
+    document.getElementById('ytm-btn-add-track').addEventListener('click', () => {
+        const title = document.getElementById('ytm-new-title').value.trim();
+        const artist = document.getElementById('ytm-new-artist').value.trim();
+        let idStr = document.getElementById('ytm-new-id').value.trim();
+
+        if (idStr.includes('v=')) idStr = idStr.split('v=')[1].split('&')[0];
+        else if (idStr.includes('youtu.be/')) idStr = idStr.split('youtu.be/')[1].split('?')[0];
+
+        if (title && artist && idStr) {
+            myPlaylist.push({ title, artist, id: idStr });
+            localStorage.setItem('rz_my_playlist', JSON.stringify(myPlaylist));
+            document.getElementById('ytm-new-title').value = '';
+            document.getElementById('ytm-new-artist').value = '';
+            document.getElementById('ytm-new-id').value = '';
+            renderLocalEditor();
+            renderTracklist();
+            if (activeListId === 'local') generateShuffleQueue();
+        }
+    });
+
+    document.getElementById('ytm-btn-add-pl').addEventListener('click', () => {
+        const name = document.getElementById('ytm-new-pl-name').value.trim();
+        const url = document.getElementById('ytm-new-pl-url').value.trim();
+        const parsed = parsePlaylistUrl(url);
+
+        if (name && parsed) {
+            externalPlaylists.push({ name, type: parsed.type, id: parsed.id });
+            localStorage.setItem('rz_ext_playlists', JSON.stringify(externalPlaylists));
+            document.getElementById('ytm-new-pl-name').value = '';
+            document.getElementById('ytm-new-pl-url').value = '';
+            renderManagerDropdown();
+            renderExternalEditor();
+        } else {
+            alert("Invalid URL. Must be a Spotify or YouTube Playlist link.");
+        }
+    });
+
+    document.getElementById('ytm-playlist-select').addEventListener('change', (e) => {
+        activeListId = e.target.value;
+        localStorage.setItem('rz_active_list', activeListId);
+        isShuffle = false;
+        if (shuffleBtn) shuffleBtn.classList.remove('active');
+        repeatMode = 0;
+        if (repeatBtn) repeatBtn.innerHTML = '<i class="bi bi-repeat"></i>';
+        if (ytPlayer && ytPlayer.setShuffle) ytPlayer.setShuffle(false);
+        if (ytPlayer && ytPlayer.setLoop) ytPlayer.setLoop(false);
+        applyActivePlaylist();
+    });
+
+    document.getElementById('ytm-btn-export').addEventListener('click', () => {
+        const backupData = { type: 'rz_music_backup', version: 1, local: myPlaylist, external: externalPlaylists };
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(backupData, null, 2));
+        const downloadAnchorNode = document.createElement('a');
+        downloadAnchorNode.setAttribute("href", dataStr);
+        downloadAnchorNode.setAttribute("download", "rz_music_backup.json");
+        document.body.appendChild(downloadAnchorNode);
+        downloadAnchorNode.click();
+        downloadAnchorNode.remove();
+    });
+
+    document.getElementById('ytm-file-import').addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            try {
+                const imported = JSON.parse(event.target.result);
+                if (imported.type === 'rz_music_backup') {
+                    myPlaylist = imported.local || [];
+                    externalPlaylists = imported.external || [];
+                } else if (Array.isArray(imported)) {
+                    myPlaylist = imported;
+                } else throw new Error("Invalid format");
+                localStorage.setItem('rz_my_playlist', JSON.stringify(myPlaylist));
+                localStorage.setItem('rz_ext_playlists', JSON.stringify(externalPlaylists));
+                renderLocalEditor();
+                renderExternalEditor();
+                renderManagerDropdown();
+                renderTracklist();
+                if (activeListId === 'local') generateShuffleQueue();
+                alert("Database imported successfully!");
+            } catch (err) { alert("Invalid JSON file."); }
+        };
+        reader.readAsText(file);
+    });
+
     window.triggerMusicEvent = function () {
         playerEl.style.display = 'flex';
         minIcon.style.display = 'none';
-        
-        if (!sessionStorage.getItem('ytm_alert_shown')) {
-            setTimeout(() => {
-                document.getElementById('ytm-ad-alert').classList.add('show');
-                sessionStorage.setItem('ytm_alert_shown', 'true');
-            }, 800); 
-
-            setTimeout(() => {
-                document.getElementById('ytm-ad-alert').classList.remove('show');
-            }, 8800);
+        renderManagerDropdown();
+        if (!hasLoadedInitialPlaylist && ytPlayer && ytPlayer.getPlayerState) {
+            applyActivePlaylist(true);
+            hasLoadedInitialPlaylist = true;
         }
     };
-
-    document.getElementById('ytm-ad-alert-close').addEventListener('click', () => {
-        document.getElementById('ytm-ad-alert').classList.remove('show');
-    });
 
     document.getElementById('ytm-minimize-btn').addEventListener('click', (e) => {
         e.stopPropagation();
@@ -320,51 +475,65 @@ document.addEventListener('DOMContentLoaded', () => {
         playerEl.style.display = 'none';
         minIcon.style.display = 'none';
         localStorage.setItem('ytm_playing', 'false');
-        if (ytPlayer && ytPlayer.stopVideo) ytPlayer.stopVideo();
-        document.getElementById('ytm-btn-play').innerHTML = '<i class="bi bi-play-fill"></i>';
-        tracks.forEach(t => t.classList.remove('active'));
+        if (ytPlayer && ytPlayer.pauseVideo) ytPlayer.pauseVideo();
+        playBtn.innerHTML = '<i class="bi bi-play-fill"></i>';
     });
 
-    // Control Buttons Logic
     document.getElementById('ytm-btn-prev').addEventListener('click', () => {
+        if (activeListId !== 'local') { if (ytPlayer && ytPlayer.previousVideo) ytPlayer.previousVideo(); return; }
         let currIndex = parseInt(localStorage.getItem('ytm_index')) || 0;
-        let prevIndex = (currIndex - 1 + playlist.length) % playlist.length;
+        let prevIndex = (currIndex - 1 + myPlaylist.length) % myPlaylist.length;
         window.playTrack(prevIndex, 0);
     });
 
     document.getElementById('ytm-btn-next').addEventListener('click', () => {
+        if (activeListId !== 'local') { if (ytPlayer && ytPlayer.nextVideo) ytPlayer.nextVideo(); return; }
         if (isShuffle) {
             shufflePos++;
             if (shufflePos >= shuffleQueue.length) generateShuffleQueue();
             window.playTrack(shuffleQueue[shufflePos], 0);
         } else {
             let currIndex = parseInt(localStorage.getItem('ytm_index')) || 0;
-            let nextIndex = (currIndex + 1) % playlist.length;
+            let nextIndex = (currIndex + 1) % myPlaylist.length;
             window.playTrack(nextIndex, 0);
         }
     });
 
-    const playBtn = document.getElementById('ytm-btn-play');
     playBtn.addEventListener('click', () => {
         if (ytPlayer && ytPlayer.getPlayerState) {
-            if (ytPlayer.getPlayerState() === YT.PlayerState.PLAYING) {
-                ytPlayer.pauseVideo();
-            } else {
-                ytPlayer.playVideo();
-            }
+            if (ytPlayer.getPlayerState() === YT.PlayerState.PLAYING) ytPlayer.pauseVideo();
+            else ytPlayer.playVideo();
         }
     });
 
-    const shuffleBtn = document.getElementById('ytm-btn-shuffle');
     shuffleBtn.addEventListener('click', () => {
         isShuffle = !isShuffle;
         shuffleBtn.classList.toggle('active', isShuffle);
+        if (activeListId !== 'local') { if (ytPlayer && ytPlayer.setShuffle) ytPlayer.setShuffle(isShuffle); return; }
         if (isShuffle) generateShuffleQueue();
     });
 
-    // 6. Universal Dragging Logic (Mouse & Mobile Touch)
-    let isDraggingIcon = false, isDragAction = false, startX, startY, iconLeft, iconTop;
+    repeatBtn.addEventListener('click', () => {
+        repeatMode = (repeatMode + 1) % 3;
+        const pl = externalPlaylists.find(p => p.id === activeListId);
+        if (pl && pl.type === 'youtube' && repeatMode === 2) repeatMode = 0;
 
+        if (repeatMode === 0) {
+            repeatBtn.innerHTML = '<i class="bi bi-repeat"></i>';
+            repeatBtn.classList.remove('active');
+            if (ytPlayer && ytPlayer.setLoop) ytPlayer.setLoop(false);
+        } else if (repeatMode === 1) {
+            repeatBtn.innerHTML = '<i class="bi bi-repeat"></i>';
+            repeatBtn.classList.add('active');
+            if (activeListId !== 'local' && ytPlayer && ytPlayer.setLoop) ytPlayer.setLoop(true);
+        } else {
+            repeatBtn.innerHTML = '<i class="bi bi-repeat-1"></i>';
+            repeatBtn.classList.add('active');
+            if (activeListId !== 'local' && ytPlayer && ytPlayer.setLoop) ytPlayer.setLoop(false);
+        }
+    });
+
+    let isDraggingIcon = false, isDragAction = false, startX, startY, iconLeft, iconTop;
     const getEventX = (e) => e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
     const getEventY = (e) => e.type.includes('mouse') ? e.clientY : e.touches[0].clientY;
 
@@ -383,7 +552,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const dy = getEventY(e) - startY;
         if (Math.abs(dx) > 3 || Math.abs(dy) > 3) isDragAction = true;
         if (e.cancelable && e.type.includes('touch')) e.preventDefault();
-
         minIcon.style.left = (iconLeft + dx) + 'px';
         minIcon.style.top = (iconTop + dy) + 'px';
     };
@@ -401,113 +569,154 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isDragAction) { e.preventDefault(); return; }
         window.triggerMusicEvent();
     });
-});
 
-// 7. YouTube API Ready Global Callback
-window.onYouTubeIframeAPIReady = function () {
-    ytPlayer = new YT.Player('ytm-player-frame', {
-        playerVars: { 'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'controls': 0, 'disablekb': 1 },
-        events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
+    function applyActivePlaylist(silentLoad = false) {
+        spotContainer.innerHTML = '';
+        if (ytPlayer && ytPlayer.pauseVideo) ytPlayer.pauseVideo();
+
+        if (activeListId === 'local') {
+            spotContainer.style.display = 'none';
+            ytPlayerFrameWrapper.style.display = 'block';
+            ytCoreControls.style.display = 'block';
+            tracklistContainer.style.display = 'block';
+            progressBarWrap.style.display = 'block';
+            expandBtn.style.display = 'block';
+
+            renderTracklist();
+            generateShuffleQueue();
+
+            if (!silentLoad) window.playTrack(parseInt(localStorage.getItem('ytm_index')) || 0, 0);
+        } else {
+            const pl = externalPlaylists.find(p => p.id === activeListId);
+            if (!pl) return;
+            tracklistContainer.style.display = 'none';
+            expandBtn.style.display = 'none';
+
+            if (pl.type === 'spotify') {
+                ytPlayerFrameWrapper.style.display = 'none';
+                ytCoreControls.style.display = 'none';
+                spotContainer.style.display = 'block';
+                spotContainer.innerHTML = `<iframe style="border-radius:8px" src="https://open.spotify.com/embed/playlist/${pl.id}?utm_source=generator&theme=0" width="100%" height="350" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
+            } else if (pl.type === 'youtube') {
+                spotContainer.style.display = 'none';
+                ytPlayerFrameWrapper.style.display = 'block';
+                ytCoreControls.style.display = 'block';
+                progressBarWrap.style.display = 'none';
+
+                document.getElementById('ytm-np-title').innerText = pl.name;
+                document.getElementById('ytm-np-artist').innerText = "YouTube Playlist";
+
+                if (ytPlayer && ytPlayer.loadPlaylist) ytPlayer.loadPlaylist({ list: pl.id, listType: 'playlist' });
+            }
         }
-    });
-};
-
-function onPlayerReady(event) {
-    const savedIndex = localStorage.getItem('ytm_index');
-    const savedTime = localStorage.getItem('ytm_time');
-    const isPlaying = localStorage.getItem('ytm_playing');
-
-    if (savedIndex !== null && isPlaying === 'true') {
-        window.triggerMusicEvent();
-        window.playTrack(parseInt(savedIndex), parseFloat(savedTime) || 0);
     }
-}
 
-function onPlayerStateChange(event) {
-    const playBtn = document.getElementById('ytm-btn-play');
-    const progressBar = document.getElementById('ytm-progress-bar');
-    const timeCurrent = document.getElementById('ytm-time-current');
-    const timeTotal = document.getElementById('ytm-time-total');
+    window.onYouTubeIframeAPIReady = function () {
+        ytPlayer = new YT.Player('ytm-player-frame', {
+            playerVars: {
+                'autoplay': 1,
+                'rel': 0,
+                'modestbranding': 1,
+                'controls': 1,
+                'disablekb': 1,
+                'playsinline': 1, // Prevents mobile browsers from blocking playback
+                'origin': window.location.hostname ? window.location.origin : '*' // Prevents local environment blocks
+            },
+            events: {
+                'onReady': () => {
+                    applyActivePlaylist(true);
+                    hasLoadedInitialPlaylist = true;
+                    const savedIndex = localStorage.getItem('ytm_index');
+                    const savedTime = localStorage.getItem('ytm_time');
+                    const isPlaying = localStorage.getItem('ytm_playing');
+                    if (activeListId === 'local' && savedIndex !== null && isPlaying === 'true') {
+                        window.playTrack(parseInt(savedIndex), parseFloat(savedTime) || 0);
+                    }
+                },
+                'onStateChange': (event) => {
+                    if (activeListId === 'spotify') return;
+                    const timeCurrent = document.getElementById('ytm-time-current');
+                    const timeTotal = document.getElementById('ytm-time-total');
 
-    if (event.data === YT.PlayerState.PLAYING) {
-        playBtn.innerHTML = '<i class="bi bi-pause-fill"></i>';
-        localStorage.setItem('ytm_playing', 'true');
-        clearInterval(timeTrackerInterval);
-        
-        // Grab duration once playback officially starts
-        const duration = ytPlayer.getDuration();
-        if (duration) {
-            progressBar.max = duration;
-            timeTotal.innerText = formatYtmTime(duration);
-        }
+                    if (event.data === YT.PlayerState.PLAYING) {
+                        playBtn.innerHTML = '<i class="bi bi-pause-fill"></i>';
+                        localStorage.setItem('ytm_playing', 'true');
+                        clearInterval(timeTrackerInterval);
 
-        timeTrackerInterval = setInterval(() => {
-            if (ytPlayer && ytPlayer.getCurrentTime && !isProgressBarDragging) {
-                const currTime = ytPlayer.getCurrentTime();
-                localStorage.setItem('ytm_time', currTime);
-                
-                progressBar.value = currTime;
-                timeCurrent.innerText = formatYtmTime(currTime);
+                        const duration = ytPlayer.getDuration();
+                        if (duration && progressBar) {
+                            progressBar.max = duration;
+                            if (timeTotal) timeTotal.innerText = formatYtmTime(duration);
+                        }
+                        if (activeListId !== 'local' && ytPlayer.getVideoData) {
+                            const data = ytPlayer.getVideoData();
+                            if (data && data.title) {
+                                document.getElementById('ytm-np-title').innerText = data.title;
+                                document.getElementById('ytm-np-artist').innerText = data.author || 'YouTube Audio';
+                            }
+                        }
 
-                // Fallback check in case duration wasn't ready earlier
-                const newDuration = ytPlayer.getDuration();
-                if (newDuration && progressBar.max !== String(newDuration)) {
-                    progressBar.max = newDuration;
-                    timeTotal.innerText = formatYtmTime(newDuration);
+                        timeTrackerInterval = setInterval(() => {
+                            if (ytPlayer && ytPlayer.getCurrentTime && !isProgressBarDragging) {
+                                const currTime = ytPlayer.getCurrentTime();
+                                if (activeListId === 'local') localStorage.setItem('ytm_time', currTime);
+                                if (progressBar) progressBar.value = currTime;
+                                if (timeCurrent) timeCurrent.innerText = formatYtmTime(currTime);
+
+                                const newDuration = ytPlayer.getDuration();
+                                if (newDuration && progressBar && progressBar.max !== String(newDuration)) {
+                                    progressBar.max = newDuration;
+                                    if (timeTotal) timeTotal.innerText = formatYtmTime(newDuration);
+                                }
+                            }
+                        }, 1000);
+                    } else {
+                        playBtn.innerHTML = '<i class="bi bi-play-fill"></i>';
+                        clearInterval(timeTrackerInterval);
+                        if (event.data === YT.PlayerState.PAUSED) {
+                            localStorage.setItem('ytm_playing', 'false');
+                        } else if (event.data === YT.PlayerState.ENDED) {
+                            if (repeatMode === 2) {
+                                if (activeListId === 'local') window.playTrack(parseInt(localStorage.getItem('ytm_index')) || 0, 0);
+                                else if (ytPlayer && ytPlayer.seekTo) { ytPlayer.seekTo(0); ytPlayer.playVideo(); }
+                            } else if (activeListId === 'local') {
+                                let currIndex = parseInt(localStorage.getItem('ytm_index')) || 0;
+                                if (repeatMode === 0 && !isShuffle && currIndex === myPlaylist.length - 1) return;
+                                document.getElementById('ytm-btn-next').click();
+                            }
+                        }
+                    }
                 }
             }
-        }, 1000);
-    } else {
-        playBtn.innerHTML = '<i class="bi bi-play-fill"></i>';
-        clearInterval(timeTrackerInterval);
+        });
+    };
 
-        if (event.data === YT.PlayerState.PAUSED) {
-            localStorage.setItem('ytm_playing', 'false');
-        } else if (event.data === YT.PlayerState.ENDED) {
-            document.getElementById('ytm-btn-next').click();
+    window.playTrack = function (index, startTime = 0) {
+        if (activeListId !== 'local') return;
+        if (index >= myPlaylist.length) index = 0;
+        const song = myPlaylist[index];
+        if (!song) return;
+
+        if (progressBar) progressBar.value = 0;
+        document.getElementById('ytm-time-current').innerText = "0:00";
+        document.getElementById('ytm-time-total').innerText = "0:00";
+        document.getElementById('ytm-np-title').innerText = song.title;
+        document.getElementById('ytm-np-artist').innerText = song.artist;
+
+        if (isListExpanded) {
+            isListExpanded = false;
+            tracklistContainer.classList.remove('expanded');
+            expandBtn.innerHTML = '<i class="bi bi-chevron-compact-down"></i>';
         }
-    }
-}
 
-// 8. Global Play Function
-window.playTrack = function (index, startTime = 0) {
-    const song = playlist[index];
+        const trackNodes = document.querySelectorAll('.ytm-track-item');
+        trackNodes.forEach(t => t.classList.remove('active'));
+        if (trackNodes[index]) {
+            trackNodes[index].classList.add('active');
+            trackNodes[index].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
 
-    // Reset Progress UI immediately for snappy feedback
-    document.getElementById('ytm-progress-bar').value = 0;
-    document.getElementById('ytm-time-current').innerText = "0:00";
-    document.getElementById('ytm-time-total').innerText = "0:00";
-
-    // Auto-Collapse the list to reveal the chosen poster!
-    if (isListExpanded) {
-        isListExpanded = false;
-        document.getElementById('ytm-tracklist').classList.remove('expanded');
-        document.getElementById('ytm-poster-container').classList.remove('collapsed');
-        document.getElementById('ytm-btn-expand').innerHTML = '<i class="bi bi-chevron-compact-down"></i>';
-    }
-
-    // Update UI text
-    document.getElementById('ytm-np-title').innerText = song.title;
-    document.getElementById('ytm-np-artist').innerText = song.artist;
-
-    // Update Poster Image
-    document.getElementById('ytm-poster').src = `https://img.youtube.com/vi/${song.id}/hqdefault.jpg`;
-
-    // Update active highlight
-    const tracks = document.querySelectorAll('.ytm-track-item');
-    tracks.forEach(t => t.classList.remove('active'));
-    if (tracks[index]) {
-        tracks[index].classList.add('active');
-        tracks[index].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
-
-    // Save index
-    localStorage.setItem('ytm_index', index);
-
-    // Command the YouTube Player
-    if (ytPlayer && ytPlayer.loadVideoById) {
-        ytPlayer.loadVideoById({ videoId: song.id, startSeconds: startTime });
-    }
-};
+        localStorage.setItem('ytm_index', index);
+        if (ytPlayer && ytPlayer.loadVideoById) ytPlayer.loadVideoById({ videoId: song.id, startSeconds: startTime });
+    };
+});
