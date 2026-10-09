@@ -65,20 +65,20 @@ window.triggerAnimeEvent = function () {
         }
 
         /* The Faded Poster Overlay Gradient - DEFINITIVE FIX */
-        .bento-card::before {
+       .bento-card::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0; /* Anchors to all 4 corners flawlessly */
-            background: linear-gradient(to top, rgba(6, 9, 19, 1) 0%, rgba(6, 9, 19, 0.8) 55%, rgba(6, 9, 19, 0.0) 100%);
+            top: 0; left: 0; right: 0; bottom: 0;
+            /* FIXED: Replaced gradient with a solid, slightly transparent dark overlay for a uniform tint */
+            background-color: rgba(6, 9, 19, 0.6); 
             z-index: 1;
-            transition: background 0.3s ease;
-            pointer-events: none; /* Ensures the card is still clickable */
-            padding: 10px;
+            transition: background-color 0.3s ease;
+            pointer-events: none;
         }
         
         /* Reveal poster slightly more on hover */
         .bento-card:hover::before {
-            background: linear-gradient(to top, rgba(6, 9, 19, 0.95) 0%, rgba(6, 9, 19, 0.6) 55%, rgba(6, 9, 19, 0.0) 100%);
+            background-color: rgba(6, 9, 19, 0.3);
         }
         
         /* Dynamic Theme Tint Glow */

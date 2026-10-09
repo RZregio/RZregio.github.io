@@ -1,6 +1,5 @@
 /* --- Header Section --- */
 .header-section {
-    padding: 60px 0;
     width: 100%;
 }
 
@@ -90,7 +89,6 @@
 
 /* --- 100dvh Section Responsiveness --- */
 .dvh-100-section {
-    min-height: 100dvh;
     display: flex;
     flex-direction: column;
     justify-content: center;

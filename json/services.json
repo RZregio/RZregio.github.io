@@ -3,28 +3,28 @@
     "serviceTitle": "Web Development",
     "serviceDescription": "Building responsive, dynamic, and user-centric websites using modern frontend frameworks and backend logic.",
     "iconClass": "bi-laptop",
-    "notableExperience": "<strong><u>Role: Lead Full-Stack Developer</u></strong>. Over a rigorous 3-month internship at Arktech Philippines, I architected 'Arkteach' from the ground up, successfully integrating AI-driven contents like video lessons and monthly reports, user retention test logic and analytics. Prior to this, I spent 1 month developing the STBJobs portal, hitting milestones for secure user authentication and deploying a fully functional academic web system.",
+    "notableExperience": "<strong><u>Role: Lead Full-Stack Developer</u></strong>. At Arktech Philippines, I architected 'Arkteach', integrating AI-driven content and automated analytics via FPDF and ChatGPT API. I also engineer zero-knowledge architectures for offline-first PWAs like SegunDoko, prioritizing seamless synchronization and data privacy.",
     "experienceText": "4 Years Experience"
   },
   {
     "serviceTitle": "Quality Assurance & Testing",
     "serviceDescription": "Ensuring software reliability through rigorous evaluation, bug tracking, and performance monitoring.",
     "iconClass": "bi-patch-check",
-    "notableExperience": "<strong><u>Role: Lead QA Specialist</u></strong>. Throughout a 9-month development cycle for the LANDAS capstone project, I designed and executed strict testing protocols. My evaluations directly led the project to achieve ISO/IEC 25010 compliance, a 4.75/5 user satisfaction rating, and the 'Best in Capstone' award. At Arktech, I successfully audited and integrated industrial coding standards into their enterprise systems like Arkteach and Material Navigator.",
+    "notableExperience": "<strong><u>Role: Lead QA Specialist</u></strong>. Throughout a 9-month development cycle for the LANDAS capstone project, I designed and executed strict testing protocols achieving ISO/IEC 25010 compliance. At Arktech, I successfully audited and integrated industrial coding standards into enterprise systems like Arkteach and Material Navigator.",
     "experienceText": "4 Years Experience"
   },
   {
     "serviceTitle": "Project Management",
     "serviceDescription": "Structuring project lifecycles, managing timelines, storyboarding, and leading team coordination.",
     "iconClass": "bi-kanban",
-    "notableExperience": "<strong><u>Role: Project Manager & Team Lead</u></strong>. I directed the 9-month lifecycle of the LANDAS project, coordinating cross-functional tasks that culminated in a product yielding a 9.8% increase in user learning metrics. During my internship, I hit critical project milestones by managing seamless server migrations and successfully pitching technical architecture solutions directly to executive leadership from Material Navigator to Arkteach System.",
+    "notableExperience": "<strong><u>Role: Project Manager & Team Lead</u></strong>. I directed the LANDAS project, coordinating tasks that yielded a 9.8% increase in user learning metrics. I specialize in leading end-to-end project lifecycles, hitting critical milestones, and successfully pitching technical architecture solutions directly to executive leadership.",
     "experienceText": "8 Years Experience"
   },
   {
     "serviceTitle": "Data Administration",
     "serviceDescription": "Designing relational database schemas, optimizing complex queries, and maintaining secure data structures.",
     "iconClass": "bi-database-gear",
-    "notableExperience": "<strong><u>Role: Database Architect</u></strong>. During my time at Arktech, I designed optimized relational schemas and multi-table subqueries that successfully powered real-time data routing for the 'Material Navigator' tool. Additionally, I structured and secured the backend databases for academic web systems like STBJobs, ensuring high data integrity and drastically reducing query response times.",
+    "notableExperience": "<strong><u>Role: Database Architect</u></strong>. I design optimized relational schemas and multi-table subqueries that power real-time data routing. From structuring backend multi-tenant architectures in Supabase for SaaS platforms to engineering database logic for manufacturing logistics, I ensure high data integrity and rapid query response times.",
     "experienceText": "2 Years Experience"
   }
 ]

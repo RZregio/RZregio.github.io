@@ -2,6 +2,15 @@
 Global UI Controller
 Handles the full-page loading spinner and scroll-triggered animations.
 ----- */
+
+/* =========================================
+   IMAGE VIEWER LOGIC (Advanced & Centralized)
+   ========================================= */
+let currentGalleryImages = [];
+let currentImageIndex = 0;
+let controlsVisible = true;
+
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // 1. Intersection Observer for Scroll Animations
@@ -58,14 +67,6 @@ window.addEventListener('load', hideGlobalLoader);
 
 // SAFETY FALLBACK: Force hide the loader after 2 seconds no matter what.
 setTimeout(hideGlobalLoader, 2000);
-
-
-/* =========================================
-   IMAGE VIEWER LOGIC (Advanced & Centralized)
-   ========================================= */
-let currentGalleryImages = [];
-let currentImageIndex = 0;
-let controlsVisible = true;
 
 // Sleek Base64 SVG Fallback for broken/missing images
 const FALLBACK_IMAGE = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='100%25' height='100%25' fill='%23131B2E'/%3E%3Cpath d='M150 100l30-30 40 40 30-20 40 40V200H150z' fill='none' stroke='%23D48C1C' stroke-width='2' stroke-linejoin='round'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='18' fill='%23ffffff80'%3ENot Available%3C/text%3E%3C/svg%3E";
@@ -165,6 +166,14 @@ function renderDots() {
     dotsContainer.innerHTML = ''; // Clear existing dots
     const total = currentGalleryImages.length;
 
+    if (total <= 1) {
+        // FIXED: Use d-none to override Bootstrap's d-flex !important
+        dotsContainer.classList.add('d-none');
+        return; // Don't show dots for single images
+    } else {
+        dotsContainer.classList.remove('d-none');
+    }
+
     if (total <= 1) return; // Don't show dots for single images
 
     const maxDots = 10;
@@ -255,11 +264,23 @@ function updateViewerControls() {
     if (currentGalleryImages.length <= 1) {
         prevBtn.style.display = 'none';
         nextBtn.style.display = 'none';
-        if (dotsContainer) dotsContainer.style.display = 'none';
+        
+        if (dotsContainer) {
+            // FIXED: Use d-none to override Bootstrap's d-flex !important
+            dotsContainer.classList.add('d-none');
+            dotsContainer.innerHTML = ''; 
+        }
     } else {
         prevBtn.style.display = controlsVisible ? 'flex' : 'none';
         nextBtn.style.display = controlsVisible ? 'flex' : 'none';
-        if (dotsContainer) dotsContainer.style.display = controlsVisible ? 'flex' : 'none';
+        
+        if (dotsContainer) {
+            if (controlsVisible) {
+                dotsContainer.classList.remove('d-none');
+            } else {
+                dotsContainer.classList.add('d-none');
+            }
+        }
     }
 
     // FIX: Override the CSS !important rule using setProperty

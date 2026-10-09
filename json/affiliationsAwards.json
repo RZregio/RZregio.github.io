@@ -1,6 +1,19 @@
 [
   {
-    "awardTitle": "Top 3 – Techno MiniHackathon",
+    "awardTitle": "Top Achiever, Best in Research & Best in OJT",
+    "awardContext": "PUPSTC BSIT Batch 2026",
+    "description": "Graduated with the highest honors in the program, alongside the Best in Research award and recognition as the Top Performing OJT Trainee.",
+    "iconClass": "bi-award-fill",
+    "value": "important"
+  },
+  {
+    "awardTitle": "Steering Committee - AudioVisual & Tech",
+    "awardContext": "PUPSTC (July - Sept 2026)",
+    "description": "Managed technical executions, event coordination, and audiovisual presentations for the graduating batch.",
+    "iconClass": "bi-camera-video-fill"
+  },
+  {
+    "awardTitle": "Top 3 - Techno MiniHackathon",
     "awardContext": "PUP Sto. Tomas Campus (June 5, 2026)",
     "description": "Achieved a podium finish by rapidly wireframing, designing, and coding an agile software prototype under strict competitive time constraints.",
     "iconClass": "bi-lightning-charge-fill",

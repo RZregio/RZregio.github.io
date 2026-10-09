@@ -1,5 +1,77 @@
 [
   {
+    "category": "backend",
+    "title": "PostgreSQL",
+    "description": "Advanced open-source relational database emphasizing extensibility, data integrity, and complex query optimization.",
+    "linkUrl": "https://www.postgresql.org/",
+    "experienceText": "1 Year Experience",
+    "iconClass": "devicon-postgresql-plain"
+  },
+  {
+    "category": "frontend",
+    "title": "React Native & Expo",
+    "description": "Cross-platform mobile application development delivering native performance using JavaScript and React.",
+    "linkUrl": "https://reactnative.dev/",
+    "experienceText": "1 Year Experience",
+    "iconClass": "devicon-react-original"
+  },
+  {
+    "category": "tools",
+    "title": "Electron",
+    "description": "Building cross-platform desktop applications leveraging robust web technologies.",
+    "linkUrl": "https://www.electronjs.org/",
+    "experienceText": "1 Year Experience",
+    "iconClass": "devicon-electron-original"
+  },
+  {
+    "category": "frontend",
+    "title": "PWA & Service Workers",
+    "description": "Delivering offline-first, native-like web experiences using advanced caching and Zero-Knowledge architectures.",
+    "linkUrl": "https://web.dev/explore/progressive-web-apps",
+    "experienceText": "1 Year Experience",
+    "iconClass": "bi bi-phone-vibrate"
+  },
+  {
+    "category": "frontend",
+    "title": "React",
+    "description": "Building interactive, state-driven user interfaces and Progressive Web Apps.",
+    "linkUrl": "https://react.dev/",
+    "experienceText": "1 Year Experience",
+    "iconClass": "devicon-react-original"
+  },
+  {
+    "category": "backend",
+    "title": "Node.js",
+    "description": "Scalable server-side logic, API development, and asynchronous processing.",
+    "linkUrl": "https://nodejs.org/",
+    "experienceText": "1 Year Experience",
+    "iconClass": "devicon-nodejs-plain"
+  },
+  {
+    "category": "backend",
+    "title": "Supabase",
+    "description": "PostgreSQL management, Authentication, Row Level Security, and Realtime subscriptions.",
+    "linkUrl": "https://supabase.com/",
+    "experienceText": "1 Year Experience",
+    "iconClass": "devicon-supabase-plain"
+  },
+  {
+    "category": "tools",
+    "title": "Docker",
+    "description": "Containerization for consistent deployment and local testing environments.",
+    "linkUrl": "https://www.docker.com/",
+    "experienceText": "1 Year Experience",
+    "iconClass": "devicon-docker-plain"
+  },
+  {
+    "category": "tools",
+    "title": "Vercel",
+    "description": "Cloud platform for seamless frontend framework hosting and CI/CD pipelines.",
+    "linkUrl": "https://vercel.com/",
+    "experienceText": "1 Year Experience",
+    "iconClass": "bi bi-triangle-fill"
+  },
+  {
     "category": "frontend",
     "title": "HTML5",
     "description": "Semantic markup and structural foundation for web applications.",

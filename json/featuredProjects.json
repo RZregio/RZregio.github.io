@@ -16,7 +16,7 @@
       "ChartJS",
       "AI Video Generation"
     ],
-    "projectContext": "Developed over a 1.5-month timeline during my internship as a Full-Stack Developer and Project Manager, I, with my team, engineered this interactive e-learning platform from the ground up. I successfully integrated AI-driven content generation and comprehensive analytics tracking, resulting in a highly streamlined employee onboarding and training process for the company.",
+    "projectContext": "Developed over a 1.5-month timeline during my internship as a Full-Stack Developer and Project Manager, I, with my team, engineered this interactive e-learning platform from the ground up. I successfully integrated AI-driven content generation and comprehensive analytics tracking, resulting in a highly streamlined employee onboarding and training process for the company. Designing 6 core relational tables to permanently track video engagement and randomized assessment scores. Achieved a 4.91/5.00 usability rating, integrating AmCharts 5 for gamified dashboards and an FPDF engine with ChatGPT API for automated monthly analytics reports.",
     "previewImageUrl": "main-res/projects/arkteach.png",
     "projectLinkUrl": "",
     "mediaSource": [

@@ -5,15 +5,20 @@
 
 /* --- Header Visual Placeholder --- */
 .visual-placeholder {
-    background: linear-gradient(rgba(11, 17, 32, 0.2), rgba(11, 17, 32, 0.8)),
-        url('../main-res/aboutMe.jpg') !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
+    /* FIXED: Stack the tint directly into the background property to guarantee 100% edge-to-edge coverage */
+    background:
+        linear-gradient(rgba(11, 17, 32, 0.6), rgba(11, 17, 32, 0.6)),
+        url('../main-res/aboutMe.jpg') center left / cover no-repeat !important;
     min-height: 350px;
     border: 2px solid var(--accent-yellow);
     border-radius: 15px;
     overflow: hidden;
+}
+
+/* Ensure the text stays above the background */
+.visual-placeholder h3 {
+    position: relative;
+    z-index: 1;
 }
 
 .text-shadow {
@@ -291,11 +296,11 @@ select.custom-input:focus {
 }
 
 .recognitions-slider::-webkit-scrollbar {
-    display: none; 
+    display: none;
 }
 
 .recognitions-slider .recog-wrapper {
-    flex: 0 0 320px; 
+    flex: 0 0 320px;
     max-width: 85vw;
 }
 
@@ -306,6 +311,7 @@ select.custom-input:focus {
 
 /* --- Mobile Horizontal Grid Overrides --- */
 @media (max-width: 991px) {
+
     #full-certs-container,
     #full-awards-container {
         display: flex !important;
@@ -362,13 +368,14 @@ select.custom-input:focus {
     width: 45px;
     height: 45px;
     object-fit: contain;
-    background-color: rgba(255, 255, 255, 0.95); 
-    border-radius: 8px; 
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
     padding: 5px;
     border: 1px solid var(--accent-yellow);
 }
 
 @media (max-width: 768px) {
+
     /* Stop the body grid from squeezing content */
     body {
         display: block !important;
@@ -423,11 +430,13 @@ select.custom-input:focus {
 
 .scroll-progress-thumb {
     height: 100%;
-    width: 30%; /* Sets the size of the draggable slider thumb */
-    background-color: var(--accent-yellow) !important; /* Guaranteed theme synchronization */
+    width: 30%;
+    /* Sets the size of the draggable slider thumb */
+    background-color: var(--accent-yellow) !important;
+    /* Guaranteed theme synchronization */
     border-radius: 10px;
     position: absolute;
     top: 0;
     left: 0;
-    will-change: transform; 
+    will-change: transform;
 }
