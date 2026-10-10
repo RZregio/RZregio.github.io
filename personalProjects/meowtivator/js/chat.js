@@ -14,7 +14,7 @@ let portfolioDB = {};
 // --- FETCH DATA JSON ---
 async function loadMeowData() {
     try {
-        const response = await fetch('json/meowtivator.json');
+        const response = await fetch('/personalProjects/meowtivator/json/meowtivator.json');
         const data = await response.json();
 
         moodResponses = data.moodResponses;
@@ -162,7 +162,7 @@ function sendBotMessage(message, options = []) {
     msgRow.className = "d-flex align-items-end w-100";
 
     const avatar = document.createElement("img");
-    avatar.src = "res/CatBot.png";
+    avatar.src = "/personalProjects/meowtivator/res/CatBot.png";
     avatar.className = "bot-avatar me-2";
     avatar.alt = "Bot";
 
@@ -199,7 +199,7 @@ function showSpinner() {
     wrapper.id = "loadingSpinnerWrapper";
 
     const avatar = document.createElement("img");
-    avatar.src = "res/CatBot.png";
+    avatar.src = "/personalProjects/meowtivator/res/CatBot.png";
     avatar.className = "bot-avatar me-2";
 
     const spinner = document.createElement("div");
@@ -246,7 +246,7 @@ function processMessage(rawMsg) {
 
         // b. Direct Ask for Quotes (e.g. "give me a quote", "qoute about love", "inspire me")
         // Catches typos like 'qoute' to prevent accidental portfolio triggers
-        if (contains(msg, ["quote", "qoute", "quotes", "qoutes", "motivate", ,"motivated", "motivation", "inspire"])) {
+        if (contains(msg, ["quote", "qoute", "quotes", "qoutes", "motivate", , "motivated", "motivation", "inspire"])) {
             currentMode = "motivation";
             const categories = Object.keys(quotesDB);
             let foundCategory = categories.find(cat => contains(msg, [cat]));
@@ -398,7 +398,7 @@ function syncThemeWithParent() {
             if (blue2) document.documentElement.style.setProperty('--blue-2', blue2);
             if (blue3) document.documentElement.style.setProperty('--blue-3', blue3);
         }
-    } catch(e) {
+    } catch (e) {
         // Safe fallback: Ignore if viewed directly outside an iframe or blocked by security rules
     }
 }

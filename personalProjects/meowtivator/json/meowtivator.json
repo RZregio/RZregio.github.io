@@ -165,9 +165,9 @@
   "portfolioDB": {
     "about": "*Purrs* My hooman, Roland, is an IT student at PUP-STC and a passionate Full-Stack Developer! He recently finished his OJT at Arktech Philippines building enterprise systems. 🎓",
     "skills": "He's a tech whiz! His main stack includes **HTML5, CSS3, Vanilla JS, PHP, MySQL, and Bootstrap**. He also builds games using **C# and Unity**! *swishes tail* 💻",
-    "projects": "He has built some amazing things! From an award-winning 2D Android game called **LANDAS**, to an AI e-learning platform called **Arkteach**. Check out the <a target='_parent' href='https://rzregio.github.io/experience.html' class='text-primary fw-bold'>Projects section</a>! 🚀",
-    "resume": "You can view and download his updated resume directly from the <a target='_parent' href='http://localhost/RZregio.github.io/index.html' class='text-primary fw-bold'>Home page</a>! 📄",
-    "contact": "You can email him at **regioroland011@gmail.com** or use the form on the <a target='_parent' href='http://localhost/RZregio.github.io/contact.html' class='text-primary fw-bold'>Contact page</a>. He's currently open for project-based roles! *happy meow* 🤝",
+    "projects": "He has built some amazing things! From an award-winning 2D Android game called **LANDAS**, to an AI e-learning platform called **Arkteach**. Check out the <a target='_parent' href='/experience' class='text-primary fw-bold'>Projects section</a>! 🚀",
+    "resume": "You can view and download his updated resume directly from the <a target='_parent' href='/' class='text-primary fw-bold'>Home page</a>! 📄",
+    "contact": "You can email him at **regioroland011@gmail.com** or use the form on the <a target='_parent' href='/contact' class='text-primary fw-bold'>Contact page</a>. He's currently open for project-based roles! *happy meow* 🤝",
     "achievements": "He recently led his Capstone project to strict ISO/IEC 25010 compliance and won 'Best in Capstone'! 🏆"
   }
 }
