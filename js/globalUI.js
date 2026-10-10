@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// 2. Hide Loading Spinner (With Safety Fallback)
+// 2. Hide Loading Spinner (Optimized for Speed)
 function hideGlobalLoader() {
     const globalLoader = document.getElementById('global-loader');
     if (globalLoader && globalLoader.style.visibility !== 'hidden') {
@@ -62,11 +62,17 @@ function hideGlobalLoader() {
     }
 }
 
-// Attempt to hide when all assets are fully loaded
-window.addEventListener('load', hideGlobalLoader);
+// SPEED FIX: Do NOT wait for 'window.onload' (which blocks until all heavy images download).
+// Instead, listen for DOMContentLoaded, give the JSON fetches a tiny window to paint the UI, then reveal!
+document.addEventListener('DOMContentLoaded', () => {
+    // 300ms gives your async fetch() calls just enough time to populate the cards
+    // before the spinner fades out, creating a lightning-fast perceived load time.
+    setTimeout(hideGlobalLoader, 300);
+});
 
-// SAFETY FALLBACK: Force hide the loader after 2 seconds no matter what.
-setTimeout(hideGlobalLoader, 2000);
+// SAFETY FALLBACK: Hard cutoff reduced from 2000ms to 1200ms. 
+// No user should ever wait more than 1.2 seconds to see the site shell.
+setTimeout(hideGlobalLoader, 1200);
 
 // Sleek Base64 SVG Fallback for broken/missing images
 const FALLBACK_IMAGE = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='100%25' height='100%25' fill='%23131B2E'/%3E%3Cpath d='M150 100l30-30 40 40 30-20 40 40V200H150z' fill='none' stroke='%23D48C1C' stroke-width='2' stroke-linejoin='round'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='18' fill='%23ffffff80'%3ENot Available%3C/text%3E%3C/svg%3E";
@@ -132,6 +138,7 @@ window.openImageViewer = function (imagesStringOrArray, startIndex = 0) {
 
 function updateViewerImage() {
     const imgTarget = document.getElementById('fullscreen-image-target');
+    const sourceTarget = document.getElementById('fullscreen-source-target');
     const loader = document.getElementById('viewer-loader');
 
     if (!imgTarget) return;
@@ -149,12 +156,21 @@ function updateViewerImage() {
     // 3. Handle broken image (Fallback)
     imgTarget.onerror = function () {
         if (loader) loader.style.display = 'none';
-        imgTarget.src = FALLBACK_IMAGE; // Trigger fallback
+        if (sourceTarget) sourceTarget.srcset = ''; // Clear WebP on error
+        imgTarget.src = FALLBACK_IMAGE; // Trigger fallback SVG
         imgTarget.style.opacity = '1';
     };
 
-    // Trigger load
-    imgTarget.src = currentGalleryImages[currentImageIndex] || FALLBACK_IMAGE;
+    // 4. Trigger load for both WebP and PNG/JPG
+    const targetSrc = currentGalleryImages[currentImageIndex] || FALLBACK_IMAGE;
+    
+    if (targetSrc !== FALLBACK_IMAGE && sourceTarget) {
+        sourceTarget.srcset = targetSrc.replace(/\.(png|jpg|jpeg)$/i, '.webp');
+    } else if (sourceTarget) {
+        sourceTarget.srcset = '';
+    }
+    
+    imgTarget.src = targetSrc;
 
     renderDots();
 }

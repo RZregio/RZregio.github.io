@@ -118,8 +118,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const displayData = careerExpanded ? fullCareerData : fullCareerData.slice(0, 1);
 
         container.innerHTML = displayData.map(item => {
-            const visualAssetHTML = item.logoUrl
-                ? `<img src="${item.logoUrl}" alt="${item.title} Logo" class="career-logo" loading="lazy">`
+          const visualAssetHTML = item.logoUrl
+                ? `<picture>
+                     <source srcset="${item.logoUrl.replace(/\.(png|jpg|jpeg)$/i, '.webp')}" type="image/webp">
+                     <img src="${item.logoUrl}" alt="${item.title} Logo" class="career-logo" loading="lazy" decoding="async">
+                   </picture>`
                 : `<i class="bi ${item.iconClass || 'bi-briefcase-fill'}"></i>`;
 
             return `
@@ -235,9 +238,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const imgCountHTML = images.length > 1 ? `<span class="img-count-badge">+${images.length - 1} Images</span>` : '';
             const arrayData = encodeURIComponent(JSON.stringify(images));
 
-            const imageContainerHTML = primaryImg
+           const imageContainerHTML = primaryImg
                 ? `<div class="recog-img-container">
-                       <img src="${primaryImg}" alt="${title}" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="if(window.openImageViewer) window.openImageViewer('${arrayData}')" loading="lazy">
+                       <picture>
+                           <source srcset="${primaryImg.replace(/\.(png|jpg|jpeg)$/i, '.webp')}" type="image/webp">
+                           <img src="${primaryImg}" alt="${title}" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="if(window.openImageViewer) window.openImageViewer('${arrayData}')" loading="lazy" decoding="async">
+                       </picture>
                        ${imgCountHTML}
                    </div>`
                 : `<div class="recog-img-container recog-no-img"><i class="bi ${item.iconClass || 'bi-award-fill'}"></i></div>`;

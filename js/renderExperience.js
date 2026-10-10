@@ -279,15 +279,24 @@ document.addEventListener('DOMContentLoaded', () => {
             const images = proj.mediaSource || [];
             const hasImages = images.length > 0 && images[0] !== "";
 
-            if (hasImages) {
+           if (hasImages) {
                 const primaryImg = images[0];
+                // Automatically generate the .webp path from the .png/.jpg path in your JSON
+                const webpImg = primaryImg.replace(/\.(png|jpg|jpeg)$/i, '.webp'); 
+                
                 const imgCountHTML = images.length > 1 ? `<span class="img-count-badge badge bg-dark position-absolute bottom-0 end-0 m-3 border border-secondary">+${images.length - 1} Images</span>` : '';
                 const arrayData = encodeURIComponent(JSON.stringify(images));
 
                 mediaHTML = `
                     <div class="w-100 position-relative proj-detail-media" style="background: #0B1120; overflow: hidden; cursor: zoom-in; border: 1px solid rgba(255,255,255,0.05); height: 400px; border-radius: 12px;" 
                          data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="if(window.openImageViewer) window.openImageViewer('${arrayData}')">
-                        <img src="${primaryImg}" class="w-100 h-100" style="object-fit: contain;" loading="lazy">
+                        
+                        <!-- BULLETPROOF FALLBACK -->
+                        <picture>
+                            <source srcset="${webpImg}" type="image/webp">
+                            <img src="${primaryImg}" class="w-100 h-100" style="object-fit: contain;" loading="lazy" decoding="async">
+                        </picture>
+                        
                         ${imgCountHTML}
                     </div>`;
             } else {

@@ -100,6 +100,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const themes = ['default', 'blue', 'green', 'pink', 'brown', 'purple'];
     let currentTheme = localStorage.getItem('rz_theme') || 'default';
 
+    // Map themes to their specific background hex colors for the mobile browser bar
+    const themeColors = {
+        'default': '#131B2E',
+        'blue': '#101B2B',
+        'green': '#0A2222',
+        'pink': '#2B1120',
+        'brown': '#2B1E16',
+        'purple': '#1D1533'
+    };
+
     const applyTheme = (theme) => {
         const htmlElement = document.documentElement;
         if (theme === 'default') {
@@ -108,6 +118,12 @@ document.addEventListener('DOMContentLoaded', () => {
             htmlElement.setAttribute('data-theme', theme);
         }
         localStorage.setItem('rz_theme', theme);
+
+        // Dynamically update the mobile browser's top UI bar to match the active theme
+        let metaThemeColor = document.querySelector('meta[name="theme-color"]');
+        if (metaThemeColor) {
+            metaThemeColor.setAttribute('content', themeColors[theme]);
+        }
     };
 
     applyTheme(currentTheme);

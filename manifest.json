@@ -1,0 +1,25 @@
+{
+  "name": "RZ Regio | Portfolio",
+  "short_name": "RZ Regio",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0B1120",
+  "theme_color": "#131B2E",
+  "icons": [
+    {
+      "src": "main-res/RZbrand.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "main-res/profile.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "main-res/profile.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}

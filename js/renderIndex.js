@@ -117,16 +117,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 const hasPreview = projectItem.previewImageUrl && projectItem.previewImageUrl !== "";
                 let innerContent = "";
 
-                if (hasPreview) {
+              if (hasPreview) {
                     const imageString = encodeURIComponent(JSON.stringify([projectItem.previewImageUrl]));
+                    const webpImg = projectItem.previewImageUrl.replace(/\.(png|jpg|jpeg)$/i, '.webp');
                     innerContent = `
-                        <img src="${projectItem.previewImageUrl}" 
-                             class="d-block w-100 rounded bg-dark featured-proj-img" 
-                             alt="${projectItem.projectTitle}" 
-                             data-bs-toggle="modal" 
-                             data-bs-target="#imageViewerModal" 
-                             onclick="if(window.openImageViewer) window.openImageViewer('${imageString}')" 
-                             loading="lazy">
+                        <picture>
+                            <source srcset="${webpImg}" type="image/webp">
+                            <img src="${projectItem.previewImageUrl}" 
+                                 class="d-block w-100 rounded bg-dark featured-proj-img" 
+                                 alt="${projectItem.projectTitle}" 
+                                 data-bs-toggle="modal" 
+                                 data-bs-target="#imageViewerModal" 
+                                 onclick="if(window.openImageViewer) window.openImageViewer('${imageString}')" 
+                                 loading="lazy" decoding="async">
+                        </picture>
                     `;
                 } else {
                     innerContent = `
@@ -294,14 +298,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     let imageHTML = "";
 
-                    if (hasImages) {
+                   if (hasImages) {
                         const primaryImg = images[0];
+                        const webpImg = primaryImg.replace(/\.(png|jpg|jpeg)$/i, '.webp');
                         const imgCountHTML = images.length > 1 ? `<span class="badge bg-dark position-absolute bottom-0 end-0 m-2">+${images.length - 1} Images</span>` : '';
                         const arrayData = encodeURIComponent(JSON.stringify(images));
 
                         imageHTML = `
                         <div class="position-relative d-inline-block w-100 mb-4 text-center">
-                            <img src="${primaryImg}" class="img-fluid rounded interactive-card w-100" style="max-height: 220px; object-fit: contain; background: rgba(0,0,0,0.2); padding: 10px; cursor: zoom-in;" alt="${certData.title}" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="if(window.openImageViewer) window.openImageViewer('${arrayData}')" loading="lazy">
+                            <picture>
+                                <source srcset="${webpImg}" type="image/webp">
+                                <img src="${primaryImg}" class="img-fluid rounded interactive-card w-100" style="max-height: 220px; object-fit: contain; background: rgba(0,0,0,0.2); padding: 10px; cursor: zoom-in;" alt="${certData.title}" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="if(window.openImageViewer) window.openImageViewer('${arrayData}')" loading="lazy" decoding="async">
+                            </picture>
                             ${imgCountHTML}
                         </div>`;
                     } else {
@@ -395,14 +403,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     let imageHTML = "";
 
-                    if (hasImages) {
+                   if (hasImages) {
                         const primaryImg = images[0];
+                        const webpImg = primaryImg.replace(/\.(png|jpg|jpeg)$/i, '.webp');
                         const imgCountHTML = images.length > 1 ? `<span class="badge bg-dark position-absolute bottom-0 end-0 m-2">+${images.length - 1} Images</span>` : '';
                         const arrayData = encodeURIComponent(JSON.stringify(images));
 
                         imageHTML = `
                         <div class="position-relative d-inline-block w-100 mb-4 text-center">
-                            <img src="${primaryImg}" class="img-fluid rounded interactive-card w-100" style="max-height: 220px; object-fit: contain; background: rgba(0,0,0,0.2); padding: 10px; cursor: zoom-in;" alt="${awardData.title}" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="if(window.openImageViewer) window.openImageViewer('${arrayData}')" loading="lazy">
+                            <picture>
+                                <source srcset="${webpImg}" type="image/webp">
+                                <img src="${primaryImg}" class="img-fluid rounded interactive-card w-100" style="max-height: 220px; object-fit: contain; background: rgba(0,0,0,0.2); padding: 10px; cursor: zoom-in;" alt="${awardData.title}" data-bs-toggle="modal" data-bs-target="#imageViewerModal" onclick="if(window.openImageViewer) window.openImageViewer('${arrayData}')" loading="lazy" decoding="async">
+                            </picture>
                             ${imgCountHTML}
                         </div>`;
                     } else {
