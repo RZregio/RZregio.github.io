@@ -53,7 +53,7 @@
     "projectTitle": "SegunDoko",
     "projectCategory": "Personal Project",
     "createdDate": "2026-09-03",
-    "updatedDate": "2026-09-08",
+    "updatedDate": "2026-10-30",
     "techStack": [
       "React",
       "Vite",
@@ -64,12 +64,18 @@
       "Bootstrap 5",
       "JavaScript",
       "Google OAuth 2.0",
+      "Tesseract.js",
+      "HTML2Canvas",
       "jsPDF",
-      "lucide Icons"
+      "lucide Icons",
+      "Cloudflare Pages Functions",
+      "Web Speech API",
+      "ExcelJS & FileSpreadsheet",
+      "PWA"
     ],
-    "projectContext": "Engineered as an offline-first productivity sanctuary, SegunDoko guarantees absolute user privacy through a client-side Zero-Knowledge encryption layer (AES-256) backed by seamless Google Drive sync. It unifies essential daily workflows—including encrypted journals, Kanban boards, dynamic tracking grids, and a Pomodoro station—within a romantic stationery aesthetic.",
+    "projectContext": "A personalized, offline-first productivity ecosystem featuring a Zero-Knowledge End-to-End Encryption architecture (AES-256) and secure Google Drive synchronization. Built with React, Vite, and PWA capabilities, it integrates an aesthetic stationery design system with structured journals, sticky notes, a Kanban task ledger, custom tracking grids, a connection hub, a persistent focus station, a music sanctuary, and an offline AI assistant.",
     "previewImageUrl": "main-res/projects/segundoko.png",
-    "projectLinkUrl": "https://segundoko.vercel.app",
+    "projectLinkUrl": "https://segundoko.pages.dev",
     "sourceCode": "",
     "mediaSource": [
       "main-res/projects/segundoko.png",   

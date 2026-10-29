@@ -53,11 +53,11 @@
    {
     "category": "personal",
     "title": "SegunDoko",
-    "description": "A personalized, offline-first productivity ecosystem featuring a Zero-Knowledge End-to-End Encryption architecture (AES-256) and secure Google Drive synchronization. Built with React, Vite, and PWA capabilities, it integrates an aesthetic stationery design system with structured journals, Kanban tasks, custom tracking grids, a connection hub, and a persistent focus station.",
+    "description": "A personalized, offline-first productivity ecosystem featuring a Zero-Knowledge End-to-End Encryption architecture (AES-256) and secure Google Drive synchronization. Built with React, Vite, and PWA capabilities, it integrates an aesthetic stationery design system with structured journals, sticky notes, a Kanban task ledger, custom tracking grids, a connection hub, a persistent focus station, a music sanctuary, and an offline AI assistant.",
     "mediaType": "image",
     "value": "important",
     "createdDate": "2026-09-03",
-    "updatedDate": "2026-09-08",
+    "updatedDate": "2026-10-30",
     "mediaSource": [
       "main-res/projects/segundoko.png",
       "main-res/projects/segundoko2.png",
@@ -71,7 +71,7 @@
       "main-res/projects/segundoko10.png",
       "main-res/projects/segundoko11.png"
     ],
-    "liveLink": "https://segundoko.vercel.app",
+    "liveLink": "https://segundoko.pages.dev/",
     "sourceCode": "",
     "techStack": [
       "React",
@@ -83,8 +83,14 @@
       "Bootstrap 5",
       "JavaScript",
       "Google OAuth 2.0",
+      "Tesseract.js",
+      "HTML2Canvas",
       "jsPDF",
-      "lucide Icons"
+      "lucide Icons",
+      "Cloudflare Pages Functions",
+      "Web Speech API",
+      "ExcelJS & FileSaver",
+      "PWA"
     ]
   },
   {
